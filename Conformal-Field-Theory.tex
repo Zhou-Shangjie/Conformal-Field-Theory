@@ -1,0 +1,311 @@
+\documentclass[10pt]{article}
+\usepackage{zsj}
+
+\usepackage{silence}
+\WarningFilter{latex}{Marginpar on page}
+
+\allowdisplaybreaks
+
+\hbadness=99999
+
+\newcommand{\me}{\mathrm{e}}
+%\newcommand{\rr}{\mathbb{R}}
+\newcommand{\ii}{\mathrm{i}}
+%\newcommand{\md}{\mathrm{d}}
+%\DeclareMathOperator{\im}{im}
+
+\usepackage{empheq}
+\tcbset{
+  highlight math style={
+    enhanced,
+    colframe=NavyBlue!70!black,
+    colback=NavyBlue!10,
+    boxrule=1pt,
+  }
+}
+\newenvironment{boxedalign}
+  {\empheq[box=\tcbhighmath]{align}}
+  {\endempheq}
+
+\usepackage{annotate-equations}
+
+
+\begin{document}
+\title{Conformal Field Theory}
+\subheader{Notes}
+\author{Shangjie Zhou\orcidlink{0000-0001-9576-5011}}
+\affiliation{School of Physics and Technology, Wuhan University}
+\emailAdd{sjzhou@whu.edu.cn}
+\abstract{\textit{Last updated on: \today}\\Repository: \url{https://github.com/spaceofzsj/Notes}\\Personal Website: \url{https://spaceofzsj.github.io/ShangjieZhou/}\\Blog: \url{https://spaceofzsj.github.io/}}
+
+\maketitle
+
+\section*{Introduction}
+\addcontentsline{toc}{section}{\protect\numberline{}Introduction}
+A conformal field theory (CFT) is a quantum field theory that is invariant under \textit{conformal transformations}.
+
+Conformal field theory has important applications to condensed matter physics, statistical mechanics, quantum statistical mechanics, and string theory. 
+
+This notes are mainly based on \cite{DiFrancesco:1997nk}.
+
+There are also useful lecture notes like \cite{Qualls:2015qjb,Tong:2009np}.
+
+\part{Review}
+\section{Quantum Field Theory}
+\subsection{Symmetries and Conservation Laws}
+\subsubsection{Continuous Symmetry Transformations}
+\subsubsection{Infinitesimal Transformations and Noether's Theorem}
+Infinitesimal transformations may in general written as 
+\begin{align}
+    x'^\mu&=x^\mu+\omega_a\fdv{x^\mu}{\omega_a}\\
+    \Phi'(x')&=\Phi(x)+\omega_a \fdv{\mathcal{F}(x)}{\omega_a} 
+\end{align}
+Here $\{\omega_a\}$ is a set of infinitesimal parameters, which will be kept to first order only.
+\begin{definition}[Generator of a symmetry transformation]\label{def:generator_of_a_symmetry_transformation}
+    The \textit{generator} $G_a$ of a symmetry transformation is defined by the following expression for the infinitesimal transformation at a same point:
+    \begin{align}
+        \delta_\omega\Phi(x)\equiv\Phi'(x)-\Phi(x)\equiv-\ii\omega_a G_a\Phi(x).
+    \end{align}
+\end{definition}
+Notice that 
+\begin{align}
+    \Phi'(x')=\Phi(x)+\omega_a \fdv{\mathcal{F}(x)}{\omega_a}=\Phi(x')-\omega_a\fdv{x^\mu}{\omega_a}\partial_\mu\Phi(x')+\omega_a\fdv{\mathcal{F}(x')}{\omega_a}
+\end{align}
+The explicit expression of the generator is therefore 
+\begin{align}
+    \ii G_a\Phi=\fdv{x^\mu}{\omega_a}\partial_\mu\Phi-\fdv{\mathcal{F}}{\omega_a}
+\end{align}
+\begin{example}[Infinitesimal translation]
+    For an infinitesimal translation by a vector $\omega_\mu$, one has $\fdv*{x^\mu}{\omega^\nu}=\delta^\mu_\nu$ and $\fdv*{\mathcal{F}}{\omega^\nu}=0$.
+    The generator of translations is simply
+    \begin{align}
+        P_\nu=-\ii\partial_\nu.
+    \end{align}
+\end{example}
+\subsubsection{Transformations of the Correlation Functions}
+\subsubsection{Ward Identities}
+\section{Statistical Mechanics}
+\subsection{The Boltzmann Distribution}
+\subsection{Critical Phenomena}
+\subsection{The Renormalization Group: Lattice Models}
+\subsection{The Renormalization Group: Continuum Models}
+\subsection{The Transfer Matrix}
+
+\part{Fundamentals}
+\section{Global Conformal Invariance}
+\subsection{The Conformal Group}
+We denote by $g_{\mu\nu}$ the metric tensor in a spacetime of dimension $d$.
+\begin{definition}[Conformal transformation]
+    A conformal transformation of the coordinates is an invertible mapping $x\to x'$, for which the induced metric tensor invariant up to a scale:
+    \begin{align}
+        g'_{\mu\nu}(x)=\Lambda(x)g_{\mu\nu}(x).
+    \end{align}
+\end{definition}
+The set of conformal transformations manifestly forms a group, and it obviously has the Poincar\'{e} group as a subgroup, since the latter corresponds to the special case $\Lambda(x)=1$.
+\subsubsection{Infinitesimal Conformal Transformation}
+Consider an infinitesimal conformal transformation $x^\mu\to x'^{\mu}+\epsilon^\mu(x)$.
+The induced metric is 
+\begin{align}
+    g'_{\mu\nu}=g_{\mu\nu}-\left(\partial_\mu\epsilon_\nu+\partial_\nu\epsilon_\mu\right).
+\end{align}
+The requirement that the transformation be conformal implies that 
+\begin{align}
+    \partial_\mu\epsilon_\nu+\partial_\nu\epsilon_\mu=f(x)g_{\mu\nu}.\label{eq:GCI:fx}
+\end{align}
+Taking the trace of both sides of \cref{eq:GCI:fx}, we have 
+\begin{align}
+    f(x)=\frac{2}{d}\partial_\rho\epsilon^\rho.\label{eq:GCI:fx1}
+\end{align}
+
+For simplicity, we assume the original metric is standard Cartesian metric $g_{\mu\nu}=\eta_{\mu\nu}$, where $\eta_{\mu\nu}=\mathrm{diag}(1,1,\dots,1)$.\sidenote{Of cource we can consider Minkowski metric. The treatment is identical, except for the explicit form of $\eta_{\mu\nu}$.}
+By applying an extra derivative $\partial_\rho$ on \cref{eq:GCI:fx}, permuting the indices and taking a linear combination, we arrive at
+\begin{align}
+    2\partial_\mu\partial_\nu\epsilon_\rho=\eta_{\mu\rho}\partial_\nu f+\eta_{\nu\rho}\partial_\mu f-\eta_{\mu\nu}\partial_\rho f.\label{eq:GCI:fx2}
+\end{align}
+Upon contracting with $\eta^{\mu\nu}$, \cref{eq:GCI:fx2} becomes 
+\begin{align}
+    2\partial^2\epsilon_\mu=(2-d)\partial_\mu f \label{eq:GCI:fx3}
+\end{align}
+Applying $\partial_\nu$ on \cref{eq:GCI:fx3} and $\partial^2$ on \cref{eq:GCI:fx}, we have respectively
+\begin{align}
+    \partial^2\partial_\nu\epsilon_\mu=&\frac{2-d}{2}\partial_\mu\partial_\nu f\label{eq:GCI:fx4}\\
+    \eta_{\mu\nu}\partial^2 f=&\partial^2\partial_\mu\epsilon_\nu+\partial^2\partial_\nu\epsilon_\mu.\label{eq:GCI:fx5}
+\end{align} 
+Combine \cref{eq:GCI:fx4,eq:GCI:fx5}, we have\sidenote{Notice that the $\mu$ and $\nu$ indices in \cref{eq:GCI:fx4} are symmetric.}
+\begin{align}
+    (2-d)\partial_\mu\partial_\nu f=\eta_{\mu\nu}\partial^2 f.\label{eq:GCI:fx6}
+\end{align}
+Finally, contracting \cref{eq:GCI:fx6} with $\eta^{\mu\nu}$, we end up with 
+\begin{align}
+    (d-1)\partial^2 f=0.\label{eq:GCI:fx7}
+\end{align}
+\paragraph{The case $d=1$}
+The above equations do not impose any constraint on the function $f$, and therefore any smooth transformation is conformal in one dimension.
+\paragraph{The case $d=2$}
+This case is special and it will be studied in detail later.
+\paragraph{The case $d\geq3$}
+Now \cref{eq:GCI:fx6,eq:GCI:fx7} imply that $\partial_\mu\partial_\nu f=0$ and therefore 
+\begin{align}
+    f(x)=A+B_\mu x^\mu\label{eq:GCI:fxs}
+\end{align}
+where $A$ and $B_\mu$ are constants.
+If we substitute \cref{eq:GCI:fxs} into \cref{eq:GCI:fx2}, we see that $\partial_\mu\partial_\nu\epsilon_\rho$ is constant, which means we have the general expression 
+\begin{align}
+    \epsilon_\mu=a_\mu+b_{\mu\nu}x^\nu+c_{\mu\nu\rho}x^\nu x^\rho\qq{where}c_{\mu\nu\rho}=c_{\mu\rho\nu}.
+\end{align}
+$a_\mu$, $b_{\mu\nu}$ and $c_{\mu\nu\rho}$ are constants.
+We can treat each power of the coordinate separately and use the constraints \cref{eq:GCI:fx,eq:GCI:fx1,eq:GCI:fx2}:
+\begin{itemize}
+    \item The constant term $a_\mu$ is free of constraints.
+    This term amounts to an infinitesimal translation.
+    \item Substitution of the linear term into \cref{eq:GCI:fx,eq:GCI:fx1} yields 
+          \begin{align}
+            b_{\mu\nu}+b_{\nu\mu}=\frac{2}{d}\tensor{b}{^\lambda_\lambda}\eta_{\mu\nu}
+          \end{align}
+          which implies that\sidenote{We can always decompose a matrix into a sum of a symmetric part and an anti-symmetric part by $a_{mn}=\frac{a_{mn}+a_{nm}}{2}+\frac{a_{mn}-a_{nm}}{2}$.} 
+          \begin{align}
+            b_{\mu\nu}=\alpha\eta_{\mu\nu}+m_{\mu\nu}\qq{where}m_{\mu\nu}=-m_{\nu\mu}.
+          \end{align}
+          $\alpha$ is a constant.
+          The symmetric part represents an infinitesimal scale transformation, whereas the anti-symmetric part is an infinitesimal rigid rotation.
+    \item Substitution of the linear term into \cref{eq:GCI:fx2,eq:GCI:fx1} yields 
+          \begin{align}
+            c_{\mu\nu\rho}=\eta_{\mu\rho}b_{\nu}+\eta_{\mu\nu}b_{\rho}-\eta_{\nu\rho}b_{\mu}\qq{where}b_{\mu}\equiv\frac{\tensor{c}{^\sigma_\sigma_\mu}}{d}
+          \end{align} 
+          and the corresponding infinitesimal transformation is 
+          \begin{align}
+            x'^\mu=x^\mu+2(x\vdot b)x^\mu-b^\mu x^2
+          \end{align}
+          which is called \textit{special conformal transformation} (SCT).
+\end{itemize}
+The finite transformations corresponding to the above are the following:
+\begin{boxedalign}
+    \text{(translation)}&\quad x'^\mu=x^\mu+a^\mu\\
+    \text{(dilation)}&\quad x'^\mu=\alpha x^\mu\\
+    \text{(rigid rotation)}&\quad x'^\mu=\tensor{M}{^\mu_\nu}x^\nu\\
+    \text{(SCT)}&\quad x'^\mu=\frac{x^\mu-b^\mu x^2}{1-2b\vdot x+b^2 x^2}
+\end{boxedalign}
+
+Recall the \cref{def:generator_of_a_symmetry_transformation} and suppose the field are unaffected by the transformation, we can get the generators of the conformal group 
+\begin{boxedalign}
+    \text{(translation)}&\quad P_\mu=-\ii\partial_\mu\\
+    \text{(dilation)}&\quad D=-\ii x^\mu\partial_\mu\\
+    \text{(rigid rotation)}&\quad L_{\mu\nu}=\ii(x_\mu\partial_\nu-x_\nu\partial_\mu)\\
+    \text{(SCT)}&\quad K_\mu=-\ii(2x_\mu x^\nu\partial_\nu-x^2\partial_\mu).
+\end{boxedalign}
+The commutators of these generators define the \textit{conformal algebra}
+\begin{boxedalign}
+    \comm{D}{P_{\mu}}&=\ii P_\mu\label{eq:conformal_algebra_1}\\
+    \comm{D}{K_\mu}&=-\ii K_\mu\label{eq:conformal_algebra_2}\\
+    \comm{K_\mu}{P_\nu}&=2\ii\left(\eta_{\mu\nu}D-L_{\mu\nu}\right)\label{eq:conformal_algebra_3}\\
+    \comm{K_\rho}{L_{\mu\nu}}&=\ii(\eta_{\rho\mu}K_\nu-\eta_{\rho\nu}K_\mu)\label{eq:conformal_algebra_4}\\
+    \comm{P_\rho}{L_{\mu\nu}}&=\ii(\eta_{\rho\mu}P_{\nu}-\eta_{\rho\nu}P_{\mu})\label{eq:conformal_algebra_5}\\
+    \comm{L_{\mu\nu}}{L_{\rho\sigma}}&=\ii\left(\eta_{\nu\rho}L_{\mu\sigma}+\eta_{\mu\sigma}L_{\nu\rho}-\eta_{\mu\rho}L_{\nu\sigma}-\eta_{\nu\sigma}L_{\mu\rho}\right).\label{eq:conformal_algebra_6}
+\end{boxedalign}
+Other commutators vanish.
+\begin{remark}
+    The number of the generators of the conformal group is
+    \begin{align}
+        &1\ \mathrm{dilation}+d\ \mathrm{translations}+d\ \mathrm{SCTs}+\frac{d(d-1)}{2}\ \mathrm{rotations}\notag\\
+        &=\frac{(d+2)(d+1)}{2}\ \mathrm{generators},
+    \end{align}
+    which is exactly the number of generators of the group $\mathrm{SO}(d+1,1)$.
+
+    In order to put the above commutation rules into a simpler form, we define the following generators\snm: 
+    \begin{align}
+        J_{\mu,\nu}&\equiv L_{\mu\nu}\\
+        J_{-1,\mu}&\equiv \frac{1}{2}(P_\mu-K_\mu)\\
+        J_{0,\mu}&\equiv \frac{1}{2}(P_\mu+K_\mu)\\
+        J_{-1,0}&\equiv D\\
+        J_{a,b}&\equiv-J_{b,a},
+    \end{align}
+    where $a,b\in\{-1,0,1,\dots,d\}$.
+    The last definition implies the diagonal elements vanish.
+    These new generators obey the $\mathrm{SO}(d+1,1)$ algebra 
+    \begin{align}
+        \comm{J_{a,b}}{J_{c,d}}=\ii\left(\eta_{ad}J_{b,c}+\eta_{bc}J_{a,d}-\eta_{ac}J_{b,d}-\eta_{bc}J_{a,c}\right)
+    \end{align}
+    where the diagonal metric $\eta_{ab}$ is $\mathrm{diag}(-1,1,1,\dots,1)$ if spacetime is Euclidean (otherwise an additional component, say $g_{dd}$ is negative).
+
+    This shows the isomorphism between the $d$-dimensional conformal group and $\mathrm{SO}(d+1,1)$. 
+\end{remark}
+\snt{Notice that the $\mu$ and $\nu$ indices runs from 1 to $d$.}
+
+
+
+\subsection{Conformal Invariance in Classical Field Theory}
+\subsubsection{Representations of the Conformal Group in \texorpdfstring{$d$}{d} Dimensions}
+\begin{intu}
+Given an infinitesimal conformal transformation parametrized by $\omega_g$, we seek a matrix representation $T_g$ that a multicomponent field $\Phi(x)$ transforms as 
+\begin{align}
+    \Phi'(x')=(1-\ii\omega_g T_g)\Phi(x).
+\end{align}
+In the previous parts, we only considered the generators of the conformal transformations that only include spacetime transformation and leave the field unaffected.
+Now we are considering conformal transformations that include field transformations, which is called the \textit{full conformal transformation}.
+The corresponding generators are called the \textit{full generators} of the symmetry. 
+\end{intu}
+We first look at an example of Poincar\'e transformation
+\begin{example}
+    We define the effect of Lorentz transformation generator $L_{\mu\nu}$ on the field at $x=0$ by
+
+    \begin{align}
+        L_{\mu\nu}\Phi(0)\equiv \eqnmarkbox[blue]{node1}{S_{\mu\nu}} \Phi(0).
+    \end{align}
+    \annotate[yshift=0.5em]{}{node1}{Matrix}
+    $S_{\mu\nu}$ is an ordinary matrix since Lorentz transformation maps the origin to itself.
+    We can use a trick to get the effect of $L_{\mu\nu}$ on fields elsewhere
+    \begin{align}
+        L_{\mu\nu}\Phi(x)&=L_{\mu\nu}\me^{\ii x^\mu P_\mu}\Phi(0)\notag\\
+                        &=\me^{\ii x^\mu P_\mu}\me^{-\ii x^\mu P_\mu}L_{\mu\nu}\me^{\ii x^\mu P_\mu}\Phi(0)\label{eq:poincare_algebra_trick_haussdorff}\\
+                        &=\me^{\ii x^\mu P_\mu}\left(L_{\mu\nu}-x_\mu P_{\nu}+x_\nu P_\mu\right)\Phi(0)\notag\\
+                        &=\me^{\ii x^\mu P_\mu}\left(S_{\mu\nu}-x_\mu P_{\nu}+x_\nu P_\mu\right)\Phi(0)\notag\\
+                        &=\left(S_{\mu\nu}-x_\mu P_{\nu}+x_\nu P_\mu\right)\Phi(x).
+    \end{align}
+    We used the \textit{Hausdorff formula} in \cref{eq:poincare_algebra_trick_haussdorff}
+\begin{align}\label{eq:haussdorff}
+    \me^{-A}B\me^{A}=B+\comm{B}{A}+\frac{1}{2!}\comm{\comm{B}{A}}{A}+\frac{1}{3!}\comm{\comm{\comm{B}{A}}{A}}{A}+\dots.
+\end{align}
+We can do this for $P_\mu$ in the same way. 
+And finally 
+\begin{align}
+    P_\mu\Phi(x)&=-\ii\partial_\mu\Phi(x)\\
+    L_{\mu\nu}\Phi(x)&=\ii(x_\mu \partial_\nu-x_\nu\partial_\mu)\Phi(x)+S_{\mu\nu}\Phi(x).    
+\end{align}
+\end{example}
+\begin{remark}
+    If we already know how a generator act on field at one point, we can use the translation operators to derive the its effect on fields at other points.
+    In particular, if we know the effect of an operator $\mathcal{O}$ on the field at origin $\Phi(0)$, then its effect on $\Phi(x)$ can be calculated from $\me^{\ii x^\mu P_\mu}\mathcal{O}\me^{-\ii x^\mu P_\mu}$.
+\end{remark}
+We can in the same way for the full conformal group.
+We denote the effect of $L_{\mu\nu}$, $D$ and $K_\mu$ at $x=0$ by $S_{\mu\nu}$, $\tilde{\Delta}$ and $\kappa_\mu$\sidenote{$S_{\mu\nu}$, $\tilde{\Delta}$ and $\kappa_\mu$ are all matrices since rotations, dilations and SCTs all map the origin to itself.}.
+They form a matrix representation of the reduced conformal algebra as in \cref{eq:conformal_algebra_2,eq:conformal_algebra_4,eq:conformal_algebra_6}
+\begin{align}
+    \comm{\tilde{\Delta}}{S_{\mu\nu}}=&0\\
+    \comm{\tilde{\Delta}}{\kappa_\mu}=&-\ii\kappa_\mu\\
+    \comm{\kappa_\nu}{\kappa_\mu}=&0\\
+    \comm{\kappa_\rho}{S_{\mu\nu}}=&\ii\left(\eta_{\rho\mu}\kappa_{\nu}-\eta_{\rho\nu}\kappa_\mu\right)\\
+    \comm{S_{\mu\nu}}{S_{\rho\sigma}}=&\ii\left(\eta_{\nu\rho}S_{\mu\sigma}+\eta_{\mu\sigma}S_{\nu\rho}-\eta_{\mu\rho}S_{\nu\sigma}-\eta_{\nu\sigma}S_{\mu\rho}\right).
+\end{align}
+Using \cref{eq:conformal_algebra_1,eq:conformal_algebra_2,eq:conformal_algebra_3,eq:conformal_algebra_4,eq:conformal_algebra_5,eq:conformal_algebra_6,eq:haussdorff}, we have 
+\begin{align}
+    \me^{\ii x^\rho P_\rho}D\me^{-\ii x^\rho P_\rho}=&D+x^\nu P_\nu\\
+    \me^{\ii x^\rho P_\rho}K_\mu\me^{-\ii x^\rho P_\rho}=&K_\mu+2x_\mu D-2x^\nu L_{\mu\nu}+2x_\mu\left(x^\nu P_\nu\right)-x^2 P_\mu
+\end{align}
+and therefore
+\begin{align}
+    D\Phi(x)=&\left(-\ii x^\nu\partial_\nu+\tilde{\Delta}\right)\Phi\\
+    K_\mu\Phi(x)=&\left(\kappa_\mu+2x_\mu\tilde{\Delta}-x^\nu S_{\mu\nu}-2\ii x_\mu x^\nu\partial_\nu+\ii x^2 \partial_\mu\right)\Phi(x).
+\end{align}
+
+\subsubsection{The Energy-Momentum Tensor}
+\subsection{Conformal Invariance in Quantum Field Theory}
+\subsubsection{Correlation Functions}
+\section{Conformal Invariance in Two Dimensions}
+\subsection{The Conformal Group in Two Dimensions}
+\subsection{Ward Identities}
+\subsection{Free Fields and the Operator Product Expansion}
+
+\clearpage
+\bibliographystyle{jhep}
+\bibliography{ref}
+\end{document}
