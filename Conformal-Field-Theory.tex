@@ -54,11 +54,18 @@ There are also useful lecture notes like \cite{Qualls:2015qjb,Tong:2009np}.
 \section{Quantum Field Theory}
 \subsection{Symmetries and Conservation Laws}
 \subsubsection{Continuous Symmetry Transformations}
+The new action is 
+\begin{align}
+    S'&=\int\dd[d]{x}\mathcal{L}\left(\Phi'(x),\partial_\mu\Phi'(x)\right)\notag\\
+        &=\int\dd[d]{x'}\mathcal{L}\left(\Phi'(x'),\partial'_\mu\Phi'(x')\right)\notag\\
+        &=\int\dd[d]{x'}\mathcal{L}\left(\mathcal{F}\left(\Phi(x)\right),\partial'_\mu\mathcal{F}(\Phi(x))\right)\notag\\
+        &=\int\dd[d]{x}\abs{\pdv{x'}{x}}\mathcal{L}\left(\mathcal{F}(\Phi(x)),\left(\pdv*{x^\nu}{x'^\mu}\right)\partial_\nu\mathcal{F}(\Phi(x))\right).\label{eq:CST:new_action}
+\end{align}
 \subsubsection{Infinitesimal Transformations and Noether's Theorem}
 Infinitesimal transformations may in general written as 
 \begin{align}
-    x'^\mu&=x^\mu+\omega_a\fdv{x^\mu}{\omega_a}\\
-    \Phi'(x')&=\Phi(x)+\omega_a \fdv{\mathcal{F}(x)}{\omega_a} 
+    x'^\mu&=x^\mu+\omega_a\fdv{x^\mu}{\omega_a}\label{eq:CST:x_prime}\\
+    \Phi'(x')&=\Phi(x)+\omega_a \fdv{\mathcal{F}(x)}{\omega_a}\label{eq:CST:phi_prime} 
 \end{align}
 Here $\{\omega_a\}$ is a set of infinitesimal parameters, which will be kept to first order only.
 \begin{definition}[Generator of a symmetry transformation]\label{def:generator_of_a_symmetry_transformation}
@@ -82,8 +89,24 @@ The explicit expression of the generator is therefore
         P_\nu=-\ii\partial_\nu.
     \end{align}
 \end{example}
+\begin{theorem}[Noether's theorem]
+    Every continuous symmetry of the action is associated with a current that is \textit{classically}\snm conserved. 
+\end{theorem}
+\snt{Notice the \textit{classically}.}
+\begin{proof}
+    Using \cref{eq:CST:x_prime,eq:CST:phi_prime} in \cref{eq:CST:new_action}, we have 
+    \begin{align}
+        \pdv{x'^\mu}{x^\mu}=\delta^\nu_\mu+\partial_\mu\left(\omega_a\fdv{x^\nu}{\omega_a}\right).
+    \end{align}
+\end{proof}
 \subsubsection{Transformations of the Correlation Functions}
 \subsubsection{Ward Identities}
+\subsection{The Energy-Momentum Tensor}
+Consider the infinitesimal translation\sidenote{The field is unaffected by the translation.} $x^\mu\to x^\mu+\epsilon^\mu$, we have 
+\begin{align}
+    \fdv{x^\mu}{\epsilon^\mu}=\delta^\mu_\nu\quad\fdv{\mathcal{F}(x)}{\epsilon^\mu}=0.
+\end{align}
+\subsubsection{The Belinfante Tensor}
 \section{Statistical Mechanics}
 \subsection{The Boltzmann Distribution}
 \subsection{Critical Phenomena}
@@ -310,6 +333,12 @@ Under an infinitesimal conformal transformation, using \cref{eq:GCI:fx,eq:GCI:fx
     \delta S&=\frac{1}{2}\int\dd[d]{x}T^{\mu\nu}f(x)g_{\mu\nu}\notag\\
             &=\frac{1}{d}\int\dd[d]{x}\tensor{T}{^\mu_\mu}\partial_\rho\epsilon^\rho.
 \end{align}
+\begin{intu}
+    Under certain conditions, the energy-momentum tensor of a theory with scale invariance can be made traceless.
+    If this is possible, then it follows from the above that full conformal invariance is a consequence of scale invariance and Poincar\'e invariance.
+\end{intu}
+
+
 \subsection{Conformal Invariance in Quantum Field Theory}
 \subsubsection{Correlation Functions}
 Consider the two-point function 
