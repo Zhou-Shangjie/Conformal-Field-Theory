@@ -298,8 +298,24 @@ and therefore
 \end{align}
 
 \subsubsection{The Energy-Momentum Tensor}
+Under an arbitrary transformation of the coordinates $x^\mu\to x^\mu+\epsilon^\mu(x)$, the action changes as follows 
+\begin{align}
+    \delta S&=\int\dd[d]{x}T^{\mu\nu}\partial_\mu\epsilon_\nu \notag\\
+            &=\frac{1}{2}\int\dd[d]{x}T^{\mu\nu}\left(\partial_\mu\epsilon_\nu+\partial_\nu\epsilon_\mu\right)
+\end{align}
+where the energy-momentum tensor $T^{\mu\nu}$ is assumed to be symmetric.
+
+Under an infinitesimal conformal transformation, using \cref{eq:GCI:fx,eq:GCI:fx1}, we have 
+\begin{align}
+    \delta S&=\frac{1}{2}\int\dd[d]{x}T^{\mu\nu}f(x)g_{\mu\nu}\notag\\
+            &=\frac{1}{d}\int\dd[d]{x}\tensor{T}{^\mu_\mu}\partial_\rho\epsilon^\rho.
+\end{align}
 \subsection{Conformal Invariance in Quantum Field Theory}
 \subsubsection{Correlation Functions}
+Consider the two-point function 
+\begin{align}
+    \expval{\phi_1(x_1)\phi_2(x_2)}=\frac{1}{Z}\int\left[\dd{\Phi}\right]\phi_1(x_1)\phi_2(x_2)\exp(-S\left[\Phi\right])
+\end{align}
 \section{Conformal Invariance in Two Dimensions}
 \subsection{The Conformal Group in Two Dimensions}
 \subsection{Ward Identities}
