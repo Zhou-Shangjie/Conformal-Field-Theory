@@ -20,15 +20,18 @@
     enhanced,
     colframe=NavyBlue!70!black,
     colback=NavyBlue!10,
-    boxrule=1pt,
+    boxrule=1pt
   }
 }
 \newenvironment{boxedalign}
   {\empheq[box=\tcbhighmath]{align}}
   {\endempheq}
 
+\newtcolorbox{mymathbox}[1][]{colback=white, sharp corners, #1}
+
 \usepackage{annotate-equations}
 
+\newenvironment{boxmath}[1]{\begin{tcolorbox}[enhanced,boxrule=1pt,title={\centering #1},colframe=NavyBlue!70!black,colback=NavyBlue!10,colbacktitle=NavyBlue!10,fonttitle=\bfseries,coltitle=Black]}{\end{tcolorbox}}
 
 \begin{document}
 \title{Conformal Field Theory}
@@ -49,7 +52,11 @@ Conformal field theory has important applications to condensed matter physics, s
 This notes are mainly based on \cite{DiFrancesco:1997nk}.
 
 There are also useful lecture notes like \cite{Qualls:2015qjb,Tong:2009np}.
-
+\begin{boxmath}{Conformal Algebra}
+\begin{align}
+    E=mc^2
+\end{align}
+\end{boxmath}
 \part{Review}
 \section{Quantum Field Theory}
 \subsection{Symmetries and Conservation Laws}
@@ -92,13 +99,68 @@ The explicit expression of the generator is therefore
 \begin{theorem}[Noether's theorem]
     Every continuous symmetry of the action is associated with a current that is \textit{classically}\snm conserved. 
 \end{theorem}
-\snt{Notice the \textit{classically}.}
+\snt{Notice the \textit{classically}. In the quantum case, it may happen that the path integration measure does not possess the symmetry of the action, in which case that symmetry is said to be \textit{anomalous}.}
 \begin{proof}
     Using \cref{eq:CST:x_prime,eq:CST:phi_prime} in \cref{eq:CST:new_action}, we have 
     \begin{align}
-        \pdv{x'^\mu}{x^\mu}=\delta^\nu_\mu+\partial_\mu\left(\omega_a\fdv{x^\nu}{\omega_a}\right).
+        \pdv{x'^\mu}{x^\mu}=\delta^\nu_\mu+\partial_\mu\left(\omega_a\fdv{x^\nu}{\omega_a}\right).\label{eq:qft:infinitesimal_inverse}
     \end{align}
+    Using the first order approximation of the determinant of a matrix 
+    \begin{align}
+        \det(1+E)\approx1+\Tr E\quad(E\ \text{is small})
+    \end{align}
+    we have 
+    \begin{align}
+        \abs{\pdv{x'}{x}}\approx1+\partial_\mu\left(\omega_a\fdv{x^\mu}{\omega}\right)
+    \end{align}
+    and the reverse of \cref{eq:qft:infinitesimal_inverse} is 
+    \begin{align}
+        \pdv{x^\nu}{x'^\mu}=\delta^\nu_\mu-\partial_\mu\left(\omega_a\fdv{x^\nu}{\omega_a}\right).
+    \end{align}
+    Now \cref{eq:CST:new_action} becomes 
+    \begin{align}
+        S'=&\int\dd[d]{x}\left(1+\partial_\mu\left(\omega_a\pdv{x^\mu}{\omega_a}\right)\right)\notag\\
+            &\times\mathcal{L}\left(\Phi+\omega_a\pdv{\mathcal{F}}{\omega_a},\left[\delta^\nu_\mu-\partial_\mu\left(\omega_a\fdv{x^\nu}{\omega_a}\right)\right]\left[\partial_\nu\Phi+\partial_\nu\left(\omega_a\fdv{\mathcal{F}}{\omega_a}\right)\right]\right).
+    \end{align}
+    From the definition of symmetry, when $\omega_a$ are constants the variation $\delta S$ vanishes.
+    So $\delta S$ can only contain first derivatives of $\omega_a$, obtained by expanding the Lagrangian, 
+    \begin{align}
+        \delta S\equiv S'-S=-\int\dd[d]{x}j^\mu_a\partial_\mu\omega_a\label{eq:nother:before_integration}
+    \end{align}
+    where 
+    \begin{align}
+        j^\mu_a\equiv\left(\pdv{\mathcal{L}}{(\partial_\mu\Phi)}\partial_\nu\Phi-\delta^\mu_\nu\mathcal{L}\right)\fdv{x^\nu}{\omega_a}-\pdv{\mathcal{L}}{(\partial_\mu\Phi)}\fdv{\mathcal{F}}{\omega_a}.\label{eq:nother:canonical_current}
+    \end{align}
+    $j^\mu_a$ is called the \textit{current} associated with the infinitesimal transformation.
+    Integrate \cref{eq:nother:before_integration} by parts
+    \begin{align}
+        \delta S=\int\dd[d]{x}\partial_\mu j^\mu_a \omega_a.
+    \end{align}
+    When the field configuration obeys the classical equation of motion, $\delta S=0$ for any postion-dependent parameters $\omega_a(x)$, which implies the conservation law 
+    \begin{align}
+        \partial_\mu j^\mu_a=0.
+    \end{align}
+    The conserved charge associated with $j^\mu_a$ is 
+    \begin{align}
+        Q_a\equiv\int\dd[d-1]{x}j^0_a.
+    \end{align}
+    We can show that 
+    \begin{align}
+        \dot{Q}_a=&\int\dd[d-1]{x}\partial_0 j^0_a\notag\\
+                  =&-\int\dd[d-1]{x}\partial_i j^i_a\label{eq:nother:stocks_theorem}\\
+                  =&-\int_\infty j^i_a\eqnmarkbox[blue]{node1}{\dd{\sigma^i}}\notag\\
+                  =&0
+    \end{align}\annotate[yshift=-0.5em]{below}{node1}{Surface element at spatial infinity}
+    where we used Stokes' theorem in \cref{eq:nother:stocks_theorem}.
 \end{proof}
+\begin{remark}
+    We can freely add $j^\mu_a$ the divergence of an antisymmetric tensor without affecting the conservation 
+    \begin{align}
+        j^\mu_a\to j^\mu_a+\partial_\nu B^{\nu\mu}_a\qq{where} B^{\nu\mu}_a=-B^{\mu\nu}_a
+    \end{align}
+    since $\partial_\mu\partial_\nu B^{\nu\mu}_a=0$ by antisymmetry.
+    The current we defined in \cref{eq:nother:canonical_current} is said to be \textit{canonical}.
+\end{remark}
 \subsubsection{Transformations of the Correlation Functions}
 \subsubsection{Ward Identities}
 \subsection{The Energy-Momentum Tensor}
