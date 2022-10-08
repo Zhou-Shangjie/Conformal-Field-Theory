@@ -14,24 +14,10 @@
 %\newcommand{\md}{\mathrm{d}}
 %\DeclareMathOperator{\im}{im}
 
-\usepackage{empheq}
-\tcbset{
-  highlight math style={
-    enhanced,
-    colframe=NavyBlue!70!black,
-    colback=NavyBlue!10,
-    boxrule=1pt
-  }
-}
-\newenvironment{boxedalign}
-  {\empheq[box=\tcbhighmath]{align}}
-  {\endempheq}
-
-\newtcolorbox{mymathbox}[1][]{colback=white, sharp corners, #1}
 
 \usepackage{annotate-equations}
 
-\newenvironment{boxmath}[1]{\begin{tcolorbox}[enhanced,boxrule=1pt,title={\centering #1},colframe=NavyBlue!70!black,colback=NavyBlue!10,colbacktitle=NavyBlue!10,fonttitle=\bfseries,coltitle=Black]}{\end{tcolorbox}}
+\newenvironment{boxmath}[1]{\begin{tcolorbox}[enhanced,attach boxed title to top center={yshift=-\tcboxedtitleheight/2},boxrule=1pt,title={\centering #1},colframe=NavyBlue!70!black,colback=NavyBlue!10,colbacktitle=NavyBlue!10,fonttitle=\scshape,coltitle=Black]}{\end{tcolorbox}}
 
 \begin{document}
 \title{Conformal Field Theory}
@@ -52,15 +38,28 @@ Conformal field theory has important applications to condensed matter physics, s
 This notes are mainly based on \cite{DiFrancesco:1997nk}.
 
 There are also useful lecture notes like \cite{Qualls:2015qjb,Tong:2009np}.
-\begin{boxmath}{Conformal Algebra}
-\begin{align}
-    E=mc^2
-\end{align}
-\end{boxmath}
+
 \part{Review}
 \section{Quantum Field Theory}
 \subsection{Symmetries and Conservation Laws}
 \subsubsection{Continuous Symmetry Transformations}
+Consider a collection of fields, which are denoted by $\Phi(x)$.
+The action is 
+\begin{align}
+    S=\int\dd[d]{x}\mathcal{L}\left(\Phi,\partial_\mu\Phi\right).
+\end{align}
+Consider a transformation affecting both the position and the field 
+\begin{subequations}\label{eq:CST:transformations}
+    \begin{align}
+        x&\to x'\\
+        \Phi(x)&\to\Phi'(x')
+    \end{align}
+\end{subequations}
+In the transformations \cref{eq:CST:transformations}, the new field $\Phi'$ at $x'$ is expressed as a function of the old field $\Phi$ at $x$
+\begin{align}
+    \Phi'(x')=\mathcal{F}\left(\Phi(x)\right).
+\end{align}
+
 The new action is 
 \begin{align}
     S'&=\int\dd[d]{x}\mathcal{L}\left(\Phi'(x),\partial_\mu\Phi'(x)\right)\notag\\
@@ -123,7 +122,7 @@ The explicit expression of the generator is therefore
             &\times\mathcal{L}\left(\Phi+\omega_a\pdv{\mathcal{F}}{\omega_a},\left[\delta^\nu_\mu-\partial_\mu\left(\omega_a\fdv{x^\nu}{\omega_a}\right)\right]\left[\partial_\nu\Phi+\partial_\nu\left(\omega_a\fdv{\mathcal{F}}{\omega_a}\right)\right]\right).
     \end{align}
     From the definition of symmetry, when $\omega_a$ are constants the variation $\delta S$ vanishes.
-    So $\delta S$ can only contain first derivatives of $\omega_a$, obtained by expanding the Lagrangian, 
+    So $\delta S$ can only contain first derivatives of $\omega_a$, obtained by expanding the Lagrangian\snm, 
     \begin{align}
         \delta S\equiv S'-S=-\int\dd[d]{x}j^\mu_a\partial_\mu\omega_a\label{eq:nother:before_integration}
     \end{align}
@@ -153,6 +152,7 @@ The explicit expression of the generator is therefore
     \end{align}\annotate[yshift=-0.5em]{below}{node1}{Surface element at spatial infinity}
     where we used Stokes' theorem in \cref{eq:nother:stocks_theorem}.
 \end{proof}
+\snt{This is where the symmetry condition is used.}
 \begin{remark}
     We can freely add $j^\mu_a$ the divergence of an antisymmetric tensor without affecting the conservation 
     \begin{align}
@@ -162,7 +162,34 @@ The explicit expression of the generator is therefore
     The current we defined in \cref{eq:nother:canonical_current} is said to be \textit{canonical}.
 \end{remark}
 \subsubsection{Transformations of the Correlation Functions}
+Consider the general correlation function 
+\begin{align}
+    \expval{\Phi(x_1)\dots\Phi(x_n)}=\frac{1}{\eqnmarkbox[blue]{node1}{Z}}\left[\dd{\Phi}\right]\Phi(x_1)\dots\Phi(x_n)\exp(-\eqnmarkbox[purple]{node2}{S[\Phi]})
+\end{align}
+\annotate[yshift=-0.1em]{below}{node1}{Vacuum functional}
+\annotate[yshift=0.5em]{}{node2}{Euclidean action}
+
+When the transformation \cref{eq:CST:transformations} is a symmetry, we have the following constraint on the correlation function 
+\begin{align}
+    \expval{\Phi(x_1')\dots\Phi(x_n')}=&\frac{1}{Z}\int\left[\dd{\Phi}\right]\Phi(x_1')\dots\Phi(x_n')\exp(-S(\Phi))\notag\\
+                                        =&\frac{1}{Z}\int\left[\dd{\Phi'}\right]\Phi'(x_1')\dots\Phi'(x_n')\exp(-S(\Phi'))\label{eq:TCF:measure1}\\
+                                        =&\frac{1}{Z}\int\left[\dd{\Phi}\right]\mathcal{F}\left(\Phi(x_1')\right)\dots\mathcal{F}\left(\Phi(x_n')\right)\exp(-S(\Phi))\label{eq:TCF:measure2}\\
+                                        =&\expval{\mathcal{F}\left(\Phi(x_1)\right)\dots\mathcal{F}\left(\Phi(x_n)\right)}
+\end{align}
+We have assumed the Jacobian of this change of variable is trivial in \crefrange{eq:TCF:measure1}{eq:TCF:measure2}\sidenote{This is in fact the main obstacle to conformal invariance in a quantum symmetry: the action may well be scale invariant, but the measure is not because of the regularization procedure needed to define it properly.}. 
+
 \subsubsection{Ward Identities}
+We can write the infinitesimal transformation as 
+
+\begin{align}
+    \Phi'(x)=\Phi(x)-\ii\eqnmarkbox[blue]{node1}{\omega_a} G_a\Phi(x).
+\end{align}\annotate[yshift=0.5em]{}{node1}{Infinitesimal constant parameters}
+
+Denoting by $X$ and $X'$ the collection $\Phi(x_1)\dots\Phi(x_n)$ and $\Phi'(x_1)\dots\Phi'(x_n)$ of fields in the correlation function respectively and by $\delta_\omega X\equiv X'-X$ its variation under the transformation, we can do a change of variable
+\begin{align}
+    \expval{X}=&\frac{1}{Z}\int\left[\dd{\Phi}\right]X\exp(-S[\Phi])\notag\\
+            =&\frac{1}{Z}\int\left[\dd{\Phi'}\right]X'\exp(-S[\Phi'])\notag\\
+\end{align}
 \subsection{The Energy-Momentum Tensor}
 Consider the infinitesimal translation\sidenote{The field is unaffected by the translation.} $x^\mu\to x^\mu+\epsilon^\mu$, we have 
 \begin{align}
@@ -264,29 +291,35 @@ We can treat each power of the coordinate separately and use the constraints \cr
           which is called \textit{special conformal transformation} (SCT).
 \end{itemize}
 The finite transformations corresponding to the above are the following:
-\begin{boxedalign}
-    \text{(translation)}&\quad x'^\mu=x^\mu+a^\mu\\
-    \text{(dilation)}&\quad x'^\mu=\alpha x^\mu\\
-    \text{(rigid rotation)}&\quad x'^\mu=\tensor{M}{^\mu_\nu}x^\nu\\
-    \text{(SCT)}&\quad x'^\mu=\frac{x^\mu-b^\mu x^2}{1-2b\vdot x+b^2 x^2}
-\end{boxedalign}
+\begin{boxmath}{Finite Conformal Transformation}
+    \begin{align}
+        \text{(translation)}&\quad x'^\mu=x^\mu+a^\mu\\
+        \text{(dilation)}&\quad x'^\mu=\alpha x^\mu\\
+        \text{(rigid rotation)}&\quad x'^\mu=\tensor{M}{^\mu_\nu}x^\nu\\
+        \text{(SCT)}&\quad x'^\mu=\frac{x^\mu-b^\mu x^2}{1-2b\vdot x+b^2 x^2}
+    \end{align}
+\end{boxmath}
 
 Recall the \cref{def:generator_of_a_symmetry_transformation} and suppose the field are unaffected by the transformation, we can get the generators of the conformal group 
-\begin{boxedalign}
-    \text{(translation)}&\quad P_\mu=-\ii\partial_\mu\\
-    \text{(dilation)}&\quad D=-\ii x^\mu\partial_\mu\\
-    \text{(rigid rotation)}&\quad L_{\mu\nu}=\ii(x_\mu\partial_\nu-x_\nu\partial_\mu)\\
-    \text{(SCT)}&\quad K_\mu=-\ii(2x_\mu x^\nu\partial_\nu-x^2\partial_\mu).
-\end{boxedalign}
+\begin{boxmath}{Generators of Conformal Transformation}
+    \begin{align}
+        \text{(translation)}&\quad P_\mu=-\ii\partial_\mu\\
+        \text{(dilation)}&\quad D=-\ii x^\mu\partial_\mu\\
+        \text{(rigid rotation)}&\quad L_{\mu\nu}=\ii(x_\mu\partial_\nu-x_\nu\partial_\mu)\\
+        \text{(SCT)}&\quad K_\mu=-\ii(2x_\mu x^\nu\partial_\nu-x^2\partial_\mu).
+    \end{align}
+\end{boxmath}
 The commutators of these generators define the \textit{conformal algebra}
-\begin{boxedalign}
-    \comm{D}{P_{\mu}}&=\ii P_\mu\label{eq:conformal_algebra_1}\\
-    \comm{D}{K_\mu}&=-\ii K_\mu\label{eq:conformal_algebra_2}\\
-    \comm{K_\mu}{P_\nu}&=2\ii\left(\eta_{\mu\nu}D-L_{\mu\nu}\right)\label{eq:conformal_algebra_3}\\
-    \comm{K_\rho}{L_{\mu\nu}}&=\ii(\eta_{\rho\mu}K_\nu-\eta_{\rho\nu}K_\mu)\label{eq:conformal_algebra_4}\\
-    \comm{P_\rho}{L_{\mu\nu}}&=\ii(\eta_{\rho\mu}P_{\nu}-\eta_{\rho\nu}P_{\mu})\label{eq:conformal_algebra_5}\\
-    \comm{L_{\mu\nu}}{L_{\rho\sigma}}&=\ii\left(\eta_{\nu\rho}L_{\mu\sigma}+\eta_{\mu\sigma}L_{\nu\rho}-\eta_{\mu\rho}L_{\nu\sigma}-\eta_{\nu\sigma}L_{\mu\rho}\right).\label{eq:conformal_algebra_6}
-\end{boxedalign}
+\begin{boxmath}{Conformal Algebra}
+    \begin{align}
+        \comm{D}{P_{\mu}}&=\ii P_\mu\label{eq:conformal_algebra_1}\\
+        \comm{D}{K_\mu}&=-\ii K_\mu\label{eq:conformal_algebra_2}\\
+        \comm{K_\mu}{P_\nu}&=2\ii\left(\eta_{\mu\nu}D-L_{\mu\nu}\right)\label{eq:conformal_algebra_3}\\
+        \comm{K_\rho}{L_{\mu\nu}}&=\ii(\eta_{\rho\mu}K_\nu-\eta_{\rho\nu}K_\mu)\label{eq:conformal_algebra_4}\\
+        \comm{P_\rho}{L_{\mu\nu}}&=\ii(\eta_{\rho\mu}P_{\nu}-\eta_{\rho\nu}P_{\mu})\label{eq:conformal_algebra_5}\\
+        \comm{L_{\mu\nu}}{L_{\rho\sigma}}&=\ii\left(\eta_{\nu\rho}L_{\mu\sigma}+\eta_{\mu\sigma}L_{\nu\rho}-\eta_{\mu\rho}L_{\nu\sigma}-\eta_{\nu\sigma}L_{\mu\rho}\right).\label{eq:conformal_algebra_6}
+    \end{align}
+\end{boxmath}
 Other commutators vanish.
 \begin{remark}
     The number of the generators of the conformal group is
