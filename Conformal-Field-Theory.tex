@@ -189,13 +189,65 @@ Denoting by $X$ and $X'$ the collection $\Phi(x_1)\dots\Phi(x_n)$ and $\Phi'(x_1
 \begin{align}
     \expval{X}=&\frac{1}{Z}\int\left[\dd{\Phi}\right]X\exp(-S[\Phi])\notag\\
             =&\frac{1}{Z}\int\left[\dd{\Phi'}\right]X'\exp(-S[\Phi'])\notag\\
+            =&\frac{1}{Z}\int\left[\dd{\Phi}\right]\left(X+\delta_\omega X\right)\exp\left[-\left(S[\Phi]+\int\dd[d]{x}\partial_\mu j^\mu_a\omega_a(x)\right)\right]\label{eq:ward:before_est}
 \end{align}
+where we have used \cref{eq:nother:before_integration} and assuemd the functional integration measure is invariant under the transformation $\left[\dd{\Phi'}\right]=\left[\dd[]{\Phi}\right]$.
+Expand \cref{eq:ward:before_est} to first order in $\omega_a(x)$, we have 
+\begin{align}
+    \expval{X}&=\frac{1}{Z}\int\left[\dd[]{\Phi}\right]\left(X+\delta_\omega X\right)\exp(-S)\left[1-\int\dd[]{x}\partial_\mu j^\mu_a\omega_a(x)\right]\notag\\
+            &=\expval{X}+\expval{\delta_\omega X}-\int\dd[d]{x}\partial_\mu\expval{j^\mu_a(x)X}\omega_a(x)
+\end{align}
+which finally gives 
+\begin{align}
+    \expval{\delta X}=\int\dd[d]{x}\partial_\mu\expval{j^\mu_a(x)X}\omega_a(x).\label{eq:ward:anyomega}
+\end{align}
+The variation $\delta_\omega X$ is explicitly given to first order in $\omega_a(x)$ by 
+\begin{align}
+    \delta_\omega X&=-\ii\sum_{i=1}^n\left(\Phi(x_1)\dots G_a\Phi(x_i)\dots\Phi(x_n)\right)\omega_a(x_i)\notag\\
+                    &=-\ii\int\dd[d]{x}\omega_a(x)\sum_{i=1}^n\left[\Phi(x_1)\dots G_a\Phi(x_i)\dots\Phi(x_n)\right]\delta(x-x_i).
+\end{align}
+Since \cref{eq:ward:anyomega} holds for any $\omega_a(x)$, we have the local relation which is called the \textit{Ward identity} for the current $j^\mu_a$.
+\begin{boxmath}{Ward Identity}
+    \begin{align}
+        \pdv{x^\mu}\expval{j^\mu_a(x)\Phi(x_1)\dots\Phi(x_n)}=-\ii\sum^n_{i=1}\delta(x-x_i)\expval{\Phi(x_1)\dots G_a\Phi(x_i)\dots\Phi(x_n)}.
+    \end{align}
+\end{boxmath}
+\begin{remark}
+    The form of the current may be modified from the canonical definition \cref{eq:nother:canonical_current} without affecting the Ward identity, if we add a term to $j^\mu_a$ that is divergenceless identically.
+\end{remark}
 \subsection{The Energy-Momentum Tensor}
+The conserved current associated with translation invariance is the \textit{energy-momentum tensor}, whose components are the density and flux density of energy and momentum.
+
 Consider the infinitesimal translation\sidenote{The field is unaffected by the translation.} $x^\mu\to x^\mu+\epsilon^\mu$, we have 
 \begin{align}
     \fdv{x^\mu}{\epsilon^\mu}=\delta^\mu_\nu\quad\fdv{\mathcal{F}(x)}{\epsilon^\mu}=0.
 \end{align}
+Using \cref{eq:nother:canonical_current}, the corresponding canonical conserved current is 
+\begin{align}
+    T^{\mu\nu}_c\equiv-\eta^{\mu\nu}\mathcal{L}+\pdv{\mathcal{L}}{(\partial_\mu\Phi)}\partial^\nu\Phi
+\end{align}
+which satisfies 
+\begin{align}
+    \partial_\mu T^{\mu\nu}_c=0.
+\end{align}
+The conserved charge is the 4-momentum 
+\begin{align}
+    P^\nu\equiv\int\dd[d-1]{x}T^{0\nu}_c.
+\end{align}
+In particular, the energy is 
+\begin{align}
+    P^0=\int\dd[d-1]{x}\left(\pdv{\mathcal{L}}{\dot{\Phi}}\dot{\Phi}-\mathcal{L}\right)
+\end{align}
+which is the usual definition of the Hamiltonian.
+
 \subsubsection{The Belinfante Tensor}
+\begin{intu}
+    In general, the canonical energy-momentum operator is not symmetric, we can make it symmetric by adding an divergenceless term.
+\end{intu}
+
+\subsubsection{Alternate Definition of the Energy-Momentum Tensor}
+
+\clearpage
 \section{Statistical Mechanics}
 \subsection{The Boltzmann Distribution}
 \subsection{Critical Phenomena}
