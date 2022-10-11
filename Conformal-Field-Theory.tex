@@ -170,12 +170,14 @@ Consider the general correlation function
 \annotate[yshift=0.5em]{}{node2}{Euclidean action}
 
 When the transformation \cref{eq:CST:transformations} is a symmetry, we have the following constraint on the correlation function 
-\begin{align}
-    \expval{\Phi(x_1')\dots\Phi(x_n')}=&\frac{1}{Z}\int\left[\dd{\Phi}\right]\Phi(x_1')\dots\Phi(x_n')\exp(-S(\Phi))\notag\\
-                                        =&\frac{1}{Z}\int\left[\dd{\Phi'}\right]\Phi'(x_1')\dots\Phi'(x_n')\exp(-S(\Phi'))\label{eq:TCF:measure1}\\
-                                        =&\frac{1}{Z}\int\left[\dd{\Phi}\right]\mathcal{F}\left(\Phi(x_1')\right)\dots\mathcal{F}\left(\Phi(x_n')\right)\exp(-S(\Phi))\label{eq:TCF:measure2}\\
-                                        =&\expval{\mathcal{F}\left(\Phi(x_1)\right)\dots\mathcal{F}\left(\Phi(x_n)\right)}
-\end{align}
+\begin{subequations}\label{eq:TCF:correlation_transform}
+    \begin{align}
+        \expval{\Phi(x_1')\dots\Phi(x_n')}=&\frac{1}{Z}\int\left[\dd{\Phi}\right]\Phi(x_1')\dots\Phi(x_n')\exp(-S(\Phi))\notag\\
+                                            =&\frac{1}{Z}\int\left[\dd{\Phi'}\right]\Phi'(x_1')\dots\Phi'(x_n')\exp(-S(\Phi'))\label{eq:TCF:measure1}\\
+                                            =&\frac{1}{Z}\int\left[\dd{\Phi}\right]\mathcal{F}\left(\Phi(x_1')\right)\dots\mathcal{F}\left(\Phi(x_n')\right)\exp(-S(\Phi))\label{eq:TCF:measure2}\\
+                                            =&\expval{\mathcal{F}\left(\Phi(x_1)\right)\dots\mathcal{F}\left(\Phi(x_n)\right)}
+    \end{align}
+\end{subequations}
 We have assumed the Jacobian of this change of variable is trivial in \crefrange{eq:TCF:measure1}{eq:TCF:measure2}\sidenote{This is in fact the main obstacle to conformal invariance in a quantum symmetry: the action may well be scale invariant, but the measure is not because of the regularization procedure needed to define it properly.}. 
 
 \subsubsection{Ward Identities}
@@ -489,9 +491,29 @@ Under an infinitesimal conformal transformation, using \cref{eq:GCI:fx,eq:GCI:fx
 \subsection{Conformal Invariance in Quantum Field Theory}
 \subsubsection{Correlation Functions}
 Consider the two-point function 
+
 \begin{align}
-    \expval{\phi_1(x_1)\phi_2(x_2)}=\frac{1}{Z}\int\left[\dd{\Phi}\right]\phi_1(x_1)\phi_2(x_2)\exp(-S\left[\Phi\right])
+    \expval{\eqnmarkbox[blue]{node1}{\phi_1}(x_1)\eqnmarkbox[blue]{node2}{\phi_2}(x_2)}=\frac{1}{Z}\int\left[\dd{\Phi}\right]\phi_1(x_1)\phi_2(x_2)\exp(-S\left[\Phi\right]).
+\end{align}\annotate[yshift=1em]{}{node1,node2}{Quasi-primary fields}
+$\Phi$ denotes the set of all functionally independent fields in this theory and $S[\Phi]$ is the action, which we assume to be conformally invariant.
+
+According to \cref{eq:TCF:correlation_transform}, we have 
+\begin{align}
+    \expval{\phi_1(x_1)\phi_2(x_2)}=\abs{\pdv{x'}{x}}^{\frac{\Delta_1}{d}}_{x=x_1}\abs{\pdv{x'}{x}}^{\frac{\Delta_2}{d}}_{x=x_2}\expval{\phi_1(x_1')\phi_2(x_2')}
 \end{align}
+If we specialize to scale transformation $x\to\lambda x$ we obtain 
+\begin{align}
+    \expval{\phi_1(x_1)\phi_2(x_2)}=\lambda^{\Delta_1+\Delta_2}\expval{\phi_1(\lambda x_1)\phi_2(\lambda x_2)}.\label{eq:CIQFT:2cf}
+\end{align}
+Rotational and translational invariance require that 
+\begin{align}
+    \expval{\phi_1(x_1)\phi_2(x_2)}=f\left(\abs{x_1-x_2}\right)
+\end{align}
+and together with \cref{eq:CIQFT:2cf}, we have 
+\begin{align}
+    f(x)=\lambda^{\Delta_1+\Delta_2}f(\lambda x).
+\end{align}
+
 \subsubsection{Ward Identities}
 \section{Conformal Invariance in Two Dimensions}
 \subsection{The Conformal Group in Two Dimensions}
