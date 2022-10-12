@@ -264,7 +264,7 @@ We denote by $g_{\mu\nu}$ the metric tensor in a spacetime of dimension $d$.
 \begin{definition}[Conformal transformation]
     A conformal transformation of the coordinates is an invertible mapping $x\to x'$, for which the induced metric tensor invariant up to a scale:
     \begin{align}
-        g'_{\mu\nu}(x)=\Lambda(x)g_{\mu\nu}(x).
+        g'_{\mu\nu}(x)=\Lambda(x)g_{\mu\nu}(x).\label{eq:ct:conformal_transformation}
     \end{align}
 \end{definition}
 The set of conformal transformations manifestly forms a group, and it obviously has the Poincar\'{e} group as a subgroup, since the latter corresponds to the special case $\Lambda(x)=1$.
@@ -403,6 +403,40 @@ Other commutators vanish.
 \end{remark}
 \snt{Notice that the $\mu$ and $\nu$ indices runs from 1 to $d$.}
 
+\paragraph{Conformal invariants}
+Consider functions $\Gamma(x_i)$ of $n$ points $x_i$ that are left unchanged under all types of conformal transformations.
+\begin{itemize}
+    \item Translational and rotational invariance imply that $\Gamma$ can only depend on distances $\abs{x_i-x_j}$ between pairs of distinct points.
+    \item Scale invariance imply that only ratios of such distances, such as 
+            \begin{align}
+                \frac{\abs{x_i-x_j}}{\abs{x_k-x_l}}
+            \end{align}
+            will appear in $\Gamma$.
+    \item Under SCT, $\abs{x_i-x_j}$ becomes 
+            \begin{align}
+                \abs{x_i'-x_j'}=\frac{\abs{x_i-x_j}}{(1-2b\vdot x_i+b^2 x_i^2)^{\frac{1}{2}}(1-2b\vdot x_j+b^2 x_j^2)^{\frac{1}{2}}}.\label{eq:conformal_distance_trans}
+            \end{align}
+\end{itemize} 
+We can see it is impossible to construct an invariant $\Gamma$ with only 2 or 3 points.
+The simplest possibilities appear in $\Gamma$ are the functions of 4 points
+\begin{align}
+    \frac{\abs{x_1-x_2}\abs{x_3-x_4}}{\abs{x_1-x_3}\abs{x_2-x_4}}\quad\frac{\abs{x_1-x_2}\abs{x_3-x_4}}{\abs{x_2-x_3}\abs{x_1-x_4}}
+\end{align}
+and such expressions are called \textit{anharmonic ratios} or \textit{cross-ratios}.
+\begin{claim}
+    With $N$ distinct points, $\frac{N(N-3)}{2}$ independent anharmonic ratios may be constructed.
+\end{claim}
+\begin{proof}
+    We denote $r_{ij}\equiv\abs{x_i-x_j}$ where $i<j$.
+    Then the number of $r_{ij}$ is $\frac{N(N-1)}{2}$.
+    
+    A general monomial $\prod_{1\leq i\leq j\leq N}r^{\mu_{ij}}_{ij}$ is conformally invariant if and only if $d_i\equiv\sum^{i-1}_{j=1}\mu_{ji}+\sum^N_{j=i+1}\mu_{ij}=0$ for all $i=1,\dots,N$ which gives $N$ constraints that $\mu_{ij}$ must obey.
+    It is crucial to realize that the dimension of the solution space of $\mu_{ij}$ is the number of the independent cross ratios\snm.
+    So the number of the independent cross ratios is $\frac{N(N-1)}{2}-N=\frac{N(N-3)}{2}$.
+
+    See \cite{Ginsparg:1988ui} and the Physics StackExchange post \url{https://physics.stackexchange.com/q/68046} (version: 2013-06-14) for more details.
+\end{proof}
+\snt{Convince yourself it is true!}
 
 
 \subsection{Conformal Invariance in Classical Field Theory}
@@ -451,13 +485,15 @@ And finally
 We can in the same way for the full conformal group.
 We denote the effect of $L_{\mu\nu}$, $D$ and $K_\mu$ at $x=0$ by $S_{\mu\nu}$, $\tilde{\Delta}$ and $\kappa_\mu$\sidenote{$S_{\mu\nu}$, $\tilde{\Delta}$ and $\kappa_\mu$ are all matrices since rotations, dilations and SCTs all map the origin to itself.}.
 They form a matrix representation of the reduced conformal algebra as in \cref{eq:conformal_algebra_2,eq:conformal_algebra_4,eq:conformal_algebra_6}
-\begin{align}
-    \comm{\tilde{\Delta}}{S_{\mu\nu}}=&0\\
-    \comm{\tilde{\Delta}}{\kappa_\mu}=&-\ii\kappa_\mu\\
-    \comm{\kappa_\nu}{\kappa_\mu}=&0\\
-    \comm{\kappa_\rho}{S_{\mu\nu}}=&\ii\left(\eta_{\rho\mu}\kappa_{\nu}-\eta_{\rho\nu}\kappa_\mu\right)\\
-    \comm{S_{\mu\nu}}{S_{\rho\sigma}}=&\ii\left(\eta_{\nu\rho}S_{\mu\sigma}+\eta_{\mu\sigma}S_{\nu\rho}-\eta_{\mu\rho}S_{\nu\sigma}-\eta_{\nu\sigma}S_{\mu\rho}\right).
-\end{align}
+\begin{subequations}
+    \begin{align}
+        \comm{\tilde{\Delta}}{S_{\mu\nu}}=&0\label{eq:conformal_matrix_1}\\
+        \comm{\tilde{\Delta}}{\kappa_\mu}=&-\ii\kappa_\mu\\
+        \comm{\kappa_\nu}{\kappa_\mu}=&0\\
+        \comm{\kappa_\rho}{S_{\mu\nu}}=&\ii\left(\eta_{\rho\mu}\kappa_{\nu}-\eta_{\rho\nu}\kappa_\mu\right)\\
+        \comm{S_{\mu\nu}}{S_{\rho\sigma}}=&\ii\left(\eta_{\nu\rho}S_{\mu\sigma}+\eta_{\mu\sigma}S_{\nu\rho}-\eta_{\mu\rho}S_{\nu\sigma}-\eta_{\nu\sigma}S_{\mu\rho}\right).
+    \end{align}
+\end{subequations}
 Using \cref{eq:conformal_algebra_1,eq:conformal_algebra_2,eq:conformal_algebra_3,eq:conformal_algebra_4,eq:conformal_algebra_5,eq:conformal_algebra_6,eq:haussdorff}, we have 
 \begin{align}
     \me^{\ii x^\rho P_\rho}D\me^{-\ii x^\rho P_\rho}=&D+x^\nu P_\nu\\
@@ -468,6 +504,23 @@ and therefore
     D\Phi(x)=&\left(-\ii x^\nu\partial_\nu+\tilde{\Delta}\right)\Phi\\
     K_\mu\Phi(x)=&\left(\kappa_\mu+2x_\mu\tilde{\Delta}-x^\nu S_{\mu\nu}-2\ii x_\mu x^\nu\partial_\nu+\ii x^2 \partial_\mu\right)\Phi(x).
 \end{align}
+
+\begin{remark}
+    If we demand the field $\Phi(x)$ belong to an irreducible representation of the Lorentz group, then by Schur's lemma and \cref{eq:conformal_matrix_1}, the matrix $\tilde{\Delta}$ is a multiple of the identity and all $\kappa_\mu$ vanishes.
+    We denote $\tilde{\Delta}\equiv-i\Delta$, where $\Delta$ is called the scaling dimension of the field $\Phi$.
+\end{remark}
+\paragraph{Spinless fields under conformal transformations}
+For a spinless field, $S_{\mu\nu}=0$ and it transforms under a conformal transformation $x\to x'$ as (see the Physics StackExchange post \url{https://physics.stackexchange.com/q/536721} (version: 2020-03-17) for explanation\sidenote{The idea is to verify that every single type of the conformal transformation satisfies \cref{eq:representation:spinless_trans}.}.)
+\begin{align}
+    \phi(x)\to\phi'(x')=\abs{\pdv{x'}{x}}^{-\frac{\Delta}{d}}\phi(x)\label{eq:representation:spinless_trans}
+\end{align}
+where $\abs{\pdv{x'}{x}}$ is the Jacobian of the conformal transformation which can shown to be related to the conformal factor in \cref{eq:ct:conformal_transformation} by 
+\begin{align}
+    \abs{\pdv{x'}{x}}=\Lambda(x)^{-\frac{d}{2}}.\label{eq:quasi_field_def}
+\end{align}
+
+A field transforming like \cref{eq:quasi_field_def} is called \textit{quasi-primary}. 
+
 
 \subsubsection{The Energy-Momentum Tensor}
 Under an arbitrary transformation of the coordinates $x^\mu\to x^\mu+\epsilon^\mu(x)$, the action changes as follows 
@@ -490,6 +543,7 @@ Under an infinitesimal conformal transformation, using \cref{eq:GCI:fx,eq:GCI:fx
 
 \subsection{Conformal Invariance in Quantum Field Theory}
 \subsubsection{Correlation Functions}
+\paragraph{Two-point function}
 Consider the two-point function 
 
 \begin{align}
@@ -499,7 +553,7 @@ $\Phi$ denotes the set of all functionally independent fields in this theory and
 
 According to \cref{eq:TCF:correlation_transform}, we have 
 \begin{align}
-    \expval{\phi_1(x_1)\phi_2(x_2)}=\abs{\pdv{x'}{x}}^{\frac{\Delta_1}{d}}_{x=x_1}\abs{\pdv{x'}{x}}^{\frac{\Delta_2}{d}}_{x=x_2}\expval{\phi_1(x_1')\phi_2(x_2')}
+    \expval{\phi_1(x_1)\phi_2(x_2)}=\abs{\pdv{x'}{x}}^{\frac{\Delta_1}{d}}_{x=x_1}\abs{\pdv{x'}{x}}^{\frac{\Delta_2}{d}}_{x=x_2}\expval{\phi_1(x_1')\phi_2(x_2')}\label{eq:CIQFT:two_point_trans}
 \end{align}
 If we specialize to scale transformation $x\to\lambda x$ we obtain 
 \begin{align}
@@ -511,8 +565,39 @@ Rotational and translational invariance require that
 \end{align}
 and together with \cref{eq:CIQFT:2cf}, we have 
 \begin{align}
-    f(x)=\lambda^{\Delta_1+\Delta_2}f(\lambda x).
+    f(x)=\lambda^{\Delta_1+\Delta_2}f(\lambda x)
 \end{align}
+which implies 
+
+\begin{align}
+    \expval{\phi_1(x_1)\phi_2(x_2)}=\frac{\eqnmarkbox[blue]{node1}{C_{12}}}{\abs{x_1-x_2}^{\Delta_1+\Delta_2}}\label{eq:CIQFT:two_point_fix_1}
+\end{align}\annotate[yshift=0.5em]{}{node1}{Constant coefficient}
+
+Apart from scale invariance, we have special conformal transformations (SCT).
+Recall that, for SCT  
+\begin{align}
+    \abs{\pdv{x'}{x}}=\frac{1}{(1-2b\cdot x+b^2 x^2)^d}.
+\end{align}
+Using \cref{eq:conformal_distance_trans,eq:CIQFT:two_point_fix_1,eq:CIQFT:two_point_trans}, we have 
+\begin{align}
+    \frac{C_{12}}{\abs{x_1-x_2}^{\Delta_1+\Delta_2}}=\frac{C_{12}}{\gamma_1^{\Delta_1}\gamma_2^{\Delta_2}}\frac{(\gamma_1\gamma_2)^{\frac{\Delta_1+\Delta_2}{2}}}{\abs{x_1-x_2}^{\Delta_1+\Delta_2}}\label{eq:CIQFT:2_point_constraint_1}
+\end{align}
+where $\gamma_i\equiv(1-2b\vdot x_i+b^2 x_i^2)$.
+\Cref{eq:CIQFT:2_point_constraint_1} are satisfied only when $\Delta_1=\Delta_2$ or $C_{12}=0$, which implies 
+\begin{boxmath}{2-point function}
+    \begin{align}\label{eq:CIQFT:2_point_final}
+        \expval{\phi_1(x_1)\phi_2(x_2)}=\begin{cases}
+            \frac{C_{12}}{\abs{x_1-x_2}^{2\Delta_1}}&\qif\Delta_1=\Delta_2\\
+            0&\qif\Delta_1\neq\Delta_2.
+        \end{cases}
+    \end{align}
+\end{boxmath}
+\begin{remark}
+    \Cref{eq:CIQFT:2_point_final} shows that two quasi-primary fields are correlated only if they have the same scaling dimension.
+\end{remark}
+\paragraph{Three-point function}
+\paragraph{Four-point function}
+
 
 \subsubsection{Ward Identities}
 \section{Conformal Invariance in Two Dimensions}

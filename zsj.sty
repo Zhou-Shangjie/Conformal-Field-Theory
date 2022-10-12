@@ -339,6 +339,22 @@
 }
 
 
+\theoremstyle{claim}
+\newtheorem{claim}{Claim}
+\tcolorboxenvironment{claim}{
+  boxrule=0pt,
+  boxsep=0pt,
+  blanker,
+  borderline west={1pt}{0pt}{olive},
+  sharp corners,
+  before skip=10pt,
+  after skip=10pt,
+  left=5pt,
+  right=5pt,
+  breakable,
+}
+
+
 \renewcommand*{\raggedleftmarginnote}{\noindent}
 \renewcommand*{\raggedrightmarginnote}{\noindent}
 \newcommand{\mn}[1]{\textsuperscript{\thesidenote}{}\marginnote{\textsuperscript{\thesidenote}{}\itshape\footnotesize #1}\refstepcounter{sidenote}}
