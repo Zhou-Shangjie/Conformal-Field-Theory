@@ -211,7 +211,7 @@ The variation $\delta_\omega X$ is explicitly given to first order in $\omega_a(
 Since \cref{eq:ward:anyomega} holds for any $\omega_a(x)$, we have the local relation which is called the \textit{Ward identity} for the current $j^\mu_a$.
 \begin{boxmath}{Ward Identity}
     \begin{align}
-        \pdv{x^\mu}\expval{j^\mu_a(x)\Phi(x_1)\dots\Phi(x_n)}=-\ii\sum^n_{i=1}\delta(x-x_i)\expval{\Phi(x_1)\dots G_a\Phi(x_i)\dots\Phi(x_n)}.
+        \pdv{x^\mu}\expval{j^\mu_a(x)\Phi(x_1)\dots\Phi(x_n)}=-\ii\sum^n_{i=1}\delta(x-x_i)\expval{\Phi(x_1)\dots G_a\Phi(x_i)\dots\Phi(x_n)}.\label{eq:QFT:ward_identity}
     \end{align}
 \end{boxmath}
 \begin{remark}
@@ -420,7 +420,7 @@ Consider functions $\Gamma(x_i)$ of $n$ points $x_i$ that are left unchanged und
 We can see it is impossible to construct an invariant $\Gamma$ with only 2 or 3 points.
 The simplest possibilities appear in $\Gamma$ are the functions of 4 points
 \begin{align}
-    \frac{\abs{x_1-x_2}\abs{x_3-x_4}}{\abs{x_1-x_3}\abs{x_2-x_4}}\quad\frac{\abs{x_1-x_2}\abs{x_3-x_4}}{\abs{x_2-x_3}\abs{x_1-x_4}}
+    \frac{\abs{x_1-x_2}\abs{x_3-x_4}}{\abs{x_1-x_3}\abs{x_2-x_4}}\quad\frac{\abs{x_1-x_2}\abs{x_3-x_4}}{\abs{x_2-x_3}\abs{x_1-x_4}}\label{eq:anharmonic_ratio}
 \end{align}
 and such expressions are called \textit{anharmonic ratios} or \textit{cross-ratios}.
 \begin{claim}
@@ -596,10 +596,86 @@ where $\gamma_i\equiv(1-2b\vdot x_i+b^2 x_i^2)$.
     \Cref{eq:CIQFT:2_point_final} shows that two quasi-primary fields are correlated only if they have the same scaling dimension.
 \end{remark}
 \paragraph{Three-point function}
+Covariance under rotations, translations and dilations fix the three point function to the following form 
+
+\begin{align}
+    \expval{\phi_1(x_1)\phi_2(x_2)\phi_3(x_3)}=\frac{\eqnmarkbox[blue]{node1}{C^{(abc)}_{123}}}{x^a_{12}x^b_{23}x^c_{13}}\label{eq:CIQFT:3_points_1}
+\end{align}\annotate[yshift=0.5em]{}{node1}{Constant}
+where $a$, $b$ and $c$ satisfy\sidenote{Actually, a sum (over $a$, $b$ and $c$) of such terms in \cref{eq:CIQFT:3_points_1} is also acceptable, as long as they satisfy \cref{eq:CIQFT:3_points_2} but later we will see only one term meets the requirement.} 
+\begin{align}
+    a+b+c=\Delta_1+\Delta_2+\Delta_3.\label{eq:CIQFT:3_points_2}
+\end{align}
+Under SCT, we have 
+\begin{align}
+    \frac{C^{(abc)}_{123}}{x^a_{12}x^b_{23}x^c_{13}}=\frac{C^{(abc)}_{123}}{\gamma^{\Delta_1}\gamma^{\Delta_2}\gamma_3^{\Delta_3}}\frac{(\gamma_1\gamma_2)^{\frac{a}{2}}(\gamma_2\gamma_3)^{\frac{b}{2}}(\gamma_1\gamma_3)^{\frac{c}{2}}}{x^a_{12}x^b_{23}x^c_{13}}
+\end{align}
+which gives 
+\begin{align}
+    a+c=2\Delta_1\quad a+b=2\Delta_2\quad b+c=2\Delta_3.\label{eq:CIQFT:3_point_3}
+\end{align}
+The unique solution to \cref{eq:CIQFT:3_point_3} is 
+\begin{subequations}
+    \begin{align}
+        a=&\Delta_1+\Delta_2-\Delta_3\\
+        b=&\Delta_2+\Delta_3-\Delta_1\\
+        c=&\Delta_3+\Delta_1-\Delta_2.
+    \end{align}
+\end{subequations}
+Therefore we have 
+\begin{boxmath}{3-point function}
+    \begin{align}
+        \expval{\phi_1(x_1)\phi_2(x_2)\phi_3(x_3)}=\frac{C_{123}}{x_{12}^{\Delta_1+\Delta_2-\Delta_3}x_{23}^{\Delta_2+\Delta_3-\Delta_1}x_{13}^{\Delta_3+\Delta_1-\Delta_2}}.
+    \end{align}
+\end{boxmath}
+
 \paragraph{Four-point function}
+We cannot fix the form of four-point function only by symmetry since we can construct the conformally invariant anharmonic ratios with 4 points (see \cpageref{eq:anharmonic_ratio}).
+
+\begin{remark}
+    For $n\geq4$, the $n$-point functions may have an arbitrary dependence on the anharmonic ratios.
+\end{remark}
 
 
 \subsubsection{Ward Identities}
+Now we will use \cref{eq:QFT:ward_identity} to derive the Ward identities for the conformal symmetry.
+
+\paragraph{Translation}
+\begin{align}
+    \partial_\mu\expval{\tensor{T}{^\mu_\nu}X}=-\sum_i\delta(x-x_i)\pdv{x^\nu_i}\expval{X}
+\end{align}
+\paragraph{Rotation}
+\begin{align}
+    \expval{\left(T^{\rho\nu}-T^{\nu\rho}X\right)}=-\ii\sum_i\delta(x-x_i)S^{\nu\rho}_i\expval{X}
+\end{align}
+\paragraph{Scale transformation}
+\begin{align}
+    \expval{\tensor{T}{^\mu_\mu}X}=-\sum_i\delta(x-x_i)\Delta_i\expval{X}
+\end{align}
+
+\subsubsection{Tracelessness of \texorpdfstring{$T_{\mu\nu}$}{T mu nu} in Two Dimensions}
+We define the two-point function of the energy-momentum tensor (\textit{Schwinger function})
+\begin{align}
+    S_{\mu\nu\rho\sigma}\equiv\expval{T_{\mu\nu}(x)T_{\rho\sigma}(0)}.
+\end{align}
+\begin{itemize}
+    \item $T_{\mu\nu}$ can be made symmetric, which implies 
+          \begin{align}
+              S_{\mu\nu\rho\sigma}=S_{\nu\mu\rho\sigma}=S_{\mu\nu\sigma\rho}=S_{\nu\mu\sigma\rho}.
+          \end{align}
+    \item Translation invariance implies that 
+          \begin{align}
+              S_{\mu\nu\rho\sigma}(x)&=\expval{T_{\mu\nu}(0)T_{\rho\sigma}(-x)}\notag\\
+                                    &=\expval{T_{\rho\sigma}(-x)T_{\mu\nu}(0)}\notag\\
+                                    &=S_{\rho\sigma\mu\nu}(-x)
+          \end{align}
+          and if the theory is invariant under party, then 
+          \begin{align}
+            S_{\mu\nu\rho\sigma}(x)=S_{\rho\sigma\mu\nu}(x)
+          \end{align}
+    \item Scale invariance implies that 
+\end{itemize}
+
+\clearpage
 \section{Conformal Invariance in Two Dimensions}
 \subsection{The Conformal Group in Two Dimensions}
 \subsection{Ward Identities}
