@@ -33,7 +33,7 @@
 \addcontentsline{toc}{section}{\protect\numberline{}Introduction}
 A conformal field theory (CFT) is a quantum field theory that is invariant under \textit{conformal transformations}.
 
-Conformal field theory has important applications to condensed matter physics, statistical mechanics, quantum statistical mechanics, and string theory. 
+Conformal field theory has important applications to condensed matter physics, statistical mechanics, quantum statistical mechanics, and string theory.
 
 This notes are mainly based on \cite{DiFrancesco:1997nk}.
 
@@ -44,15 +44,15 @@ There are also useful lecture notes like \cite{Qualls:2015qjb,Tong:2009np}.
 \subsection{Symmetries and Conservation Laws}
 \subsubsection{Continuous Symmetry Transformations}
 Consider a collection of fields, which are denoted by $\Phi(x)$.
-The action is 
+The action is
 \begin{align}
     S=\int\dd[d]{x}\mathcal{L}\left(\Phi,\partial_\mu\Phi\right).
 \end{align}
-Consider a transformation affecting both the position and the field 
+Consider a transformation affecting both the position and the field
 \begin{subequations}\label{eq:CST:transformations}
     \begin{align}
-        x&\to x'\\
-        \Phi(x)&\to\Phi'(x')
+        x       & \to x'       \\
+        \Phi(x) & \to\Phi'(x')
     \end{align}
 \end{subequations}
 In the transformations \cref{eq:CST:transformations}, the new field $\Phi'$ at $x'$ is expressed as a function of the old field $\Phi$ at $x$
@@ -60,18 +60,18 @@ In the transformations \cref{eq:CST:transformations}, the new field $\Phi'$ at $
     \Phi'(x')=\mathcal{F}\left(\Phi(x)\right).
 \end{align}
 
-The new action is 
+The new action is
 \begin{align}
-    S'&=\int\dd[d]{x}\mathcal{L}\left(\Phi'(x),\partial_\mu\Phi'(x)\right)\notag\\
-        &=\int\dd[d]{x'}\mathcal{L}\left(\Phi'(x'),\partial'_\mu\Phi'(x')\right)\notag\\
-        &=\int\dd[d]{x'}\mathcal{L}\left(\mathcal{F}\left(\Phi(x)\right),\partial'_\mu\mathcal{F}(\Phi(x))\right)\notag\\
-        &=\int\dd[d]{x}\abs{\pdv{x'}{x}}\mathcal{L}\left(\mathcal{F}(\Phi(x)),\left(\pdv*{x^\nu}{x'^\mu}\right)\partial_\nu\mathcal{F}(\Phi(x))\right).\label{eq:CST:new_action}
+    S' & =\int\dd[d]{x}\mathcal{L}\left(\Phi'(x),\partial_\mu\Phi'(x)\right)\notag                                                                                               \\
+       & =\int\dd[d]{x'}\mathcal{L}\left(\Phi'(x'),\partial'_\mu\Phi'(x')\right)\notag                                                                                           \\
+       & =\int\dd[d]{x'}\mathcal{L}\left(\mathcal{F}\left(\Phi(x)\right),\partial'_\mu\mathcal{F}(\Phi(x))\right)\notag                                                          \\
+       & =\int\dd[d]{x}\abs{\pdv{x'}{x}}\mathcal{L}\left(\mathcal{F}(\Phi(x)),\left(\pdv*{x^\nu}{x'^\mu}\right)\partial_\nu\mathcal{F}(\Phi(x))\right).\label{eq:CST:new_action}
 \end{align}
 \subsubsection{Infinitesimal Transformations and Noether's Theorem}
-Infinitesimal transformations may in general written as 
+Infinitesimal transformations may in general written as
 \begin{align}
-    x'^\mu&=x^\mu+\omega_a\fdv{x^\mu}{\omega_a}\label{eq:CST:x_prime}\\
-    \Phi'(x')&=\Phi(x)+\omega_a \fdv{\mathcal{F}(x)}{\omega_a}\label{eq:CST:phi_prime} 
+    x'^\mu    & =x^\mu+\omega_a\fdv{x^\mu}{\omega_a}\label{eq:CST:x_prime}               \\
+    \Phi'(x') & =\Phi(x)+\omega_a \fdv{\mathcal{F}(x)}{\omega_a}\label{eq:CST:phi_prime}
 \end{align}
 Here $\{\omega_a\}$ is a set of infinitesimal parameters, which will be kept to first order only.
 \begin{definition}[Generator of a symmetry transformation]\label{def:generator_of_a_symmetry_transformation}
@@ -80,11 +80,11 @@ Here $\{\omega_a\}$ is a set of infinitesimal parameters, which will be kept to 
         \delta_\omega\Phi(x)\equiv\Phi'(x)-\Phi(x)\equiv-\ii\omega_a G_a\Phi(x).
     \end{align}
 \end{definition}
-Notice that 
+Notice that
 \begin{align}
     \Phi'(x')=\Phi(x)+\omega_a \fdv{\mathcal{F}(x)}{\omega_a}=\Phi(x')-\omega_a\fdv{x^\mu}{\omega_a}\partial_\mu\Phi(x')+\omega_a\fdv{\mathcal{F}(x')}{\omega_a}
 \end{align}
-The explicit expression of the generator is therefore 
+The explicit expression of the generator is therefore
 \begin{align}
     \ii G_a\Phi=\fdv{x^\mu}{\omega_a}\partial_\mu\Phi-\fdv{\mathcal{F}}{\omega_a}
 \end{align}
@@ -96,37 +96,37 @@ The explicit expression of the generator is therefore
     \end{align}
 \end{example}
 \begin{theorem}[Noether's theorem]
-    Every continuous symmetry of the action is associated with a current that is \textit{classically}\snm conserved. 
+    Every continuous symmetry of the action is associated with a current that is \textit{classically}\snm conserved.
 \end{theorem}
 \snt{Notice the \textit{classically}. In the quantum case, it may happen that the path integration measure does not possess the symmetry of the action, in which case that symmetry is said to be \textit{anomalous}.}
 \begin{proof}
-    Using \cref{eq:CST:x_prime,eq:CST:phi_prime} in \cref{eq:CST:new_action}, we have 
+    Using \cref{eq:CST:x_prime,eq:CST:phi_prime} in \cref{eq:CST:new_action}, we have
     \begin{align}
         \pdv{x'^\mu}{x^\mu}=\delta^\nu_\mu+\partial_\mu\left(\omega_a\fdv{x^\nu}{\omega_a}\right).\label{eq:qft:infinitesimal_inverse}
     \end{align}
-    Using the first order approximation of the determinant of a matrix 
+    Using the first order approximation of the determinant of a matrix
     \begin{align}
         \det(1+E)\approx1+\Tr E\quad(E\ \text{is small})
     \end{align}
-    we have 
+    we have
     \begin{align}
         \abs{\pdv{x'}{x}}\approx1+\partial_\mu\left(\omega_a\fdv{x^\mu}{\omega}\right)
     \end{align}
-    and the reverse of \cref{eq:qft:infinitesimal_inverse} is 
+    and the reverse of \cref{eq:qft:infinitesimal_inverse} is
     \begin{align}
         \pdv{x^\nu}{x'^\mu}=\delta^\nu_\mu-\partial_\mu\left(\omega_a\fdv{x^\nu}{\omega_a}\right).
     \end{align}
-    Now \cref{eq:CST:new_action} becomes 
+    Now \cref{eq:CST:new_action} becomes
     \begin{align}
-        S'=&\int\dd[d]{x}\left(1+\partial_\mu\left(\omega_a\pdv{x^\mu}{\omega_a}\right)\right)\notag\\
-            &\times\mathcal{L}\left(\Phi+\omega_a\pdv{\mathcal{F}}{\omega_a},\left[\delta^\nu_\mu-\partial_\mu\left(\omega_a\fdv{x^\nu}{\omega_a}\right)\right]\left[\partial_\nu\Phi+\partial_\nu\left(\omega_a\fdv{\mathcal{F}}{\omega_a}\right)\right]\right).
+        S'= & \int\dd[d]{x}\left(1+\partial_\mu\left(\omega_a\pdv{x^\mu}{\omega_a}\right)\right)\notag                                                                                                                                                             \\
+            & \times\mathcal{L}\left(\Phi+\omega_a\pdv{\mathcal{F}}{\omega_a},\left[\delta^\nu_\mu-\partial_\mu\left(\omega_a\fdv{x^\nu}{\omega_a}\right)\right]\left[\partial_\nu\Phi+\partial_\nu\left(\omega_a\fdv{\mathcal{F}}{\omega_a}\right)\right]\right).
     \end{align}
     From the definition of symmetry, when $\omega_a$ are constants the variation $\delta S$ vanishes.
-    So $\delta S$ can only contain first derivatives of $\omega_a$, obtained by expanding the Lagrangian\snm, 
+    So $\delta S$ can only contain first derivatives of $\omega_a$, obtained by expanding the Lagrangian\snm,
     \begin{align}
         \delta S\equiv S'-S=-\int\dd[d]{x}j^\mu_a\partial_\mu\omega_a\label{eq:nother:before_integration}
     \end{align}
-    where 
+    where
     \begin{align}
         j^\mu_a\equiv\left(\pdv{\mathcal{L}}{(\partial_\mu\Phi)}\partial_\nu\Phi-\delta^\mu_\nu\mathcal{L}\right)\fdv{x^\nu}{\omega_a}-\pdv{\mathcal{L}}{(\partial_\mu\Phi)}\fdv{\mathcal{F}}{\omega_a}.\label{eq:nother:canonical_current}
     \end{align}
@@ -135,26 +135,26 @@ The explicit expression of the generator is therefore
     \begin{align}
         \delta S=\int\dd[d]{x}\partial_\mu j^\mu_a \omega_a.
     \end{align}
-    When the field configuration obeys the classical equation of motion, $\delta S=0$ for any postion-dependent parameters $\omega_a(x)$, which implies the conservation law 
+    When the field configuration obeys the classical equation of motion, $\delta S=0$ for any postion-dependent parameters $\omega_a(x)$, which implies the conservation law
     \begin{align}
         \partial_\mu j^\mu_a=0.
     \end{align}
-    The conserved charge associated with $j^\mu_a$ is 
+    The conserved charge associated with $j^\mu_a$ is
     \begin{align}
         Q_a\equiv\int\dd[d-1]{x}j^0_a.
     \end{align}
-    We can show that 
+    We can show that
     \begin{align}
-        \dot{Q}_a=&\int\dd[d-1]{x}\partial_0 j^0_a\notag\\
-                  =&-\int\dd[d-1]{x}\partial_i j^i_a\label{eq:nother:stocks_theorem}\\
-                  =&-\int_\infty j^i_a\eqnmarkbox[blue]{node1}{\dd{\sigma^i}}\notag\\
-                  =&0
+        \dot{Q}_a= & \int\dd[d-1]{x}\partial_0 j^0_a\notag                            \\
+        =          & -\int\dd[d-1]{x}\partial_i j^i_a\label{eq:nother:stocks_theorem} \\
+        =          & -\int_\infty j^i_a\eqnmarkbox[blue]{node1}{\dd{\sigma^i}}\notag  \\
+        =          & 0
     \end{align}\annotate[yshift=-0.5em]{below}{node1}{Surface element at spatial infinity}
     where we used Stokes' theorem in \cref{eq:nother:stocks_theorem}.
 \end{proof}
 \snt{This is where the symmetry condition is used.}
 \begin{remark}
-    We can freely add $j^\mu_a$ the divergence of an antisymmetric tensor without affecting the conservation 
+    We can freely add $j^\mu_a$ the divergence of an antisymmetric tensor without affecting the conservation
     \begin{align}
         j^\mu_a\to j^\mu_a+\partial_\nu B^{\nu\mu}_a\qq{where} B^{\nu\mu}_a=-B^{\mu\nu}_a
     \end{align}
@@ -162,26 +162,26 @@ The explicit expression of the generator is therefore
     The current we defined in \cref{eq:nother:canonical_current} is said to be \textit{canonical}.
 \end{remark}
 \subsubsection{Transformations of the Correlation Functions}
-Consider the general correlation function 
+Consider the general correlation function
 \begin{align}
     \expval{\Phi(x_1)\dots\Phi(x_n)}=\frac{1}{\eqnmarkbox[blue]{node1}{Z}}\left[\dd{\Phi}\right]\Phi(x_1)\dots\Phi(x_n)\exp(-\eqnmarkbox[purple]{node2}{S[\Phi]})
 \end{align}
 \annotate[yshift=-0.1em]{below}{node1}{Vacuum functional}
 \annotate[yshift=0.5em]{}{node2}{Euclidean action}
 
-When the transformation \cref{eq:CST:transformations} is a symmetry, we have the following constraint on the correlation function 
+When the transformation \cref{eq:CST:transformations} is a symmetry, we have the following constraint on the correlation function
 \begin{subequations}\label{eq:TCF:correlation_transform}
     \begin{align}
-        \expval{\Phi(x_1')\dots\Phi(x_n')}=&\frac{1}{Z}\int\left[\dd{\Phi}\right]\Phi(x_1')\dots\Phi(x_n')\exp(-S(\Phi))\notag\\
-                                            =&\frac{1}{Z}\int\left[\dd{\Phi'}\right]\Phi'(x_1')\dots\Phi'(x_n')\exp(-S(\Phi'))\label{eq:TCF:measure1}\\
-                                            =&\frac{1}{Z}\int\left[\dd{\Phi}\right]\mathcal{F}\left(\Phi(x_1')\right)\dots\mathcal{F}\left(\Phi(x_n')\right)\exp(-S(\Phi))\label{eq:TCF:measure2}\\
-                                            =&\expval{\mathcal{F}\left(\Phi(x_1)\right)\dots\mathcal{F}\left(\Phi(x_n)\right)}
+        \expval{\Phi(x_1')\dots\Phi(x_n')}= & \frac{1}{Z}\int\left[\dd{\Phi}\right]\Phi(x_1')\dots\Phi(x_n')\exp(-S(\Phi))\notag                                                                  \\
+        =                                   & \frac{1}{Z}\int\left[\dd{\Phi'}\right]\Phi'(x_1')\dots\Phi'(x_n')\exp(-S(\Phi'))\label{eq:TCF:measure1}                                             \\
+        =                                   & \frac{1}{Z}\int\left[\dd{\Phi}\right]\mathcal{F}\left(\Phi(x_1')\right)\dots\mathcal{F}\left(\Phi(x_n')\right)\exp(-S(\Phi))\label{eq:TCF:measure2} \\
+        =                                   & \expval{\mathcal{F}\left(\Phi(x_1)\right)\dots\mathcal{F}\left(\Phi(x_n)\right)}
     \end{align}
 \end{subequations}
-We have assumed the Jacobian of this change of variable is trivial in \crefrange{eq:TCF:measure1}{eq:TCF:measure2}\sidenote{This is in fact the main obstacle to conformal invariance in a quantum symmetry: the action may well be scale invariant, but the measure is not because of the regularization procedure needed to define it properly.}. 
+We have assumed the Jacobian of this change of variable is trivial in \crefrange{eq:TCF:measure1}{eq:TCF:measure2}\sidenote{This is in fact the main obstacle to conformal invariance in a quantum symmetry: the action may well be scale invariant, but the measure is not because of the regularization procedure needed to define it properly.}.
 
 \subsubsection{Ward Identities}
-We can write the infinitesimal transformation as 
+We can write the infinitesimal transformation as
 
 \begin{align}
     \Phi'(x)=\Phi(x)-\ii\eqnmarkbox[blue]{node1}{\omega_a} G_a\Phi(x).
@@ -189,24 +189,24 @@ We can write the infinitesimal transformation as
 
 Denoting by $X$ and $X'$ the collection $\Phi(x_1)\dots\Phi(x_n)$ and $\Phi'(x_1)\dots\Phi'(x_n)$ of fields in the correlation function respectively and by $\delta_\omega X\equiv X'-X$ its variation under the transformation, we can do a change of variable
 \begin{align}
-    \expval{X}=&\frac{1}{Z}\int\left[\dd{\Phi}\right]X\exp(-S[\Phi])\notag\\
-            =&\frac{1}{Z}\int\left[\dd{\Phi'}\right]X'\exp(-S[\Phi'])\notag\\
-            =&\frac{1}{Z}\int\left[\dd{\Phi}\right]\left(X+\delta_\omega X\right)\exp\left[-\left(S[\Phi]+\int\dd[d]{x}\partial_\mu j^\mu_a\omega_a(x)\right)\right]\label{eq:ward:before_est}
+    \expval{X}= & \frac{1}{Z}\int\left[\dd{\Phi}\right]X\exp(-S[\Phi])\notag                                                                                                                       \\
+    =           & \frac{1}{Z}\int\left[\dd{\Phi'}\right]X'\exp(-S[\Phi'])\notag                                                                                                                    \\
+    =           & \frac{1}{Z}\int\left[\dd{\Phi}\right]\left(X+\delta_\omega X\right)\exp\left[-\left(S[\Phi]+\int\dd[d]{x}\partial_\mu j^\mu_a\omega_a(x)\right)\right]\label{eq:ward:before_est}
 \end{align}
 where we have used \cref{eq:nother:before_integration} and assuemd the functional integration measure is invariant under the transformation $\left[\dd{\Phi'}\right]=\left[\dd[]{\Phi}\right]$.
-Expand \cref{eq:ward:before_est} to first order in $\omega_a(x)$, we have 
+Expand \cref{eq:ward:before_est} to first order in $\omega_a(x)$, we have
 \begin{align}
-    \expval{X}&=\frac{1}{Z}\int\left[\dd[]{\Phi}\right]\left(X+\delta_\omega X\right)\exp(-S)\left[1-\int\dd[]{x}\partial_\mu j^\mu_a\omega_a(x)\right]\notag\\
-            &=\expval{X}+\expval{\delta_\omega X}-\int\dd[d]{x}\partial_\mu\expval{j^\mu_a(x)X}\omega_a(x)
+    \expval{X} & =\frac{1}{Z}\int\left[\dd[]{\Phi}\right]\left(X+\delta_\omega X\right)\exp(-S)\left[1-\int\dd[]{x}\partial_\mu j^\mu_a\omega_a(x)\right]\notag \\
+               & =\expval{X}+\expval{\delta_\omega X}-\int\dd[d]{x}\partial_\mu\expval{j^\mu_a(x)X}\omega_a(x)
 \end{align}
-which finally gives 
+which finally gives
 \begin{align}
     \expval{\delta X}=\int\dd[d]{x}\partial_\mu\expval{j^\mu_a(x)X}\omega_a(x).\label{eq:ward:anyomega}
 \end{align}
-The variation $\delta_\omega X$ is explicitly given to first order in $\omega_a(x)$ by 
+The variation $\delta_\omega X$ is explicitly given to first order in $\omega_a(x)$ by
 \begin{align}
-    \delta_\omega X&=-\ii\sum_{i=1}^n\left(\Phi(x_1)\dots G_a\Phi(x_i)\dots\Phi(x_n)\right)\omega_a(x_i)\notag\\
-                    &=-\ii\int\dd[d]{x}\omega_a(x)\sum_{i=1}^n\left[\Phi(x_1)\dots G_a\Phi(x_i)\dots\Phi(x_n)\right]\delta(x-x_i).
+    \delta_\omega X & =-\ii\sum_{i=1}^n\left(\Phi(x_1)\dots G_a\Phi(x_i)\dots\Phi(x_n)\right)\omega_a(x_i)\notag                    \\
+                    & =-\ii\int\dd[d]{x}\omega_a(x)\sum_{i=1}^n\left[\Phi(x_1)\dots G_a\Phi(x_i)\dots\Phi(x_n)\right]\delta(x-x_i).
 \end{align}
 Since \cref{eq:ward:anyomega} holds for any $\omega_a(x)$, we have the local relation which is called the \textit{Ward identity} for the current $j^\mu_a$.
 \begin{boxmath}{Ward Identity}
@@ -220,23 +220,23 @@ Since \cref{eq:ward:anyomega} holds for any $\omega_a(x)$, we have the local rel
 \subsection{The Energy-Momentum Tensor}
 The conserved current associated with translation invariance is the \textit{energy-momentum tensor}, whose components are the density and flux density of energy and momentum.
 
-Consider the infinitesimal translation\sidenote{The field is unaffected by the translation.} $x^\mu\to x^\mu+\epsilon^\mu$, we have 
+Consider the infinitesimal translation\sidenote{The field is unaffected by the translation.} $x^\mu\to x^\mu+\epsilon^\mu$, we have
 \begin{align}
     \fdv{x^\mu}{\epsilon^\mu}=\delta^\mu_\nu\quad\fdv{\mathcal{F}(x)}{\epsilon^\mu}=0.
 \end{align}
-Using \cref{eq:nother:canonical_current}, the corresponding canonical conserved current is 
+Using \cref{eq:nother:canonical_current}, the corresponding canonical conserved current is
 \begin{align}
     T^{\mu\nu}_c\equiv-\eta^{\mu\nu}\mathcal{L}+\pdv{\mathcal{L}}{(\partial_\mu\Phi)}\partial^\nu\Phi
 \end{align}
-which satisfies 
+which satisfies
 \begin{align}
     \partial_\mu T^{\mu\nu}_c=0.
 \end{align}
-The conserved charge is the 4-momentum 
+The conserved charge is the 4-momentum
 \begin{align}
     P^\nu\equiv\int\dd[d-1]{x}T^{0\nu}_c.
 \end{align}
-In particular, the energy is 
+In particular, the energy is
 \begin{align}
     P^0=\int\dd[d-1]{x}\left(\pdv{\mathcal{L}}{\dot{\Phi}}\dot{\Phi}-\mathcal{L}\right)
 \end{align}
@@ -270,15 +270,15 @@ We denote by $g_{\mu\nu}$ the metric tensor in a spacetime of dimension $d$.
 The set of conformal transformations manifestly forms a group, and it obviously has the Poincar\'{e} group as a subgroup, since the latter corresponds to the special case $\Lambda(x)=1$.
 \subsubsection{Infinitesimal Conformal Transformation}
 Consider an infinitesimal conformal transformation $x^\mu\to x'^{\mu}+\epsilon^\mu(x)$.
-The induced metric is 
+The induced metric is
 \begin{align}
     g'_{\mu\nu}=g_{\mu\nu}-\left(\partial_\mu\epsilon_\nu+\partial_\nu\epsilon_\mu\right).
 \end{align}
-The requirement that the transformation be conformal implies that 
+The requirement that the transformation be conformal implies that
 \begin{align}
     \partial_\mu\epsilon_\nu+\partial_\nu\epsilon_\mu=f(x)g_{\mu\nu}.\label{eq:GCI:fx}
 \end{align}
-Taking the trace of both sides of \cref{eq:GCI:fx}, we have 
+Taking the trace of both sides of \cref{eq:GCI:fx}, we have
 \begin{align}
     f(x)=\frac{2}{d}\partial_\rho\epsilon^\rho.\label{eq:GCI:fx1}
 \end{align}
@@ -288,20 +288,20 @@ By applying an extra derivative $\partial_\rho$ on \cref{eq:GCI:fx}, permuting t
 \begin{align}
     2\partial_\mu\partial_\nu\epsilon_\rho=\eta_{\mu\rho}\partial_\nu f+\eta_{\nu\rho}\partial_\mu f-\eta_{\mu\nu}\partial_\rho f.\label{eq:GCI:fx2}
 \end{align}
-Upon contracting with $\eta^{\mu\nu}$, \cref{eq:GCI:fx2} becomes 
+Upon contracting with $\eta^{\mu\nu}$, \cref{eq:GCI:fx2} becomes
 \begin{align}
     2\partial^2\epsilon_\mu=(2-d)\partial_\mu f \label{eq:GCI:fx3}
 \end{align}
 Applying $\partial_\nu$ on \cref{eq:GCI:fx3} and $\partial^2$ on \cref{eq:GCI:fx}, we have respectively
 \begin{align}
-    \partial^2\partial_\nu\epsilon_\mu=&\frac{2-d}{2}\partial_\mu\partial_\nu f\label{eq:GCI:fx4}\\
-    \eta_{\mu\nu}\partial^2 f=&\partial^2\partial_\mu\epsilon_\nu+\partial^2\partial_\nu\epsilon_\mu.\label{eq:GCI:fx5}
-\end{align} 
+    \partial^2\partial_\nu\epsilon_\mu= & \frac{2-d}{2}\partial_\mu\partial_\nu f\label{eq:GCI:fx4}                                \\
+    \eta_{\mu\nu}\partial^2 f=          & \partial^2\partial_\mu\epsilon_\nu+\partial^2\partial_\nu\epsilon_\mu.\label{eq:GCI:fx5}
+\end{align}
 Combine \cref{eq:GCI:fx4,eq:GCI:fx5}, we have\sidenote{Notice that the $\mu$ and $\nu$ indices in \cref{eq:GCI:fx4} are symmetric.}
 \begin{align}
     (2-d)\partial_\mu\partial_\nu f=\eta_{\mu\nu}\partial^2 f.\label{eq:GCI:fx6}
 \end{align}
-Finally, contracting \cref{eq:GCI:fx6} with $\eta^{\mu\nu}$, we end up with 
+Finally, contracting \cref{eq:GCI:fx6} with $\eta^{\mu\nu}$, we end up with
 \begin{align}
     (d-1)\partial^2 f=0.\label{eq:GCI:fx7}
 \end{align}
@@ -310,12 +310,12 @@ The above equations do not impose any constraint on the function $f$, and theref
 \paragraph{The case $d=2$}
 This case is special and it will be studied in detail later.
 \paragraph{The case $d\geq3$}
-Now \cref{eq:GCI:fx6,eq:GCI:fx7} imply that $\partial_\mu\partial_\nu f=0$ and therefore 
+Now \cref{eq:GCI:fx6,eq:GCI:fx7} imply that $\partial_\mu\partial_\nu f=0$ and therefore
 \begin{align}
     f(x)=A+B_\mu x^\mu\label{eq:GCI:fxs}
 \end{align}
 where $A$ and $B_\mu$ are constants.
-If we substitute \cref{eq:GCI:fxs} into \cref{eq:GCI:fx2}, we see that $\partial_\mu\partial_\nu\epsilon_\rho$ is constant, which means we have the general expression 
+If we substitute \cref{eq:GCI:fxs} into \cref{eq:GCI:fx2}, we see that $\partial_\mu\partial_\nu\epsilon_\rho$ is constant, which means we have the general expression
 \begin{align}
     \epsilon_\mu=a_\mu+b_{\mu\nu}x^\nu+c_{\mu\nu\rho}x^\nu x^\rho\qq{where}c_{\mu\nu\rho}=c_{\mu\rho\nu}.
 \end{align}
@@ -323,83 +323,83 @@ $a_\mu$, $b_{\mu\nu}$ and $c_{\mu\nu\rho}$ are constants.
 We can treat each power of the coordinate separately and use the constraints \cref{eq:GCI:fx,eq:GCI:fx1,eq:GCI:fx2}:
 \begin{itemize}
     \item The constant term $a_\mu$ is free of constraints.
-    This term amounts to an infinitesimal translation.
-    \item Substitution of the linear term into \cref{eq:GCI:fx,eq:GCI:fx1} yields 
+          This term amounts to an infinitesimal translation.
+    \item Substitution of the linear term into \cref{eq:GCI:fx,eq:GCI:fx1} yields
           \begin{align}
-            b_{\mu\nu}+b_{\nu\mu}=\frac{2}{d}\tensor{b}{^\lambda_\lambda}\eta_{\mu\nu}
+              b_{\mu\nu}+b_{\nu\mu}=\frac{2}{d}\tensor{b}{^\lambda_\lambda}\eta_{\mu\nu}
           \end{align}
-          which implies that\sidenote{We can always decompose a matrix into a sum of a symmetric part and an anti-symmetric part by $a_{mn}=\frac{a_{mn}+a_{nm}}{2}+\frac{a_{mn}-a_{nm}}{2}$.} 
+          which implies that\sidenote{We can always decompose a matrix into a sum of a symmetric part and an anti-symmetric part by $a_{mn}=\frac{a_{mn}+a_{nm}}{2}+\frac{a_{mn}-a_{nm}}{2}$.}
           \begin{align}
-            b_{\mu\nu}=\alpha\eta_{\mu\nu}+m_{\mu\nu}\qq{where}m_{\mu\nu}=-m_{\nu\mu}.
+              b_{\mu\nu}=\alpha\eta_{\mu\nu}+m_{\mu\nu}\qq{where}m_{\mu\nu}=-m_{\nu\mu}.
           \end{align}
           $\alpha$ is a constant.
           The symmetric part represents an infinitesimal scale transformation, whereas the anti-symmetric part is an infinitesimal rigid rotation.
-    \item Substitution of the linear term into \cref{eq:GCI:fx2,eq:GCI:fx1} yields 
+    \item Substitution of the linear term into \cref{eq:GCI:fx2,eq:GCI:fx1} yields
           \begin{align}
-            c_{\mu\nu\rho}=\eta_{\mu\rho}b_{\nu}+\eta_{\mu\nu}b_{\rho}-\eta_{\nu\rho}b_{\mu}\qq{where}b_{\mu}\equiv\frac{\tensor{c}{^\sigma_\sigma_\mu}}{d}
-          \end{align} 
-          and the corresponding infinitesimal transformation is 
+              c_{\mu\nu\rho}=\eta_{\mu\rho}b_{\nu}+\eta_{\mu\nu}b_{\rho}-\eta_{\nu\rho}b_{\mu}\qq{where}b_{\mu}\equiv\frac{\tensor{c}{^\sigma_\sigma_\mu}}{d}
+          \end{align}
+          and the corresponding infinitesimal transformation is
           \begin{align}
-            x'^\mu=x^\mu+2(x\vdot b)x^\mu-b^\mu x^2
+              x'^\mu=x^\mu+2(x\vdot b)x^\mu-b^\mu x^2
           \end{align}
           which is called \textit{special conformal transformation} (SCT).
 \end{itemize}
 The finite transformations corresponding to the above are the following:
 \begin{boxmath}{Finite Conformal Transformation}
     \begin{align}
-        \text{(translation)}&\quad x'^\mu=x^\mu+a^\mu\\
-        \text{(dilation)}&\quad x'^\mu=\alpha x^\mu\\
-        \text{(rigid rotation)}&\quad x'^\mu=\tensor{M}{^\mu_\nu}x^\nu\\
-        \text{(SCT)}&\quad x'^\mu=\frac{x^\mu-b^\mu x^2}{1-2b\vdot x+b^2 x^2}
+        \text{(translation)}    & \quad x'^\mu=x^\mu+a^\mu                                 \\
+        \text{(dilation)}       & \quad x'^\mu=\alpha x^\mu                                \\
+        \text{(rigid rotation)} & \quad x'^\mu=\tensor{M}{^\mu_\nu}x^\nu                   \\
+        \text{(SCT)}            & \quad x'^\mu=\frac{x^\mu-b^\mu x^2}{1-2b\vdot x+b^2 x^2}
     \end{align}
 \end{boxmath}
 
-Recall the \cref{def:generator_of_a_symmetry_transformation} and suppose the field are unaffected by the transformation, we can get the generators of the conformal group 
+Recall the \cref{def:generator_of_a_symmetry_transformation} and suppose the field are unaffected by the transformation, we can get the generators of the conformal group
 \begin{boxmath}{Generators of Conformal Transformation}
     \begin{align}
-        \text{(translation)}&\quad P_\mu=-\ii\partial_\mu\\
-        \text{(dilation)}&\quad D=-\ii x^\mu\partial_\mu\\
-        \text{(rigid rotation)}&\quad L_{\mu\nu}=\ii(x_\mu\partial_\nu-x_\nu\partial_\mu)\\
-        \text{(SCT)}&\quad K_\mu=-\ii(2x_\mu x^\nu\partial_\nu-x^2\partial_\mu).
+        \text{(translation)}    & \quad P_\mu=-\ii\partial_\mu                                \\
+        \text{(dilation)}       & \quad D=-\ii x^\mu\partial_\mu                              \\
+        \text{(rigid rotation)} & \quad L_{\mu\nu}=\ii(x_\mu\partial_\nu-x_\nu\partial_\mu)   \\
+        \text{(SCT)}            & \quad K_\mu=-\ii(2x_\mu x^\nu\partial_\nu-x^2\partial_\mu).
     \end{align}
 \end{boxmath}
 The commutators of these generators define the \textit{conformal algebra}
 \begin{boxmath}{Conformal Algebra}
     \begin{align}
-        \comm{D}{P_{\mu}}&=\ii P_\mu\label{eq:conformal_algebra_1}\\
-        \comm{D}{K_\mu}&=-\ii K_\mu\label{eq:conformal_algebra_2}\\
-        \comm{K_\mu}{P_\nu}&=2\ii\left(\eta_{\mu\nu}D-L_{\mu\nu}\right)\label{eq:conformal_algebra_3}\\
-        \comm{K_\rho}{L_{\mu\nu}}&=\ii(\eta_{\rho\mu}K_\nu-\eta_{\rho\nu}K_\mu)\label{eq:conformal_algebra_4}\\
-        \comm{P_\rho}{L_{\mu\nu}}&=\ii(\eta_{\rho\mu}P_{\nu}-\eta_{\rho\nu}P_{\mu})\label{eq:conformal_algebra_5}\\
-        \comm{L_{\mu\nu}}{L_{\rho\sigma}}&=\ii\left(\eta_{\nu\rho}L_{\mu\sigma}+\eta_{\mu\sigma}L_{\nu\rho}-\eta_{\mu\rho}L_{\nu\sigma}-\eta_{\nu\sigma}L_{\mu\rho}\right).\label{eq:conformal_algebra_6}
+        \comm{D}{P_{\mu}}                 & =\ii P_\mu\label{eq:conformal_algebra_1}                                                                                                                        \\
+        \comm{D}{K_\mu}                   & =-\ii K_\mu\label{eq:conformal_algebra_2}                                                                                                                       \\
+        \comm{K_\mu}{P_\nu}               & =2\ii\left(\eta_{\mu\nu}D-L_{\mu\nu}\right)\label{eq:conformal_algebra_3}                                                                                       \\
+        \comm{K_\rho}{L_{\mu\nu}}         & =\ii(\eta_{\rho\mu}K_\nu-\eta_{\rho\nu}K_\mu)\label{eq:conformal_algebra_4}                                                                                     \\
+        \comm{P_\rho}{L_{\mu\nu}}         & =\ii(\eta_{\rho\mu}P_{\nu}-\eta_{\rho\nu}P_{\mu})\label{eq:conformal_algebra_5}                                                                                 \\
+        \comm{L_{\mu\nu}}{L_{\rho\sigma}} & =\ii\left(\eta_{\nu\rho}L_{\mu\sigma}+\eta_{\mu\sigma}L_{\nu\rho}-\eta_{\mu\rho}L_{\nu\sigma}-\eta_{\nu\sigma}L_{\mu\rho}\right).\label{eq:conformal_algebra_6}
     \end{align}
 \end{boxmath}
 Other commutators vanish.
 \begin{remark}
     The number of the generators of the conformal group is
     \begin{align}
-        &1\ \mathrm{dilation}+d\ \mathrm{translations}+d\ \mathrm{SCTs}+\frac{d(d-1)}{2}\ \mathrm{rotations}\notag\\
-        &=\frac{(d+2)(d+1)}{2}\ \mathrm{generators},
+         & 1\ \mathrm{dilation}+d\ \mathrm{translations}+d\ \mathrm{SCTs}+\frac{d(d-1)}{2}\ \mathrm{rotations}\notag \\
+         & =\frac{(d+2)(d+1)}{2}\ \mathrm{generators},
     \end{align}
     which is exactly the number of generators of the group $\mathrm{SO}(d+1,1)$.
 
-    In order to put the above commutation rules into a simpler form, we define the following generators\snm: 
+    In order to put the above commutation rules into a simpler form, we define the following generators\snm:
     \begin{align}
-        J_{\mu,\nu}&\equiv L_{\mu\nu}\\
-        J_{-1,\mu}&\equiv \frac{1}{2}(P_\mu-K_\mu)\\
-        J_{0,\mu}&\equiv \frac{1}{2}(P_\mu+K_\mu)\\
-        J_{-1,0}&\equiv D\\
-        J_{a,b}&\equiv-J_{b,a},
+        J_{\mu,\nu} & \equiv L_{\mu\nu}               \\
+        J_{-1,\mu}  & \equiv \frac{1}{2}(P_\mu-K_\mu) \\
+        J_{0,\mu}   & \equiv \frac{1}{2}(P_\mu+K_\mu) \\
+        J_{-1,0}    & \equiv D                        \\
+        J_{a,b}     & \equiv-J_{b,a},
     \end{align}
     where $a,b\in\{-1,0,1,\dots,d\}$.
     The last definition implies the diagonal elements vanish.
-    These new generators obey the $\mathrm{SO}(d+1,1)$ algebra 
+    These new generators obey the $\mathrm{SO}(d+1,1)$ algebra
     \begin{align}
         \comm{J_{a,b}}{J_{c,d}}=\ii\left(\eta_{ad}J_{b,c}+\eta_{bc}J_{a,d}-\eta_{ac}J_{b,d}-\eta_{bc}J_{a,c}\right)
     \end{align}
     where the diagonal metric $\eta_{ab}$ is $\mathrm{diag}(-1,1,1,\dots,1)$ if spacetime is Euclidean (otherwise an additional component, say $g_{dd}$ is negative).
 
-    This shows the isomorphism between the $d$-dimensional conformal group and $\mathrm{SO}(d+1,1)$. 
+    This shows the isomorphism between the $d$-dimensional conformal group and $\mathrm{SO}(d+1,1)$.
 \end{remark}
 \snt{Notice that the $\mu$ and $\nu$ indices runs from 1 to $d$.}
 
@@ -407,16 +407,16 @@ Other commutators vanish.
 Consider functions $\Gamma(x_i)$ of $n$ points $x_i$ that are left unchanged under all types of conformal transformations.
 \begin{itemize}
     \item Translational and rotational invariance imply that $\Gamma$ can only depend on distances $\abs{x_i-x_j}$ between pairs of distinct points.
-    \item Scale invariance imply that only ratios of such distances, such as 
-            \begin{align}
-                \frac{\abs{x_i-x_j}}{\abs{x_k-x_l}}
-            \end{align}
-            will appear in $\Gamma$.
-    \item Under SCT, $\abs{x_i-x_j}$ becomes 
-            \begin{align}
-                \abs{x_i'-x_j'}=\frac{\abs{x_i-x_j}}{(1-2b\vdot x_i+b^2 x_i^2)^{\frac{1}{2}}(1-2b\vdot x_j+b^2 x_j^2)^{\frac{1}{2}}}.\label{eq:conformal_distance_trans}
-            \end{align}
-\end{itemize} 
+    \item Scale invariance imply that only ratios of such distances, such as
+          \begin{align}
+              \frac{\abs{x_i-x_j}}{\abs{x_k-x_l}}
+          \end{align}
+          will appear in $\Gamma$.
+    \item Under SCT, $\abs{x_i-x_j}$ becomes
+          \begin{align}
+              \abs{x_i'-x_j'}=\frac{\abs{x_i-x_j}}{(1-2b\vdot x_i+b^2 x_i^2)^{\frac{1}{2}}(1-2b\vdot x_j+b^2 x_j^2)^{\frac{1}{2}}}.\label{eq:conformal_distance_trans}
+          \end{align}
+\end{itemize}
 We can see it is impossible to construct an invariant $\Gamma$ with only 2 or 3 points.
 The simplest possibilities appear in $\Gamma$ are the functions of 4 points
 \begin{align}
@@ -429,7 +429,7 @@ and such expressions are called \textit{anharmonic ratios} or \textit{cross-rati
 \begin{proof}
     We denote $r_{ij}\equiv\abs{x_i-x_j}$ where $i<j$.
     Then the number of $r_{ij}$ is $\frac{N(N-1)}{2}$.
-    
+
     A general monomial $\prod_{1\leq i\leq j\leq N}r^{\mu_{ij}}_{ij}$ is conformally invariant if and only if $d_i\equiv\sum^{i-1}_{j=1}\mu_{ji}+\sum^N_{j=i+1}\mu_{ij}=0$ for all $i=1,\dots,N$ which gives $N$ constraints that $\mu_{ij}$ must obey.
     It is crucial to realize that the dimension of the solution space of $\mu_{ij}$ is the number of the independent cross ratios\snm.
     So the number of the independent cross ratios is $\frac{N(N-1)}{2}-N=\frac{N(N-3)}{2}$.
@@ -442,13 +442,13 @@ and such expressions are called \textit{anharmonic ratios} or \textit{cross-rati
 \subsection{Conformal Invariance in Classical Field Theory}
 \subsubsection{Representations of the Conformal Group in \texorpdfstring{$d$}{d} Dimensions}
 \begin{intu}
-Given an infinitesimal conformal transformation parametrized by $\omega_g$, we seek a matrix representation $T_g$ that a multicomponent field $\Phi(x)$ transforms as 
-\begin{align}
-    \Phi'(x')=(1-\ii\omega_g T_g)\Phi(x).
-\end{align}
-In the previous parts, we only considered the generators of the conformal transformations that only include spacetime transformation and leave the field unaffected.
-Now we are considering conformal transformations that include field transformations, which is called the \textit{full conformal transformation}.
-The corresponding generators are called the \textit{full generators} of the symmetry. 
+    Given an infinitesimal conformal transformation parametrized by $\omega_g$, we seek a matrix representation $T_g$ that a multicomponent field $\Phi(x)$ transforms as
+    \begin{align}
+        \Phi'(x')=(1-\ii\omega_g T_g)\Phi(x).
+    \end{align}
+    In the previous parts, we only considered the generators of the conformal transformations that only include spacetime transformation and leave the field unaffected.
+    Now we are considering conformal transformations that include field transformations, which is called the \textit{full conformal transformation}.
+    The corresponding generators are called the \textit{full generators} of the symmetry.
 \end{intu}
 We first look at an example of Poincar\'e transformation
 \begin{example}
@@ -461,22 +461,22 @@ We first look at an example of Poincar\'e transformation
     $S_{\mu\nu}$ is an ordinary matrix since Lorentz transformation maps the origin to itself.
     We can use a trick to get the effect of $L_{\mu\nu}$ on fields elsewhere
     \begin{align}
-        L_{\mu\nu}\Phi(x)&=L_{\mu\nu}\me^{\ii x^\mu P_\mu}\Phi(0)\notag\\
-                        &=\me^{\ii x^\mu P_\mu}\me^{-\ii x^\mu P_\mu}L_{\mu\nu}\me^{\ii x^\mu P_\mu}\Phi(0)\label{eq:poincare_algebra_trick_haussdorff}\\
-                        &=\me^{\ii x^\mu P_\mu}\left(L_{\mu\nu}-x_\mu P_{\nu}+x_\nu P_\mu\right)\Phi(0)\notag\\
-                        &=\me^{\ii x^\mu P_\mu}\left(S_{\mu\nu}-x_\mu P_{\nu}+x_\nu P_\mu\right)\Phi(0)\notag\\
-                        &=\left(S_{\mu\nu}-x_\mu P_{\nu}+x_\nu P_\mu\right)\Phi(x).
+        L_{\mu\nu}\Phi(x) & =L_{\mu\nu}\me^{\ii x^\mu P_\mu}\Phi(0)\notag                                                                                  \\
+                          & =\me^{\ii x^\mu P_\mu}\me^{-\ii x^\mu P_\mu}L_{\mu\nu}\me^{\ii x^\mu P_\mu}\Phi(0)\label{eq:poincare_algebra_trick_haussdorff} \\
+                          & =\me^{\ii x^\mu P_\mu}\left(L_{\mu\nu}-x_\mu P_{\nu}+x_\nu P_\mu\right)\Phi(0)\notag                                           \\
+                          & =\me^{\ii x^\mu P_\mu}\left(S_{\mu\nu}-x_\mu P_{\nu}+x_\nu P_\mu\right)\Phi(0)\notag                                           \\
+                          & =\left(S_{\mu\nu}-x_\mu P_{\nu}+x_\nu P_\mu\right)\Phi(x).
     \end{align}
     We used the \textit{Hausdorff formula} in \cref{eq:poincare_algebra_trick_haussdorff}
-\begin{align}\label{eq:haussdorff}
-    \me^{-A}B\me^{A}=B+\comm{B}{A}+\frac{1}{2!}\comm{\comm{B}{A}}{A}+\frac{1}{3!}\comm{\comm{\comm{B}{A}}{A}}{A}+\dots.
-\end{align}
-We can do this for $P_\mu$ in the same way. 
-And finally 
-\begin{align}
-    P_\mu\Phi(x)&=-\ii\partial_\mu\Phi(x)\\
-    L_{\mu\nu}\Phi(x)&=\ii(x_\mu \partial_\nu-x_\nu\partial_\mu)\Phi(x)+S_{\mu\nu}\Phi(x).    
-\end{align}
+    \begin{align}\label{eq:haussdorff}
+        \me^{-A}B\me^{A}=B+\comm{B}{A}+\frac{1}{2!}\comm{\comm{B}{A}}{A}+\frac{1}{3!}\comm{\comm{\comm{B}{A}}{A}}{A}+\dots.
+    \end{align}
+    We can do this for $P_\mu$ in the same way.
+    And finally
+    \begin{align}
+        P_\mu\Phi(x)      & =-\ii\partial_\mu\Phi(x)                                             \\
+        L_{\mu\nu}\Phi(x) & =\ii(x_\mu \partial_\nu-x_\nu\partial_\mu)\Phi(x)+S_{\mu\nu}\Phi(x).
+    \end{align}
 \end{example}
 \begin{remark}
     If we already know how a generator act on field at one point, we can use the translation operators to derive the its effect on fields at other points.
@@ -487,22 +487,22 @@ We denote the effect of $L_{\mu\nu}$, $D$ and $K_\mu$ at $x=0$ by $S_{\mu\nu}$, 
 They form a matrix representation of the reduced conformal algebra as in \cref{eq:conformal_algebra_2,eq:conformal_algebra_4,eq:conformal_algebra_6}
 \begin{subequations}
     \begin{align}
-        \comm{\tilde{\Delta}}{S_{\mu\nu}}=&0\label{eq:conformal_matrix_1}\\
-        \comm{\tilde{\Delta}}{\kappa_\mu}=&-\ii\kappa_\mu\\
-        \comm{\kappa_\nu}{\kappa_\mu}=&0\\
-        \comm{\kappa_\rho}{S_{\mu\nu}}=&\ii\left(\eta_{\rho\mu}\kappa_{\nu}-\eta_{\rho\nu}\kappa_\mu\right)\\
-        \comm{S_{\mu\nu}}{S_{\rho\sigma}}=&\ii\left(\eta_{\nu\rho}S_{\mu\sigma}+\eta_{\mu\sigma}S_{\nu\rho}-\eta_{\mu\rho}S_{\nu\sigma}-\eta_{\nu\sigma}S_{\mu\rho}\right).
+        \comm{\tilde{\Delta}}{S_{\mu\nu}}= & 0\label{eq:conformal_matrix_1}                                                                                                   \\
+        \comm{\tilde{\Delta}}{\kappa_\mu}= & -\ii\kappa_\mu                                                                                                                   \\
+        \comm{\kappa_\nu}{\kappa_\mu}=     & 0                                                                                                                                \\
+        \comm{\kappa_\rho}{S_{\mu\nu}}=    & \ii\left(\eta_{\rho\mu}\kappa_{\nu}-\eta_{\rho\nu}\kappa_\mu\right)                                                              \\
+        \comm{S_{\mu\nu}}{S_{\rho\sigma}}= & \ii\left(\eta_{\nu\rho}S_{\mu\sigma}+\eta_{\mu\sigma}S_{\nu\rho}-\eta_{\mu\rho}S_{\nu\sigma}-\eta_{\nu\sigma}S_{\mu\rho}\right).
     \end{align}
 \end{subequations}
-Using \cref{eq:conformal_algebra_1,eq:conformal_algebra_2,eq:conformal_algebra_3,eq:conformal_algebra_4,eq:conformal_algebra_5,eq:conformal_algebra_6,eq:haussdorff}, we have 
+Using \cref{eq:conformal_algebra_1,eq:conformal_algebra_2,eq:conformal_algebra_3,eq:conformal_algebra_4,eq:conformal_algebra_5,eq:conformal_algebra_6,eq:haussdorff}, we have
 \begin{align}
-    \me^{\ii x^\rho P_\rho}D\me^{-\ii x^\rho P_\rho}=&D+x^\nu P_\nu\\
-    \me^{\ii x^\rho P_\rho}K_\mu\me^{-\ii x^\rho P_\rho}=&K_\mu+2x_\mu D-2x^\nu L_{\mu\nu}+2x_\mu\left(x^\nu P_\nu\right)-x^2 P_\mu
+    \me^{\ii x^\rho P_\rho}D\me^{-\ii x^\rho P_\rho}=     & D+x^\nu P_\nu                                                             \\
+    \me^{\ii x^\rho P_\rho}K_\mu\me^{-\ii x^\rho P_\rho}= & K_\mu+2x_\mu D-2x^\nu L_{\mu\nu}+2x_\mu\left(x^\nu P_\nu\right)-x^2 P_\mu
 \end{align}
 and therefore
 \begin{align}
-    D\Phi(x)=&\left(-\ii x^\nu\partial_\nu+\tilde{\Delta}\right)\Phi\\
-    K_\mu\Phi(x)=&\left(\kappa_\mu+2x_\mu\tilde{\Delta}-x^\nu S_{\mu\nu}-2\ii x_\mu x^\nu\partial_\nu+\ii x^2 \partial_\mu\right)\Phi(x).
+    D\Phi(x)=     & \left(-\ii x^\nu\partial_\nu+\tilde{\Delta}\right)\Phi                                                                  \\
+    K_\mu\Phi(x)= & \left(\kappa_\mu+2x_\mu\tilde{\Delta}-x^\nu S_{\mu\nu}-2\ii x_\mu x^\nu\partial_\nu+\ii x^2 \partial_\mu\right)\Phi(x).
 \end{align}
 
 \begin{remark}
@@ -514,26 +514,26 @@ For a spinless field, $S_{\mu\nu}=0$ and it transforms under a conformal transfo
 \begin{align}
     \phi(x)\to\phi'(x')=\abs{\pdv{x'}{x}}^{-\frac{\Delta}{d}}\phi(x)\label{eq:representation:spinless_trans}
 \end{align}
-where $\abs{\pdv{x'}{x}}$ is the Jacobian of the conformal transformation which can shown to be related to the conformal factor in \cref{eq:ct:conformal_transformation} by 
+where $\abs{\pdv{x'}{x}}$ is the Jacobian of the conformal transformation which can shown to be related to the conformal factor in \cref{eq:ct:conformal_transformation} by
 \begin{align}
     \abs{\pdv{x'}{x}}=\Lambda(x)^{-\frac{d}{2}}.\label{eq:quasi_field_def}
 \end{align}
 
-A field transforming like \cref{eq:quasi_field_def} is called \textit{quasi-primary}. 
+A field transforming like \cref{eq:quasi_field_def} is called \textit{quasi-primary}.
 
 
 \subsubsection{The Energy-Momentum Tensor}
-Under an arbitrary transformation of the coordinates $x^\mu\to x^\mu+\epsilon^\mu(x)$, the action changes as follows 
+Under an arbitrary transformation of the coordinates $x^\mu\to x^\mu+\epsilon^\mu(x)$, the action changes as follows
 \begin{align}
-    \delta S&=\int\dd[d]{x}T^{\mu\nu}\partial_\mu\epsilon_\nu \notag\\
-            &=\frac{1}{2}\int\dd[d]{x}T^{\mu\nu}\left(\partial_\mu\epsilon_\nu+\partial_\nu\epsilon_\mu\right)
+    \delta S & =\int\dd[d]{x}T^{\mu\nu}\partial_\mu\epsilon_\nu \notag                                           \\
+             & =\frac{1}{2}\int\dd[d]{x}T^{\mu\nu}\left(\partial_\mu\epsilon_\nu+\partial_\nu\epsilon_\mu\right)
 \end{align}
 where the energy-momentum tensor $T^{\mu\nu}$ is assumed to be symmetric.
 
-Under an infinitesimal conformal transformation, using \cref{eq:GCI:fx,eq:GCI:fx1}, we have 
+Under an infinitesimal conformal transformation, using \cref{eq:GCI:fx,eq:GCI:fx1}, we have
 \begin{align}
-    \delta S&=\frac{1}{2}\int\dd[d]{x}T^{\mu\nu}f(x)g_{\mu\nu}\notag\\
-            &=\frac{1}{d}\int\dd[d]{x}\tensor{T}{^\mu_\mu}\partial_\rho\epsilon^\rho.
+    \delta S & =\frac{1}{2}\int\dd[d]{x}T^{\mu\nu}f(x)g_{\mu\nu}\notag                  \\
+             & =\frac{1}{d}\int\dd[d]{x}\tensor{T}{^\mu_\mu}\partial_\rho\epsilon^\rho.
 \end{align}
 \begin{intu}
     Under certain conditions, the energy-momentum tensor of a theory with scale invariance can be made traceless.
@@ -544,84 +544,84 @@ Under an infinitesimal conformal transformation, using \cref{eq:GCI:fx,eq:GCI:fx
 \subsection{Conformal Invariance in Quantum Field Theory}
 \subsubsection{Correlation Functions}
 \paragraph{Two-point function}
-Consider the two-point function 
+Consider the two-point function
 
 \begin{align}
     \expval{\eqnmarkbox[blue]{node1}{\phi_1}(x_1)\eqnmarkbox[blue]{node2}{\phi_2}(x_2)}=\frac{1}{Z}\int\left[\dd{\Phi}\right]\phi_1(x_1)\phi_2(x_2)\exp(-S\left[\Phi\right]).
 \end{align}\annotate[yshift=1em]{}{node1,node2}{Quasi-primary fields}
 $\Phi$ denotes the set of all functionally independent fields in this theory and $S[\Phi]$ is the action, which we assume to be conformally invariant.
 
-According to \cref{eq:TCF:correlation_transform}, we have 
+According to \cref{eq:TCF:correlation_transform}, we have
 \begin{align}
     \expval{\phi_1(x_1)\phi_2(x_2)}=\abs{\pdv{x'}{x}}^{\frac{\Delta_1}{d}}_{x=x_1}\abs{\pdv{x'}{x}}^{\frac{\Delta_2}{d}}_{x=x_2}\expval{\phi_1(x_1')\phi_2(x_2')}\label{eq:CIQFT:two_point_trans}
 \end{align}
-If we specialize to scale transformation $x\to\lambda x$ we obtain 
+If we specialize to scale transformation $x\to\lambda x$ we obtain
 \begin{align}
     \expval{\phi_1(x_1)\phi_2(x_2)}=\lambda^{\Delta_1+\Delta_2}\expval{\phi_1(\lambda x_1)\phi_2(\lambda x_2)}.\label{eq:CIQFT:2cf}
 \end{align}
-Rotational and translational invariance require that 
+Rotational and translational invariance require that
 \begin{align}
     \expval{\phi_1(x_1)\phi_2(x_2)}=f\left(\abs{x_1-x_2}\right)
 \end{align}
-and together with \cref{eq:CIQFT:2cf}, we have 
+and together with \cref{eq:CIQFT:2cf}, we have
 \begin{align}
     f(x)=\lambda^{\Delta_1+\Delta_2}f(\lambda x)
 \end{align}
-which implies 
+which implies
 
 \begin{align}
     \expval{\phi_1(x_1)\phi_2(x_2)}=\frac{\eqnmarkbox[blue]{node1}{C_{12}}}{\abs{x_1-x_2}^{\Delta_1+\Delta_2}}\label{eq:CIQFT:two_point_fix_1}
 \end{align}\annotate[yshift=0.5em]{}{node1}{Constant coefficient}
 
 Apart from scale invariance, we have special conformal transformations (SCT).
-Recall that, for SCT  
+Recall that, for SCT
 \begin{align}
     \abs{\pdv{x'}{x}}=\frac{1}{(1-2b\cdot x+b^2 x^2)^d}.
 \end{align}
-Using \cref{eq:conformal_distance_trans,eq:CIQFT:two_point_fix_1,eq:CIQFT:two_point_trans}, we have 
+Using \cref{eq:conformal_distance_trans,eq:CIQFT:two_point_fix_1,eq:CIQFT:two_point_trans}, we have
 \begin{align}
     \frac{C_{12}}{\abs{x_1-x_2}^{\Delta_1+\Delta_2}}=\frac{C_{12}}{\gamma_1^{\Delta_1}\gamma_2^{\Delta_2}}\frac{(\gamma_1\gamma_2)^{\frac{\Delta_1+\Delta_2}{2}}}{\abs{x_1-x_2}^{\Delta_1+\Delta_2}}\label{eq:CIQFT:2_point_constraint_1}
 \end{align}
 where $\gamma_i\equiv(1-2b\vdot x_i+b^2 x_i^2)$.
-\Cref{eq:CIQFT:2_point_constraint_1} are satisfied only when $\Delta_1=\Delta_2$ or $C_{12}=0$, which implies 
+\Cref{eq:CIQFT:2_point_constraint_1} are satisfied only when $\Delta_1=\Delta_2$ or $C_{12}=0$, which implies
 \begin{boxmath}{2-point function}
     \begin{align}\label{eq:CIQFT:2_point_final}
         \expval{\phi_1(x_1)\phi_2(x_2)}=\begin{cases}
-            \frac{C_{12}}{\abs{x_1-x_2}^{2\Delta_1}}&\qif\Delta_1=\Delta_2\\
-            0&\qif\Delta_1\neq\Delta_2.
-        \end{cases}
+                                            \frac{C_{12}}{\abs{x_1-x_2}^{2\Delta_1}} & \qif\Delta_1=\Delta_2     \\
+                                            0                                        & \qif\Delta_1\neq\Delta_2.
+                                        \end{cases}
     \end{align}
 \end{boxmath}
 \begin{remark}
     \Cref{eq:CIQFT:2_point_final} shows that two quasi-primary fields are correlated only if they have the same scaling dimension.
 \end{remark}
 \paragraph{Three-point function}
-Covariance under rotations, translations and dilations fix the three point function to the following form 
+Covariance under rotations, translations and dilations fix the three point function to the following form
 
 \begin{align}
     \expval{\phi_1(x_1)\phi_2(x_2)\phi_3(x_3)}=\frac{\eqnmarkbox[blue]{node1}{C^{(abc)}_{123}}}{x^a_{12}x^b_{23}x^c_{13}}\label{eq:CIQFT:3_points_1}
 \end{align}\annotate[yshift=0.5em]{}{node1}{Constant}
-where $a$, $b$ and $c$ satisfy\sidenote{Actually, a sum (over $a$, $b$ and $c$) of such terms in \cref{eq:CIQFT:3_points_1} is also acceptable, as long as they satisfy \cref{eq:CIQFT:3_points_2} but later we will see only one term meets the requirement.} 
+where $a$, $b$ and $c$ satisfy\sidenote{Actually, a sum (over $a$, $b$ and $c$) of such terms in \cref{eq:CIQFT:3_points_1} is also acceptable, as long as they satisfy \cref{eq:CIQFT:3_points_2} but later we will see only one term meets the requirement.}
 \begin{align}
     a+b+c=\Delta_1+\Delta_2+\Delta_3.\label{eq:CIQFT:3_points_2}
 \end{align}
-Under SCT, we have 
+Under SCT, we have
 \begin{align}
     \frac{C^{(abc)}_{123}}{x^a_{12}x^b_{23}x^c_{13}}=\frac{C^{(abc)}_{123}}{\gamma^{\Delta_1}\gamma^{\Delta_2}\gamma_3^{\Delta_3}}\frac{(\gamma_1\gamma_2)^{\frac{a}{2}}(\gamma_2\gamma_3)^{\frac{b}{2}}(\gamma_1\gamma_3)^{\frac{c}{2}}}{x^a_{12}x^b_{23}x^c_{13}}
 \end{align}
-which gives 
+which gives
 \begin{align}
     a+c=2\Delta_1\quad a+b=2\Delta_2\quad b+c=2\Delta_3.\label{eq:CIQFT:3_point_3}
 \end{align}
-The unique solution to \cref{eq:CIQFT:3_point_3} is 
+The unique solution to \cref{eq:CIQFT:3_point_3} is
 \begin{subequations}
     \begin{align}
-        a=&\Delta_1+\Delta_2-\Delta_3\\
-        b=&\Delta_2+\Delta_3-\Delta_1\\
-        c=&\Delta_3+\Delta_1-\Delta_2.
+        a= & \Delta_1+\Delta_2-\Delta_3  \\
+        b= & \Delta_2+\Delta_3-\Delta_1  \\
+        c= & \Delta_3+\Delta_1-\Delta_2.
     \end{align}
 \end{subequations}
-Therefore we have 
+Therefore we have
 \begin{boxmath}{3-point function}
     \begin{align}
         \expval{\phi_1(x_1)\phi_2(x_2)\phi_3(x_3)}=\frac{C_{123}}{x_{12}^{\Delta_1+\Delta_2-\Delta_3}x_{23}^{\Delta_2+\Delta_3-\Delta_1}x_{13}^{\Delta_3+\Delta_1-\Delta_2}}.
@@ -658,29 +658,157 @@ We define the two-point function of the energy-momentum tensor (\textit{Schwinge
     S_{\mu\nu\rho\sigma}\equiv\expval{T_{\mu\nu}(x)T_{\rho\sigma}(0)}.
 \end{align}
 \begin{itemize}
-    \item $T_{\mu\nu}$ can be made symmetric, which implies 
+    \item $T_{\mu\nu}$ can be made symmetric, which implies
           \begin{align}
               S_{\mu\nu\rho\sigma}=S_{\nu\mu\rho\sigma}=S_{\mu\nu\sigma\rho}=S_{\nu\mu\sigma\rho}.
           \end{align}
-    \item Translation invariance implies that 
+    \item Translation invariance implies that
           \begin{align}
-              S_{\mu\nu\rho\sigma}(x)&=\expval{T_{\mu\nu}(0)T_{\rho\sigma}(-x)}\notag\\
-                                    &=\expval{T_{\rho\sigma}(-x)T_{\mu\nu}(0)}\notag\\
-                                    &=S_{\rho\sigma\mu\nu}(-x)
+              S_{\mu\nu\rho\sigma}(x) & =\expval{T_{\mu\nu}(0)T_{\rho\sigma}(-x)}\notag \\
+                                      & =\expval{T_{\rho\sigma}(-x)T_{\mu\nu}(0)}\notag \\
+                                      & =S_{\rho\sigma\mu\nu}(-x)
           \end{align}
-          and if the theory is invariant under party, then 
+          and if the theory is invariant under party, then
           \begin{align}
-            S_{\mu\nu\rho\sigma}(x)=S_{\rho\sigma\mu\nu}(x)
+              S_{\mu\nu\rho\sigma}(x)=S_{\rho\sigma\mu\nu}(x)
           \end{align}
-    \item Scale invariance implies that 
+    \item Scale invariance implies that
+          \begin{align}
+              S_{\mu\nu\rho\sigma}(\lambda x)=\lambda^{-4}S_{\mu\nu\rho\sigma}(x)
+          \end{align}
 \end{itemize}
+All these constraints restrict the most general form of $S_{\mu\nu\rho\sigma}$
+\begin{align}
+    S_{\mu\nu\rho\sigma}=\left(x^2\right)^{-4} & \left[A_{1}g_{\mu\nu}g_{\rho\sigma}\left(x^2\right)^2+A_2\left(g_{\mu\rho}g_{\nu\sigma}+g_{\mu\sigma}g_{\nu\rho}\right)\left(x^2\right)^2\right.\notag      \\
+                                               & \left.+A_3\left(g_{\mu\nu}x_\rho x_\sigma+g_{\rho\sigma}x_\mu x_\nu\right)x^2+A_{4}x_\mu x_\nu x_\rho x_\sigma\right]\label{eq:ward_identities:Schwinger_1}
+\end{align}
+where $A_1$ to $A_4$ are constants.
+The conservation law $\partial^\mu T_{\mu\nu}=0$ implies $\partial^\mu S_{\mu\nu\rho\sigma}(x)=0$
+\begin{align}
+    \partial^\mu S_{\mu\nu\rho\sigma}(x)=-\left(x^2\right)^{-4} & \left[3(A_4+2A_3)x_\nu x_\rho x_\sigma+(4A_1+3A_3)g_{\rho\sigma}g_{\rho\sigma}x_{\nu}x^2\right.\notag \\
+                                                                & \left.+(4A_2-A_3)(g_{\rho\nu}x_\sigma+g_{\nu\sigma}x_\rho)x^2\right]=0
+\end{align}
+which gives
+\begin{align}
+    A_1=3A\quad A_2=-A\quad A_3=-4A\quad A_4=8A
+\end{align}
+where $A$ is an constant.
+Now \cref{eq:ward_identities:Schwinger_1} becomes
+\begin{align}
+    S_{\mu\nu\rho\sigma}(x)=\frac{A}{\left(x^2\right)^4} & \left[(3g_{\mu\nu}g_{\rho\sigma}-g_{\mu\rho}g_{\nu\sigma}-g_{\mu\sigma}g_{\nu\rho})\left(x^2\right)^2\right.\notag \\
+                                                         & \left.-4x^2\left(g_{\mu\nu}x_\rho x_\sigma+g_{\rho\sigma}x_\mu x_\nu\right)+8x_\mu x_\rho x_\sigma\right].
+\end{align}
+which implies
+\begin{align}
+    \tensor{S}{^\mu_\mu^\sigma_\sigma}(x)=\expval{\tensor{T}{^\mu_\mu}(x)\tensor{T}{^\sigma_\sigma}(0)}=0
+\end{align}
 
 \clearpage
 \section{Conformal Invariance in Two Dimensions}
 \subsection{The Conformal Group in Two Dimensions}
+\subsubsection{Conformal Mappings}
+Consider the coordinates $(z^0,z^1)$ on the plane.
+Under a mapping of the coordinates $z^\mu\to w^\mu$ the components of the induced metric is
+\begin{align}
+    g'^{\mu\nu}=\left(\pdv{w^\mu}{z^\alpha}\right)\left(\pdv{w^\nu}{z^\beta}\right)g^{\alpha\beta}.
+\end{align}
+The condition \cref{eq:ct:conformal_transformation} that defines a conformal transformation is now (see details in \cref{app:derivation:1})
+\begin{subequations}\label{eq:2d_cft:2d_conformal_transformation_1}
+    \begin{align}
+        \left(\pdv{w^0}{z^0}\right)^2+\left(\pdv{w^0}{z^1}\right)^2= & \left(\pdv{w^1}{z^0}\right)^2+\left(\pdv{w^1}{z^1}\right)^2 \\
+        \pdv{w^0}{z^0}\pdv{w^1}{z^0}+                                & \pdv{w^0}{z^1}\pdv{w^1}{z^1}=0.
+    \end{align}
+\end{subequations}
+\Cref{eq:2d_cft:2d_conformal_transformation_1} are equivalent to
+\begin{align}
+    \pdv{w^1}{z^0}=\pdv{w^0}{z^1}\qand\pdv{w^0}{z^0}=-\pdv{w^1}{z^1}\label{eq:2dcft:holomorphic_1}
+\end{align}
+or to
+\begin{align}
+    \pdv{w^1}{z^0}=-\pdv{w^0}{z^1}\qand\pdv{w^0}{z^0}=\pdv{w^1}{z^1}.\label{eq:2dcft:antiholomorphic_1}
+\end{align}
+\begin{intu}
+    \Cref{eq:2dcft:holomorphic_1} is the Cauthy-Riemann equations for holomorphic functions, whereas \cref{eq:2dcft:antiholomorphic_1} defines antiholomorphic functions.
+    This motivates us to use complex coordinates.
+\end{intu}
+We define the following complex coordinates
+\begin{subequations}\label{eq:2dcft:complex_coordinates}
+    \begin{align}
+        z\equiv                  & z^0+\ii z^1                            \\
+        \bar{z}\equiv            & z^0-\ii z^1                            \\
+        \partial_z\equiv         & \frac{1}{2}(\partial_0-\ii \partial_1) \\
+        \partial_{\bar{z}}\equiv & \frac{1}{2}(\partial+\ii\partial_1)
+    \end{align}
+\end{subequations}
+and also 
+\begin{subequations}
+    \begin{align}
+        z^0=&\frac{1}{2}(z+\bar{z})\\
+        z^1=&\frac{1}{2\ii}(z-\bar{z})\\
+        \partial_0=&\partial_z+\partial_{\bar{z}}\\
+        \partial_1=&\ii(\partial_z-\partial_{\bar{z}}).
+    \end{align}
+\end{subequations}
+We also denote $\partial\equiv \partial_z$ and $\bar{\partial}\equiv\partial_{\bar{z}}$.
+\begin{remark}
+    We should regard $z$ and $\bar{z}$ as independent coordinates.
+    To justify this, we can extend the range of the Cartesian coordinates $z^0$ and $z^1$ to complex plane, then \cref{eq:2dcft:complex_coordinates} is merely a change of independent variables and $\bar{z}$ is not the complex conjugate of $z$ but rather a distinct complex coordinate.
+    However, we should keep in mind that the physical space is the 2-dimensional submanifold defined by $\bar{z}=z^\ast$.
+\end{remark}
+The metric can be written as 
+\begin{align}
+    \dd{s^2}=(\dd[]{z^0})^2+(\dd[]{z^1})^2=\dd[]{z}\dd[]{\bar{z}}
+\end{align}
+which means 
+\begin{align}
+    g_{\mu\nu}=\mqty(0&\frac{1}{2}\\\frac{1}{2}&0)\qand g^{\mu\nu}=\mqty(0&2\\2&0)
+\end{align}
+where the indices $\mu$ and $\nu$ take the values $z$ and $\bar{z}$. 
+
+Using these coordinates, the holomorphic Cauchy-Riemann equations \cref{eq:2dcft:holomorphic_1} become simply 
+\begin{align}
+    \partial_{\bar{z}}w(z,\bar{z})=0
+\end{align}
+whose solution is any holomorphic mapping (without $\bar{z}$ dependence)
+\begin{align}
+    z\to w(z).\label{eq:2dcft:2d_coformal_transformation_arbitary}
+\end{align}
+This fact means that the $d=2$ conformal "group"\sidenote{We will see later $w(z)$ here is not actually a group. A simple reason is that not all $w(z)$ are invertible.} is the set of all analytic maps, wherein the group multiplication is the composition of maps.
+This set is infinite-dimensional, since an infinite number of parameters (the coefficients of a Laurent series) is needed to specify all functions analytic in some neighborhood. 
+\subsubsection{Global Conformal Transformations}
+\begin{intu}
+    The conformal transformation \cref{eq:2dcft:2d_coformal_transformation_arbitary} is not all well-defined everywhere and invertible.
+    Strictly speaking, in order to form a group, the mappings must be invertible, and must map the whole plane into itself \snm.
+    The transformations that satisfy these conditions are \textit{global conformal transformations}, and the set of them form the \textit{special conformal group}\snm (or the \textit{global conformal group}).
+\end{intu}
+\snt{More precisely the Riemann sphere, i.e., the complex plane plus the point at infinity}
+\snt{Notice: not the same with the special conformal transformation.}
+It turns out that the complete set of the special conformal group is (see detailed explanation in \cite{DiFrancesco:1997nk,Qualls:2015qjb})
+\begin{align}
+    f(z)=\frac{az+b}{cz+d}\qq{with}ad-bc=1
+\end{align}
+where $a,b,c,d\in\mathbb{C}$. 
+These mappings are called \textit{projective transformations}, and to each of them we can associate the matrix 
+\begin{align}
+    A=\mqty(a&b\\c&d).
+\end{align}
+\begin{remark}
+    It can be easily verified that the composition of two maps $f_1\circ f_2$ corresponds to the matrix multiplication $A_2 A_1$.
+    Therefore, the special conformal group are isomorphic to $\mathrm{SL}(2,\mathbb{C})$.
+    It is known that $\mathrm{SL}(2,\mathbb{C})\cong \mathrm{SO}(3,1)$ (the Lorentz group).
+    So the special conformal group is just the Lorentz group.
+\end{remark}
+
+\subsubsection{Conformal Generators}
+
 \subsection{Ward Identities}
 \subsection{Free Fields and the Operator Product Expansion}
 
+\clearpage
+\appendix
+\section{Technical Details}
+\subsection{Derivation of Some Formulas}
+\subsubsection{Derivation of \texorpdfstring{\cref{eq:2d_cft:2d_conformal_transformation_1}}{1}\label{app:derivation:1}}
 \clearpage
 \bibliographystyle{jhep}
 \bibliography{ref}
