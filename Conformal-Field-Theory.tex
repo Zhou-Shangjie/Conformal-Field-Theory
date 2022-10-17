@@ -18,6 +18,8 @@
 \usepackage{annotate-equations}
 
 \newenvironment{boxmath}[1]{\begin{tcolorbox}[enhanced,attach boxed title to top center={yshift=-\tcboxedtitleheight/2},boxrule=1pt,title={\centering #1},colframe=NavyBlue!70!black,colback=NavyBlue!10,colbacktitle=NavyBlue!10,fonttitle=\scshape,coltitle=Black]}{\end{tcolorbox}}
+\crefname{claim}{claim}{claims}
+
 
 \begin{document}
 \title{Conformal Field Theory}
@@ -86,13 +88,37 @@ Notice that
 \end{align}
 The explicit expression of the generator is therefore
 \begin{align}
-    \ii G_a\Phi=\fdv{x^\mu}{\omega_a}\partial_\mu\Phi-\fdv{\mathcal{F}}{\omega_a}
+    \ii G_a\Phi=\fdv{x^\mu}{\omega_a}\partial_\mu\Phi-\fdv{\mathcal{F}}{\omega_a}\label{eq:CST:explicit_generator}
 \end{align}
 \begin{example}[Infinitesimal translation]
     For an infinitesimal translation by a vector $\omega_\mu$, one has $\fdv*{x^\mu}{\omega^\nu}=\delta^\mu_\nu$ and $\fdv*{\mathcal{F}}{\omega^\nu}=0$.
     The generator of translations is simply
     \begin{align}
         P_\nu=-\ii\partial_\nu.
+    \end{align}
+\end{example}
+\begin{example}[Infinitesimal Lorentz transformation]
+    An infinitesimal Lorentz transformation has the form 
+    \begin{align}
+        x'^\mu=x^\mu+\tensor{\omega}{^\mu_\nu}x^\nu=x^\mu+\omega_{\rho\nu}\eta^{\rho\mu}x^\nu.
+    \end{align}
+    where $\omega_{\rho\nu}=-\omega_{\nu\rho}$.
+    Thus the variation of coordinates under transformation is 
+    \begin{align}
+        \fdv{x^\mu}{\omega_{\rho\nu}}=\frac{1}{2}\left(\eta^{\rho\mu}x^\nu-\eta^{\nu\mu}x^\rho\right).\label{eq:CST:lorentz_x}
+    \end{align} 
+    And its effect on the generic field $\Phi$ is
+    \begin{align}
+        \mathcal{F}(\Phi)=L_\Lambda \Phi\qq{and}L_\Lambda\approx1-\frac{1}{2}\ii\omega_{\rho\nu}S^{\rho\nu}\label{eq:CST:lorentz_phi}
+    \end{align}
+    where  $S^{\rho\nu}$ is some Hermitian matrix obeying the Lorentz algebra.
+    Using \cref{eq:CST:explicit_generator}, we have 
+    \begin{align}
+        \frac{1}{2}\ii\omega_{\rho\nu}L^{\rho\nu}\Phi=\frac{1}{2}\omega_{\rho\nu}\left(x^\nu\partial^\rho-x^\rho\partial^\nu\right)\Phi+\frac{1}{2}\ii\omega_{\rho\nu}S^{\rho\nu}\Phi
+    \end{align}
+    The generators of the Lorentz transformation are thus 
+    \begin{align}
+        L^{\rho\nu}=\ii\left(x^\rho\partial^{\nu}-x^\nu\partial^\rho\right)+S^{\rho\nu}.
     \end{align}
 \end{example}
 \begin{theorem}[Noether's theorem]
@@ -147,10 +173,10 @@ The explicit expression of the generator is therefore
     \begin{align}
         \dot{Q}_a= & \int\dd[d-1]{x}\partial_0 j^0_a\notag                            \\
         =          & -\int\dd[d-1]{x}\partial_i j^i_a\label{eq:nother:stocks_theorem} \\
-        =          & -\int_\infty j^i_a\eqnmarkbox[blue]{node1}{\dd{\sigma^i}}\notag  \\
-        =          & 0
-    \end{align}\annotate[yshift=-0.5em]{below}{node1}{Surface element at spatial infinity}
-    where we used Stokes' theorem in \cref{eq:nother:stocks_theorem}.
+        =          & -\int_\infty j^i_a\dd{\sigma^i}\notag\\
+            =&0
+    \end{align}
+    where we used Stokes' theorem in \cref{eq:nother:stocks_theorem} and $\dd{\sigma^i}$ is the turface element at spatial infinity.
 \end{proof}
 \snt{This is where the symmetry condition is used.}
 \begin{remark}
@@ -244,11 +270,79 @@ which is the usual definition of the Hamiltonian.
 
 \subsubsection{The Belinfante Tensor}
 \begin{intu}
-    In general, the canonical energy-momentum operator is not symmetric, we can make it symmetric by adding an divergenceless term.
+    In general, the canonical energy-momentum operator is not symmetric, we can make it symmetric by adding $T^{\mu\nu}_c$ an divergenceless term without breaking the consevation law or the Ward identity
+    \begin{align}
+        T^{\mu\nu}_B=T^{\mu\nu}_c+\partial_{\rho}B^{\rho\mu\nu}\qq{where}B^{\rho\mu\nu}=-B^{\mu\rho\nu}.
+    \end{align}
 \end{intu}
+The variation of the action under a nonuniform translation with position-dependent parameter $\epsilon^\mu(x)$ is still 
+\begin{align}
+    \delta S=-\int\dd[d]{x}\partial_\mu T^{\mu\nu}_B\epsilon_\nu
+\end{align}
+since $\partial_\mu T^{\mu\nu}_B=\partial_\mu T^{\mu\nu}_c$.
 
+If we succeed in finding $B^{\rho\mu\nu}$ such that the new tensor $T^{\mu\nu}_B$ is symmetric, then the latter is called the \textit{Belinfante} energy-momentum tensor.
+
+\paragraph{Finding Belinfante tensor}
+From \cref{eq:CST:lorentz_x,eq:CST:lorentz_phi}, under infinitesimal Lorentz transformation, the coordinates and fields change as 
+\begin{align}
+    \fdv{x^\rho}{\omega_{\mu\nu}}=\frac{1}{2}\left(\eta^{\rho\mu}x^\nu-\eta^{\rho\nu}x^\mu\right)\qand\fdv{\mathcal{F}}{\omega_{\mu\nu}}=-\frac{\ii}{2}S^{\mu\nu}\rho
+\end{align}
+and the associated conserved current is 
+\begin{align}
+    j^{\mu\nu\rho}=T^{\mu\nu}_c x^\rho-T^{\mu\rho}_c x^\nu+\frac{\ii}{2}\pdv{\mathcal{L}}{(\partial_\mu\Phi)}S^{\nu\rho}\Phi.\label{eq:Belinfante:lorentz_current}
+\end{align}
+\begin{claim}
+    One of the possible form of $B^{\rho\mu\nu}$ that will make $T^{\mu\nu}_B$ symmetric is 
+    \begin{align}
+        B^{\mu\rho\nu}=\frac{\ii}{4}\left[\pdv{\mathcal{L}}{(\partial_\mu\Phi)}S^{\nu\rho}\Phi+\pdv{\mathcal{L}}{(\partial_\rho\Phi)}S^{\mu\nu}\Phi+\pdv{\mathcal{L}}{(\partial_\nu\Phi)}S^{\mu\rho}\Phi\right].
+    \end{align}
+\end{claim}
+\begin{proof}
+    Using the fact $S^{\mu\nu}=-S^{\nu\mu}$, it can be easily checked that $B^{\mu\rho\nu}=-B^{\rho\mu\nu}$.
+
+    We can explicitly show that 
+    \begin{align}
+        B^{\mu\rho\nu}-B^{\mu\nu\rho}=\frac{1}{2}\ii\pdv{\mathcal{L}}{(\partial_\mu\Phi)}S^{\nu\rho}\Phi.
+    \end{align}
+    Acting $\partial_\mu$ on both sides of \cref{eq:Belinfante:lorentz_current}, we have 
+    \begin{align}
+        T^{\rho\nu}_c-T^{\nu\rho}_c=-\frac{1}{2}\ii\partial_\mu\left[\pdv{\mathcal{L}}{(\partial_\mu\Phi)}S^{\nu\rho}\Phi\right]
+    \end{align}
+    where the conservation laws $\partial_\mu j^{\mu\nu\rho}=0$ and $\partial_\mu T^{\mu\nu}=0$ are used.
+    We see that the antisymmetric part of $T^{\rho\nu}_c+\partial_\mu B^{\mu\rho\nu}$ vanishes which means $T^{\mu\nu}_B$ is indeed symmetric in a classical configuration.
+\end{proof}
+\begin{remark}
+    The form of $B^{\mu\rho\nu}$ is not unique.
+\end{remark}
 \subsubsection{Alternate Definition of the Energy-Momentum Tensor}
+Consider an infinitesimal translation of the coordinates $x^\mu\to x'^\mu+\epsilon^\mu(x)$.
+According to \cref{eq:nother:before_integration}, we have 
+\begin{align}
+    \delta S=&\int\dd[d]{x}T^{\mu\nu}\partial_\mu\epsilon_\nu\notag\\
+            =&\frac{1}{2}\int\dd[d]{x}T^{\mu\nu}\left(\partial_\mu\epsilon_\nu+\partial_\nu\epsilon_\mu\right)\label{eq:alternate_tensor:delta_s}
+\end{align}
+where we have assumed $T^{\mu\nu}$ has been made symmetric.
 
+The induced metric of the map $x^\mu\to x'^\mu+\epsilon^\mu(x)$ to first order in $\epsilon$ is
+\begin{align}
+    g'_{\mu\nu}=&\pdv{x^\alpha}{x'^\mu}\pdv{x^\beta}{x'^\nu}g_{\alpha\beta}\notag\\
+                =&\left(\delta^\alpha_\mu-\partial_\mu\epsilon^\alpha\right)\left(\delta^\beta_\nu-\partial_\nu\epsilon^\beta\right)g_{\alpha\beta}.
+\end{align} 
+\begin{intu}
+    The form of the variation of the metric is a hint of a new definition of the energy-momentum tensor.
+    We can rewrite \cref{eq:alternate_tensor:delta_s}
+    \begin{align}
+        \delta S=-\frac{1}{2}\int\dd[d]{x}T^{\mu\nu}\delta g_{\mu\nu}.
+    \end{align}
+\end{intu}
+Therefore, we can give an alternate definition of the energy-momentum tensor 
+\begin{definition}[Alternate definition of energy-momentum tensor]
+    The enery-momentum tensor is defined to be the functional derivative of the action with respect to the metric, evaluated in flat space:
+    \begin{align}
+        \delta S=-\frac{1}{2}\int\dd[d]{x}T^{\mu\nu}\delta g_{\mu\nu}.
+    \end{align}
+\end{definition}
 \clearpage
 \section{Statistical Mechanics}
 \subsection{The Boltzmann Distribution}
@@ -264,9 +358,13 @@ We denote by $g_{\mu\nu}$ the metric tensor in a spacetime of dimension $d$.
 \begin{definition}[Conformal transformation]
     A conformal transformation of the coordinates is an invertible mapping $x\to x'$, for which the induced metric tensor invariant up to a scale:
     \begin{align}
-        g'_{\mu\nu}(x)=\Lambda(x)g_{\mu\nu}(x).\label{eq:ct:conformal_transformation}
+        g'_{\mu\nu}(x')=\Lambda(x)g_{\mu\nu}(x).\label{eq:ct:conformal_transformation}
     \end{align}
 \end{definition}
+The induced metric can be calculated by 
+\begin{align}
+    g'_{\mu\nu}(x')=\pdv{x^\rho}{x'^\mu}\pdv{x^\sigma}{x'^\nu}g_{\rho\sigma}(x).\label{eq:ct:induced_metric}
+\end{align}
 The set of conformal transformations manifestly forms a group, and it obviously has the Poincar\'{e} group as a subgroup, since the latter corresponds to the special case $\Lambda(x)=1$.
 \subsubsection{Infinitesimal Conformal Transformation}
 Consider an infinitesimal conformal transformation $x^\mu\to x'^{\mu}+\epsilon^\mu(x)$.
@@ -346,35 +444,42 @@ We can treat each power of the coordinate separately and use the constraints \cr
 \end{itemize}
 The finite transformations corresponding to the above are the following:
 \begin{boxmath}{Finite Conformal Transformation}
-    \begin{align}
-        \text{(translation)}    & \quad x'^\mu=x^\mu+a^\mu                                 \\
-        \text{(dilation)}       & \quad x'^\mu=\alpha x^\mu                                \\
-        \text{(rigid rotation)} & \quad x'^\mu=\tensor{M}{^\mu_\nu}x^\nu                   \\
-        \text{(SCT)}            & \quad x'^\mu=\frac{x^\mu-b^\mu x^2}{1-2b\vdot x+b^2 x^2}
-    \end{align}
+    \begin{subequations}
+        \begin{align}
+            \text{(translation)}    & \quad x'^\mu=x^\mu+a^\mu                                 \\
+            \text{(dilation)}       & \quad x'^\mu=\alpha x^\mu                                \\
+            \text{(rigid rotation)} & \quad x'^\mu=\tensor{M}{^\mu_\nu}x^\nu                   \\
+            \text{(SCT)}            & \quad x'^\mu=\frac{x^\mu-b^\mu x^2}{1-2b\vdot x+b^2 x^2}
+        \end{align}
+    \end{subequations}
 \end{boxmath}
 
 Recall the \cref{def:generator_of_a_symmetry_transformation} and suppose the field are unaffected by the transformation, we can get the generators of the conformal group
 \begin{boxmath}{Generators of Conformal Transformation}
-    \begin{align}
-        \text{(translation)}    & \quad P_\mu=-\ii\partial_\mu                                \\
-        \text{(dilation)}       & \quad D=-\ii x^\mu\partial_\mu                              \\
-        \text{(rigid rotation)} & \quad L_{\mu\nu}=\ii(x_\mu\partial_\nu-x_\nu\partial_\mu)   \\
-        \text{(SCT)}            & \quad K_\mu=-\ii(2x_\mu x^\nu\partial_\nu-x^2\partial_\mu).
-    \end{align}
+    \begin{subequations}
+        \begin{align}
+            \text{(translation)}    & \quad P_\mu=-\ii\partial_\mu                                \\
+            \text{(dilation)}       & \quad D=-\ii x^\mu\partial_\mu                              \\
+            \text{(rigid rotation)} & \quad L_{\mu\nu}=\ii(x_\mu\partial_\nu-x_\nu\partial_\mu)   \\
+            \text{(SCT)}            & \quad K_\mu=-\ii(2x_\mu x^\nu\partial_\nu-x^2\partial_\mu).
+        \end{align}
+    \end{subequations}
 \end{boxmath}
 The commutators of these generators define the \textit{conformal algebra}
 \begin{boxmath}{Conformal Algebra}
-    \begin{align}
-        \comm{D}{P_{\mu}}                 & =\ii P_\mu\label{eq:conformal_algebra_1}                                                                                                                        \\
-        \comm{D}{K_\mu}                   & =-\ii K_\mu\label{eq:conformal_algebra_2}                                                                                                                       \\
-        \comm{K_\mu}{P_\nu}               & =2\ii\left(\eta_{\mu\nu}D-L_{\mu\nu}\right)\label{eq:conformal_algebra_3}                                                                                       \\
-        \comm{K_\rho}{L_{\mu\nu}}         & =\ii(\eta_{\rho\mu}K_\nu-\eta_{\rho\nu}K_\mu)\label{eq:conformal_algebra_4}                                                                                     \\
-        \comm{P_\rho}{L_{\mu\nu}}         & =\ii(\eta_{\rho\mu}P_{\nu}-\eta_{\rho\nu}P_{\mu})\label{eq:conformal_algebra_5}                                                                                 \\
-        \comm{L_{\mu\nu}}{L_{\rho\sigma}} & =\ii\left(\eta_{\nu\rho}L_{\mu\sigma}+\eta_{\mu\sigma}L_{\nu\rho}-\eta_{\mu\rho}L_{\nu\sigma}-\eta_{\nu\sigma}L_{\mu\rho}\right).\label{eq:conformal_algebra_6}
-    \end{align}
+    \begin{subequations}
+        \begin{align}
+            \comm{D}{P_{\mu}}                 & =\ii P_\mu\label{eq:conformal_algebra_1}                                                                                                                        \\
+            \comm{D}{K_\mu}                   & =-\ii K_\mu\label{eq:conformal_algebra_2}                                                                                                                       \\
+            \comm{K_\mu}{P_\nu}               & =2\ii\left(\eta_{\mu\nu}D-L_{\mu\nu}\right)\label{eq:conformal_algebra_3}                                                                                       \\
+            \comm{K_\rho}{L_{\mu\nu}}         & =\ii(\eta_{\rho\mu}K_\nu-\eta_{\rho\nu}K_\mu)\label{eq:conformal_algebra_4}                                                                                     \\
+            \comm{P_\rho}{L_{\mu\nu}}         & =\ii(\eta_{\rho\mu}P_{\nu}-\eta_{\rho\nu}P_{\mu})\label{eq:conformal_algebra_5}                                                                                 \\
+            \comm{L_{\mu\nu}}{L_{\rho\sigma}} & =\ii\left(\eta_{\nu\rho}L_{\mu\sigma}+\eta_{\mu\sigma}L_{\nu\rho}-\eta_{\mu\rho}L_{\nu\sigma}-\eta_{\nu\sigma}L_{\mu\rho}\right).\label{eq:conformal_algebra_6}
+        \end{align}
+    \end{subequations}
 \end{boxmath}
 Other commutators vanish.
+
 \begin{remark}
     The number of the generators of the conformal group is
     \begin{align}
@@ -518,9 +623,13 @@ where $\abs{\pdv{x'}{x}}$ is the Jacobian of the conformal transformation which 
 \begin{align}
     \abs{\pdv{x'}{x}}=\Lambda(x)^{-\frac{d}{2}}.\label{eq:quasi_field_def}
 \end{align}
-
-A field transforming like \cref{eq:quasi_field_def} is called \textit{quasi-primary}.
-
+\begin{definition}[Quasi-primary field]\label{def:quasi_primary_field}
+    In a $d$ dimensional spacetime, a field transforming under conformal transformation like 
+    \begin{align}
+        \phi(x)\to\phi'(x')=\abs{\pdv{x'}{x}}^{-\frac{\Delta}{d}}\phi(x)
+    \end{align}
+    is called a \textit{quasi-primary field}, where $\Delta$ is the scaling dimension.    
+\end{definition}
 
 \subsubsection{The Energy-Momentum Tensor}
 Under an arbitrary transformation of the coordinates $x^\mu\to x^\mu+\epsilon^\mu(x)$, the action changes as follows
@@ -596,6 +705,7 @@ where $\gamma_i\equiv(1-2b\vdot x_i+b^2 x_i^2)$.
     \Cref{eq:CIQFT:2_point_final} shows that two quasi-primary fields are correlated only if they have the same scaling dimension.
 \end{remark}
 \paragraph{Three-point function}
+We denote $x_{ij}\equiv\abs{x_i-x_j}$.
 Covariance under rotations, translations and dilations fix the three point function to the following form
 
 \begin{align}
@@ -624,7 +734,7 @@ The unique solution to \cref{eq:CIQFT:3_point_3} is
 Therefore we have
 \begin{boxmath}{3-point function}
     \begin{align}
-        \expval{\phi_1(x_1)\phi_2(x_2)\phi_3(x_3)}=\frac{C_{123}}{x_{12}^{\Delta_1+\Delta_2-\Delta_3}x_{23}^{\Delta_2+\Delta_3-\Delta_1}x_{13}^{\Delta_3+\Delta_1-\Delta_2}}.
+        \expval{\phi_1(x_1)\phi_2(x_2)\phi_3(x_3)}=\frac{C_{123}}{x_{12}^{\Delta_1+\Delta_2-\Delta_3}x_{23}^{\Delta_2+\Delta_3-\Delta_1}x_{13}^{\Delta_3+\Delta_1-\Delta_2}}.\label{eq:CIQFT:3_points_final}
     \end{align}
 \end{boxmath}
 
@@ -708,11 +818,11 @@ which implies
 \subsection{The Conformal Group in Two Dimensions}
 \subsubsection{Conformal Mappings}
 Consider the coordinates $(z^0,z^1)$ on the plane.
-Under a mapping of the coordinates $z^\mu\to w^\mu$ the components of the induced metric is
+Under a mapping of the coordinates $z^\mu\to w^\mu$ the components of the induced metric is\sidenote{Using \cref{eq:ct:induced_metric}, it can be checked that $g'^{\mu\rho}g'_{\rho\nu}=\tensor{\delta}{^\mu_\nu}$.}
 \begin{align}
     g'^{\mu\nu}=\left(\pdv{w^\mu}{z^\alpha}\right)\left(\pdv{w^\nu}{z^\beta}\right)g^{\alpha\beta}.
 \end{align}
-The condition \cref{eq:ct:conformal_transformation} that defines a conformal transformation is now (see details in \cref{app:derivation:1})
+The condition \cref{eq:ct:conformal_transformation} that defines a conformal transformation is now (remember we are considering the Euclidean metric)
 \begin{subequations}\label{eq:2d_cft:2d_conformal_transformation_1}
     \begin{align}
         \left(\pdv{w^0}{z^0}\right)^2+\left(\pdv{w^0}{z^1}\right)^2= & \left(\pdv{w^1}{z^0}\right)^2+\left(\pdv{w^1}{z^1}\right)^2 \\
@@ -753,7 +863,7 @@ We also denote $\partial\equiv \partial_z$ and $\bar{\partial}\equiv\partial_{\b
 \begin{remark}
     We should regard $z$ and $\bar{z}$ as independent coordinates.
     To justify this, we can extend the range of the Cartesian coordinates $z^0$ and $z^1$ to complex plane, then \cref{eq:2dcft:complex_coordinates} is merely a change of independent variables and $\bar{z}$ is not the complex conjugate of $z$ but rather a distinct complex coordinate.
-    However, we should keep in mind that the physical space is the 2-dimensional submanifold defined by $\bar{z}=z^\ast$.
+    However, we should keep in mind that the physical space is the 2-dimensional submanifold (called the \textit{real surface}) defined by $\bar{z}=z^\ast$.
 \end{remark}
 The metric can be written as 
 \begin{align}
@@ -800,15 +910,120 @@ These mappings are called \textit{projective transformations}, and to each of th
 \end{remark}
 
 \subsubsection{Conformal Generators}
+Consider the local conformal "group".
+Any holomorphic infinitesimal transformation may be expressed as 
+\begin{align}
+    z'=z+\epsilon(z)\qq{where}\epsilon(z)=\sum_{n=-\infty}^{\infty}c_n z^{n+1}
+\end{align}
+where, by hypothesis, the infinitesimal mapping admits a Laurent expansion around $z=0$.
+The effect of the transformation on a spinless and dimensionless field $\phi(z,\bar{z})$ living on the plane 
+\begin{align}
+    \phi'(z',\bar{z}')=&\phi(z,\bar{z})\notag\\
+                        =&\phi(z',\bar{z}')-\epsilon(z')\partial'\phi(z',\bar{z}')-\bar{\epsilon}(\bar{z}')\bar{\partial}'\phi(z',\bar{z}')
+\end{align}
+or 
+\begin{align}
+    \delta\phi=&-\epsilon(z)\partial\phi-\bar{\epsilon}(\bar{z})\bar{\partial}\phi\notag\\
+                =&\sum_{n}\left[c_n l_n\phi(z,\bar{z})+\bar{c}_n\bar{l}_n\phi(z,\bar{z})\right]
+\end{align}
+where the generators have been introduced
+\begin{align}
+    l_n\equiv-z^{n+1}\partial_z\qq{and}\bar{l}_n\equiv-\bar{z}^{n+1}\partial_{\bar{z}}.
+\end{align}
+The generators obey the \textit{Witt algebra}
+\begin{boxmath}{Witt algebra}
+    \begin{subequations}
+        \begin{align}
+            \comm{l_n}{l_m}=&(n-m)l_{n+m}\\
+            \comm{\bar{l}_n}{\bar{l}_m}=&(n-m)\bar{l}_{n+m}\\
+            \comm{l_n}{\bar{l}_m}=&0
+        \end{align}
+    \end{subequations}
+\end{boxmath}
+\begin{remark}
+    The Witt algebra is the direct sum of two isomorphic algebras.
+    Each of these two infinite-dimensional algebras contains a finite subalgebra generated by $l_{-1}$, $l_0$ and $l_1$, which is the subalgebra associated with the global conformal group.
+    From the definition, it is manifest that 
+    \begin{itemize}
+        \item $l_{-1}=-\partial_z$ generates translations on the complex plane.
+        \item $l_{0}=-z\partial_z$ generates the scale transformations and rotations.
+        \item $l_{1}=-z^2\partial_z$ generates special conformal translations.
+    \end{itemize}
+
+    The generators that preserve the real surface $z_0,z_1\in\mathbb{R}$ are the linear combinations 
+    \begin{align}
+        l_n+\bar{l}_n\qq{and}\ii(l_n-\bar{l}_n).
+    \end{align}
+    In particular, $l_0+\bar{l}_0$ generates dilations on the real surface and $\ii\left(l_0-\bar{l}_0\right)$ generates rotations.
+\end{remark}
+\subsubsection{Primary Fields}
+Given a field with scaling dimension $d$ and spin $s$, we can define the \textit{holomorphic conformal dimension} $h$ and its antiholomorphic counterpart $\bar{h}$ as
+\begin{align}
+    h\equiv\frac{\Delta+s}{2}\quad\bar{h}\equiv\frac{\Delta-s}{2}.
+\end{align}
+\begin{definition}[Quasi-primary field and primary field]
+    Now we generalize the \cref{def:quasi_primary_field}\snm.
+    Under a \textit{global} conformal map $z\to w(z)$, $\bar{z}\to \bar{w}(\bar{z})$, a field is called a \textit{quasi-primary field} if it transforms as 
+    \begin{align}
+        \phi'(w,\bar{w})=\left(\dv{w}{z}\right)^{-h}\left(\dv{\bar{w}}{\bar{z}}\right)^{-\bar{h}}\phi(z,\bar{z}).\label{eq:2dcft:quasi_def}
+    \end{align}
+    Under a \textit{local} conformal map $z\to w(z)$, $\bar{z}\to \bar{w}(\bar{z})$, a field is called a \textit{primary field} if it still transforms as \cref{eq:2dcft:quasi_def}. 
+\end{definition}
+\snt{The difference is that here we are considering the spin $s$.}
+\begin{intu}
+    To see how the how the spin $s$ appears in the definition of conformal dimension, consider a rotation 
+    \begin{align}
+        z\to w(z)=\me^{\ii\theta}z\quad\bar{z}\to\bar{w}(\bar{z})=\me^{-\ii\theta}\bar{z}.
+    \end{align}
+    The field transforms as 
+    \begin{align}
+        \phi(w,\bar{w})=\me^{-\ii\theta(h-\bar{h})}\phi(z,\bar{z})
+    \end{align}
+    which means $s=h-\bar{h}$.
+\end{intu}
+\begin{remark}
+    Primary fields are also quasi-primary fields but the reverse is not true.
+\end{remark}
+\paragraph{Variation of the field}
+Consider the infinitesimal transformation $z\to w=z+\epsilon(z)$ and $\bar{z}\to\bar{w}=\bar{z}+\bar{\epsilon}(\bar{z})$ where $\epsilon,\bar{\epsilon}\to0$, the variation of the quasi-primary field is 
+\begin{align}
+    \delta_{\epsilon,\bar{\epsilon}}\equiv&\phi'(z,\bar{z})-\phi(z,\bar{z})\notag\\
+                                    =&-\left(h\phi\partial_z\epsilon+\epsilon\partial_z\phi\right)-\left(\bar{h}\phi\partial_{\bar{z}}\bar{\epsilon}+\bar{\epsilon}\partial_{\bar{z}}\phi\right).
+\end{align}
+
+A field whcih is not primary is generally called \textit{secondary}.
+
+
+\subsubsection{Correlation Functions}
+Using \cref{eq:TCF:correlation_transform,eq:2dcft:quasi_def}, for $n$ primary fields $\phi_i$ with conformal dimensions $h_i$ and $\bar{h}_i$, we have 
+\begin{align}
+    &\expval{\phi_1(w_1,\bar{w}_1)\dots\phi_n(w_n,\bar{w}_n)}\notag\\
+                                &=\prod_{i=1}^n\eval{\left(\dv{w}{z}\right)^{-h_i}}_{w=w_i}\eval{\left(\dv{\bar{w}}{\bar{z}}\right)^{-\bar{h}_i}}_{\bar{w}=\bar{w}_i}\expval{\phi_1(z_1,\bar{z}_1)\dots\phi_n(z_n,\bar{z}_n)}.
+\end{align}
+\Cref{eq:CIQFT:2_point_final,eq:CIQFT:3_points_final} are still valid in the $d=2$ case and we can rewrite them with complex coordinates and generalize them by taking spin into account.
+\paragraph{Two-point function}
+Notice that $x_{ij}=\left(z_{ij}\bar{z}_{ij}\right)^{\frac{1}{2}}$ and \cref{eq:CIQFT:2_point_final} can be generalized to 
+\begin{align}
+    \expval{\phi_1(z_1,\bar{z}_1)\phi_2(z_2,\bar{z}_2)}=\frac{C_{12}}{(z_1-z_2)^{2h}(\bar{z}_1-\bar{z}_2)^{2\bar{h}}}\qif \begin{cases}
+        h_1=h_2=h\\\bar{h}_1=\bar{h}_2=\bar{h}
+    \end{cases}.
+\end{align}
+\paragraph{Three-point function}
+\Cref{eq:CIQFT:3_points_final} can be generalized to 
+\begin{align}
+    \expval{\phi_1(x_1)\phi_2(x_2)\phi_3(x_3)}=C_{123}\frac{1}{z_{12}^{h_1+h_2-h_3}z_{23}^{h_2+h_3-h_1}z_{13}^{h_3+h_1-h_2}}\times\frac{1}{\bar{z}_{12}^{\bar{h}_1+\bar{h}_2-\bar{h}_3}\bar{z}_{23}^{\bar{h}_2+\bar{h}_3-\bar{h}_1}\bar{z}_{13}^{\bar{h}_3+\bar{h}_1-\bar{h}_2}}.
+\end{align}
 
 \subsection{Ward Identities}
+\subsubsection{Holomorphic From of the Ward Identities}
+\subsubsection{The Conformal Ward Identity}
+\subsubsection{Alternate Derivation of the Ward Identities}
 \subsection{Free Fields and the Operator Product Expansion}
+\subsection{The Central Charge}
 
 \clearpage
-\appendix
-\section{Technical Details}
-\subsection{Derivation of Some Formulas}
-\subsubsection{Derivation of \texorpdfstring{\cref{eq:2d_cft:2d_conformal_transformation_1}}{1}\label{app:derivation:1}}
+\section{The Operator Formalism}
+
 \clearpage
 \bibliographystyle{jhep}
 \bibliography{ref}
