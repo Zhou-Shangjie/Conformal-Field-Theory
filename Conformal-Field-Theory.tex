@@ -63,7 +63,7 @@ In the transformations \cref{eq:CST:transformations}, the new field $\Phi'$ at $
     \Phi'(x')=\mathcal{F}\left(\Phi(x)\right).
 \end{align}
 \begin{figure}[h]
-    \centering 
+    \centering
     \includegraphics[width=0.5\linewidth]{fig/Quantum Field Theory/transformation_illustration/fig.pdf}
     \caption{A illustration of the transformation of the fields where the background spacetime is 2-dimensional. The colored areas are the non-vanishing part of the fields.}
 \end{figure}
@@ -235,7 +235,7 @@ Expand \cref{eq:ward:before_est} to first order in $\omega_a(x)$, we have
     \expval{X} & =\frac{1}{Z}\int\left[\dd[]{\Phi}\right]\left(X+\delta_\omega X\right)\exp(-S)\left[1-\int\dd[]{x}\partial_\mu j^\mu_a\omega_a(x)\right]\notag \\
                & =\expval{X}+\expval{\delta_\omega X}-\int\dd[d]{x}\partial_\mu\expval{j^\mu_a(x)X}\omega_a(x)
 \end{align}
-which finally gives
+which finally gives\sidenote{It is clearly that $$\expval{\delta_\omega X}=\delta_\omega\expval{X}.$$}
 \begin{align}
     \expval{\delta_\omega X}=\int\dd[d]{x}\partial_\mu\expval{j^\mu_a(x)X}\omega_a(x).\label{eq:ward:anyomega}
 \end{align}
@@ -305,7 +305,7 @@ and the associated conserved current is
 \begin{claim}
     One of the possible form of $B^{\rho\mu\nu}$ that will make $T^{\mu\nu}_B$ symmetric is
     \begin{align}
-        B^{\mu\rho\nu}=\frac{\ii}{4}\left[\pdv{\mathcal{L}}{(\partial_\mu\Phi)}S^{\nu\rho}\Phi+\pdv{\mathcal{L}}{(\partial_\rho\Phi)}S^{\mu\nu}\Phi+\pdv{\mathcal{L}}{(\partial_\nu\Phi)}S^{\mu\rho}\Phi\right].
+        B^{\mu\rho\nu}=\frac{\ii}{4}\left[\pdv{\mathcal{L}}{(\partial_\mu\Phi)}S^{\nu\rho}\Phi+\pdv{\mathcal{L}}{(\partial_\rho\Phi)}S^{\mu\nu}\Phi+\pdv{\mathcal{L}}{(\partial_\nu\Phi)}S^{\mu\rho}\Phi\right].\label{eq:Belinfante:B}
     \end{align}
 \end{claim}
 \begin{proof}
@@ -571,7 +571,7 @@ We first look at an example of Poincar\'e transformation
     We define the effect of Lorentz transformation generator $L_{\mu\nu}$ on the field at $x=0$ by
 
     \begin{align}
-        L_{\mu\nu}\Phi(0)\equiv \eqnmarkbox[blue]{node1}{S_{\mu\nu}} \Phi(0).
+        L_{\mu\nu}\Phi(0)\equiv \eqnmarkbox[blue]{node1}{S_{\mu\nu}} \Phi(0).\label{eq:poincare_algebra_trick:spin}
     \end{align}
     \annotate[yshift=0.5em]{}{node1}{Matrix}
     $S_{\mu\nu}$ is an ordinary matrix since Lorentz transformation maps the origin to itself.
@@ -661,8 +661,90 @@ Under an infinitesimal conformal transformation, using \cref{eq:GCI:fx,eq:GCI:fx
     Under certain conditions, the energy-momentum tensor of a theory with scale invariance can be made traceless.
     If this is possible, then it follows from the above that full conformal invariance is a consequence of scale invariance and Poincar\'e invariance.
 \end{intu}
-
-
+\paragraph{Making energy-momentum tensor traceless with scale invariance}
+We first consider a generic field with scale invariance in dimension $d>2$.
+Using \cref{eq:nother:canonical_current}, the conserved current with associated with the infinitesimal dilation 
+\begin{align}
+    x'^\mu=(1+\alpha)x^\mu\qand\mathcal{F}(\Phi)=(1-\alpha\Delta)\Phi
+\end{align}
+is 
+\begin{align}
+    j^\mu_D=&-\mathcal{L}x^\mu+\pdv{\mathcal{L}}{(\partial_\mu\Phi)}x^\nu\partial_\nu\Phi+\pdv{\mathcal{L}}{(\partial_\mu\Phi)}\Delta\Phi\notag\\
+            =&\eqnmarkbox[blue]{node1}{T^\mu_{c\ \nu}}x^\nu+\pdv{\mathcal{L}}{(\partial_\mu \Phi)}\Delta\Phi.
+\end{align}\annotate[yshift=-0.2cm]{below}{node1}{Canonical energy-momentum tensor}\\
+And the conservation equation gives\sidenote{Remember we are in the Euclidean spacetime.} 
+\begin{align}
+    \partial_\mu j^\mu_D=&T^\mu_{c\ \mu}+\Delta\partial_\mu\left(\pdv{\mathcal{L}}{(\partial_\mu\Phi)}\Phi\right)\notag\\
+                        =&0.\label{eq:conformal_tensor:consevation_j}
+\end{align}
+Now we define the \textit{virial}\sidenote{Maybe there is a typo in \cite{DiFrancesco:1997nk} on the definition of $V^\mu$.} of the field $\Phi$
+\begin{align}
+    V^\mu\equiv\fdv{\mathcal{L}}{(\partial^\rho\Phi)}\left(\eta^{\mu\rho}\Delta+\frac{1}{2}\ii \eqnmarkbox[blue]{node1}{S^{\mu\rho}}\right)\Phi\label{eq:conformal_tensor:virial_def}
+\end{align}\annotate[yshift=-0.2cm]{below}{node1}{Action of $L_{\mu\nu}$ on $\Phi(0)$, see \cref{eq:poincare_algebra_trick:spin}}\\
+We assume\sidenote{It is an assumption! And it is obeyed in a large class of physical theories.} the virial is the divergence of another tensor $\sigma^{\alpha\mu}$
+\begin{align}
+    V^\mu\equiv\partial_\alpha\sigma^{\alpha\mu}\label{eq:conformal_tenensor:condition}
+\end{align}
+And we also define\sidenote{It seems there is a typo in \cite{DiFrancesco:1997nk} on the definition of $X^{\lambda\rho\mu\nu}$.} 
+\begin{subequations}
+    \begin{align}
+        \sigma^{\mu\nu}_+\equiv&\frac{1}{2}\left(\sigma^{\mu\nu}+\sigma^{\nu\mu}\right)\\
+        X^{\lambda\rho\mu\nu}\equiv&\frac{2}{d-2}\left[\eta^{\lambda\rho}\sigma_+^{\mu\nu}-\eta^{\lambda\mu}\sigma_+^{\rho\nu}-\eta^{\lambda\mu}\sigma_+^{\nu\rho}+\eta^{\mu\nu}\sigma^{\lambda\rho}_+\right.\notag\\
+        &\quad\quad\quad\left.-\frac{1}{d-1}\left(\eta^{\lambda\rho}\eta^{\mu\nu}-\eta^{\lambda\mu}\eta^{\rho\nu}\right)\sigma^{\alpha}_{+\alpha}\right]
+    \end{align}
+\end{subequations}
+\begin{claim}
+    The modified energy-momentum tensor of a $d>2$ scale invariant theory
+    \begin{align}
+        T^{\mu\nu}\equiv T^{\mu\nu}_c+\partial_\rho B^{\rho\mu\nu}+\frac{1}{2}\partial_\lambda\partial_\rho X^{\lambda\rho\mu\nu}\label{eq:conformal_tensor:modified_tensor}
+    \end{align}
+    is both symmetric and traceless.
+\end{claim}
+\begin{proof}
+    The first two terms in \cref{eq:conformal_tensor:modified_tensor} is exactly $T^{\mu\nu}_B$ which is a symmetric conserved current.
+    \paragraph{Conservation}
+    It is easy to check that 
+    \begin{align}
+        \partial_\mu\partial_\lambda\partial_\rho X^{\lambda\rho\mu\nu}=0.
+    \end{align}
+    So the modified energy-momentum tensor is a conserved current.
+    \paragraph{Symmetry}
+    Since we have 
+    \begin{align}
+        X^{\lambda\rho\mu\nu}-X^{\lambda\rho\nu\mu}=\frac{2}{(d-2)(d-1)}\sigma^\alpha_{+\alpha}\left(\eta^{\lambda\mu}\eta^{\rho\nu}-\eta^{\lambda\nu}\eta^{\rho\mu}\right)
+    \end{align}
+    so it is clear that $\partial_\lambda\partial_\rho\left(X^{\lambda\rho\mu\nu}-X^{\lambda\rho\nu\mu}\right)=0$ which means $T^{\mu\nu}$ is symmetric.
+    \paragraph{Tracelessness}
+    The trace of the third term of \cref{eq:conformal_tensor:modified_tensor} is 
+    \begin{align}
+        \frac{1}{2} \partial_\lambda \partial_\rho \tensor{X}{^\lambda^\rho^\mu_\mu}=&\partial_\lambda \partial_\rho \sigma^{\lambda\rho}_+ \notag\\
+                                                                                =&\partial_\mu V^\mu.\label{eq:conformal_tensor:partial_X}
+    \end{align}
+    Using \cref{eq:Belinfante:B}, we have 
+    \begin{align}
+        \partial_\rho\tensor{B}{^\rho^\mu_\mu}=\frac{1}{2}\ii\partial_\rho\left(\fdv{\mathcal{L}}{(\partial^\mu\Phi)}S^{\mu\rho}\Phi\right)\label{eq:conformal_tensor:partial_B}
+    \end{align}
+    and from \cref{eq:conformal_tensor:modified_tensor,eq:conformal_tensor:consevation_j,eq:conformal_tensor:virial_def,eq:conformal_tensor:partial_B,eq:conformal_tensor:partial_X}, we have\snm
+    \begin{subequations}
+        \begin{align}
+            \tensor{T}{^\mu_\mu}=&T^{\mu}_{c\ \mu}+\partial_\rho\tensor{B}{^\rho^\mu_\mu}+\frac{1}{2}\partial_\lambda\partial_\rho\tensor{X}{^\lambda^\rho^\mu_\mu}\notag\\
+                                =&-\Delta\partial_\mu\left(\pdv{\mathcal{L}}{(\partial_\mu\Phi)}\Phi\right)+\frac{1}{2}\ii\partial_\rho\left(\fdv{\mathcal{L}}{(\partial^\mu\Phi)}S^{\mu\rho}\Phi\right)+\partial_\mu V^\mu\notag\\
+                                =&\partial_\mu j^\mu_D\label{eq:conformal_tensor:j_D}\\
+                                =&0
+        \end{align}
+    \end{subequations}
+    which means that the modified energy-momentum tensor $T_{\mu\nu}$ is traceless.
+\end{proof}
+\snt{Remember the relation $$S^{\mu\nu}+S^{\nu\mu}=0.$$}
+From \cref{eq:conformal_tensor:j_D}, we can write the dilation current as\sidenote{This is only valid in theories satisfy \cref{eq:conformal_tenensor:condition}. Since in such theories, the conservation of dilation current is equivalent to the tracelessness of the energy-momentum tensor.}
+\begin{align}
+    j^\mu_D=\tensor{T}{^\mu_\nu}x^\nu.
+\end{align}
+\begin{remark}
+    The above arguments are valid for $d>2$ since the definition of $X^{\lambda\rho\mu\nu}$ fails when $d>2$, but the result still holds in $d=2$ case.
+    We know of no general proof given only the scale invariance of the $d=2$ theory, but we will accept it.
+    And we will show that the energy-momentum tensor can be made traceless given the conformal invariance of the $d=2$ theory. 
+\end{remark}
 \subsection{Conformal Invariance in Quantum Field Theory}
 \subsubsection{Correlation Functions}
 \paragraph{Two-point function}
@@ -769,15 +851,15 @@ Now we will use \cref{eq:QFT:ward_identity} to derive the Ward identities for th
 
 \paragraph{Translation}
 \begin{align}
-    \partial_\mu\expval{\tensor{T}{^\mu_\nu}X}=-\sum_i\delta(x-x_i)\pdv{x^\nu_i}\expval{X}
+    \partial_\mu\expval{\tensor{T}{^\mu_\nu}X}=-\sum_i\delta(x-x_i)\pdv{x^\nu_i}\expval{X}\label{eq:GCI:conformal_ward_1}
 \end{align}
 \paragraph{Rotation}
 \begin{align}
-    \expval{\left(T^{\rho\nu}-T^{\nu\rho}\right)X}=-\ii\sum_i\delta(x-x_i)S^{\nu\rho}_i\expval{X}
+    \expval{\left(T^{\rho\nu}-T^{\nu\rho}\right)X}=-\ii\sum_i\delta(x-x_i)S^{\nu\rho}_i\expval{X}\label{eq:GCI:conformal_ward_2}
 \end{align}
 \paragraph{Scale transformation}
 \begin{align}
-    \expval{\tensor{T}{^\mu_\mu}X}=-\sum_i\delta(x-x_i)\Delta_i\expval{X}
+    \expval{\tensor{T}{^\mu_\mu}X}=-\sum_i\delta(x-x_i)\Delta_i\expval{X}\label{eq:GCI:conformal_ward_3}
 \end{align}
 
 \subsubsection{Tracelessness of \texorpdfstring{$T_{\mu\nu}$}{T mu nu} in Two Dimensions}
@@ -894,10 +976,10 @@ which means
 \end{align}
 where the indices $\mu$ and $\nu$ take the values $z$ and $\bar{z}$, in that order.
 
-The antisymmetric tensor can be written in holomorphic form as\sidenote{For example, $\epsilon_{z\bar{z}}$ can be calculated as \begin{align*}\epsilon_{z\bar{z}}=&\epsilon_{\mu\nu}\dv{z^\mu}{z}\dv{z^\nu}{\bar{z}}\\=&\dv{z^0}{z}\dv{z^1}{\bar{z}}-\dv{z^1}{z}\dv{z^0}{z^\beta}.\end{align*}}
+The antisymmetric tensor can be written in holomorphic form as\sidenote{For example, $\epsilon_{z\bar{z}}$ can be calculated as \begin{align*}\varepsilon_{z\bar{z}}=&\varepsilon_{\mu\nu}\dv{z^\mu}{z}\dv{z^\nu}{\bar{z}}\\=&\dv{z^0}{z}\dv{z^1}{\bar{z}}-\dv{z^1}{z}\dv{z^0}{z^\beta}.\end{align*}}
 \begin{align}
-    \epsilon_{\mu\nu}=\mqty(0&\frac{\ii}{2}\\-\frac{\ii}{2}&0)\quad\epsilon^{\mu\nu}=\mqty(0&-2\ii\\2\ii&0).
-\end{align} 
+    \varepsilon_{\mu\nu}=\mqty(0 & \frac{\ii}{2} \\-\frac{\ii}{2}&0)\quad\varepsilon^{\mu\nu}=\mqty(0&-2\ii\\2\ii&0).
+\end{align}
 
 
 Using these coordinates, the holomorphic Cauchy-Riemann equations \cref{eq:2dcft:holomorphic_1} become simply
@@ -906,13 +988,13 @@ Using these coordinates, the holomorphic Cauchy-Riemann equations \cref{eq:2dcft
 \end{align}
 whose solution is any holomorphic mapping (without $\bar{z}$ dependence)
 \begin{align}
-    z\to w(z).\label{eq:2dcft:2d_coformal_transformation_arbitrary}
+    z\to w(z).\label{eq:2dcft:2d_conformal_transformation_arbitrary}
 \end{align}
 This fact means that the $d=2$ conformal "group"\sidenote{We will see later $w(z)$ here is not actually a group. A simple reason is that not all $w(z)$ are invertible.} is the set of all analytic maps, wherein the group multiplication is the composition of maps.
 This set is infinite-dimensional, since an infinite number of parameters (the coefficients of a Laurent series) is needed to specify all functions analytic in some neighborhood.
 \subsubsection{Global Conformal Transformations}
 \begin{intu}
-    The conformal transformation \cref{eq:2dcft:2d_coformal_transformation_arbitrary} is not all well-defined everywhere and invertible.
+    The conformal transformation \cref{eq:2dcft:2d_conformal_transformation_arbitrary} is not all well-defined everywhere and invertible.
     Strictly speaking, in order to form a group, the mappings must be invertible, and must map the whole plane into itself \snm.
     The transformations that satisfy these conditions are \textit{global conformal transformations}, and the set of them form the \textit{special conformal group}\snm (or the \textit{global conformal group}).
 \end{intu}
@@ -984,7 +1066,7 @@ The generators obey the \textit{Witt algebra}
 \subsubsection{Primary Fields}
 Given a field with scaling dimension $d$ and spin $s$, we can define the \textit{holomorphic conformal dimension} $h$ and its antiholomorphic counterpart $\bar{h}$ as
 \begin{align}
-    h\equiv\frac{\Delta+s}{2}\quad\bar{h}\equiv\frac{\Delta-s}{2}.
+    h\equiv\frac{\Delta+s}{2}\quad\bar{h}\equiv\frac{\Delta-s}{2}.\label{eq:holomorphic_conformal_dimension}
 \end{align}
 \begin{definition}[Quasi-primary field and primary field]
     Now we generalize the \cref{def:quasi_primary_field}\snm.
@@ -1055,46 +1137,145 @@ where $h\equiv\sum_{i=1}^4 h_i$ and $\bar{h}\equiv\sum_{i=1}^4\bar{h}_i$.
 
 \subsection{Ward Identities}
 \subsubsection{Holomorphic From of the Ward Identities}
+\paragraph{Energy-momentum tensor in complex coordinates}
+We perform the same complex change of coordinates, under which $T$ transforms as $T_{\mu\nu}\to\pdv{x^\rho}{x^\mu}\pdv{x^\sigma}{x^\nu}T_{\rho\sigma}$, and we have\sidenote{We have assumed here the energy-momentum tensor is traceless.}
+\begin{subequations}
+    \begin{align}
+        T_{z\bar{z}}       & =T_{\bar{z}z}=0                             \\
+        T_{zz}             & =\frac{1}{2}\left(T_{00}-\ii T_{10}\right)  \\
+        T_{\bar{z}\bar{z}} & =\frac{1}{2}\left(T_{00}+\ii T_{10}\right).
+    \end{align}
+\end{subequations}
+From the conservation of $T_{\mu\nu}$, we have
+\begin{align}
+    \partial_0 T_{00}+\partial_1 T_{10}=\partial_0 T_{01}+\partial_1 T_{11}=0,
+\end{align}
+and it gives
+\begin{align}
+    \partial_{\bar{z}}T_{zz}=0\qand\partial_z T_{\bar{z}\bar{z}}=0.
+\end{align}
+And finally we have
+\begin{align}
+    T_{zz}(z,\bar{z})=T_{zz}(z)\qand T_{\bar{z}\bar{z}}(z,\bar{z})=T_{\bar{z}\bar{z}}(\bar{z}).
+\end{align}
+
 \begin{claim}
-    Dirac delta function $\delta(x)$ can be written as
+    Dirac delta function $\delta(x)$ can be written as\snm
     \begin{align}
         \delta(x)=\frac{1}{\pi}\partial_{\bar{z}}\frac{1}{z}=\frac{1}{\pi}\partial_{z}\frac{1}{\bar{z}}.\label{eq:2d_ward:dirac_another}
     \end{align}
 \end{claim}
+\snt{These two representations are valid for holomorphic functions and antiholomorphic functions respectively.}
 \begin{proof}
     Consider a vector $F^\mu$ whose divergence is integrated within a region $M$ of the complex plane bounded by the contour $\partial M$.
-    From the Gauss's theorem, we have 
+    From the Gauss's theorem, we have
     \begin{align}
         \int_M\dd[2]{x}\partial_\mu F^\mu=\int_{\partial M}\dd[]{\xi_\mu} F^\mu.\label{eq:2d_ward:gauss}
     \end{align}
     where $\dd[]{\xi_\mu}$ is an outward-directed differential of circumference, orthogonal to the boundary $\partial M$.
-    It is more convenient to use a counterclockwise differential $\dd[]{s^\rho}$ which is parallel to the contour $\partial M$: $\dd[]{\xi_\mu}=\epsilon_{\mu\rho}\dd[]{s^\rho}$.
+    It is more convenient to use a counterclockwise differential $\dd[]{s^\rho}$ which is parallel to the contour $\partial M$: $\dd[]{\xi_\mu}=\varepsilon_{\mu\rho}\dd[]{s^\rho}$.
     Now \cref{eq:2d_ward:gauss} becomes
     \begin{align}
-        \int_M\dd[2]{x}\partial_\mu F^\mu=&\int_{\partial M}\dd[]{\xi_\mu} F^\mu\notag\\
-                                            =&\int_{\partial M}\epsilon_{\mu\rho}\dd[]{s^\rho}F^\mu\notag\\
-                                            =&\int_{\partial M}\left(\epsilon_{\bar{z}z}\dd[]{z}F^{\bar{z}}+\epsilon_{z\bar{z}}\dd[]{\bar{z}}F^{z}\right)\notag\\
-                                            =&\frac{\ii}{2}\int_{\partial M}\left(-\dd[]{z}F^{\bar{z}}+\dd[]{\bar{z}}F^{z}\right)
-    \end{align} 
+        \int_M\dd[2]{x}\partial_\mu F^\mu= & \int_{\partial M}\dd[]{\xi_\mu} F^\mu\notag                                                                             \\
+        =                                  & \int_{\partial M}\varepsilon_{\mu\rho}\dd[]{s^\rho}F^\mu\notag                                                          \\
+        =                                  & \int_{\partial M}\left(\varepsilon_{\bar{z}z}\dd[]{z}F^{\bar{z}}+\varepsilon_{z\bar{z}}\dd[]{\bar{z}}F^{z}\right)\notag \\
+        =                                  & \frac{\ii}{2}\int_{\partial M}\left(-\dd[]{z}F^{\bar{z}}+\dd[]{\bar{z}}F^{z}\right)\label{eq:2dcft:another_gauss}
+    \end{align}
 
-    Then we can directly check \cref{eq:2d_ward:dirac_another} for a function $f(z)$ which is analytic within $M$:
+    Then we can directly check the first representation of \cref{eq:2d_ward:dirac_another} for a function $f(z)$ which is analytic within $M$:
     \begin{subequations}
         \begin{align}
-            \int_M \dd[2]{x}\delta(x)f(z)=&\frac{1}{\pi}\int_M\dd[2]{x}f(z)\partial_{\bar{z}}\frac{1}{z}\\
-                                        =&\frac{1}{\pi}\int_M\dd[2]{x}\partial_{\bar{z}}\left(\frac{f(z)}{z}\right)\\
-                                        =&\frac{1}{2\pi \ii}\int_{\partial M}\dd[]{z}\frac{f(z)}{z}\notag\\
-                                        =&f(0).
+            \int_M \dd[2]{x}\delta(x)f(z)= & \frac{1}{\pi}\int_M\dd[2]{x}f(z)\partial_{\bar{z}}\frac{1}{z}\label{eq:2dcft:dirac_delta_1}             \\
+            =                              & \frac{1}{\pi}\int_M\dd[2]{x}\partial_{\bar{z}}\left(\frac{f(z)}{z}\right)\label{eq:2dcft:dirac_delta_2} \\
+            =                              & \frac{1}{2\pi \ii}\int_{\partial M}\dd[]{z}\frac{f(z)}{z}\label{eq:2dcft:dirac_delta_3}                 \\
+            =                              & f(0).\notag
         \end{align}
     \end{subequations}
+    From \cref{eq:2dcft:dirac_delta_1} to \cref{eq:2dcft:dirac_delta_2}, we used that $f(z)$ is analytic within $M$ and from \cref{eq:2dcft:dirac_delta_2} to \cref{eq:2dcft:dirac_delta_3}, we used \cref{eq:2dcft:another_gauss} with $F^{\bar{z}}=\frac{f(z)}{\pi z}$ and $F^z=0$.
+
+    In the same way, we can check the second representation in \cref{eq:2d_ward:dirac_another} with an antiholomorphic function $\bar{f}(\bar{z})$.
 \end{proof}
+Now the Ward identities \cref{eq:GCI:conformal_ward_1,eq:GCI:conformal_ward_2,eq:GCI:conformal_ward_3} can be written as
+\begin{subequations}
+    \begin{align}
+        2\pi\partial_z\expval{T_{\bar{z}z}X}+2\pi\partial_{\bar{z}}\expval{T_{zz}X}=             & -\sum_{i=1}^n\partial_{\bar{z}}\frac{1}{z-w_i}\partial_{w_i}\expval{X}\label{eq:2dcft:ward_holo_1}           \\
+        2\pi\partial_z\expval{T_{\bar{z}\bar{z}}X}+2\pi\partial_{\bar{z}}\expval{T_{z\bar{z}}X}= & -\sum_{i=1}^n\partial_z\frac{1}{\bar{z}-\bar{w}_i}\partial_{\bar{w}_i}\expval{X}\label{eq:2dcft:ward_holo_2} \\
+        2\expval{T_{z\bar{z}}X}+2\expval{T_{\bar{z}z}X}=                                         & -\sum_{i=1}^n\delta(x-x_i)\Delta_i\expval{X}\label{eq:2dcft:ward_holo_3}                                     \\
+        -2\expval{T_{z\bar{z}}X}+2\expval{T_{\bar{z}z}X}=                                        & -\sum_{i=1}^n\delta(x-x_i)s_i\expval{X},\label{eq:2dcft:ward_holo_4}
+    \end{align}
+\end{subequations}
+where $w_i$ and $\bar{w}_i$ are complex coordinates of the fields.
+
+If we add substract \cref{eq:2dcft:ward_holo_3,eq:2dcft:ward_holo_4}, we have
+\begin{subequations}
+    \begin{align}
+        2\pi\expval{T_{\bar{z}z}X}= & -\sum_{i=1}^n\partial_{\bar{z}}\frac{1}{z-w_i}h_i\expval{X}\label{eq:2dcft:ward_holo_5}            \\
+        2\pi\expval{T_{z\bar{z}}X}= & -\sum_{i=1}^n\partial_z\frac{1}{\bar{z}-\bar{w}_i}\bar{h}_i\expval{X}.\label{eq:2dcft:ward_holo_6}
+    \end{align}
+\end{subequations}
+where we used \cref{eq:holomorphic_conformal_dimension}.
+Inserting \cref{eq:2dcft:ward_holo_5,eq:2dcft:ward_holo_6} into \cref{eq:2dcft:ward_holo_1,eq:2dcft:ward_holo_2}, we find
+\begin{subequations}
+    \begin{align}
+        \partial_{\bar{z}}\left[\expval{T(z,\bar{z})X}-\sum_{i=1}^n\left(\frac{1}{z-w_i}\partial_{w_i}\expval{X}+\frac{h_i}{(z-w_i)^2}\expval{X}\right)\right]                                   & =0\label{eq:2dcft:ward_holo_7} \\
+        \partial_z\left[\expval{\bar{T}(z,\bar{z})X}-\sum_{i=1}^n\left(\frac{1}{\bar{z}-\bar{w}_i}\partial_{\bar{w}_i}\expval{X}+\frac{\bar{h}_i}{(\bar{z}-\bar{w}_i)^2}\expval{X}\right)\right] & =0\label{eq:2dcft:ward_holo_8}
+    \end{align}
+\end{subequations}
+where we defined the renormalized energy-momentum tensor
+\begin{align}
+    T\equiv-2\pi T_{zz}\qand\bar{T}\equiv-2\pi T_{\bar{z}\bar{z}}.
+\end{align}
+It can be implied that the expressions between the square brackets in \cref{eq:2dcft:ward_holo_7,eq:2dcft:ward_holo_8} are respectively holomorphic and antiholomorphic, thus we may write
+\begin{subequations}
+    \begin{align}
+        \expval{T(z)X}             & =\sum_{i=1}^n\left(\frac{1}{z-w_i}\partial_{w_i}\expval{X}+\frac{h_i}{(z-w_i)^2}\expval{X}\right)+\text{reg.}                                     \\
+        \expval{\bar{T}(\bar{z})X} & =\sum_{i=1}^n\left(\frac{1}{\bar{z}-\bar{w}_i}\partial_{\bar{w}_i}\expval{X}+\frac{\bar{h}_i}{(\bar{z}-\bar{e}_i)^2}\expval{X}\right)+\text{reg.}
+    \end{align}
+\end{subequations}
+where "reg." stands for a holomorphic function of $z$ which is regular at $z=w_i$ and a holomorphic function of $\bar{z}$ which is regular at $\bar{z}=\bar{w}_i$ respectively.
 
 \subsubsection{The Conformal Ward Identity}
+\begin{intu}
+    We can bring the Ward identities \cref{eq:GCI:conformal_ward_1,eq:GCI:conformal_ward_2,eq:GCI:conformal_ward_3} into a single relation.
+\end{intu}
+Given an arbitrary infinitesimal conformal coordinate variation $\epsilon^\nu(x)$, we can write\sidenote{Remember that in $d=2$ cases we only consider energy-momentum tensors that can be made both identically symmetric and traceless.}
+\begin{subequations}
+    \begin{align}
+        \partial_\mu\left(\epsilon_\nu T^{\mu\nu}\right)= & \epsilon_\nu \partial_\mu T^{\mu\nu}+\frac{1}{2}\left(\partial_\mu\epsilon_\nu+\partial_\nu\epsilon_\mu\right)T^{\mu\nu}+\frac{1}{2}\left(\partial_\mu\epsilon_\nu-\partial_\nu\epsilon_\mu\right)T^{\mu\nu}\notag                                                                     \\
+        =                                                 & \epsilon_\nu\partial_\mu T^{\mu\nu}+\frac{1}{2}\left(\partial_\rho\epsilon^\rho\right)\eta_{\mu\nu}T^{\mu\nu}+\frac{1}{2}\eqnmarkbox[blue]{node1}{\varepsilon^{\alpha\beta}}\partial_\alpha\epsilon_\beta\eqnmarkbox[blue]{node2}{\varepsilon_{\mu\nu}}T^{\mu\nu}\\
+        \quad\notag\\
+        =&\epsilon_\nu\partial_\mu T^{\mu\nu}+\frac{1}{2}\left(\partial_\rho\epsilon^\rho\right)\tensor{T}{^\mu_\mu}+\frac{1}{2}\varepsilon^{\alpha\beta}\partial_\alpha\epsilon_\beta\varepsilon_{(\mu\nu)}T^{(\mu\nu)}\notag\\
+        =&\epsilon_\nu\partial_\mu T^{\mu\nu}\label{eq:2DCWI:arbi}
+    \end{align}
+\end{subequations}\annotatetwo[yshift=-0.7em]{below,label below}{node1}{node2}{Antisymmetric tensor}\\
+where we have used the relation $\frac{1}{2}\left(\partial_\mu\epsilon_\nu+\partial_\nu\epsilon_\mu\right)=\frac{1}{2}\left(\partial_\rho\epsilon^\rho\right)\eta_{\mu\nu}$ which can be derived from \cref{eq:GCI:fx,eq:GCI:fx1} and the relation $\frac{1}{2}\left(\partial_\mu\epsilon_\nu-\partial_\nu\epsilon_\mu\right)=\frac{1}{2}\varepsilon^{\alpha\beta}\partial_\alpha\epsilon_\beta\varepsilon_{\mu\nu}$ which can be checked explicitly.
+
+From \cref{eq:ward:anyomega,eq:2DCWI:arbi}, we have
+\begin{align}
+    \delta_\epsilon\expval{X}&=\int_M\dd[2]{x}\partial_\mu\expval{T^{\mu\nu}(x)X}\epsilon_\nu(x)\notag\\
+                             &=\int_M\dd[2]{x}\partial_\mu\expval{T^{\mu\nu}(x)\epsilon_\nu(x)X}\label{eq:2DCWI:conformal_ward_1}
+\end{align}
+We can think of the integrand in \cref{eq:2DCWI:conformal_ward_1} as a divergence of a vector field $F^\mu\equiv\expval{T^{\mu\nu}(x)\epsilon_\nu(x)X}$ and apply Gauss's theorem
+
+\begin{boxmath}{Conformal Ward Identity}
+    \begin{align}
+        \delta_{\epsilon,\bar{\epsilon}}\expval{X}=-\frac{1}{2\pi\ii}\oint\dd[]{z}\epsilon(z)\expval{T(z)X}+\frac{1}{2\pi\ii}\oint\dd[]{\bar{z}}\bar{\epsilon}(\bar{z})\expval{\bar{T}(\bar{z})X}.
+    \end{align}
+\end{boxmath}
+
+
 \subsubsection{Alternate Derivation of the Ward Identities}
 \subsection{Free Fields and the Operator Product Expansion}
 \subsection{The Central Charge}
 
 \clearpage
 \section{The Operator Formalism}
+\subsection{The Operator Formalism of Conformal Field Theory}
+\subsection{The Virasoro Algebra}
+\subsection{The Free Boson}
+\subsection{The Free Fermion}
+\subsection{Normal Ordering}
+\subsection{Conformal Families and Operator Algebra}
 
 \clearpage
 \bibliographystyle{jhep}
