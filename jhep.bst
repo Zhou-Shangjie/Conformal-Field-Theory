@@ -1,14 +1,3 @@
-% This file (JHEP-mod.bst v21.07.0) contains some modifications
-% from the original JHEP.bst. For this derived work (covered by LPPL
-% 1.3c or later), see:
-%
-%   https://github.com/tueda/JHEP-mod.bst
-%
-
-% For autoupdate:
-% latest-raw-url: https://raw.githubusercontent.com/tueda/JHEP-mod.bst/main/JHEP-mod.bst
-
-
 % JHEP bibliography style ver. 2.18
 %
 % The bibtex output produced by inSPIRE, while far from perfect, is pretty
@@ -62,18 +51,8 @@ ENTRY
     year
     archive
     eprint
-    archiveprefix
-    primaryClass
     report
-    reportNumber
     collaboration
-    erratum.prefix
-    erratum.journal
-    erratum.volume
-    erratum.year
-    erratum.number
-    erratum.pages
-    erratum.doi
     url
   }
   {}
@@ -270,7 +249,7 @@ FUNCTION {format.url}
 
 %% from http://mirrors.ctan.org/biblio/bibtex/contrib/doc/btxFAQ.pdf Q.35
 %% from Philip G. Ratcliffe on the newsgroup comp.text.tex on June 28, 2002
-%% in the thread “BiBTeX, bst hackers, format.name$, please help”.
+%% in the thread â€œBiBTeX, bst hackers, format.name$, please helpâ€.
 FUNCTION {remove.spaces}
 { 'z :=
   ""
@@ -350,25 +329,12 @@ FUNCTION {format.authors}
 FUNCTION {format.eprint}
 { eprint empty$
      { ""}
-     {
-        % INSPIRE-HEP assigns preprint information in BibTeX entries as follows.
-        % Up to March 2007:
-        %   eprint        = {hep-ph/YYMMNNN},
-        %   archiveprefix = {arXiv},
-        % Since April 2007:
-        %   eprint        = {YYMM.NNNN(N)},
-        %   archiveprefix = {arXiv},
-        %   primaryclass  = {hep-ph},
-        primaryclass empty$
-          {
-            "\href{https://arxiv.org/abs/" eprint * "}" *
-            "{{\ttfamily arXiv:" * eprint * "}}" *
-          }
-          {
-            "\href{https://arxiv.org/abs/" eprint * "}" *
-            "{{\ttfamily arXiv:" * eprint * "\,[" * primaryClass * "]" * "}}" *
-          }
-        if$
+     { archive empty$
+          {"\href{https://arxiv.org/abs/" eprint * "}" *
+             "{{\ttfamily " * eprint * "}}" *}
+          {"\href{https://arxiv.org/abs/" archive *  "/" * eprint * "}" *
+             "{{\ttfamily " * archive * "/" * eprint * "}}" *}
+       if$
      }
      if$
 }
@@ -381,41 +347,7 @@ FUNCTION {format.eprint.paren}
   if$
 }
 
-FUNCTION {format.eprint.or.reportNumber}
-{
-  eprint missing$
-    {
-      reportNumber missing$
-        { "" }
-        {
-          ""
-          url missing$
-            'skip$
-            { "\href{" url * "}{" * * }
-          if$
-          reportNumber *
-          url missing$
-            'skip$
-            { "}" * }
-          if$
-          year missing$
-            'skip$
-            { " (" year * ")" * * }
-          if$
-        }
-      if$
-    }
-    { format.eprint }
-  if$
-}
 
-FUNCTION {format.eprint.or.null}
-{
-  eprint missing$
-    { "" }
-    { format.eprint }
-  if$
-}
 
 FUNCTION {format.report}
 { report empty$
@@ -816,65 +748,6 @@ FUNCTION {format.author.or.collaboration}
   if$
 }
 
-FUNCTION {format.erratum}
-{
-  erratum.pages missing$
-    'skip$
-    {
-      blank.sep
-      "["
-      erratum.prefix missing$
-        { "Erratum" }
-        { erratum.prefix }
-      if$ emphasize *
-      output
-      blank.sep
-      % cf. format.doi
-      erratum.doi empty$
-        { "" }
-        { "\href{https://doi.org/" erratum.doi * "}" * }
-      if$
-      % end: format.doi
-      "{" *
-      erratum.journal missing$
-        { "ibid." }
-        { erratum.journal }
-      if$ emphasize *
-      output
-      blank.sep
-      % cf. format.volume
-      erratum.volume empty$
-        { "" }
-        { "{\bfseries " erratum.volume * "}" * }
-      if$
-      % end: format.volume
-      output
-      blank.sep
-      % cf. format.date.paren.nomonth
-      erratum.year empty$
-        { "" }
-        { "(" erratum.year * ")" * }
-      if$
-      % end: format.date.paren.nomonth
-      output
-      blank.sep
-      % cf. format.pages.nopp
-      erratum.pages empty$
-        { "" }
-        {
-          erratum.pages multi.page.check
-            { erratum.pages first.page }
-            { erratum.pages }
-          if$
-        }
-      if$
-      % end: format.pages.nopp
-      "}]" *
-      output
-    }
-  if$
-}
-
 FUNCTION {article}
 {
   output.bibitem
@@ -897,9 +770,9 @@ FUNCTION {article}
   crossref missing$
     {
       journal missing$
-        { format.eprint.or.reportNumber output }
+        { format.eprint output }
         { journal empty$
-            { format.eprint.or.reportNumber output }
+            { format.eprint output }
             { format.doi * "{" * journal emphasize before.all 'output.state := "journal" output.check
               blank.sep
               format.volume output
@@ -907,25 +780,26 @@ FUNCTION {article}
               format.date.paren.nomonth "year" output.check
               blank.sep
               format.pages.nopp "}" * output
-              format.erratum
+              blank.sep
             }
           if$
         }
       if$
+
       report missing$
         { journal empty$
             {}
-            { format.eprint.or.null output }
+            { format.eprint.paren output}
           if$
         }
-        { blank.sep format.report output format.eprint output}
+        { blank.sep format.report output format.eprint.paren output}
       if$
     }
 
     {
       format.article.crossref output.nonnull
       format.pages.nopp output
-      format.eprint output
+      format.eprint.paren output
     }
   if$
 
@@ -1111,18 +985,22 @@ FUNCTION {mastersthesis}
 
 FUNCTION {misc}
 { output.bibitem
-  format.author.or.collaboration
-  title missing$
-    'skip$
-    {
-      format.title output
+  format.collaboration output
+  format.authors output
+  title empty$
+    { howpublished new.sentence.checka }
+    { howpublished empty$ not
+      month empty$ year empty$ and
+      or
+	{ format.title.p output.nonnull }
+	{ format.title output.nonnull }
+      if$
       blank.sep
     }
   if$
-  howpublished "howpublished" output.check
-  blank.sep
-  format.date.paren.nomonth output
-  % new.block
+  howpublished output
+  format.date output
+  new.block
   % note output
   doi output
   fin.entry
@@ -1268,7 +1146,6 @@ FUNCTION {begin.bib}
   if$
   newline$
   "\providecommand{\href}[2]{#2}"
-  "\providecommand{\url}[1]{#1}" *
   "\begingroup\raggedright\begin{thebibliography}{" * longest.label  *
   "}" * write$ newline$ }
 

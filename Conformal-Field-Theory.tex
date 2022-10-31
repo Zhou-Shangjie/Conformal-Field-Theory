@@ -100,7 +100,7 @@ The explicit expression of the generator is therefore
     For an infinitesimal translation by a vector $\omega_\mu$, one has $\fdv*{x^\mu}{\omega^\nu}=\delta^\mu_\nu$ and $\fdv*{\mathcal{F}}{\omega^\nu}=0$.
     The generator of translations is simply
     \begin{align}
-        P_\nu=-\ii\partial_\nu.
+        P_\nu=-\ii\partial_\nu.\label{eq:CST:translation_operator}
     \end{align}
 \end{example}
 \begin{example}[Infinitesimal Lorentz transformation]
@@ -124,7 +124,7 @@ The explicit expression of the generator is therefore
     \end{align}
     The generators of the Lorentz transformation are thus
     \begin{align}
-        L^{\rho\nu}=\ii\left(x^\rho\partial^{\nu}-x^\nu\partial^\rho\right)+S^{\rho\nu}.
+        L^{\rho\nu}=\ii\left(x^\rho\partial^{\nu}-x^\nu\partial^\rho\right)+S^{\rho\nu}.\label{eq:CST:Lorentz_operator}
     \end{align}
 \end{example}
 \begin{theorem}[Noether's theorem]
@@ -188,7 +188,7 @@ The explicit expression of the generator is therefore
 \begin{remark}
     We can freely add $j^\mu_a$ the divergence of an antisymmetric tensor without affecting the conservation
     \begin{align}
-        j^\mu_a\to j^\mu_a+\partial_\nu B^{\nu\mu}_a\qq{where} B^{\nu\mu}_a=-B^{\mu\nu}_a
+        j^\mu_a\to j^\mu_a+\partial_\nu B^{\nu\mu}_a\qq{where} B^{\nu\mu}_a=-B^{\mu\nu}_a\label{eq:nother:equiv_current}
     \end{align}
     since $\partial_\mu\partial_\nu B^{\nu\mu}_a=0$ by antisymmetry.
     The current we defined in \cref{eq:nother:canonical_current} is said to be \textit{canonical}.
@@ -278,16 +278,16 @@ In particular, the energy is
 \end{align}
 which is the usual definition of the Hamiltonian.
 
-\subsubsection{The Belinfante Tensor}
+\subsubsection{The Belinfante Tensor\label{subsubsec:The_Belinfante_Tensor}}
 \begin{intu}
-    In general, the canonical energy-momentum operator is not symmetric, we can make it symmetric by adding $T^{\mu\nu}_c$ an divergenceless term without breaking the consevation law or the Ward identity
+    In general, the canonical energy-momentum operator is not symmetric, we can make it symmetric \textit{classically} by adding $T^{\mu\nu}_c$ an divergenceless term without breaking the consevation law or the Ward identity
     \begin{align}
-        T^{\mu\nu}_B=T^{\mu\nu}_c+\partial_{\rho}B^{\rho\mu\nu}\qq{where}B^{\rho\mu\nu}=-B^{\mu\rho\nu}.
+        T^{\mu\nu}_B\equiv T^{\mu\nu}_c+\partial_{\rho}B^{\rho\mu\nu}\qq{where}B^{\rho\mu\nu}=-B^{\mu\rho\nu}.\label{eq:Belinfante:def}
     \end{align}
 \end{intu}
 The variation of the action under a nonuniform translation with position-dependent parameter $\epsilon^\mu(x)$ is still
 \begin{align}
-    \delta S=-\int\dd[d]{x}\partial_\mu T^{\mu\nu}_B\epsilon_\nu
+    \delta S=\int\dd[d]{x}\partial_\mu T^{\mu\nu}_B\epsilon_\nu
 \end{align}
 since $\partial_\mu T^{\mu\nu}_B=\partial_\mu T^{\mu\nu}_c$.
 
@@ -300,12 +300,12 @@ From \cref{eq:CST:lorentz_x,eq:CST:lorentz_phi}, under infinitesimal Lorentz tra
 \end{align}
 and the associated conserved current is
 \begin{align}
-    j^{\mu\nu\rho}=T^{\mu\nu}_c x^\rho-T^{\mu\rho}_c x^\nu+\frac{\ii}{2}\pdv{\mathcal{L}}{(\partial_\mu\Phi)}S^{\nu\rho}\Phi.\label{eq:Belinfante:lorentz_current}
+    j^{\mu\nu\rho}=T^{\mu\nu}_c x^\rho-T^{\mu\rho}_c x^\nu+\ii\pdv{\mathcal{L}}{(\partial_\mu\Phi)}S^{\nu\rho}\Phi.\label{eq:Belinfante:lorentz_current}
 \end{align}
 \begin{claim}
     One of the possible form of $B^{\rho\mu\nu}$ that will make $T^{\mu\nu}_B$ symmetric is
     \begin{align}
-        B^{\mu\rho\nu}=\frac{\ii}{4}\left[\pdv{\mathcal{L}}{(\partial_\mu\Phi)}S^{\nu\rho}\Phi+\pdv{\mathcal{L}}{(\partial_\rho\Phi)}S^{\mu\nu}\Phi+\pdv{\mathcal{L}}{(\partial_\nu\Phi)}S^{\mu\rho}\Phi\right].\label{eq:Belinfante:B}
+        B^{\mu\rho\nu}=\frac{\ii}{2}\left[\pdv{\mathcal{L}}{(\partial_\mu\Phi)}S^{\nu\rho}\Phi+\pdv{\mathcal{L}}{(\partial_\rho\Phi)}S^{\mu\nu}\Phi+\pdv{\mathcal{L}}{(\partial_\nu\Phi)}S^{\mu\rho}\Phi\right].\label{eq:Belinfante:B}
     \end{align}
 \end{claim}
 \begin{proof}
@@ -313,46 +313,125 @@ and the associated conserved current is
 
     We can explicitly show that
     \begin{align}
-        B^{\mu\rho\nu}-B^{\mu\nu\rho}=\frac{1}{2}\ii\pdv{\mathcal{L}}{(\partial_\mu\Phi)}S^{\nu\rho}\Phi.
+        B^{\mu\rho\nu}-B^{\mu\nu\rho}=\ii\pdv{\mathcal{L}}{(\partial_\mu\Phi)}S^{\nu\rho}\Phi.
     \end{align}
     Acting $\partial_\mu$ on both sides of \cref{eq:Belinfante:lorentz_current}, we have
     \begin{align}
-        T^{\rho\nu}_c-T^{\nu\rho}_c=-\frac{1}{2}\ii\partial_\mu\left[\pdv{\mathcal{L}}{(\partial_\mu\Phi)}S^{\nu\rho}\Phi\right]
+        T^{\rho\nu}_c-T^{\nu\rho}_c=-\ii\partial_\mu\left[\pdv{\mathcal{L}}{(\partial_\mu\Phi)}S^{\nu\rho}\Phi\right]
     \end{align}
     where the conservation laws $\partial_\mu j^{\mu\nu\rho}=0$ and $\partial_\mu T^{\mu\nu}=0$ are used.
-    We see that the antisymmetric part of $T^{\rho\nu}_c+\partial_\mu B^{\mu\rho\nu}$ vanishes which means $T^{\mu\nu}_B$ is indeed symmetric in a classical configuration.
+    We see that the antisymmetric part of $T^{\rho\nu}_c+\partial_\mu B^{\mu\rho\nu}$ vanishes which means $T^{\mu\nu}_B$ is indeed symmetric \textit{in a classical configuration}\snm.
 \end{proof}
+\snt{The symmetry is not guaranteed in any configuration, namely not \textit{identically}.}
 \begin{remark}
     The form of $B^{\mu\rho\nu}$ is not unique.
-\end{remark}
-\subsubsection{Alternate Definition of the Energy-Momentum Tensor}
-Consider an infinitesimal translation of the coordinates $x^\mu\to x'^\mu+\epsilon^\mu(x)$.
-According to \cref{eq:nother:before_integration}, we have
-\begin{align}
-    \delta S= & \int\dd[d]{x}T^{\mu\nu}\partial_\mu\epsilon_\nu\notag                                                                               \\
-    =         & \frac{1}{2}\int\dd[d]{x}T^{\mu\nu}\left(\partial_\mu\epsilon_\nu+\partial_\nu\epsilon_\mu\right)\label{eq:alternate_tensor:delta_s}
-\end{align}
-where we have assumed $T^{\mu\nu}$ has been made symmetric.
+    We use \cref{eq:Belinfante:B} to define $T_B^{\mu\nu}$ in this note.
 
-The induced metric of the map $x^\mu\to x'^\mu+\epsilon^\mu(x)$ to first order in $\epsilon$ is
-\begin{align}
-    g'_{\mu\nu}= & \pdv{x^\alpha}{x'^\mu}\pdv{x^\beta}{x'^\nu}g_{\alpha\beta}\notag                                                                   \\
-    =            & \left(\delta^\alpha_\mu-\partial_\mu\epsilon^\alpha\right)\left(\delta^\beta_\nu-\partial_\nu\epsilon^\beta\right)g_{\alpha\beta}.
-\end{align}
+    Notice that the Belinfante tensor can only be defined in a theory with Lorentz invariance and is only symmetric classically.
+
+    And with $T^{\mu\nu}_B$ we can write the conserved current for Lorentz symmetry as\snm
+    \begin{align}
+        j^{\mu\nu\rho}=T^{\mu\nu}_B x^\rho-T^{\mu\rho}_B x^\nu.\label{eq:Belinfante:after_stress_tensor}
+    \end{align}
+\end{remark}
+\snt{Check it! It differs from the conserved current in \cref{eq:Belinfante:lorentz_current} by a divergenceless term which means they are equivalent.}
+\begin{example}[Massive vector field\label{ex:massive_vector_field}]
+    Consider the following Lagrangian for a massive vector field $A_\mu$ (in Euclidean spacetime)
+    \begin{align}
+        \mathcal{L}=\frac{1}{4}F^{\alpha\beta}F_{\alpha\beta}+\frac{1}{2}m^2 A^\alpha A_\alpha
+    \end{align}
+    where $F_{\alpha\beta}\equiv\partial_\alpha A_\beta-\partial_\beta A_\alpha$.
+    The canonical energy-momentum tensor is
+    \begin{align}
+        T^{\mu\nu}_c=F^{\mu\alpha}\partial^\nu A_\alpha-\eta^{\mu\nu}\mathcal{L}
+    \end{align}
+    which is not symmetric.
+    Using \cref{eq:Belinfante:B,eq:Belinfante:def}, we have
+    \begin{align}
+        B^{\alpha\mu\nu}= & F^{\alpha\mu}A^\nu                                                                 \\
+        T^{\mu\nu}_B=     & T^{\mu\nu}_c+F^{\alpha\mu}\partial_\alpha A^\nu+\partial_\alpha F^{\alpha\mu}A^\nu
+    \end{align}
+    and we know $T^{\mu\nu}_B$ is classically symmetric.
+\end{example}
 \begin{intu}
-    The form of the variation of the metric is a hint of a new definition of the energy-momentum tensor.
-    We can rewrite \cref{eq:alternate_tensor:delta_s}
-    \begin{align}
-        \delta S=-\frac{1}{2}\int\dd[d]{x}T^{\mu\nu}\delta g_{\mu\nu}.
-    \end{align}
+    Although we can replace the canonical energy-momentum tensor $T^{\mu\nu}_c$ by Belinfante tensor $T^{\mu\nu}_B$ without breaking the Ward identity, the $T^{\mu\nu}_B$ in Ward identity is not symmetric\snm.
+
+    In fact, it is possible to define a new energy-momentum tensor $\tilde{T}^{\mu\nu}_B$ which is a conserved current classically and symmetric in any field configuration, namely \textit{identically} symmetric.
+    And in general\snm we can directly substitute $\tilde{T}^{\mu\nu}_B$ into the Ward identity for $T^{\mu\nu}_c$ without breaking it.
 \end{intu}
-Therefore, we can give an alternate definition of the energy-momentum tensor
-\begin{definition}[Alternate definition of energy-momentum tensor]
-    The enery-momentum tensor is defined to be the functional derivative of the action with respect to the metric, evaluated in flat space:
+\snt{$T^{\mu\nu}_B$ is symmetric classically and in Ward identity we consider all possible field configuration.}
+\snt{So not in every case.}
+In \cref{ex:massive_vector_field}, we may define
+\begin{align}
+    \tilde{T}^{\mu\nu}_B\equiv T^{\mu\nu}_B-\left(\partial_\alpha F^{\alpha\mu}-m^2 A^\mu\right)A^\nu.
+\end{align}
+We have $\tilde{T}^{\mu\nu}_B=T^{\mu\nu}_B$ classically using equation of motion and $\tilde{T}^{\mu\nu}_B$ can be directly used to replace $T^{\mu\nu}_c$ in the Ward identity for translation (see \cite{DiFrancesco:1997nk} for details\sidenote{\label{sidenote:modified_EM_tensor}The idea is that if we use the modified energy-momentum tensor $\tilde{T}^{\mu\nu}_B$, there will be an extra divergence term in the LHS of Ward identity \cref{eq:QFT:ward_identity}. Since the Dirac delta function has a precise meaning only after integration over some volume, we often integrate the Ward identity for furthur use and after the integration, the divergence term will vanish as a surface term.}).
+\subsubsection{Hilbert Energy-Momentum Tensor}
+Consider an infinitesimal translation of the coordinates $x^\mu\to x^\mu+\epsilon^\mu(x)$.
+The variation of the action $\delta S$ can be calculated using \cref{eq:nother:before_integration}.
+We want to define a new energy momentum tensor $\Theta^{\mu\nu}$ which satisfies
+\begin{align}
+    \delta S\equiv-\frac{1}{2}\int\dd[d]{x}\Theta^{\mu\nu}\left(\partial_\mu\epsilon_\nu+\partial_\nu\epsilon_\mu\right)\label{eq:alternate_tensor:requirement}
+\end{align}
+
+%According to \cref{eq:nother:before_integration}, we have
+%\begin{align}
+%    \delta S= & \int\dd[d]{x}T^{\mu\nu}\partial_\mu\epsilon_\nu\notag                                                                               \\
+%    =         & \frac{1}{2}\int\dd[d]{x}T^{\mu\nu}\left(\partial_\mu\epsilon_\nu+\partial_\nu\epsilon_\mu\right)\label{eq:alternate_tensor:delta_s}
+%\end{align}
+%where we have used identically symmetric energy-momentum tensor $T^{\mu\nu}$\sidenote{\Cref{eq:nother:before_integration} is actually valid for $T^{\mu\nu}_B$. The reason that it works when we use $T^{\mu\nu}$ instead of $T^{\mu\nu}_B$ is discussed in the Physics Stack Exchange questions \url{https://physics.stackexchange.com/q/119838} (version: 2014-06-18) and \url{https://physics.stackexchange.com/q/270877} (version: 2016-08-06)}.
+
+%The induced metric of the map $x^\mu\to x'^\mu+\epsilon^\mu(x)$ to first order in $\epsilon$ is
+%\begin{align}
+%    g'_{\mu\nu}= & \pdv{x^\alpha}{x'^\mu}\pdv{x^\beta}{x'^\nu}g_{\alpha\beta}\notag                                                                   \\
+%    =            & \left(\delta^\alpha_\mu-\partial_\mu\epsilon^\alpha\right)\left(\delta^\beta_\nu-\partial_\nu\epsilon^\beta\right)g_{\alpha\beta}.\notag\\
+%    =&g_{\mu\nu}-\left(\partial_\mu\epsilon_\nu+\partial_\nu\epsilon_\mu\right)
+%\end{align}
+%and so 
+%\begin{align}
+%    \delta g_{\mu\nu}\equiv g'_{\mu\nu}-g_{\mu\nu}=-\left(\partial_\mu\epsilon_\nu+\partial_\nu\epsilon_\mu\right).
+%\end{align}
+%\begin{intu}
+%    The form of the variation of the metric is a hint of a new definition of the energy-momentum tensor.
+%    We can rewrite \cref{eq:alternate_tensor:delta_s}
+%    \begin{align}
+%        \delta S=-\frac{1}{2}\int\dd[d]{x}T^{\mu\nu}\delta g_{\mu\nu}.
+%    \end{align}
+%\end{intu}
+\begin{definition}[Hilbert energy-momentum tensor\label{def:alternate_energy_momentum}]
+    The Hilbert energy-momentum tensor $\Theta^{\mu\nu}$ is defined to be proportional to the functional derivative of the action with respect to the metric, evaluated in flat space:
     \begin{align}
-        \delta S=-\frac{1}{2}\int\dd[d]{x}T^{\mu\nu}\delta g_{\mu\nu}.
+        \Theta^{\mu\nu}\equiv-2\eval{\fdv{S}{g_{\mu\nu}}}_{g_{\mu\nu}=\eta_{\mu\nu}}\label{eq:alternate_tensor:equation}
     \end{align}
+    where the field is fixed and the background geometry is varied.
+    We have coupled the original theory to gravity which means we have to do the \textit{minimal coupling}\snm.
 \end{definition}
+\snt{Replace the partial derivatives by covariant derivatives and flat metric by a general metric in $S$.}
+\begin{claim}
+    The new energy-momentum tensor $\Theta^{\mu\nu}$ in \cref{def:alternate_energy_momentum} satisfies \cref{eq:alternate_tensor:requirement}.
+\end{claim}
+\begin{proof}
+    The diffeomorphism $x^\mu\to x^\mu+\epsilon^\mu(x)$ will induce a new metric $g'_{\mu\nu}$ and the variation of metric can be shown to be
+    \begin{align}
+        \delta g_{\mu\nu}\equiv g'_{\mu\nu}-g_{\mu\nu}=-\left(\partial_\mu\epsilon_\nu+\partial_\nu\epsilon_\mu\right)\label{eq:alternate_tensor:var_metric}
+    \end{align}
+    If we take into account the effect of the variation $\delta g_{\mu\nu}$ as well as that of the variation of the field, the action should be invariant since the change made is a mere reparametrization
+    \begin{align}
+        \delta S=0=\eqnmarkbox[blue]{node1}{-\frac{1}{2}\int\dd[d]{x}\Theta^{\mu\nu}\left(\partial_\mu\epsilon_\nu+\partial_\nu\epsilon_\mu\right)}+\int\eqnmarkbox[red]{node2}{\left[-\left(\partial_\mu\epsilon_\nu+\partial_\nu\epsilon_\mu\right)\right]}\fdv{S}{g_{\mu\nu}}.\label{eq:alternate_tensor:requirement2}
+    \end{align}\annotate[yshift=-0.0cm]{below}{node1}{From variation of fields, using \cref{eq:alternate_tensor:requirement}}\annotate[yshift=0.3cm]{above,left}{node2}{Variation of metric, using \cref{eq:alternate_tensor:var_metric}}\\
+    Since $\epsilon_\mu(x)$ is arbitrary, \cref{eq:alternate_tensor:requirement2} can be satisfied if
+    \begin{align}
+        \Theta^{\mu\nu}=-2\eval{\fdv{S}{g_{\mu\nu}}}_{g_{\mu\nu}=\eta_{\mu\nu}}.
+    \end{align}
+\end{proof}
+\begin{remark}
+    The form of energy-momentum tensor that satisfies \cref{eq:alternate_tensor:requirement} is not unique since we can always add an antisymmetric and divergenceless term like what we did to the canonical energy-momentum tensor.
+
+    $\Theta^{\mu\nu}$ in \cref{def:alternate_energy_momentum} is obviously symmetric identically.
+    %The energy-momentum calculated using \cref{eq:alternate_tensor:equation} is the equivalent to the $\tilde{T}^{\mu\nu}_B$ up to a possible divergenceless term.
+\end{remark}
+The definition of energy-momentum tensors and their physical interpretations can be very subtle.
+Some of the interesting topics about energy-momentum tensor are discussed in \cite{Blaschke:2016ohs,Forger:2003ut}.
 \clearpage
 \section{Statistical Mechanics}
 \subsection{The Boltzmann Distribution}
@@ -619,7 +698,7 @@ Using \cref{eq:conformal_algebra_1,eq:conformal_algebra_2,eq:conformal_algebra_3
 \end{align}
 and therefore
 \begin{align}
-    D\Phi(x)=     & \left(-\ii x^\nu\partial_\nu+\tilde{\Delta}\right)\Phi                                                                  \\
+    D\Phi(x)=     & \left(-\ii x^\nu\partial_\nu+\tilde{\Delta}\right)\Phi(x)\label{eq:representation:dilation_operator}                                                                  \\
     K_\mu\Phi(x)= & \left(\kappa_\mu+2x_\mu\tilde{\Delta}-x^\nu S_{\mu\nu}-2\ii x_\mu x^\nu\partial_\nu+\ii x^2 \partial_\mu\right)\Phi(x).
 \end{align}
 
@@ -637,20 +716,22 @@ where $\abs{\pdv{x'}{x}}$ is the Jacobian of the conformal transformation which 
     \abs{\pdv{x'}{x}}=\Lambda(x)^{-\frac{d}{2}}.\label{eq:quasi_field_def}
 \end{align}
 \begin{definition}[Quasi-primary field]\label{def:quasi_primary_field}
-    In a $d$ dimensional spacetime, a field transforming under conformal transformation like
+    In a $d$ dimensional spacetime, a \textit{spinless} field\snm transforming under conformal transformation like
     \begin{align}
         \phi(x)\to\phi'(x')=\abs{\pdv{x'}{x}}^{-\frac{\Delta}{d}}\phi(x)
     \end{align}
     is called a \textit{quasi-primary field}, where $\Delta$ is the scaling dimension.
 \end{definition}
+\snt{Note that this definition is limited to spinless field.}
 
-\subsubsection{The Energy-Momentum Tensor}
-Under an arbitrary transformation of the coordinates $x^\mu\to x^\mu+\epsilon^\mu(x)$, the action changes as follows
+\subsubsection{The Energy-Momentum Tensor\label{subsubsec:conformal_em_tensor}}
+If the field is in classical configuration, under an arbitrary transformation of the coordinates $x^\mu\to x^\mu+\epsilon^\mu(x)$, from \cref{def:alternate_energy_momentum}, the action changes as follows
 \begin{align}
-    \delta S & =\int\dd[d]{x}T^{\mu\nu}\partial_\mu\epsilon_\nu \notag                                           \\
-             & =\frac{1}{2}\int\dd[d]{x}T^{\mu\nu}\left(\partial_\mu\epsilon_\nu+\partial_\nu\epsilon_\mu\right)
+    \delta S & =-\int\dd[d]{x} T^{\mu\nu}\partial_\mu\epsilon_\nu                                                  \\
+             & =\frac{1}{2}\int\dd[d]{x}T_B^{\mu\nu}\left(\partial_\mu\epsilon_\nu+\partial_\nu\epsilon_\mu\right) \\
+             & =-\frac{1}{2}\int\dd[d]{x}T_B^{\mu\nu}\delta g_{\mu\nu} \notag
 \end{align}
-where the energy-momentum tensor $T^{\mu\nu}$ is assumed to be symmetric.
+%where the energy-momentum tensor $T^{\mu\nu}$ is assumed to be symmetric.
 
 Under an infinitesimal conformal transformation, using \cref{eq:GCI:fx,eq:GCI:fx1}, we have
 \begin{align}
@@ -663,19 +744,19 @@ Under an infinitesimal conformal transformation, using \cref{eq:GCI:fx,eq:GCI:fx
 \end{intu}
 \paragraph{Making energy-momentum tensor traceless with scale invariance}
 We first consider a generic field with scale invariance in dimension $d>2$.
-Using \cref{eq:nother:canonical_current}, the conserved current with associated with the infinitesimal dilation 
+Using \cref{eq:nother:canonical_current}, the conserved current with associated with the infinitesimal dilation
 \begin{align}
     x'^\mu=(1+\alpha)x^\mu\qand\mathcal{F}(\Phi)=(1-\alpha\Delta)\Phi
 \end{align}
-is 
+is
 \begin{align}
-    j^\mu_D=&-\mathcal{L}x^\mu+\pdv{\mathcal{L}}{(\partial_\mu\Phi)}x^\nu\partial_\nu\Phi+\pdv{\mathcal{L}}{(\partial_\mu\Phi)}\Delta\Phi\notag\\
-            =&\eqnmarkbox[blue]{node1}{T^\mu_{c\ \nu}}x^\nu+\pdv{\mathcal{L}}{(\partial_\mu \Phi)}\Delta\Phi.
+    j^\mu_D= & -\mathcal{L}x^\mu+\pdv{\mathcal{L}}{(\partial_\mu\Phi)}x^\nu\partial_\nu\Phi+\pdv{\mathcal{L}}{(\partial_\mu\Phi)}\Delta\Phi\notag            \\
+    =        & \eqnmarkbox[blue]{node1}{T^\mu_{c\ \nu}}x^\nu+\pdv{\mathcal{L}}{(\partial_\mu \Phi)}\Delta\Phi.\label{eq:conformal_tensor:dilation_current_1}
 \end{align}\annotate[yshift=-0.2cm]{below}{node1}{Canonical energy-momentum tensor}\\
-And the conservation equation gives\sidenote{Remember we are in the Euclidean spacetime.} 
+And the conservation equation gives\sidenote{Remember we are in the Euclidean spacetime.}
 \begin{align}
-    \partial_\mu j^\mu_D=&T^\mu_{c\ \mu}+\Delta\partial_\mu\left(\pdv{\mathcal{L}}{(\partial_\mu\Phi)}\Phi\right)\notag\\
-                        =&0.\label{eq:conformal_tensor:consevation_j}
+    \partial_\mu j^\mu_D= & T^\mu_{c\ \mu}+\Delta\partial_\mu\left(\pdv{\mathcal{L}}{(\partial_\mu\Phi)}\Phi\right)\notag \\
+    =                     & 0.\label{eq:conformal_tensor:consevation_j}
 \end{align}
 Now we define the \textit{virial}\sidenote{Maybe there is a typo in \cite{DiFrancesco:1997nk} on the definition of $V^\mu$.} of the field $\Phi$
 \begin{align}
@@ -685,12 +766,12 @@ We assume\sidenote{It is an assumption! And it is obeyed in a large class of phy
 \begin{align}
     V^\mu\equiv\partial_\alpha\sigma^{\alpha\mu}\label{eq:conformal_tenensor:condition}
 \end{align}
-And we also define\sidenote{It seems there is a typo in \cite{DiFrancesco:1997nk} on the definition of $X^{\lambda\rho\mu\nu}$.} 
+And we also define\sidenote{It seems there is a typo in \cite{DiFrancesco:1997nk} on the definition of $X^{\lambda\rho\mu\nu}$.}
 \begin{subequations}
     \begin{align}
-        \sigma^{\mu\nu}_+\equiv&\frac{1}{2}\left(\sigma^{\mu\nu}+\sigma^{\nu\mu}\right)\\
-        X^{\lambda\rho\mu\nu}\equiv&\frac{2}{d-2}\left[\eta^{\lambda\rho}\sigma_+^{\mu\nu}-\eta^{\lambda\mu}\sigma_+^{\rho\nu}-\eta^{\lambda\mu}\sigma_+^{\nu\rho}+\eta^{\mu\nu}\sigma^{\lambda\rho}_+\right.\notag\\
-        &\quad\quad\quad\left.-\frac{1}{d-1}\left(\eta^{\lambda\rho}\eta^{\mu\nu}-\eta^{\lambda\mu}\eta^{\rho\nu}\right)\sigma^{\alpha}_{+\alpha}\right]
+        \sigma^{\mu\nu}_+\equiv     & \frac{1}{2}\left(\sigma^{\mu\nu}+\sigma^{\nu\mu}\right)                                                                                                                         \\
+        X^{\lambda\rho\mu\nu}\equiv & \frac{2}{d-2}\left[\eta^{\lambda\rho}\sigma_+^{\mu\nu}-\eta^{\lambda\mu}\sigma_+^{\rho\nu}-\eta^{\lambda\mu}\sigma_+^{\nu\rho}+\eta^{\mu\nu}\sigma^{\lambda\rho}_+\right.\notag \\
+                                    & \quad\quad\quad\left.-\frac{1}{d-1}\left(\eta^{\lambda\rho}\eta^{\mu\nu}-\eta^{\lambda\mu}\eta^{\rho\nu}\right)\sigma^{\alpha}_{+\alpha}\right]
     \end{align}
 \end{subequations}
 \begin{claim}
@@ -703,47 +784,51 @@ And we also define\sidenote{It seems there is a typo in \cite{DiFrancesco:1997nk
 \begin{proof}
     The first two terms in \cref{eq:conformal_tensor:modified_tensor} is exactly $T^{\mu\nu}_B$ which is a symmetric conserved current.
     \paragraph{Conservation}
-    It is easy to check that 
+    It is easy to check that
     \begin{align}
         \partial_\mu\partial_\lambda\partial_\rho X^{\lambda\rho\mu\nu}=0.
     \end{align}
     So the modified energy-momentum tensor is a conserved current.
     \paragraph{Symmetry}
-    Since we have 
+    Since we have
     \begin{align}
         X^{\lambda\rho\mu\nu}-X^{\lambda\rho\nu\mu}=\frac{2}{(d-2)(d-1)}\sigma^\alpha_{+\alpha}\left(\eta^{\lambda\mu}\eta^{\rho\nu}-\eta^{\lambda\nu}\eta^{\rho\mu}\right)
     \end{align}
     so it is clear that $\partial_\lambda\partial_\rho\left(X^{\lambda\rho\mu\nu}-X^{\lambda\rho\nu\mu}\right)=0$ which means $T^{\mu\nu}$ is symmetric.
     \paragraph{Tracelessness}
-    The trace of the third term of \cref{eq:conformal_tensor:modified_tensor} is 
+    The trace of the third term of \cref{eq:conformal_tensor:modified_tensor} is
     \begin{align}
-        \frac{1}{2} \partial_\lambda \partial_\rho \tensor{X}{^\lambda^\rho^\mu_\mu}=&\partial_\lambda \partial_\rho \sigma^{\lambda\rho}_+ \notag\\
-                                                                                =&\partial_\mu V^\mu.\label{eq:conformal_tensor:partial_X}
+        \frac{1}{2} \partial_\lambda \partial_\rho \tensor{X}{^\lambda^\rho^\mu_\mu}= & \partial_\lambda \partial_\rho \sigma^{\lambda\rho}_+ \notag \\
+        =                                                                             & \partial_\mu V^\mu.\label{eq:conformal_tensor:partial_X}
     \end{align}
-    Using \cref{eq:Belinfante:B}, we have 
+    Using \cref{eq:Belinfante:B}, we have
     \begin{align}
         \partial_\rho\tensor{B}{^\rho^\mu_\mu}=\frac{1}{2}\ii\partial_\rho\left(\fdv{\mathcal{L}}{(\partial^\mu\Phi)}S^{\mu\rho}\Phi\right)\label{eq:conformal_tensor:partial_B}
     \end{align}
     and from \cref{eq:conformal_tensor:modified_tensor,eq:conformal_tensor:consevation_j,eq:conformal_tensor:virial_def,eq:conformal_tensor:partial_B,eq:conformal_tensor:partial_X}, we have\snm
-    \begin{subequations}
-        \begin{align}
-            \tensor{T}{^\mu_\mu}=&T^{\mu}_{c\ \mu}+\partial_\rho\tensor{B}{^\rho^\mu_\mu}+\frac{1}{2}\partial_\lambda\partial_\rho\tensor{X}{^\lambda^\rho^\mu_\mu}\notag\\
-                                =&-\Delta\partial_\mu\left(\pdv{\mathcal{L}}{(\partial_\mu\Phi)}\Phi\right)+\frac{1}{2}\ii\partial_\rho\left(\fdv{\mathcal{L}}{(\partial^\mu\Phi)}S^{\mu\rho}\Phi\right)+\partial_\mu V^\mu\notag\\
-                                =&\partial_\mu j^\mu_D\label{eq:conformal_tensor:j_D}\\
-                                =&0
-        \end{align}
-    \end{subequations}
-    which means that the modified energy-momentum tensor $T_{\mu\nu}$ is traceless.
+    \begin{align}
+        \tensor{T}{^\mu_\mu}= & T^{\mu}_{c\ \mu}+\partial_\rho\tensor{B}{^\rho^\mu_\mu}+\frac{1}{2}\partial_\lambda\partial_\rho\tensor{X}{^\lambda^\rho^\mu_\mu}\notag                                                         \\
+        =                     & -\Delta\partial_\mu\left(\pdv{\mathcal{L}}{(\partial_\mu\Phi)}\Phi\right)+\frac{1}{2}\ii\partial_\rho\left(\fdv{\mathcal{L}}{(\partial^\mu\Phi)}S^{\mu\rho}\Phi\right)+\partial_\mu V^\mu\notag \\
+        =                     & \partial_\mu j^\mu_D\label{eq:conformal_tensor:j_D}
+    \end{align}
+    which means that the modified energy-momentum tensor $T_{\mu\nu}$ is traceless classically.
 \end{proof}
 \snt{Remember the relation $$S^{\mu\nu}+S^{\nu\mu}=0.$$}
-From \cref{eq:conformal_tensor:j_D}, we can write the dilation current as\sidenote{This is only valid in theories satisfy \cref{eq:conformal_tenensor:condition}. Since in such theories, the conservation of dilation current is equivalent to the tracelessness of the energy-momentum tensor.}
+$T^{\mu\nu}$ is equivalent\sidenote{conserved classically and can be used to replace $T^{\mu\nu}_c$ in the Ward identity.} to the canonical conserved current for translation $T^{\mu\nu}_c$ from the argument in \cpageref{eq:nother:equiv_current}, so we write the conserved current for translation as $T^{\mu\nu}$.
+We can also rewrite the dilation current in \cref{eq:conformal_tensor:dilation_current_1} as\sidenote{This is only valid in theories satisfy \cref{eq:conformal_tenensor:condition}. You can check this current only differ from \cref{eq:conformal_tensor:dilation_current_1} by a divergenceless and antisymmetric term just like the case in \cref{eq:nother:equiv_current}.}
 \begin{align}
-    j^\mu_D=\tensor{T}{^\mu_\nu}x^\nu.
+    j^\mu_D=\tensor{T}{^\mu_\nu}x^\nu\label{eq:conformal_tensor:j_scale}
+\end{align}
+and we also check that, in the same way, the conserved current for Lorentz transformation can be rewritten as
+\begin{align}
+    j^{\mu\nu\rho}=T^{\mu\nu}x^\rho-T^{\mu\rho}x^\nu.\label{eq:conformal_tensor:j_lorentz}
 \end{align}
 \begin{remark}
+    We can directly use $T^{\mu\nu}$ in the Ward identities.
+
     The above arguments are valid for $d>2$ since the definition of $X^{\lambda\rho\mu\nu}$ fails when $d>2$, but the result still holds in $d=2$ case.
     We know of no general proof given only the scale invariance of the $d=2$ theory, but we will accept it.
-    And we will show that the energy-momentum tensor can be made traceless given the conformal invariance of the $d=2$ theory. 
+    And we will show that the energy-momentum tensor can be made traceless given the conformal invariance of the $d=2$ theory.
 \end{remark}
 \subsection{Conformal Invariance in Quantum Field Theory}
 \subsubsection{Correlation Functions}
@@ -847,20 +932,55 @@ where $\Delta\equiv\sum_{i=1}^4\Delta_i$.
 
 
 \subsubsection{Ward Identities}
-Now we will use \cref{eq:QFT:ward_identity} to derive the Ward identities for the conformal symmetry.
+Now we will use \cref{eq:QFT:ward_identity} to derive the Ward identities for the conformal symmetry\sidenote{Do not forget the definition of $T^{\mu\nu}$ (see \cref{eq:conformal_tensor:modified_tensor}).}.
 
-\paragraph{Translation}
+\paragraph{Translation invariance}
+The corresponding current for translation is $T^{\mu\nu}$ (see \cref{subsubsec:conformal_em_tensor}) and the Ward identity is
 \begin{align}
     \partial_\mu\expval{\tensor{T}{^\mu_\nu}X}=-\sum_i\delta(x-x_i)\pdv{x^\nu_i}\expval{X}\label{eq:GCI:conformal_ward_1}
 \end{align}
-\paragraph{Rotation}
+where we have used \cref{eq:QFT:ward_identity,eq:CST:translation_operator}.
+$X$ is a product of $n$ local fields at coordinate $x_i$, $i=1,\dots,n$.
+\paragraph{Lorentz invariance}
+The corresponding conserved current can be written as (see \cref{subsubsec:conformal_em_tensor,eq:conformal_tensor:j_lorentz})
 \begin{align}
-    \expval{\left(T^{\rho\nu}-T^{\nu\rho}\right)X}=-\ii\sum_i\delta(x-x_i)S^{\nu\rho}_i\expval{X}\label{eq:GCI:conformal_ward_2}
+    j^{\mu\nu\rho}=T^{\mu\nu}x^\rho-T^{\mu\rho}x^\nu
 \end{align}
-\paragraph{Scale transformation}
+and using \cref{eq:QFT:ward_identity,eq:CST:Lorentz_operator} we have the Ward identity 
 \begin{align}
-    \expval{\tensor{T}{^\mu_\mu}X}=-\sum_i\delta(x-x_i)\Delta_i\expval{X}\label{eq:GCI:conformal_ward_3}
+    \partial_\mu\expval{\left(T^{\mu\nu} x^\rho-T^{\mu\rho} x^\nu\right)X}=\sum_i\delta(x-x_i)\left[\left(x_i^\nu\partial_i^\rho-x_i^\rho\partial_i^\nu\right)\expval{X}-\ii S^{\nu\rho}_i\expval{X}\right].\label{eq:GCI:conformal_ward_lorentz_1}
 \end{align}
+Using \cref{eq:GCI:conformal_ward_1}, \cref{eq:GCI:conformal_ward_lorentz_1} becomes
+\begin{align}
+    \expval{\left(T^{\rho\nu}-T^{\nu\rho}\right)X}=-\ii\sum_i\delta(x-x_i)S^{\nu\rho}_i\expval{X}.\label{eq:GCI:conformal_ward_2}
+\end{align}
+\paragraph{Scale invariance}
+The conserved current for scale invariance is (see \cref{subsubsec:conformal_em_tensor,eq:conformal_tensor:j_scale})
+\begin{align}
+    j_D^\mu=\tensor{T}{^\mu_\nu}x^\nu\label{eq:GCI:dilation_current}
+\end{align}
+and for a field of scaling dimension $\Delta$ the generator for dilation is (see \cref{eq:representation:dilation_operator})
+\begin{align}
+    D=-\ii x^\nu\partial_\nu-\ii\Delta.\label{eq:GCI:dilation_operator}
+\end{align}
+Using \cref{eq:QFT:ward_identity,eq:GCI:dilation_current,eq:GCI:dilation_operator} we have the Ward identity 
+\begin{align}
+    \partial_\mu\expval{\tensor{T}{^\mu_\nu}x^\nu X}=-\sum_i\delta(x-x_i)\left(x_i^\nu\pdv{x_i^\nu}\expval{X}+\Delta_i\expval{X}\right)\label{eq:GCI:conformal_ward_3_before}
+\end{align}
+and using \cref{eq:GCI:conformal_ward_1}, \cref{eq:GCI:conformal_ward_3_before} becomes 
+\begin{align}
+    \expval{\tensor{T}{^\mu_\mu}X}=-\sum_i\delta(x-x_i)\Delta_i\expval{X}\label{eq:GCI:conformal_ward_3}.
+\end{align}
+In summary, we have 
+\begin{boxmath}{Conformal Ward Identity}
+\begin{subequations}
+        \begin{align}
+            \partial_\mu\expval{\tensor{T}{^\mu_\nu}X}&=-\sum_i\delta(x-x_i)\pdv{x^\nu_i}\expval{X}\label{eq:GCI:conformal_ward_final_1}\\
+            \expval{\left(T^{\rho\nu}-T^{\nu\rho}\right)X}&=-\ii\sum_i\delta(x-x_i)S^{\nu\rho}_i\expval{X}\label{eq:GCI:conformal_ward_final_2}\\
+            \expval{\tensor{T}{^\mu_\mu}X}&=-\sum_i\delta(x-x_i)\Delta_i\expval{X}.\label{eq:GCI:conformal_ward_final_3}
+        \end{align}
+\end{subequations}
+\end{boxmath}
 
 \subsubsection{Tracelessness of \texorpdfstring{$T_{\mu\nu}$}{T mu nu} in Two Dimensions}
 We define the two-point function of the energy-momentum tensor (\textit{Schwinger function})
@@ -910,8 +1030,13 @@ Now \cref{eq:ward_identities:Schwinger_1} becomes
 \end{align}
 which implies
 \begin{align}
-    \tensor{S}{^\mu_\mu^\sigma_\sigma}(x)=\expval{\tensor{T}{^\mu_\mu}(x)\tensor{T}{^\sigma_\sigma}(0)}=0
+    \tensor{S}{^\mu_\mu^\sigma_\sigma}(x)=\expval{\tensor{T}{^\mu_\mu}(x)\tensor{T}{^\sigma_\sigma}(0)}=0.
 \end{align}
+In particular, we have $\expval{\tensor{T}{^\mu_\mu}(0)^2}=0$ which means $\tensor{T}{^\mu_\mu}(0)=0$ \textit{identically}.
+Because of the translational invariance, we have $\tensor{T}{^\mu_\mu}(x)=0$ \textit{identically}.
+\begin{remark}
+    In later sections, in $d=2$ cases we will simply use the identically symmetric and traceless energy-momentum tensor without pointing out.
+\end{remark}
 
 \clearpage
 \section{Conformal Invariance in Two Dimensions}
@@ -1068,16 +1193,21 @@ Given a field with scaling dimension $d$ and spin $s$, we can define the \textit
 \begin{align}
     h\equiv\frac{\Delta+s}{2}\quad\bar{h}\equiv\frac{\Delta-s}{2}.\label{eq:holomorphic_conformal_dimension}
 \end{align}
+Now we generalize the \cref{def:quasi_primary_field}\sidenote{The difference is that here we are considering the spin $s$.}.
 \begin{definition}[Quasi-primary field and primary field]
-    Now we generalize the \cref{def:quasi_primary_field}\snm.
     Under a \textit{global} conformal map $z\to w(z)$, $\bar{z}\to \bar{w}(\bar{z})$, a field is called a \textit{quasi-primary field} if it transforms as
     \begin{align}
         \phi'(w,\bar{w})=\left(\dv{w}{z}\right)^{-h}\left(\dv{\bar{w}}{\bar{z}}\right)^{-\bar{h}}\phi(z,\bar{z}).\label{eq:2dcft:quasi_def}
     \end{align}
     Under a \textit{local} conformal map $z\to w(z)$, $\bar{z}\to \bar{w}(\bar{z})$, a field is called a \textit{primary field} if it still transforms as \cref{eq:2dcft:quasi_def}.
 \end{definition}
-\snt{The difference is that here we are considering the spin $s$.}
+
 \begin{intu}
+    In the ordinary QFT books, fields with spin $s>0$ are often appear as multiplets.
+    But the field with higher spin $\phi$ we see here does not appear as a multiplet.
+    We can think of the field in 2D CFT as a complex scalar field defined on an Euclidean background.
+    That the Euclidean rotation group is different from the Lorentz group can be seen as a na\"ive reason why the field $\phi$ with higher spin does not appear as a multiplet.
+
     To see how the how the spin $s$ appears in the definition of conformal dimension, consider a rotation
     \begin{align}
         z\to w(z)=\me^{\ii\theta}z\quad\bar{z}\to\bar{w}(\bar{z})=\me^{-\ii\theta}\bar{z}.
@@ -1095,7 +1225,7 @@ Given a field with scaling dimension $d$ and spin $s$, we can define the \textit
 Consider the infinitesimal transformation $z\to w=z+\epsilon(z)$ and $\bar{z}\to\bar{w}=\bar{z}+\bar{\epsilon}(\bar{z})$ where $\epsilon,\bar{\epsilon}\to0$, the variation of the quasi-primary field is
 \begin{align}
     \delta_{\epsilon,\bar{\epsilon}}\equiv & \phi'(z,\bar{z})-\phi(z,\bar{z})\notag                                                                                                                      \\
-    =                                      & -\left(h\phi\partial_z\epsilon+\epsilon\partial_z\phi\right)-\left(\bar{h}\phi\partial_{\bar{z}}\bar{\epsilon}+\bar{\epsilon}\partial_{\bar{z}}\phi\right).
+    =                                      & -\left(h\phi\partial_z\epsilon+\epsilon\partial_z\phi\right)-\left(\bar{h}\phi\partial_{\bar{z}}\bar{\epsilon}+\bar{\epsilon}\partial_{\bar{z}}\phi\right).\label{eq:2dcft:primary_infinitesimal}
 \end{align}
 
 A field whcih is not primary is generally called \textit{secondary}.
@@ -1136,14 +1266,24 @@ Ans now \cref{eq:CIQFT:4_points} is generalized to
 where $h\equiv\sum_{i=1}^4 h_i$ and $\bar{h}\equiv\sum_{i=1}^4\bar{h}_i$.
 
 \subsection{Ward Identities}
-\subsubsection{Holomorphic From of the Ward Identities}
-\paragraph{Energy-momentum tensor in complex coordinates}
-We perform the same complex change of coordinates, under which $T$ transforms as $T_{\mu\nu}\to\pdv{x^\rho}{x^\mu}\pdv{x^\sigma}{x^\nu}T_{\rho\sigma}$, and we have\sidenote{We have assumed here the energy-momentum tensor is traceless.}
+In the two-dimensionl case, if $X$ is a product of \textit{primary fields} $\Phi(x_1)\dots\Phi(x_n)$ at $x_1,\dots,x_n$, then the Ward identities \cref{eq:GCI:conformal_ward_final_1,eq:GCI:conformal_ward_final_2,eq:GCI:conformal_ward_final_3} can be rewritten as 
 \begin{subequations}
     \begin{align}
-        T_{z\bar{z}}       & =T_{\bar{z}z}=0                             \\
-        T_{zz}             & =\frac{1}{2}\left(T_{00}-\ii T_{10}\right)  \\
-        T_{\bar{z}\bar{z}} & =\frac{1}{2}\left(T_{00}+\ii T_{10}\right).
+        \pdv{x^\mu}\expval{\tensor{T}{^\mu_\nu}(x)X}&=-\sum_{i=1}^n\delta(x-x_i)\pdv{x^\nu_i}\expval{X}\\
+            \eqnmarkbox[blue]{node1}{\varepsilon_{\mu\nu}}\expval{T^{\mu\nu}(x)X}&=-\ii\sum_{i=1}^n s_i\delta(x-x_i)\expval{X}\\
+            \expval{\tensor{T}{^\mu_\mu}(x)X}&=-\sum_{i=1}^n\delta(x-x_i)\Delta_i\expval{X}
+    \end{align}
+\end{subequations}\annotate[yshift=0]{below,left}{node1}{Antisymmetric tensor}\\
+where we have used the specific two-dimensional form $s_i\varepsilon_{\mu\nu}$ of the spin generators $S_{\mu\nu}^i$ and $s_i$ is the spin of the field $\phi_i$.
+\subsubsection{Holomorphic From of the Ward Identities}
+\paragraph{Energy-momentum tensor in complex coordinates}
+We perform the same complex change of coordinates, under which $T$ transforms as $T_{\mu\nu}\to\pdv{x^\rho}{x^\mu}\pdv{x^\sigma}{x^\nu}T_{\rho\sigma}$, and we have%\sidenote{We have assumed here the energy-momentum tensor is traceless.}
+\begin{subequations}\label{eq:emtcc:EMT}
+    \begin{align}
+        T_{z\bar{z}}       & =\frac{1}{4}\left(T_{00}+T_{11}\right)+\frac{\ii}{4}\left(T_{01}-T_{10}\right)\\
+        T_{\bar{z}z}&=\frac{1}{4}\left(T_{00}+T_{11}\right)-\frac{\ii}{4}\left(T_{01}-T_{10}\right)                        \\
+        T_{zz}             & =\frac{1}{4}\left(T_{00}-T_{11}\right)-\frac{\ii}{4}\left(T_{01}+T_{10}\right) \\
+        T_{\bar{z}\bar{z}} & =\frac{1}{4}\left(T_{00}-T_{11}\right)+\frac{\ii}{4}\left(T_{01}+T_{10}\right).
     \end{align}
 \end{subequations}
 From the conservation of $T_{\mu\nu}$, we have
@@ -1195,7 +1335,7 @@ And finally we have
 
     In the same way, we can check the second representation in \cref{eq:2d_ward:dirac_another} with an antiholomorphic function $\bar{f}(\bar{z})$.
 \end{proof}
-Now the Ward identities \cref{eq:GCI:conformal_ward_1,eq:GCI:conformal_ward_2,eq:GCI:conformal_ward_3} can be written as
+Now the Ward identities \cref{eq:GCI:conformal_ward_final_1,eq:GCI:conformal_ward_final_2,eq:GCI:conformal_ward_final_3} can be written as\sidenote{Remember to use \cref{eq:2dcft:complex_coordinates,eq:emtcc:EMT}.}
 \begin{subequations}
     \begin{align}
         2\pi\partial_z\expval{T_{\bar{z}z}X}+2\pi\partial_{\bar{z}}\expval{T_{zz}X}=             & -\sum_{i=1}^n\partial_{\bar{z}}\frac{1}{z-w_i}\partial_{w_i}\expval{X}\label{eq:2dcft:ward_holo_1}           \\
@@ -1205,6 +1345,7 @@ Now the Ward identities \cref{eq:GCI:conformal_ward_1,eq:GCI:conformal_ward_2,eq
     \end{align}
 \end{subequations}
 where $w_i$ and $\bar{w}_i$ are complex coordinates of the fields.
+\Cref{eq:2dcft:ward_holo_1,eq:2dcft:ward_holo_2} correspond to two directions of translation.
 
 If we add substract \cref{eq:2dcft:ward_holo_3,eq:2dcft:ward_holo_4}, we have
 \begin{subequations}
@@ -1236,24 +1377,32 @@ where "reg." stands for a holomorphic function of $z$ which is regular at $z=w_i
 
 \subsubsection{The Conformal Ward Identity}
 \begin{intu}
-    We can bring the Ward identities \cref{eq:GCI:conformal_ward_1,eq:GCI:conformal_ward_2,eq:GCI:conformal_ward_3} into a single relation.
+    We can bring the Ward identities \cref{eq:GCI:conformal_ward_final_1,eq:GCI:conformal_ward_final_2,eq:GCI:conformal_ward_final_3} into a single relation.
 \end{intu}
-Given an arbitrary infinitesimal conformal coordinate variation $\epsilon^\nu(x)$, we can write\sidenote{Remember that in $d=2$ cases we only consider energy-momentum tensors that can be made both identically symmetric and traceless.}
-\begin{subequations}
+Given an arbitrary infinitesimal conformal coordinate variation $\epsilon^\nu(x)$, we can write 
     \begin{align}
-        \partial_\mu\left(\epsilon_\nu T^{\mu\nu}\right)= & \epsilon_\nu \partial_\mu T^{\mu\nu}+\frac{1}{2}\left(\partial_\mu\epsilon_\nu+\partial_\nu\epsilon_\mu\right)T^{\mu\nu}+\frac{1}{2}\left(\partial_\mu\epsilon_\nu-\partial_\nu\epsilon_\mu\right)T^{\mu\nu}\notag                                                                     \\
-        =                                                 & \epsilon_\nu\partial_\mu T^{\mu\nu}+\frac{1}{2}\left(\partial_\rho\epsilon^\rho\right)\eta_{\mu\nu}T^{\mu\nu}+\frac{1}{2}\eqnmarkbox[blue]{node1}{\varepsilon^{\alpha\beta}}\partial_\alpha\epsilon_\beta\eqnmarkbox[blue]{node2}{\varepsilon_{\mu\nu}}T^{\mu\nu}\\
-        \quad\notag\\
-        =&\epsilon_\nu\partial_\mu T^{\mu\nu}+\frac{1}{2}\left(\partial_\rho\epsilon^\rho\right)\tensor{T}{^\mu_\mu}+\frac{1}{2}\varepsilon^{\alpha\beta}\partial_\alpha\epsilon_\beta\varepsilon_{(\mu\nu)}T^{(\mu\nu)}\notag\\
-        =&\epsilon_\nu\partial_\mu T^{\mu\nu}\label{eq:2DCWI:arbi}
-    \end{align}
-\end{subequations}\annotatetwo[yshift=-0.7em]{below,label below}{node1}{node2}{Antisymmetric tensor}\\
+        \partial_\mu\left(\epsilon_\nu T^{\mu\nu}\right)= & \epsilon_\nu \partial_\mu T^{\mu\nu}+\frac{1}{2}\left(\partial_\mu\epsilon_\nu+\partial_\nu\epsilon_\mu\right)T^{\mu\nu}+\frac{1}{2}\left(\partial_\mu\epsilon_\nu-\partial_\nu\epsilon_\mu\right)T^{\mu\nu}\notag                                                \\
+        =                                                 & \epsilon_\nu\partial_\mu T^{\mu\nu}+\frac{1}{2}\left(\partial_\rho\epsilon^\rho\right)\eta_{\mu\nu}T^{\mu\nu}+\frac{1}{2}\eqnmarkbox[blue]{node1}{\varepsilon^{\alpha\beta}}\partial_\alpha\epsilon_\beta\eqnmarkbox[blue]{node2}{\varepsilon_{\mu\nu}}T^{\mu\nu}\label{eq:2DCWI:arbi}
+    \end{align}\annotatetwo[yshift=-0.7em]{below,label below}{node1}{node2}{Antisymmetric tensor}\\
 where we have used the relation $\frac{1}{2}\left(\partial_\mu\epsilon_\nu+\partial_\nu\epsilon_\mu\right)=\frac{1}{2}\left(\partial_\rho\epsilon^\rho\right)\eta_{\mu\nu}$ which can be derived from \cref{eq:GCI:fx,eq:GCI:fx1} and the relation $\frac{1}{2}\left(\partial_\mu\epsilon_\nu-\partial_\nu\epsilon_\mu\right)=\frac{1}{2}\varepsilon^{\alpha\beta}\partial_\alpha\epsilon_\beta\varepsilon_{\mu\nu}$ which can be checked explicitly.
+
+Multiply both sides of \cref{eq:2DCWI:arbi} with a string of \textit{primary field operators}\sidenote{Note that we are considering primary field operator, so we may use \cref{eq:2dcft:primary_infinitesimal} later.} operators $X$ and then do a path integral over the field, we have 
+\begin{align}
+    \partial_\mu\expval{\epsilon_\nu T^{\mu\nu}X}=\epsilon_\nu\partial_\mu\expval{T^{\mu\nu}X}+\frac{1}{2}\left(\partial_\rho \epsilon^\rho\right)\expval{\tensor{T}{^\mu_\mu}X}+\frac{1}{2}\varepsilon^{\alpha\beta}\partial_\alpha\epsilon_\beta\varepsilon_{\alpha\beta}\expval{T^{\mu\nu}X}.\label{eq:2DCWI:before_ward}
+\end{align}
+Using Ward identities \cref{eq:GCI:conformal_ward_final_1,eq:GCI:conformal_ward_final_2,eq:GCI:conformal_ward_final_3}, \cref{eq:2DCWI:before_ward} becomes 
+\begin{align}
+    \partial_\mu\expval{\epsilon_\nu T^{\mu\nu}X}=\sum_{i=1}^n\delta(x-x_i)\left(-\epsilon^\nu\pdv{x_i^\nu}-\frac{1}{2}\Delta_i\partial_\rho\epsilon^\rho-\frac{\ii}{2}\varepsilon^{\alpha\beta} s_i\partial_\alpha\epsilon_\beta\right)\expval{X}.\label{eq:2DCWI:after_ward}
+\end{align}
+Integrate both sides of \cref{eq:2DCWI:after_ward} over region $M$ where all the coordinates in $X$ are included, we have 
+\begin{align}
+    \int_M\dd[2]{x}\partial_\mu\expval{T^{\mu\nu}\epsilon_\nu X}=&\int_M\dd[2]{x}\sum_{i=1}^n\delta(x-x_i)\left(-\epsilon^\nu\pdv{x_i^\nu}-\frac{1}{2}\Delta_i\partial_\rho\epsilon^\rho-\frac{\ii}{2}\varepsilon^{\alpha\beta} s_i\partial_\alpha\epsilon_\beta\right)\expval{X}\notag\\
+                                                                =&\eval{\sum_{i=1}^n\left(-\epsilon^\nu\pdv{x_i^\nu}-\frac{1}{2}\Delta_i\partial_\rho\epsilon^\rho-\frac{\ii}{2}\varepsilon^{\alpha\beta} s_i\partial_\alpha\epsilon_\beta\right)\expval{X}}_{x=x_i}
+\end{align}
 
 From \cref{eq:ward:anyomega,eq:2DCWI:arbi}, we have
 \begin{align}
-    \delta_\epsilon\expval{X}&=\int_M\dd[2]{x}\partial_\mu\expval{T^{\mu\nu}(x)X}\epsilon_\nu(x)\notag\\
-                             &=\int_M\dd[2]{x}\partial_\mu\expval{T^{\mu\nu}(x)\epsilon_\nu(x)X}\label{eq:2DCWI:conformal_ward_1}
+    \delta_\epsilon\expval{X}=\int_M\dd[2]{x}\partial_\mu\expval{T^{\mu\nu}(x)\epsilon_\nu(x)X}\label{eq:2DCWI:conformal_ward_1}
 \end{align}
 We can think of the integrand in \cref{eq:2DCWI:conformal_ward_1} as a divergence of a vector field $F^\mu\equiv\expval{T^{\mu\nu}(x)\epsilon_\nu(x)X}$ and apply Gauss's theorem
 
