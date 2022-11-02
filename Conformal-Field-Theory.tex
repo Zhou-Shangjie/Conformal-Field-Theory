@@ -725,22 +725,22 @@ where $\abs{\pdv{x'}{x}}$ is the Jacobian of the conformal transformation which 
 \snt{Note that this definition is limited to spinless field.}
 
 \subsubsection{The Energy-Momentum Tensor\label{subsubsec:conformal_em_tensor}}
-If the field is in classical configuration, under an arbitrary transformation of the coordinates $x^\mu\to x^\mu+\epsilon^\mu(x)$, from \cref{def:alternate_energy_momentum}, the action changes as follows
-\begin{align}
-    \delta S & =-\int\dd[d]{x} T^{\mu\nu}\partial_\mu\epsilon_\nu                                                  \\
-             & =\frac{1}{2}\int\dd[d]{x}T_B^{\mu\nu}\left(\partial_\mu\epsilon_\nu+\partial_\nu\epsilon_\mu\right) \\
-             & =-\frac{1}{2}\int\dd[d]{x}T_B^{\mu\nu}\delta g_{\mu\nu} \notag
-\end{align}
+%If the field is in classical configuration, under an arbitrary transformation of the coordinates $x^\mu\to x^\mu+\epsilon^\mu(x)$, from \cref{def:alternate_energy_momentum}, the action changes as follows
+%\begin{align}
+%    \delta S & =-\int\dd[d]{x} T^{\mu\nu}\partial_\mu\epsilon_\nu                                                  \\
+%             & =\frac{1}{2}\int\dd[d]{x}T_B^{\mu\nu}\left(\partial_\mu\epsilon_\nu+\partial_\nu\epsilon_\mu\right) \\
+%             & =-\frac{1}{2}\int\dd[d]{x}T_B^{\mu\nu}\delta g_{\mu\nu} \notag
+%\end{align}
 %where the energy-momentum tensor $T^{\mu\nu}$ is assumed to be symmetric.
 
-Under an infinitesimal conformal transformation, using \cref{eq:GCI:fx,eq:GCI:fx1}, we have
-\begin{align}
-    \delta S & =\frac{1}{2}\int\dd[d]{x}T^{\mu\nu}f(x)g_{\mu\nu}\notag                  \\
-             & =\frac{1}{d}\int\dd[d]{x}\tensor{T}{^\mu_\mu}\partial_\rho\epsilon^\rho.
-\end{align}
+%Under an infinitesimal conformal transformation, using \cref{eq:GCI:fx,eq:GCI:fx1}, we have
+%\begin{align}
+%    \delta S & =\frac{1}{2}\int\dd[d]{x}T^{\mu\nu}f(x)g_{\mu\nu}\notag                  \\
+%             & =\frac{1}{d}\int\dd[d]{x}\tensor{T}{^\mu_\mu}\partial_\rho\epsilon^\rho.
+%\end{align}
 \begin{intu}
-    Under certain conditions, the energy-momentum tensor of a theory with scale invariance can be made traceless.
-    If this is possible, then it follows from the above that full conformal invariance is a consequence of scale invariance and Poincar\'e invariance.
+    Under certain conditions, the energy-momentum tensor of a theory with scale invariance can be made traceless classically.
+    %If this is possible, then it follows from the above that full conformal invariance is a consequence of scale invariance and Poincar\'e invariance.
 \end{intu}
 \paragraph{Making energy-momentum tensor traceless with scale invariance}
 We first consider a generic field with scale invariance in dimension $d>2$.
@@ -753,11 +753,11 @@ is
     j^\mu_D= & -\mathcal{L}x^\mu+\pdv{\mathcal{L}}{(\partial_\mu\Phi)}x^\nu\partial_\nu\Phi+\pdv{\mathcal{L}}{(\partial_\mu\Phi)}\Delta\Phi\notag            \\
     =        & \eqnmarkbox[blue]{node1}{T^\mu_{c\ \nu}}x^\nu+\pdv{\mathcal{L}}{(\partial_\mu \Phi)}\Delta\Phi.\label{eq:conformal_tensor:dilation_current_1}
 \end{align}\annotate[yshift=-0.2cm]{below}{node1}{Canonical energy-momentum tensor}\\
-And the conservation equation gives\sidenote{Remember we are in the Euclidean spacetime.}
-\begin{align}
-    \partial_\mu j^\mu_D= & T^\mu_{c\ \mu}+\Delta\partial_\mu\left(\pdv{\mathcal{L}}{(\partial_\mu\Phi)}\Phi\right)\notag \\
-    =                     & 0.\label{eq:conformal_tensor:consevation_j}
-\end{align}
+%And the conservation equation gives\sidenote{Remember we are in the Euclidean spacetime.}
+%\begin{align}
+%    \partial_\mu j^\mu_D= & T^\mu_{c\ \mu}+\Delta\partial_\mu\left(\pdv{\mathcal{L}}{(\partial_\mu\Phi)}\Phi\right)\notag \\
+%    =                     & 0.\label{eq:conformal_tensor:consevation_j}
+%\end{align}
 Now we define the \textit{virial}\sidenote{Maybe there is a typo in \cite{DiFrancesco:1997nk} on the definition of $V^\mu$.} of the field $\Phi$
 \begin{align}
     V^\mu\equiv\fdv{\mathcal{L}}{(\partial^\rho\Phi)}\left(\eta^{\mu\rho}\Delta+\frac{1}{2}\ii \eqnmarkbox[blue]{node1}{S^{\mu\rho}}\right)\Phi\label{eq:conformal_tensor:virial_def}
@@ -798,14 +798,13 @@ And we also define\sidenote{It seems there is a typo in \cite{DiFrancesco:1997nk
     \paragraph{Tracelessness}
     The trace of the third term of \cref{eq:conformal_tensor:modified_tensor} is
     \begin{align}
-        \frac{1}{2} \partial_\lambda \partial_\rho \tensor{X}{^\lambda^\rho^\mu_\mu}= & \partial_\lambda \partial_\rho \sigma^{\lambda\rho}_+ \notag \\
-        =                                                                             & \partial_\mu V^\mu.\label{eq:conformal_tensor:partial_X}
+        \frac{1}{2} \partial_\lambda \partial_\rho \tensor{X}{^\lambda^\rho^\mu_\mu}= & \partial_\lambda \partial_\rho \sigma^{\lambda\rho}_+ =\partial_\mu V^\mu.\label{eq:conformal_tensor:partial_X}
     \end{align}
     Using \cref{eq:Belinfante:B}, we have
     \begin{align}
         \partial_\rho\tensor{B}{^\rho^\mu_\mu}=\frac{1}{2}\ii\partial_\rho\left(\fdv{\mathcal{L}}{(\partial^\mu\Phi)}S^{\mu\rho}\Phi\right)\label{eq:conformal_tensor:partial_B}
     \end{align}
-    and from \cref{eq:conformal_tensor:modified_tensor,eq:conformal_tensor:consevation_j,eq:conformal_tensor:virial_def,eq:conformal_tensor:partial_B,eq:conformal_tensor:partial_X}, we have\snm
+    and from \cref{eq:conformal_tensor:modified_tensor,eq:conformal_tensor:virial_def,eq:conformal_tensor:partial_B,eq:conformal_tensor:partial_X}, we have\snm
     \begin{align}
         \tensor{T}{^\mu_\mu}= & T^{\mu}_{c\ \mu}+\partial_\rho\tensor{B}{^\rho^\mu_\mu}+\frac{1}{2}\partial_\lambda\partial_\rho\tensor{X}{^\lambda^\rho^\mu_\mu}\notag                                                         \\
         =                     & -\Delta\partial_\mu\left(\pdv{\mathcal{L}}{(\partial_\mu\Phi)}\Phi\right)+\frac{1}{2}\ii\partial_\rho\left(\fdv{\mathcal{L}}{(\partial^\mu\Phi)}S^{\mu\rho}\Phi\right)+\partial_\mu V^\mu\notag \\
@@ -981,6 +980,10 @@ In summary, we have
         \end{align}
 \end{subequations}
 \end{boxmath}
+\begin{remark}
+    Under some technical assumptions, we can prove that scale invariant quantum field theories in $d=2$ dimension necessarily possess the enhanced conformal symmetry and although without rigorous proof the consensus is that there is no known example of scale invariant but non-conformal field theories in $d=4$ dimension under some assumptions (see \cite{Nakayama:2013is}).
+    In later sections, for simplicity, we only consider the kind of theories in which scale invariance implies conformal invariance, so we do not need to take the Ward identity for the SCT into consideration.
+\end{remark}
 
 \subsubsection{Tracelessness of \texorpdfstring{$T_{\mu\nu}$}{T mu nu} in Two Dimensions}
 We define the two-point function of the energy-momentum tensor (\textit{Schwinger function})
@@ -1189,26 +1192,21 @@ The generators obey the \textit{Witt algebra}
     In particular, $l_0+\bar{l}_0$ generates dilations on the real surface and $\ii\left(l_0-\bar{l}_0\right)$ generates rotations.
 \end{remark}
 \subsubsection{Primary Fields}
-Given a field with scaling dimension $d$ and spin $s$, we can define the \textit{holomorphic conformal dimension} $h$ and its antiholomorphic counterpart $\bar{h}$ as
-\begin{align}
-    h\equiv\frac{\Delta+s}{2}\quad\bar{h}\equiv\frac{\Delta-s}{2}.\label{eq:holomorphic_conformal_dimension}
-\end{align}
-Now we generalize the \cref{def:quasi_primary_field}\sidenote{The difference is that here we are considering the spin $s$.}.
+%Now we generalize the \cref{def:quasi_primary_field}\sidenote{The difference is that here we are considering the spin $s$.}.
 \begin{definition}[Quasi-primary field and primary field]
     Under a \textit{global} conformal map $z\to w(z)$, $\bar{z}\to \bar{w}(\bar{z})$, a field is called a \textit{quasi-primary field} if it transforms as
     \begin{align}
-        \phi'(w,\bar{w})=\left(\dv{w}{z}\right)^{-h}\left(\dv{\bar{w}}{\bar{z}}\right)^{-\bar{h}}\phi(z,\bar{z}).\label{eq:2dcft:quasi_def}
+        \phi'(w,\bar{w})=\left(\dv{w}{z}\right)^{-h}\left(\dv{\bar{w}}{\bar{z}}\right)^{-\bar{h}}\phi(z,\bar{z}),\label{eq:2dcft:quasi_def}
     \end{align}
+    where $h$ is called the \textit{holomorphic conformal dimension} and $\bar{h}$ is called the \textit{antiholomorphic conformal dimension}.
     Under a \textit{local} conformal map $z\to w(z)$, $\bar{z}\to \bar{w}(\bar{z})$, a field is called a \textit{primary field} if it still transforms as \cref{eq:2dcft:quasi_def}.
 \end{definition}
-
+With the holomorphic conformal dimension $h$ and the antiholomorphic conformal dimension $\bar{h}$ of a quasi-primary or primary of a field, we can define its scaling dimension $\Delta$ and conformal spin $s$
+\begin{align}
+    \Delta\equiv h+\bar{h}\qand s\equiv h-\bar{h}.\label{eq:holomorphic_conformal_dimension}
+\end{align}
 \begin{intu}
-    In the ordinary QFT books, fields with spin $s>0$ are often appear as multiplets.
-    But the field with higher spin $\phi$ we see here does not appear as a multiplet.
-    We can think of the field in 2D CFT as a complex scalar field defined on an Euclidean background.
-    That the Euclidean rotation group is different from the Lorentz group can be seen as a na\"ive reason why the field $\phi$ with higher spin does not appear as a multiplet.
-
-    To see how the how the spin $s$ appears in the definition of conformal dimension, consider a rotation
+    To see how the how the $s$ from conformal dimension is related to spin, consider a rotation
     \begin{align}
         z\to w(z)=\me^{\ii\theta}z\quad\bar{z}\to\bar{w}(\bar{z})=\me^{-\ii\theta}\bar{z}.
     \end{align}
@@ -1216,10 +1214,13 @@ Now we generalize the \cref{def:quasi_primary_field}\sidenote{The difference is 
     \begin{align}
         \phi(w,\bar{w})=\me^{-\ii\theta(h-\bar{h})}\phi(z,\bar{z})
     \end{align}
-    which means $s=h-\bar{h}$.
+    which means $h-\bar{h}$ can be seen as the spin of the field.
 \end{intu}
 \begin{remark}
     Primary fields are also quasi-primary fields but the reverse is not true.
+
+    In $d=2$ conformal field theory defined in Euclidean spacetime, conformal dimensions $h$ and $\bar{h}$ are more fundamental than scaling dimension $\Delta$ and spin $s$.
+    A more mathematically rigorous formulation of $d=2$ conformal field theory can be found in \cite{Schottenloher:2008zz}.
 \end{remark}
 \paragraph{Variation of the field}
 Consider the infinitesimal transformation $z\to w=z+\epsilon(z)$ and $\bar{z}\to\bar{w}=\bar{z}+\bar{\epsilon}(\bar{z})$ where $\epsilon,\bar{\epsilon}\to0$, the variation of the quasi-primary field is
@@ -1286,18 +1287,18 @@ We perform the same complex change of coordinates, under which $T$ transforms as
         T_{\bar{z}\bar{z}} & =\frac{1}{4}\left(T_{00}-T_{11}\right)+\frac{\ii}{4}\left(T_{01}+T_{10}\right).
     \end{align}
 \end{subequations}
-From the conservation of $T_{\mu\nu}$, we have
-\begin{align}
-    \partial_0 T_{00}+\partial_1 T_{10}=\partial_0 T_{01}+\partial_1 T_{11}=0,
-\end{align}
-and it gives
-\begin{align}
-    \partial_{\bar{z}}T_{zz}=0\qand\partial_z T_{\bar{z}\bar{z}}=0.
-\end{align}
-And finally we have
-\begin{align}
-    T_{zz}(z,\bar{z})=T_{zz}(z)\qand T_{\bar{z}\bar{z}}(z,\bar{z})=T_{\bar{z}\bar{z}}(\bar{z}).
-\end{align}
+%From the conservation of $T_{\mu\nu}$, we have
+%\begin{align}
+%    \partial_0 T_{00}+\partial_1 T_{10}=\partial_0 T_{01}+\partial_1 T_{11}=0,
+%\end{align}
+%and it gives
+%\begin{align}
+%    \partial_{\bar{z}}T_{zz}=0\qand\partial_z T_{\bar{z}\bar{z}}=0.
+%\end{align}
+%And finally we have
+%\begin{align}
+%    T_{zz}(z,\bar{z})=T_{zz}(z)\qand T_{\bar{z}\bar{z}}(z,\bar{z})=T_{\bar{z}\bar{z}}(\bar{z}).
+%\end{align}
 
 \begin{claim}
     Dirac delta function $\delta(x)$ can be written as\snm
