@@ -1270,9 +1270,9 @@ where $h\equiv\sum_{i=1}^4 h_i$ and $\bar{h}\equiv\sum_{i=1}^4\bar{h}_i$.
 In the two-dimensionl case, if $X$ is a product of \textit{primary fields} $\Phi(x_1)\dots\Phi(x_n)$ at $x_1,\dots,x_n$, then the Ward identities \cref{eq:GCI:conformal_ward_final_1,eq:GCI:conformal_ward_final_2,eq:GCI:conformal_ward_final_3} can be rewritten as 
 \begin{subequations}
     \begin{align}
-        \pdv{x^\mu}\expval{\tensor{T}{^\mu_\nu}(x)X}&=-\sum_{i=1}^n\delta(x-x_i)\pdv{x^\nu_i}\expval{X}\\
-            \eqnmarkbox[blue]{node1}{\varepsilon_{\mu\nu}}\expval{T^{\mu\nu}(x)X}&=-\ii\sum_{i=1}^n s_i\delta(x-x_i)\expval{X}\\
-            \expval{\tensor{T}{^\mu_\mu}(x)X}&=-\sum_{i=1}^n\delta(x-x_i)\Delta_i\expval{X}
+        \pdv{x^\mu}\expval{\tensor{T}{^\mu_\nu}(x)X}&=-\sum_{i=1}^n\delta(x-x_i)\pdv{x^\nu_i}\expval{X}\label{eq:2dcft:ward:modified_1}\\
+            \eqnmarkbox[blue]{node1}{\varepsilon_{\mu\nu}}\expval{T^{\mu\nu}(x)X}&=-\ii\sum_{i=1}^n s_i\delta(x-x_i)\expval{X}\label{eq:2dcft:ward:modified_2}\\
+            \expval{\tensor{T}{^\mu_\mu}(x)X}&=-\sum_{i=1}^n\delta(x-x_i)\Delta_i\expval{X}\label{eq:2dcft:ward:modified_3}
     \end{align}
 \end{subequations}\annotate[yshift=0]{below,left}{node1}{Antisymmetric tensor}\\
 where we have used the specific two-dimensional form $s_i\varepsilon_{\mu\nu}$ of the spin generators $S_{\mu\nu}^i$ and $s_i$ is the spin of the field $\phi_i$.
@@ -1351,8 +1351,8 @@ where $w_i$ and $\bar{w}_i$ are complex coordinates of the fields.
 If we add substract \cref{eq:2dcft:ward_holo_3,eq:2dcft:ward_holo_4}, we have
 \begin{subequations}
     \begin{align}
-        2\pi\expval{T_{\bar{z}z}X}= & -\sum_{i=1}^n\partial_{\bar{z}}\frac{1}{z-w_i}h_i\expval{X}\label{eq:2dcft:ward_holo_5}            \\
-        2\pi\expval{T_{z\bar{z}}X}= & -\sum_{i=1}^n\partial_z\frac{1}{\bar{z}-\bar{w}_i}\bar{h}_i\expval{X}.\label{eq:2dcft:ward_holo_6}
+        2\pi\expval{T_{\bar{z}z}X}= &-\pi\sum_{i=1}^n\delta(x-x_i)h_i\expval{X}= -\sum_{i=1}^n\partial_{\bar{z}}\frac{1}{z-w_i}h_i\expval{X}\label{eq:2dcft:ward_holo_5}            \\
+        2\pi\expval{T_{z\bar{z}}X}= &-\pi\sum_{i=1}^n\delta(x-x_i)\bar{h}_i\expval{X}= -\sum_{i=1}^n\partial_z\frac{1}{\bar{z}-\bar{w}_i}\bar{h}_i\expval{X}.\label{eq:2dcft:ward_holo_6}
     \end{align}
 \end{subequations}
 where we used \cref{eq:holomorphic_conformal_dimension}.
@@ -1365,13 +1365,13 @@ Inserting \cref{eq:2dcft:ward_holo_5,eq:2dcft:ward_holo_6} into \cref{eq:2dcft:w
 \end{subequations}
 where we defined the renormalized energy-momentum tensor
 \begin{align}
-    T\equiv-2\pi T_{zz}\qand\bar{T}\equiv-2\pi T_{\bar{z}\bar{z}}.
+    T\equiv-2\pi T_{zz}\qand\bar{T}\equiv-2\pi T_{\bar{z}\bar{z}}.\label{eq:2dcft:ward:def_renormalized_T}
 \end{align}
 It can be implied that the expressions between the square brackets in \cref{eq:2dcft:ward_holo_7,eq:2dcft:ward_holo_8} are respectively holomorphic and antiholomorphic, thus we may write
 \begin{subequations}
     \begin{align}
-        \expval{T(z)X}             & =\sum_{i=1}^n\left(\frac{1}{z-w_i}\partial_{w_i}\expval{X}+\frac{h_i}{(z-w_i)^2}\expval{X}\right)+\text{reg.}                                     \\
-        \expval{\bar{T}(\bar{z})X} & =\sum_{i=1}^n\left(\frac{1}{\bar{z}-\bar{w}_i}\partial_{\bar{w}_i}\expval{X}+\frac{\bar{h}_i}{(\bar{z}-\bar{e}_i)^2}\expval{X}\right)+\text{reg.}
+        \expval{T(z,\bar{z})X}             & =\sum_{i=1}^n\left(\frac{1}{z-w_i}\partial_{w_i}\expval{X}+\frac{h_i}{(z-w_i)^2}\expval{X}\right)+\text{reg.}                                     \\
+        \expval{\bar{T}(z,\bar{z})X} & =\sum_{i=1}^n\left(\frac{1}{\bar{z}-\bar{w}_i}\partial_{\bar{w}_i}\expval{X}+\frac{\bar{h}_i}{(\bar{z}-\bar{w}_i)^2}\expval{X}\right)+\text{reg.}
     \end{align}
 \end{subequations}
 where "reg." stands for a holomorphic function of $z$ which is regular at $z=w_i$ and a holomorphic function of $\bar{z}$ which is regular at $\bar{z}=\bar{w}_i$ respectively.
@@ -1391,7 +1391,7 @@ Multiply both sides of \cref{eq:2DCWI:arbi} with a string of \textit{primary fie
 \begin{align}
     \partial_\mu\expval{\epsilon_\nu T^{\mu\nu}X}=\epsilon_\nu\partial_\mu\expval{T^{\mu\nu}X}+\frac{1}{2}\left(\partial_\rho \epsilon^\rho\right)\expval{\tensor{T}{^\mu_\mu}X}+\frac{1}{2}\varepsilon^{\alpha\beta}\partial_\alpha\epsilon_\beta\varepsilon_{\alpha\beta}\expval{T^{\mu\nu}X}.\label{eq:2DCWI:before_ward}
 \end{align}
-Using Ward identities \cref{eq:GCI:conformal_ward_final_1,eq:GCI:conformal_ward_final_2,eq:GCI:conformal_ward_final_3}, \cref{eq:2DCWI:before_ward} becomes 
+Using Ward identities \cref{eq:2dcft:ward:modified_1,eq:2dcft:ward:modified_2,eq:2dcft:ward:modified_3}, \cref{eq:2DCWI:before_ward} becomes 
 \begin{align}
     \partial_\mu\expval{\epsilon_\nu T^{\mu\nu}X}=\sum_{i=1}^n\delta(x-x_i)\left(-\epsilon^\nu\pdv{x_i^\nu}-\frac{1}{2}\Delta_i\partial_\rho\epsilon^\rho-\frac{\ii}{2}\varepsilon^{\alpha\beta} s_i\partial_\alpha\epsilon_\beta\right)\expval{X}.\label{eq:2DCWI:after_ward}
 \end{align}
@@ -1405,17 +1405,68 @@ From \cref{eq:ward:anyomega,eq:2DCWI:arbi}, we have
 \begin{align}
     \delta_\epsilon\expval{X}=\int_M\dd[2]{x}\partial_\mu\expval{T^{\mu\nu}(x)\epsilon_\nu(x)X}\label{eq:2DCWI:conformal_ward_1}
 \end{align}
-We can think of the integrand in \cref{eq:2DCWI:conformal_ward_1} as a divergence of a vector field $F^\mu\equiv\expval{T^{\mu\nu}(x)\epsilon_\nu(x)X}$ and apply Gauss's theorem
+We can think of the integrand in \cref{eq:2DCWI:conformal_ward_1} as a divergence of a vector field $F^\mu\equiv\expval{T^{\mu\nu}(x)\epsilon_\nu(x)X}$ and apply Gauss's theorem, one finds 
+\begin{subequations}
+    \begin{align}
+        \delta_{\epsilon,\bar{\epsilon}}\expval{X}\notag&\\
+        =&\frac{1}{2}\ii\int_C\left[-\dd[]{z}\left(\expval{T^{\bar{z}\bar{z}}\epsilon_{\bar{z}}X}+\eqnmarkbox[blue]{node1}{\expval{T^{\bar{z}z}\epsilon_{z}X}}\right)+\dd[]{\bar{z}}\left(\expval{T^{zz}\epsilon_z X}+\eqnmarkbox[blue]{node2}{\expval{T^{z\bar{z}}\epsilon_{\bar{z}} X}}\right)\right]\label{eq:2DCWI:conformal_ward_gauss_1}\\
+                                                      =&\frac{1}{2}\ii\int_C\left(-\dd[]{z}\expval{T^{\bar{z}\bar{z}}\epsilon_{\bar{z}}X}+\dd[]{\bar{z}}\expval{T^{zz}\epsilon_z X}\right)\label{eq:2DCWI:conformal_ward_gauss_2}
+    \end{align}
+\end{subequations}\annotatetwo[yshift=0.2cm]{}{node1}{node2}{Remember to use \cref{eq:2dcft:ward_holo_5,eq:2dcft:ward_holo_6}}\\
+where we have defined $\epsilon\equiv\epsilon^z$ and $\bar{\epsilon}\equiv\epsilon^{\bar{z}}$.
+We have used \cref{eq:2dcft:ward_holo_5,eq:2dcft:ward_holo_6} from \cref{eq:2DCWI:conformal_ward_gauss_1} to \cref{eq:2DCWI:conformal_ward_gauss_2}. 
+The contribution to the contour integral from $\expval{T^{\bar{z}z}X}$ and $\expval{T^{z\bar{z}}X}$ vanish\sidenote{Note that $$\expval{T^{\bar{z}z}\epsilon_{z}X}=\epsilon_{z}\expval{T^{\bar{z}z}X}$$ and $$\expval{T^{z\bar{z}}\epsilon_{\bar{z}} X}=\epsilon_{\bar{z}} \expval{T^{z\bar{z}}X}$$which can be seen from the path integral.} since the contour $C$ can be chosen to avoid coordinates $x_i$ of the fields in $X$ to ensure $\expval{T^{\bar{z}z}X}$ and $\expval{T^{z\bar{z}}X}$ vanish\sidenote{Thanks to to Dirac delta functions.}.
 
+Finally using the definition \cref{eq:2dcft:ward:def_renormalized_T}, \cref{eq:2DCWI:conformal_ward_gauss_2} can be written as the \textit{conformal Ward identity}
 \begin{boxmath}{Conformal Ward Identity}
     \begin{align}
-        \delta_{\epsilon,\bar{\epsilon}}\expval{X}=-\frac{1}{2\pi\ii}\oint\dd[]{z}\epsilon(z)\expval{T(z)X}+\frac{1}{2\pi\ii}\oint\dd[]{\bar{z}}\bar{\epsilon}(\bar{z})\expval{\bar{T}(\bar{z})X}.
+        \delta_{\epsilon,\bar{\epsilon}}\expval{X}=-\frac{1}{2\pi\ii}\oint_C\dd[]{z}\epsilon(z)\expval{T(z)X}+\frac{1}{2\pi\ii}\oint_C\dd[]{\bar{z}}\bar{\epsilon}(\bar{z})\expval{\bar{T}(\bar{z})X}.
     \end{align}
 \end{boxmath}
+The counterclockwise contour $C$ needs only to include all the coordinates $(w_i,\bar{w}_i)$ of the fields in $X$.
 
 
-\subsubsection{Alternate Derivation of the Ward Identities}
 \subsection{Free Fields and the Operator Product Expansion}
+\subsubsection{The Free Boson}
+The simplest conformal field theory is that of a free massless boson $\phi$, with the following action 
+\begin{align}
+    S=\frac{1}{2}g\int\dd[2]{x}\partial_\mu\phi\partial^\mu\phi
+\end{align}
+where $g$ is a normalization parameter.
+The two-point function of this theory is (see details in \cite[Section 2.3]{DiFrancesco:1997nk})
+\begin{align}
+    \expval{\phi(x)\phi(y)}=-\frac{1}{4\pi g}\ln(x-y)^2+\text{const.}\label{eq:FFOPE:FB:2_p_before}
+\end{align}
+Using complex coordinates, \cref{eq:FFOPE:FB:2_p_before} can be written as 
+\begin{align}
+    \expval{\phi(z,\bar{z})\phi(w,\bar{w})}=-\frac{1}{4\pi g}\left(\ln(z-w)+\ln(\bar{z}-\bar{w})\right)+\text{const.}\label{eq:FFOPE:FB:2_p_complex}
+\end{align}
+Taking the derivatives on both sides of \cref{eq:FFOPE:FB:2_p_complex}, we have 
+\begin{subequations}
+    \begin{align}
+        \expval{\partial_z\phi(z,\bar{z})\partial_w\phi(w,\bar{w})}=&-\frac{1}{4\pi g}\frac{1}{(z-w)^2}\label{eq:FFOPE:FB:2_p_after_derivative_1}\\
+        \expval{\partial_{\bar{z}}\phi(z,\bar{z})\partial_{\bar{w}}\phi(w,\bar{w})}=&-\frac{1}{4\pi g}\frac{1}{(\bar{z}-\bar{w})^2}.
+    \end{align}
+\end{subequations}
+In the following we shall concentrate on the holomorphic part $\partial\phi\equiv\partial_z\phi$.
+It is clear from \cref{eq:FFOPE:FB:2_p_after_derivative_1} we have the OPE 
+\begin{align}
+    \partial\phi(z)\partial\phi(w)\sim-\frac{1}{4\pi g}\frac{1}{(z-w)^2}.
+\end{align}
+\begin{remark}
+    This OPE reflects the bosonic character of the field: exchanging the two factors does not affect the correlator.
+\end{remark}
+
+\subsubsection{The Free Fermion}
+In two dimensions, the Euclidean action of a free Majorana fermion is\sidenote{Some information about spinors in Eulidean spacetime can be found in \cite{Wetterich:2010ni,Stone:2020vva,McKeon:2001pm} and references therein.} 
+\begin{align}
+    S=\frac{1}{2}g\int\dd[2]{x}\Psi^\dagger\gamma^0\gamma^\mu\partial_\mu\Psi
+\end{align}
+where the Dirac matrices $\gamma^\mu$ satisfy the so-called Dirac algebra 
+\begin{align}
+    \gamma^\mu\gamma^\nu+\gamma^\nu\gamma^\mu=2\eta^{\mu\nu}
+\end{align}
+\subsubsection{The Ghost System}
 \subsection{The Central Charge}
 
 \clearpage
