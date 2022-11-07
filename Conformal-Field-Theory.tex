@@ -17,7 +17,7 @@
 
 \usepackage{annotate-equations}
 \usepackage{marginfix}
-
+\usepackage{simpler-wick}
 
 \newenvironment{boxmath}[1]{\begin{tcolorbox}[enhanced,attach boxed title to top center={yshift=-\tcboxedtitleheight/2},boxrule=1pt,title={\centering #1},colframe=NavyBlue!70!black,colback=NavyBlue!10,colbacktitle=NavyBlue!10,fonttitle=\scshape,coltitle=Black]}{\end{tcolorbox}}
 \crefname{claim}{claim}{claims}
@@ -1420,14 +1420,14 @@ The contribution to the contour integral from $\expval{T^{\bar{z}z}X}$ and $\exp
 Finally using the definition \cref{eq:2dcft:ward:def_renormalized_T}, \cref{eq:2DCWI:conformal_ward_gauss_2} can be written as the \textit{conformal Ward identity}
 \begin{boxmath}{Conformal Ward Identity}
     \begin{align}
-        \delta_{\epsilon,\bar{\epsilon}}\expval{X}=-\frac{1}{2\pi\ii}\oint_C\dd[]{z}\epsilon(z)\expval{T(z)X}+\frac{1}{2\pi\ii}\oint_C\dd[]{\bar{z}}\bar{\epsilon}(\bar{z})\expval{\bar{T}(\bar{z})X}.
+        \delta_{\epsilon,\bar{\epsilon}}\expval{X}=-\frac{1}{2\pi\ii}\oint_C\dd[]{z}\epsilon(z)\expval{T(z)X}+\frac{1}{2\pi\ii}\oint_C\dd[]{\bar{z}}\bar{\epsilon}(\bar{z})\expval{\bar{T}(\bar{z})X}.\label{eq:2dcft:conformal_ward_final}
     \end{align}
 \end{boxmath}
 The counterclockwise contour $C$ needs only to include all the coordinates $(w_i,\bar{w}_i)$ of the fields in $X$.
 
 
 \subsection{Free Fields and the Operator Product Expansion}
-\subsubsection{The Free Boson}
+\subsubsection{The Free Boson\label{subsubsec:2dcft:FFOPE:boson}}
 The simplest conformal field theory is that of a free massless boson $\phi$, with the following action 
 \begin{align}
     S=\frac{1}{2}g\int\dd[2]{x}\partial_\mu\phi\partial^\mu\phi
@@ -1456,8 +1456,61 @@ It is clear from \cref{eq:FFOPE:FB:2_p_after_derivative_1} we have the OPE
 \begin{remark}
     This OPE reflects the bosonic character of the field: exchanging the two factors does not affect the correlator.
 \end{remark}
+The \textit{classical} energy-momentum tensor associated with the free massless boson is
+\begin{align}
+    T_{\mu\nu}=g\left(\partial_\mu\phi\partial_\nu\phi-\frac{1}{2}\eta_{\mu\nu}\partial_\rho\phi\partial^\rho\phi\right)
+\end{align}
+and in the complex coordinates we have 
+\begin{align}
+    T(z,\bar{z})\equiv-2\pi T_{zz}=-2\pi g\left[(\partial\phi)^2-\frac{1}{2}\eta_{zz}\partial_\rho\phi\partial^\rho\phi\right]=-2\pi g\left(\partial\phi\right)^2\label{eq:FFOPE:FB:T_classical}
+\end{align}
+where we have used $\eta_{zz}=0$.
 
-\subsubsection{The Free Fermion}
+%\paragraph{Na\"ive normal ordering}
+%\Cref{eq:FFOPE:FB:T_classical} is the classical energy-momentum tensor which is composed of $\phi$ and now we want to know the quantum version of it.
+%In order to quantize a classical field quantity, we introduce a na\"ive definition \textit{normal ordering}\sidenote{Not exactly the same one that we saw in standard QFT textbooks} without much explanation and simply accept it as the quantum version of a classical field quantity\sidenote{We will discuss the normal ordering in details in \cref{subsec:operator:normal_ordering} and now just take it for granted here.}.
+%\begin{definition}[Na\"ive normal ordering]
+%    The normal ordering of two \textit{same} operators $\phi(z)$ and $\phi(z)$ is defined to be 
+%    \begin{align}
+%        :\phi(z)\phi(z):\equiv\lim_{w\to z}\left(\phi(w)\phi(z)-\expval{\phi(w)\phi(z)}\right)
+%    \end{align}
+%\end{definition}
+\begin{intu}
+    In standard QFT books, we use normal ordered operators for "quantum version" of classical field quantities after quantization then simplify formulas using Wick's theorem.
+    Moreover, the normal ordered product and Wick's theorem has more general aspects in mathmatics and this is beyond the scope of this note\snm.
+    Therefore, the following argument involving normal ordered product and Wick's theorem may not be rigorous on the mathematical side, but it works and the final result is correct compared to the "real" result.
+\end{intu}
+\snt{{Some related information can be found in \cite{kac1998vertex,Nozaradan:2008zq,Schottenloher:2008zz}.}}
+After quantization, we should use the normal ordered composite fields as the corresponding quantum operators.
+The normal ordered product of energy-momentum tensor is equivalent to\sidenote{Fow now, just believe this!}
+\begin{align}
+    T(z)=-2\pi g:\partial\phi\partial\phi:=-2\pi g\lim_{w\to z}\left(\partial\phi(z)\partial\phi(w)-\expval{\partial\phi(z)\partial\phi(w)}\right).
+\end{align}
+The OPE of $T(z)$ can be calculated using Wick's theorem\sidenote{Don't be too serious on the Wick's theorem we are using here.}:
+\begin{subequations}
+    \begin{align}
+        T(z)\partial\phi(w)&=-2\pi g\lim_{z_1\to z}\left(\partial\phi(z)\partial\phi(z_1)-\expval{\partial\phi(z)\partial\phi(z_1)}\right)\partial\phi(w)\\
+                    &\sim -2\pi g\lim_{z_1\to z}\left[\left(\expval{\partial\phi(z)\partial\phi(w)}\partial\phi(z_1)+\expval{\partial\phi(z)\partial\phi(z_1)}\partial\phi(w)+\right.\right.\notag\\
+                    &\quad\quad\quad\quad\quad\quad\left.\left.\expval{\partial\phi(z_1)\partial\phi(w)}\partial\phi(z)\right)-\expval{\partial\phi(z)\partial\phi(z_1)}\partial\phi(w)\right]\\
+                    &\sim -2\pi g\lim_{z_1\to z}\left(\expval{\partial\phi(z)\partial\phi(w)}\partial\phi(z_1)+\expval{\partial\phi(z_1)\partial\phi(w)}\partial\phi(z)\right)\\
+                    &\sim -4\pi g\expval{\partial\phi(z)\partial\phi(w)}\partial\phi(z)\\
+                    &\sim \frac{\partial\phi(z)}{(z-w)^2}
+    \end{align} 
+\end{subequations} 
+We used 
+Then by expanding $\partial\phi(z)$ around $w$, we have the OPE 
+\begin{align}
+    T(z)\partial\phi(w)\sim\frac{\partial\phi(w)}{(z-w)^2}+\frac{\partial^2_w\phi(w)}{(z-w)}.
+\end{align}
+
+Using the same method, we also have the OPE of the energy-momentum tensor with itself 
+\begin{align}
+    T(z)T(w)=&4\pi^2 g^2:\partial\phi(z)\partial\phi(z)::\partial\phi(w)\partial\phi(w):\notag\\
+            &\sim\frac{1/2}{(z-w)^4}+\frac{2T(w)}{(z-w)^2}+\frac{\partial T(w)}{(z-w)}.
+\end{align}
+
+
+\subsubsection{The Free Fermion\label{subsubsec:2dcft:FFOPE:fermion}}
 In two dimensions, the Euclidean action of a free Majorana fermion is\sidenote{Some information about spinors in Eulidean spacetime can be found in \cite{Wetterich:2010ni,Stone:2020vva,McKeon:2001pm} and references therein.} 
 \begin{align}
     S=\frac{1}{2}g\int\dd[2]{x}\Psi^\dagger\gamma^0\gamma^\mu\partial_\mu\Psi
@@ -1466,8 +1519,27 @@ where the Dirac matrices $\gamma^\mu$ satisfy the so-called Dirac algebra
 \begin{align}
     \gamma^\mu\gamma^\nu+\gamma^\nu\gamma^\mu=2\eta^{\mu\nu}
 \end{align}
-\subsubsection{The Ghost System}
+\subsubsection{The Ghost System\label{subsubsec:2dcft:FFOPE:ghost}}
 \subsection{The Central Charge}
+As we saw in \cref{subsubsec:2dcft:FFOPE:boson,subsubsec:2dcft:FFOPE:fermion,subsubsec:2dcft:FFOPE:ghost}, a general OPE for energy-momentum tensor can be written in the form 
+\begin{align}
+    T(z)T(w)\sim\frac{c/2}{(z-w)^4}+\frac{2T(w)}{(z-w)^2}+\frac{\partial T(w)}{(z-w)}
+\end{align}
+where the constant $c$ depends on the specific model and it is called the \textit{central charge}.
+\subsubsection{Transfonnation of the Energy-Momentum Tensor}
+Using the conformal Ward identity \cref{eq:2dcft:conformal_ward_final} ,we have 
+\begin{align}
+    \delta_\epsilon T(w)&=-\frac{1}{2\pi\ii}\oint_C\dd[]{z}\epsilon(z)T(z)T(w)\notag\\
+                        &=-\frac{1}{12}c\partial^3_w\epsilon(w)-2T(w)\partial_w\epsilon(w)-\epsilon(w)\partial_w T(w).\label{eq:2dcft:central_charge:EMtensor_transform}
+\end{align}
+The finite form of \cref{eq:2dcft:central_charge:EMtensor_transform} is
+\begin{align}
+    T'(w)=\left(\dv{w}{z}\right)^{-2}\left[T(z)-\frac{c}{12}\left\{w;z\right\}\right]
+\end{align}
+where we have introduced the \textit{Schwarzian derivative}
+\begin{align}
+    \left\{w;z\right\}\equiv\frac{\left(\dv*[3]{w}{z}\right)}{\left(\dv*{w}{z}\right)}-\frac{3}{2}\left(\frac{\dv*[2]{w}{z}}{\dv*{w}{z}}\right)^2
+\end{align}
 
 \clearpage
 \section{The Operator Formalism}
@@ -1475,7 +1547,7 @@ where the Dirac matrices $\gamma^\mu$ satisfy the so-called Dirac algebra
 \subsection{The Virasoro Algebra}
 \subsection{The Free Boson}
 \subsection{The Free Fermion}
-\subsection{Normal Ordering}
+\subsection{Normal Ordering\label{subsec:operator:normal_ordering}}
 \subsection{Conformal Families and Operator Algebra}
 
 \clearpage
