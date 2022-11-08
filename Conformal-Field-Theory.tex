@@ -1100,7 +1100,7 @@ The metric can be written in holomorphic form as
 \end{align}
 which means
 \begin{align}
-    g_{\mu\nu}=\mqty(0 & \frac{1}{2} \\\frac{1}{2}&0)\qand g^{\mu\nu}=\mqty(0&2\\2&0)
+    g_{\mu\nu}=\mqty(0 & \frac{1}{2} \\\frac{1}{2}&0)\qand g^{\mu\nu}=\mqty(0&2\\2&0)\label{eq:2dcft:metric_complex}
 \end{align}
 where the indices $\mu$ and $\nu$ take the values $z$ and $\bar{z}$, in that order.
 
@@ -1229,7 +1229,7 @@ Consider the infinitesimal transformation $z\to w=z+\epsilon(z)$ and $\bar{z}\to
     =                                      & -\left(h\phi\partial_z\epsilon+\epsilon\partial_z\phi\right)-\left(\bar{h}\phi\partial_{\bar{z}}\bar{\epsilon}+\bar{\epsilon}\partial_{\bar{z}}\phi\right).\label{eq:2dcft:primary_infinitesimal}
 \end{align}
 
-A field whcih is not primary is generally called \textit{secondary}.
+A field which is not primary is generally called \textit{secondary}.
 
 
 \subsubsection{Correlation Functions}
@@ -1409,18 +1409,18 @@ We can think of the integrand in \cref{eq:2DCWI:conformal_ward_1} as a divergenc
 \begin{subequations}
     \begin{align}
         \delta_{\epsilon,\bar{\epsilon}}\expval{X}\notag&\\
-        =&\frac{1}{2}\ii\int_C\left[-\dd[]{z}\left(\expval{T^{\bar{z}\bar{z}}\epsilon_{\bar{z}}X}+\eqnmarkbox[blue]{node1}{\expval{T^{\bar{z}z}\epsilon_{z}X}}\right)+\dd[]{\bar{z}}\left(\expval{T^{zz}\epsilon_z X}+\eqnmarkbox[blue]{node2}{\expval{T^{z\bar{z}}\epsilon_{\bar{z}} X}}\right)\right]\label{eq:2DCWI:conformal_ward_gauss_1}\\
-                                                      =&\frac{1}{2}\ii\int_C\left(-\dd[]{z}\expval{T^{\bar{z}\bar{z}}\epsilon_{\bar{z}}X}+\dd[]{\bar{z}}\expval{T^{zz}\epsilon_z X}\right)\label{eq:2DCWI:conformal_ward_gauss_2}
+        =&\frac{1}{2}\ii\oint_C\left[-\dd[]{z}\left(\expval{T^{\bar{z}\bar{z}}\epsilon_{\bar{z}}X}+\eqnmarkbox[blue]{node1}{\expval{T^{\bar{z}z}\epsilon_{z}X}}\right)+\dd[]{\bar{z}}\left(\expval{T^{zz}\epsilon_z X}+\eqnmarkbox[blue]{node2}{\expval{T^{z\bar{z}}\epsilon_{\bar{z}} X}}\right)\right]\label{eq:2DCWI:conformal_ward_gauss_1}\\
+                                                      =&\frac{1}{2}\ii\oint_C\left(-\dd[]{z}\expval{T^{\bar{z}\bar{z}}\epsilon_{\bar{z}}X}+\dd[]{\bar{z}}\expval{T^{zz}\epsilon_z X}\right)\label{eq:2DCWI:conformal_ward_gauss_2}
     \end{align}
 \end{subequations}\annotatetwo[yshift=0.2cm]{}{node1}{node2}{Remember to use \cref{eq:2dcft:ward_holo_5,eq:2dcft:ward_holo_6}}\\
 where we have defined $\epsilon\equiv\epsilon^z$ and $\bar{\epsilon}\equiv\epsilon^{\bar{z}}$.
 We have used \cref{eq:2dcft:ward_holo_5,eq:2dcft:ward_holo_6} from \cref{eq:2DCWI:conformal_ward_gauss_1} to \cref{eq:2DCWI:conformal_ward_gauss_2}. 
 The contribution to the contour integral from $\expval{T^{\bar{z}z}X}$ and $\expval{T^{z\bar{z}}X}$ vanish\sidenote{Note that $$\expval{T^{\bar{z}z}\epsilon_{z}X}=\epsilon_{z}\expval{T^{\bar{z}z}X}$$ and $$\expval{T^{z\bar{z}}\epsilon_{\bar{z}} X}=\epsilon_{\bar{z}} \expval{T^{z\bar{z}}X}$$which can be seen from the path integral.} since the contour $C$ can be chosen to avoid coordinates $x_i$ of the fields in $X$ to ensure $\expval{T^{\bar{z}z}X}$ and $\expval{T^{z\bar{z}}X}$ vanish\sidenote{Thanks to to Dirac delta functions.}.
 
-Finally using the definition \cref{eq:2dcft:ward:def_renormalized_T}, \cref{eq:2DCWI:conformal_ward_gauss_2} can be written as the \textit{conformal Ward identity}
+Finally using the definition \cref{eq:2dcft:ward:def_renormalized_T}, \cref{eq:2DCWI:conformal_ward_gauss_2} can be written as the \textit{conformal Ward identity}\sidenote{We have lifted and lowed the indices using the metric \cref{eq:2dcft:metric_complex} and we have \begin{align}T&=-\frac{\pi}{2}T^{\bar{z}\bar{z}}\notag\\\bar{T}&=-\frac{\pi}{2}T^{zz}\notag\\\epsilon&\equiv\epsilon^z=2\epsilon_{\bar{z}}\notag\\\bar{\epsilon}&\equiv\epsilon^{\bar{z}}=2\epsilon_z.\notag\end{align}}
 \begin{boxmath}{Conformal Ward Identity}
     \begin{align}
-        \delta_{\epsilon,\bar{\epsilon}}\expval{X}=-\frac{1}{2\pi\ii}\oint_C\dd[]{z}\epsilon(z)\expval{T(z)X}+\frac{1}{2\pi\ii}\oint_C\dd[]{\bar{z}}\bar{\epsilon}(\bar{z})\expval{\bar{T}(\bar{z})X}.\label{eq:2dcft:conformal_ward_final}
+        \delta_{\epsilon,\bar{\epsilon}}\expval{X}=-\frac{1}{2\pi\ii}\oint_C\dd[]{z}\epsilon(z,\bar{z})\expval{T(z,\bar{z})X}+\frac{1}{2\pi\ii}\oint_C\dd[]{\bar{z}}\bar{\epsilon}(z,\bar{z})\expval{\bar{T}(z,\bar{z})X}.\label{eq:2dcft:conformal_ward_final}
     \end{align}
 \end{boxmath}
 The counterclockwise contour $C$ needs only to include all the coordinates $(w_i,\bar{w}_i)$ of the fields in $X$.
@@ -1433,6 +1433,7 @@ The simplest conformal field theory is that of a free massless boson $\phi$, wit
     S=\frac{1}{2}g\int\dd[2]{x}\partial_\mu\phi\partial^\mu\phi
 \end{align}
 where $g$ is a normalization parameter.
+\paragraph{The OPE of $\partial\phi$ and $\partial\phi$}
 The two-point function of this theory is (see details in \cite[Section 2.3]{DiFrancesco:1997nk})
 \begin{align}
     \expval{\phi(x)\phi(y)}=-\frac{1}{4\pi g}\ln(x-y)^2+\text{const.}\label{eq:FFOPE:FB:2_p_before}
@@ -1445,17 +1446,20 @@ Taking the derivatives on both sides of \cref{eq:FFOPE:FB:2_p_complex}, we have
 \begin{subequations}
     \begin{align}
         \expval{\partial_z\phi(z,\bar{z})\partial_w\phi(w,\bar{w})}=&-\frac{1}{4\pi g}\frac{1}{(z-w)^2}\label{eq:FFOPE:FB:2_p_after_derivative_1}\\
-        \expval{\partial_{\bar{z}}\phi(z,\bar{z})\partial_{\bar{w}}\phi(w,\bar{w})}=&-\frac{1}{4\pi g}\frac{1}{(\bar{z}-\bar{w})^2}.
+        \expval{\partial_{\bar{z}}\phi(z,\bar{z})\partial_{\bar{w}}\phi(w,\bar{w})}=&-\frac{1}{4\pi g}\frac{1}{(\bar{z}-\bar{w})^2}.\label{eq:FFOPE:FB:2_p_after_derivative_2}
     \end{align}
 \end{subequations}
-In the following we shall concentrate on the holomorphic part $\partial\phi\equiv\partial_z\phi$.
-It is clear from \cref{eq:FFOPE:FB:2_p_after_derivative_1} we have the OPE 
-\begin{align}
-    \partial\phi(z)\partial\phi(w)\sim-\frac{1}{4\pi g}\frac{1}{(z-w)^2}.
-\end{align}
+It is clear from \cref{eq:FFOPE:FB:2_p_after_derivative_1,eq:FFOPE:FB:2_p_after_derivative_2} we have the OPEs\sidenote{In \cref{eq:2dcft:boson_OPE:partial_phi_partial_phi_final}, we omit the antiholomorphic coordinate of $\partial\phi$ in the following OPE since the OPE does not depend on the antiholomorphic coordinates. This convention is also used in later sections.} 
+\begin{subequations}
+    \begin{align}
+        \partial\phi(z)\partial\phi(w)&\sim-\frac{1}{4\pi g}\frac{1}{(z-w)^2}\label{eq:2dcft:boson_OPE:partial_phi_partial_phi_final}\\
+        \bar{\partial}\phi(\bar{z})\bar{\partial}\phi(\bar{w})&\sim-\frac{1}{4\pi g}\frac{1}{(\bar{z}-\bar{w})^2}.
+    \end{align}
+\end{subequations}
 \begin{remark}
     This OPE reflects the bosonic character of the field: exchanging the two factors does not affect the correlator.
 \end{remark}
+\paragraph{The OPE of $T$ and $\partial\phi$}
 The \textit{classical} energy-momentum tensor associated with the free massless boson is
 \begin{align}
     T_{\mu\nu}=g\left(\partial_\mu\phi\partial_\nu\phi-\frac{1}{2}\eta_{\mu\nu}\partial_\rho\phi\partial^\rho\phi\right)
@@ -1465,6 +1469,10 @@ and in the complex coordinates we have
     T(z,\bar{z})\equiv-2\pi T_{zz}=-2\pi g\left[(\partial\phi)^2-\frac{1}{2}\eta_{zz}\partial_\rho\phi\partial^\rho\phi\right]=-2\pi g\left(\partial\phi\right)^2\label{eq:FFOPE:FB:T_classical}
 \end{align}
 where we have used $\eta_{zz}=0$.
+In the same way, we have 
+\begin{align}
+    \bar{T}(z,\bar{z})\equiv-2\pi \bar{T}_{zz}=-2\pi g\left[(\bar{\partial}\phi)^2-\frac{1}{2}\eta_{\bar{z}\bar{z}}\partial_\rho\phi\partial^\rho\phi\right]=-2\pi g\left(\bar{\partial}\phi\right)^2.\label{eq:FFOPE:FB:T_bar_classical}
+\end{align}
 
 %\paragraph{Na\"ive normal ordering}
 %\Cref{eq:FFOPE:FB:T_classical} is the classical energy-momentum tensor which is composed of $\phi$ and now we want to know the quantum version of it.
@@ -1484,30 +1492,61 @@ where we have used $\eta_{zz}=0$.
 After quantization, we should use the normal ordered composite fields as the corresponding quantum operators.
 The normal ordered product of energy-momentum tensor is equivalent to\sidenote{Fow now, just believe this!}
 \begin{align}
-    T(z)=-2\pi g:\partial\phi\partial\phi:=-2\pi g\lim_{w\to z}\left(\partial\phi(z)\partial\phi(w)-\expval{\partial\phi(z)\partial\phi(w)}\right).
+    T(z,\bar{z})=-2\pi g:\partial\phi\partial\phi:=-2\pi g\lim_{w\to z}\lim_{\bar{w}\to\bar{z}}\left(\partial\phi(z,\bar{z})\partial\phi(w,\bar{w})-\expval{\partial\phi(z,\bar{z})\partial\phi(w,\bar{w})}\right).
 \end{align}
-The OPE of $T(z)$ can be calculated using Wick's theorem\sidenote{Don't be too serious on the Wick's theorem we are using here.}:
+The OPE of $T$ and $\partial\phi$ can be calculated using Wick's theorem\sidenote{Don't be too serious on the Wick's theorem we are using here.}:
 \begin{subequations}
     \begin{align}
-        T(z)\partial\phi(w)&=-2\pi g\lim_{z_1\to z}\left(\partial\phi(z)\partial\phi(z_1)-\expval{\partial\phi(z)\partial\phi(z_1)}\right)\partial\phi(w)\\
-                    &\sim -2\pi g\lim_{z_1\to z}\left[\left(\expval{\partial\phi(z)\partial\phi(w)}\partial\phi(z_1)+\expval{\partial\phi(z)\partial\phi(z_1)}\partial\phi(w)+\right.\right.\notag\\
-                    &\quad\quad\quad\quad\quad\quad\left.\left.\expval{\partial\phi(z_1)\partial\phi(w)}\partial\phi(z)\right)-\expval{\partial\phi(z)\partial\phi(z_1)}\partial\phi(w)\right]\\
-                    &\sim -2\pi g\lim_{z_1\to z}\left(\expval{\partial\phi(z)\partial\phi(w)}\partial\phi(z_1)+\expval{\partial\phi(z_1)\partial\phi(w)}\partial\phi(z)\right)\\
-                    &\sim -4\pi g\expval{\partial\phi(z)\partial\phi(w)}\partial\phi(z)\\
-                    &\sim \frac{\partial\phi(z)}{(z-w)^2}
+        T(z,\bar{z})\partial\phi(w,\bar{w})&=-2\pi g\lim_{z_1\to z}\lim_{\bar{z}_1\to\bar{z}}\left(\partial\phi(z,\bar{z})\partial\phi(z_1,\bar{z}_1)-\expval{\partial\phi(z,\bar{z})\partial\phi(z_1,\bar{z}_1)}\right)\partial\phi(w,\bar{w})\notag\\
+                    &\sim -2\pi g\lim_{z_1\to z}\lim_{\bar{z}_1\to\bar{z}}\left[\left(\expval{\partial\phi(z,\bar{z})\partial\phi(w,\bar{w})}\partial\phi(z_1,\bar{z}_1)\right.\right.\notag\\
+                    &\quad\quad\quad\quad\quad\quad\quad\quad+\expval{\partial\phi(z,\bar{z})\partial\phi(z_1,\bar{z}_1)}\partial\phi(w,\bar{w})\notag\\
+                    &\left.\quad\quad\quad\quad\quad\quad\quad\quad+\expval{\partial\phi(z_1,\bar{z}_1)\partial\phi(w,\bar{w})}\partial\phi(z,\bar{z})\right)\notag\\
+                    &\quad\quad\quad\quad\quad\quad\quad\quad\left.-\expval{\partial\phi(z,\bar{z})\partial\phi(z_1,\bar{z}_1)}\partial\phi(w,\bar{w})\right]\notag\\
+                    &\sim -2\pi g\lim_{z_1\to z}\lim_{\bar{z}_1\to\bar{z}}\left(\expval{\partial\phi(z,\bar{z})\partial\phi(w,\bar{w})}\partial\phi(z_1,\bar{z}_1)\right.\notag\\
+                    &\quad\quad\quad\quad\quad\quad\quad\quad\left.+\expval{\partial\phi(z_1,\bar{z}_1)\partial\phi(w,\bar{w})}\partial\phi(z,\bar{z})\right)\notag\\
+                    &\sim -4\pi g\expval{\partial\phi(z,\bar{z})\partial\phi(w,\bar{w})}\partial\phi(z,\bar{z})\label{eq:2dcft:boson_OPE:T_partial_phi_1}\\
+                    &\sim \frac{\partial\phi(z,\bar{z})}{(z-w)^2}\label{eq:2dcft:boson_OPE:T_partial_phi_final}
     \end{align} 
 \end{subequations} 
-We used 
-Then by expanding $\partial\phi(z)$ around $w$, we have the OPE 
+We used \cref{eq:2dcft:boson_OPE:partial_phi_partial_phi_final} from \cref{eq:2dcft:boson_OPE:T_partial_phi_1} to \cref{eq:2dcft:boson_OPE:T_partial_phi_final}.
+%\Cref{eq:2dcft:boson_OPE:T_partial_phi_final} can also be written as 
+%\begin{align}
+%    T(z)\partial\phi(w,\bar{w})\sim\frac{\partial\phi(z)}{(z-w)^2}
+%\end{align}
+Then by expanding $\partial\phi(z,\bar{z})$ around $(w,\bar{w})$, we have the OPE 
 \begin{align}
-    T(z)\partial\phi(w)\sim\frac{\partial\phi(w)}{(z-w)^2}+\frac{\partial^2_w\phi(w)}{(z-w)}.
+    T(z)\partial\phi(w,\bar{w})\sim\frac{\partial\phi(w,\bar{w})}{(z-w)^2}+\frac{\partial^2\phi(w,\bar{w})}{(z-w)}.
+\end{align}
+%\begin{remark}
+%    The book \cite{DiFrancesco:1997nk} only considered the case when $z$ and $w$ are close while $\bar{z}$ and $\bar{w}$ are not, so the result is slightly different.
+%\end{remark}
+\paragraph{The OPE of $T$ and $T$}
+Using the same method, we also have the OPE of the energy-momentum tensor with itself 
+\begin{subequations}
+    \begin{align}
+        T(z,\bar{z})T(w,\bar{w})=&4\pi^2 g^2:\partial\phi(z,\bar{z})\partial\phi(z,\bar{z})::\partial\phi(w,\bar{w})\partial\phi(w,\bar{w}):\label{eq:2dcft:boson_OPE:T_T_1}\\
+                &\sim\frac{1/2}{(z-w)^4}+\frac{2T(w)}{(z-w)^2}+\frac{\partial T(w)}{(z-w)}.\label{eq:2dcft:boson_OPE:T_T_final}
+    \end{align}
+\end{subequations}
+See the full derivation in \cref{appendix:deriva_OPE:boson_T_T}.
+Thus we can write 
+\begin{align}
+    T(z)T(w)\sim\frac{1/2}{(z-w)^4}+\frac{2T(w)}{(z-w)^2}+\frac{\partial T(w)}{(z-w)}.
+\end{align}
+And in the same way we also have
+\begin{align}
+    \bar{T}(\bar{z})\bar{T}(\bar{w})\sim\frac{1/2}{(\bar{z}-\bar{w})^4}+\frac{2\bar{T}(\bar{w})}{(\bar{z}-\bar{w})^2}+\frac{\partial \bar{T}(\bar{w})}{(\bar{z}-\bar{w})}.
+\end{align}
+\paragraph{The OPE of $T$ and $\bar{T}$}
+From \cref{eq:2dcft:boson_OPE:partial_phi_partial_phi_final}, we have 
+\begin{align}
+    \expval{\partial\phi(z,\bar{z})\bar{\partial}\phi(w,\bar{w})}=0
+\end{align}
+and from this fact, it is easy to get 
+\begin{align}
+    T(z,\bar{z})\bar{T}(w,\bar{w})\sim0.
 \end{align}
 
-Using the same method, we also have the OPE of the energy-momentum tensor with itself 
-\begin{align}
-    T(z)T(w)=&4\pi^2 g^2:\partial\phi(z)\partial\phi(z)::\partial\phi(w)\partial\phi(w):\notag\\
-            &\sim\frac{1/2}{(z-w)^4}+\frac{2T(w)}{(z-w)^2}+\frac{\partial T(w)}{(z-w)}.
-\end{align}
 
 
 \subsubsection{The Free Fermion\label{subsubsec:2dcft:FFOPE:fermion}}
@@ -1526,21 +1565,57 @@ As we saw in \cref{subsubsec:2dcft:FFOPE:boson,subsubsec:2dcft:FFOPE:fermion,sub
     T(z)T(w)\sim\frac{c/2}{(z-w)^4}+\frac{2T(w)}{(z-w)^2}+\frac{\partial T(w)}{(z-w)}
 \end{align}
 where the constant $c$ depends on the specific model and it is called the \textit{central charge}.
+\begin{remark}
+    The central charge may not be determined from symmetry considerations: its value is determined by the short-distance behavior of the theory. 
+
+    When two decoupled systems (e.g., two free fields) are put together, the energy-momentum tensor of the total system is simply the sum of the energy-momentum tensors associated with each part, and the associated central charge is simply the sum of the central charges of the parts. 
+    Thus, the central charge is somehow an extensive measure of the number of degrees of freedom of the system.
+\end{remark}
 \subsubsection{Transfonnation of the Energy-Momentum Tensor}
-Using the conformal Ward identity \cref{eq:2dcft:conformal_ward_final} ,we have 
+Under an infinitesimal local conformal transformation $z\to w(z,\bar{z})=z+\epsilon(z,\bar{z})$ and $\bar{z}\to \bar{w}(z,\bar{z})=\bar{z}+\bar{\epsilon}(z,\bar{z})$, using the conformal Ward identity \cref{eq:2dcft:conformal_ward_final} , we have%\sidenote{It shows that the variation of $T$ depends only on the variation of the holomorphic coordinate.} 
 \begin{align}
-    \delta_\epsilon T(w)&=-\frac{1}{2\pi\ii}\oint_C\dd[]{z}\epsilon(z)T(z)T(w)\notag\\
-                        &=-\frac{1}{12}c\partial^3_w\epsilon(w)-2T(w)\partial_w\epsilon(w)-\epsilon(w)\partial_w T(w).\label{eq:2dcft:central_charge:EMtensor_transform}
+    \delta_{\epsilon,\bar{\epsilon}} T(w,\bar{w})&=-\frac{1}{2\pi\ii}\oint_C\dd[]{z}\epsilon(z,\bar{z})\expval{T(z,\bar{z})T(w,\bar{w})}+\frac{1}{2\pi\ii}\oint_C\dd[]{\bar{z}}\bar{\epsilon}(z,\bar{z})\expval{\bar{T}(z,\bar{z})T(w,\bar{w})}\notag\\
+                        &\sim-\frac{1}{2\pi\ii}\oint_C\dd[]{z}\epsilon(z,\bar{z})T(z)T(w)\notag\\
+                        &\sim-\frac{1}{12}c\partial^3_w\epsilon(w,\bar{w})-2T(w,\bar{w})\partial_w\epsilon(w,\bar{w})-\epsilon(w,\bar{w})\partial_w T(w,\bar{w}),\label{eq:2dcft:central_charge:EMtensor_transform}
 \end{align}
-The finite form of \cref{eq:2dcft:central_charge:EMtensor_transform} is
+where $C$ is an infinitesimal closed contour that includes $(w,\bar{w})$ and residue theorem is used in the evaluation of the integral.
+The finite form of \cref{eq:2dcft:central_charge:EMtensor_transform} is%\sidenote{Also shows that the variation of $T$ depends only on the variation of the holomorphic coordinate.}
 \begin{align}
-    T'(w)=\left(\dv{w}{z}\right)^{-2}\left[T(z)-\frac{c}{12}\left\{w;z\right\}\right]
+    T'(w,\bar{w})=\left(\dv{w}{z}\right)^{-2}\left[T(z,\bar{z})-\frac{c}{12}\left\{w;z\right\}\right]\label{eq:2dcft:c:transformation_T}
 \end{align}
 where we have introduced the \textit{Schwarzian derivative}
 \begin{align}
     \left\{w;z\right\}\equiv\frac{\left(\dv*[3]{w}{z}\right)}{\left(\dv*{w}{z}\right)}-\frac{3}{2}\left(\frac{\dv*[2]{w}{z}}{\dv*{w}{z}}\right)^2
 \end{align}
+\subsubsection{Physical Meaning of \texorpdfstring{$c$}{c}}
+\begin{intu}
+    The appearance of the central charge $c$, also known as the \textit{conformal anomaly}, is related to a "soft" breaking of conformal symmetry by the introduction of a macroscopic scale into the system.
+\end{intu}
+\begin{example}[CFT on a cylinder]
+    Consider a CFT living on the whole complex plane whose central charge is $c$ and we map this theory to a cylinder of circumference $L$ by the transformation 
+    \begin{align}
+        z\to w=\frac{L}{2\pi}\ln{z}\qand \bar{z}\to \bar{w}=\frac{L}{2\pi}\ln{\bar{z}}.
+    \end{align}
+    Using \cref{eq:2dcft:c:transformation_T}, we know the energy-momentum tensor $T_{\text{cyl.}}(w)$ is related to corresponding tensor $T_{\text{pl.}}(z)$ on the plane by 
+    \begin{align}
+        T_{\text{cyl.}}(w,\bar{w})=\left(\frac{2\pi}{L}\right)^2\left[T_{\text{pl.}}(z,\bar{z})z^2-\frac{c}{24}\right].
+    \end{align}
+    If $\expval{T_{\text{pl.}}}=0$ after quantization, then we have 
+    \begin{align}
+        \expval{T_{\text{cyl.}}(w,\bar{w})}=-\frac{c\pi^2}{6L^2}
+    \end{align}
+    which means the central charge is proportional to the vacuum energy, the \textit{Casimir energy}. 
+\end{example}
 
+If the $d=2$ CFT is defined on a curved manifold, then curvature introduces a macroscopic scale in the system which will make the energy-momentum tensor not traceless anymore.
+\begin{claim}\label{claim:2dcft:c_R}
+    The expectation value of the trace of the energy-momentum tensor of a $d=2$ CFT is proportional to both the curvature $R$ and the central charge $c$:\snm
+    \begin{align}
+        \expval{\tensor{T}{^\mu_\mu}(x)}_g=\frac{c}{24\pi}R(x).
+    \end{align}
+\end{claim}
+\snt{Note that we are using ordinary coordinates here, not complex coordonates.}
+A proof of \cref{claim:2dcft:c_R} for the free boson can be found in \cite[Appendix 5.A]{DiFrancesco:1997nk}. 
 \clearpage
 \section{The Operator Formalism}
 \subsection{The Operator Formalism of Conformal Field Theory}
@@ -1549,6 +1624,63 @@ where we have introduced the \textit{Schwarzian derivative}
 \subsection{The Free Fermion}
 \subsection{Normal Ordering\label{subsec:operator:normal_ordering}}
 \subsection{Conformal Families and Operator Algebra}
+
+\clearpage
+\appendix
+\section{Technical Details}
+\subsection{Derivation of OPEs}
+\subsubsection{OPE for \texorpdfstring{$T$}{T} and \texorpdfstring{$T$}{T} of the Free Boson\label{appendix:deriva_OPE:boson_T_T}}
+Continuing from \cref{eq:2dcft:boson_OPE:T_T_1}, we have 
+    \begin{align}
+        &T(z,\bar{z})T(w,\bar{w})\notag\\
+        =&4\pi^2 g^2:\partial\phi(z,\bar{z})\partial\phi(z,\bar{z})::\partial\phi(w,\bar{w})\partial\phi(w,\bar{w}):\notag\\
+                                =&4\pi^2 g^2\lim_{z_1\to z}\lim_{\bar{z}_1\to\bar{z}}\lim_{w_1\to w}\lim_{\bar{w}_1\to\bar{w}}\notag\\
+                                &\left(\partial\phi(z,\bar{z})\partial\phi(z_1,\bar{z}_1)-\expval{\partial\phi(z,\bar{z})\partial\phi(z_1,\bar{z}_1)}\right)\notag\\
+                                &\left(\partial\phi(w,\bar{w})\partial\phi(w_1,\bar{w}_1)-\expval{\partial\phi(w,\bar{w})\partial\phi(w_1,\bar{w}_1)}\right)\notag\\
+                                =&4\pi^2 g^2\lim_{z_1\to z}\lim_{\bar{z}_1\to\bar{z}}\lim_{w_1\to w}\lim_{\bar{w}_1\to\bar{w}}\notag\\
+                                &\left(\partial\phi(z,\bar{z})\partial\phi(z_1,\bar{z}_1)\partial\phi(w,\bar{w})\partial\phi(w_1,\bar{w}_1)\right.\notag\\
+                                &-\expval{\partial\phi(z,\bar{z})\partial\phi(z_1,\bar{z}_1)}\partial\phi(w,\bar{w})\partial\phi(w_1,\bar{w}_1)-\expval{\partial\phi(w,\bar{w})\partial\phi(w_1,\bar{w}_1)}\partial\phi(z,\bar{z})\partial\phi(z_1,\bar{z}_1)\notag\\
+                                &\left.+\expval{\partial\phi(z,\bar{z})\partial\phi(z_1,\bar{z}_1)}\expval{\partial\phi(w,\bar{w})\partial\phi(w_1,\bar{w}_1)}\right).\label{eq:app:OPE:boson:TT:1}
+    \end{align}
+
+From Wick's theorem, we have 
+\begin{equation}\label{eq:app:OPE:boson:TT:wick_1}
+    \begin{aligned}
+        &\partial\phi(z,\bar{z})\partial\phi(z_1,\bar{z}_1)\phi(w,\bar{w})\partial\phi(w_1,\bar{w}_1)\\
+        =&\left.:\partial\phi(z,\bar{z})\partial\phi(z_1,\bar{z}_1)\partial\phi(w,\bar{w})\partial\phi(w_1,\bar{w}_1):\right\rbrace\text{Normal ordered product}\\
+        &\left.\begin{aligned}
+         &+\expval{\partial\phi(z,\bar{z})\partial\phi(z_1,\bar{z}_1)}:\partial\phi(w,\bar{w})\partial\phi(w_1,\bar{w}_1):\\
+         &+\expval{\partial\phi(z,\bar{z})\partial\phi(w,\bar{w})}:\partial\phi(z_1,\bar{z}_1)\partial\phi(w_1,\bar{w}_1):\\
+         &+\expval{\partial\phi(z,\bar{z})\partial\phi(w_1,\bar{w}_1)}:\partial\phi(z_1,\bar{z}_1)\partial\phi(w,\bar{w}):\\
+         &+\expval{\partial\phi(z_1,\bar{z}_1)\partial\phi(w,\bar{w})}:\partial\phi(z,\bar{z})\partial\phi(w_1,\bar{w}_1):\\
+         &+\expval{\partial\phi(z_1,\bar{z}_1)\partial\phi(w_1,\bar{w}_1)}:\partial\phi(z,\bar{z})\partial\phi(w,\bar{w}):\\
+         &+\expval{\partial\phi(w,\bar{w})\partial\phi(w_1,\bar{w}_1)}:\partial\phi(z,\bar{z})\partial\phi(z_1,\bar{z}_1):
+        \end{aligned}\right\rbrace\text{1 contraction}\\
+        &\left.\begin{aligned}
+            &+\expval{\partial\phi(z,\bar{z})\partial\phi(z_1,\bar{z}_1)}\expval{\partial\phi(w,\bar{w})\partial\phi(w_1,\bar{w}_1)}\\
+        &+\expval{\partial\phi(z,\bar{z})\partial\phi(w,\bar{w})}\expval{\partial\phi(z_1,\bar{z}_1)\partial\phi(w_1,\bar{w}_1)}\\
+        &+\expval{\partial\phi(z,\bar{z})\partial\phi(w_1,\bar{w}_1)}\expval{\partial\phi(z_1,\bar{z}_1)\partial\phi(w,\bar{w})}
+        \end{aligned}\right\rbrace\text{2 contractions}
+    \end{aligned}
+\end{equation}
+and 
+\begin{align}
+    \partial\phi(z)\partial\phi(z_1)=:\partial\phi(z)\partial\phi(z_1):+\expval{\partial\phi(z)\partial\phi(z_1)}\label{eq:app:OPE:boson:TT:wick_2}
+\end{align}
+Using \cref{eq:app:OPE:boson:TT:wick_1,eq:app:OPE:boson:TT:wick_2} in \cref{eq:app:OPE:boson:TT:1} and taking the limits, we have 
+\begin{align}
+    T(z,\bar{z})T(w,\bar{w})=&4\pi^2 g^2\left(4\expval{\partial\phi(z,\bar{z})\partial\phi(w,\bar{w})}:\partial(z,\bar{z})\partial(w,\bar{w}):+2\expval{\partial\phi(z,\bar{z})\partial\phi(w,\bar{w})}^2\right)\notag\\
+                            =&\frac{1/2}{(z-w)^4}-\frac{4\pi g:\partial\phi(z,\bar{z})\partial\phi(w,\bar{w}):}{(z-w)^2}\notag\\
+                            \sim&\frac{1/2}{(z-w)^4}-\frac{4\pi g:\partial\phi(w,\bar{w})\partial\phi(w,\bar{w}):}{(z-w)^2}-\frac{4\pi g:\partial^2\phi(w,\bar{w})\partial\phi(w,\bar{w}):}{(z-w)}\notag\\
+                            \sim&\frac{1/2}{(z-w)^4}-\frac{4\pi g:\partial\phi(w,\bar{w})\partial\phi(w,\bar{w}):}{(z-w)^2}-\frac{2\pi g\partial\left(:\partial\phi(w,\bar{w})\partial\phi(w,\bar{w}):\right)}{(z-w)}\notag\\
+                            \sim&\frac{1/2}{(z-w)^4}+\frac{2T(w)}{(z-w)^2}+\frac{\partial T(w)}{(z-w)}
+\end{align}
+where we have used \cref{eq:2dcft:boson_OPE:partial_phi_partial_phi_final}.
+So we can write the OPE of $T$ with itself 
+\begin{align}
+    T(z)T(w)\sim\frac{1/2}{(z-w)^4}+\frac{2T(w)}{(z-w)^2}+\frac{\partial T(w)}{(z-w)}.
+\end{align}
+
 
 \clearpage
 \bibliographystyle{jhep}
