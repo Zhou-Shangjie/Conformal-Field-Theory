@@ -37,13 +37,17 @@ A conformal field theory (CFT) is a quantum field theory that is invariant under
 
 Conformal field theory has important applications to condensed matter physics, statistical mechanics, quantum statistical mechanics, and string theory.
 
-This notes are mainly based on \cite{DiFrancesco:1997nk}.
+This notes are mainly based on the yellow book\cite{DiFrancesco:1997nk}.
 
 There are also useful lecture notes like \cite{Qualls:2015qjb,Tong:2009np}.
 
 \clearpage
 \part{Review}
 \section{Quantum Field Theory}
+\subsection{Path Integral Quantization}
+\subsubsection{Lorentzian Formalism}
+\subsubsection{Euclidean Formalism}
+\subsubsection{Lorentzian/Euclidean Duality}
 \subsection{Symmetries and Conservation Laws}
 \subsubsection{Continuous Symmetry Transformations}
 Consider a collection of fields, which are denoted by $\Phi(x)$.
@@ -60,7 +64,7 @@ Consider a transformation affecting both the position and the field
 \end{subequations}
 In the transformations \cref{eq:CST:transformations}, the new field $\Phi'$ at $x'$ is expressed as a function of the old field $\Phi$ at $x$
 \begin{align}
-    \Phi'(x')=\mathcal{F}\left(\Phi(x)\right).
+    \Phi'(x')=\mathcal{F}\left[\Phi(x)\right].
 \end{align}
 \begin{figure}[h]
     \centering
@@ -72,11 +76,11 @@ The new action is
 \begin{align}
     S' & =\int\dd[d]{x}\mathcal{L}\left(\Phi'(x),\partial_\mu\Phi'(x)\right)\notag                                                                                               \\
        & =\int\dd[d]{x'}\mathcal{L}\left(\Phi'(x'),\partial'_\mu\Phi'(x')\right)\notag                                                                                           \\
-       & =\int\dd[d]{x'}\mathcal{L}\left(\mathcal{F}\left(\Phi(x)\right),\partial'_\mu\mathcal{F}(\Phi(x))\right)\notag                                                          \\
-       & =\int\dd[d]{x}\abs{\pdv{x'}{x}}\mathcal{L}\left(\mathcal{F}(\Phi(x)),\left(\pdv*{x^\nu}{x'^\mu}\right)\partial_\nu\mathcal{F}(\Phi(x))\right).\label{eq:CST:new_action}
+       & =\int\dd[d]{x'}\mathcal{L}\left(\mathcal{F}\left[\Phi(x)\right],\partial'_\mu\mathcal{F}\left[\Phi(x)\right]\right)\notag                                                          \\
+       & =\int\dd[d]{x}\abs{\pdv{x'}{x}}\mathcal{L}\left(\mathcal{F}[\Phi(x)],\left(\pdv*{x^\nu}{x'^\mu}\right)\partial_\nu\mathcal{F}[\Phi(x)]\right).\label{eq:CST:new_action}
 \end{align}
 \subsubsection{Infinitesimal Transformations and Noether's Theorem}
-Infinitesimal transformations may in general written as
+Infinitesimal transformations may in general written as\sidenote{We often denote $\mathcal{F}[\phi(x)]$ by $\mathcal{F}(x)$.}
 \begin{align}
     x'^\mu    & =x^\mu+\omega_a\fdv{x^\mu}{\omega_a}\label{eq:CST:x_prime}               \\
     \Phi'(x') & =\Phi(x)+\omega_a \fdv{\mathcal{F}(x)}{\omega_a}\label{eq:CST:phi_prime}
@@ -115,7 +119,7 @@ The explicit expression of the generator is therefore
     \end{align}
     And its effect on the generic field $\Phi$ is
     \begin{align}
-        \mathcal{F}(\Phi)=L_\Lambda \Phi\qq{and}L_\Lambda\approx1-\frac{1}{2}\ii\omega_{\rho\nu}S^{\rho\nu}\label{eq:CST:lorentz_phi}
+        \mathcal{F}[\Phi]=L_\Lambda \Phi\qq{and}L_\Lambda\approx1-\frac{1}{2}\ii\omega_{\rho\nu}S^{\rho\nu}\label{eq:CST:lorentz_phi}
     \end{align}
     where  $S^{\rho\nu}$ is some Hermitian matrix obeying the Lorentz algebra.
     Using \cref{eq:CST:explicit_generator}, we have
@@ -150,8 +154,8 @@ The explicit expression of the generator is therefore
     \end{align}
     Now \cref{eq:CST:new_action} becomes
     \begin{align}
-        S'= & \int\dd[d]{x}\left(1+\partial_\mu\left(\omega_a\pdv{x^\mu}{\omega_a}\right)\right)\notag                                                                                                                                                             \\
-            & \times\mathcal{L}\left(\Phi+\omega_a\pdv{\mathcal{F}}{\omega_a},\left[\delta^\nu_\mu-\partial_\mu\left(\omega_a\fdv{x^\nu}{\omega_a}\right)\right]\left[\partial_\nu\Phi+\partial_\nu\left(\omega_a\fdv{\mathcal{F}}{\omega_a}\right)\right]\right).
+        S'= & \int\dd[d]{x}\left(1+\partial_\mu\left(\omega_a\fdv{x^\mu}{\omega_a}\right)\right)\notag                                                                                                                                                             \\
+            & \times\mathcal{L}\left(\Phi+\omega_a\fdv{\mathcal{F}}{\omega_a},\left[\delta^\nu_\mu-\partial_\mu\left(\omega_a\fdv{x^\nu}{\omega_a}\right)\right]\left[\partial_\nu\Phi+\partial_\nu\left(\omega_a\fdv{\mathcal{F}}{\omega_a}\right)\right]\right).
     \end{align}
     From the definition of symmetry, when $\omega_a$ are constants the variation $\delta S$ vanishes.
     So $\delta S$ can only contain first derivatives of $\omega_a$, obtained by expanding the Lagrangian\snm,
@@ -258,7 +262,7 @@ The conserved current associated with translation invariance is the \textit{ener
 
 Consider the infinitesimal translation\sidenote{The field is unaffected by the translation.} $x^\mu\to x^\mu+\epsilon^\mu$, we have
 \begin{align}
-    \fdv{x^\mu}{\epsilon^\mu}=\delta^\mu_\nu\quad\fdv{\mathcal{F}(x)}{\epsilon^\mu}=0.
+    \fdv{x^\mu}{\epsilon^\nu}=\delta^\mu_\nu\quad\fdv{\mathcal{F}[\Phi]}{\epsilon^\mu}=0.
 \end{align}
 Using \cref{eq:nother:canonical_current}, the corresponding canonical conserved current is
 \begin{align}
@@ -280,7 +284,7 @@ which is the usual definition of the Hamiltonian.
 
 \subsubsection{The Belinfante Tensor\label{subsubsec:The_Belinfante_Tensor}}
 \begin{intu}
-    In general, the canonical energy-momentum operator is not symmetric, we can make it symmetric \textit{classically} by adding $T^{\mu\nu}_c$ an divergenceless term without breaking the consevation law or the Ward identity
+    In general, the canonical energy-momentum operator is not symmetric, we can make it symmetric \textit{classically} by adding $T^{\mu\nu}_c$ an divergenceless term without breaking the conservation law or the Ward identity
     \begin{align}
         T^{\mu\nu}_B\equiv T^{\mu\nu}_c+\partial_{\rho}B^{\rho\mu\nu}\qq{where}B^{\rho\mu\nu}=-B^{\mu\rho\nu}.\label{eq:Belinfante:def}
     \end{align}
@@ -756,7 +760,7 @@ is
 %And the conservation equation gives\sidenote{Remember we are in the Euclidean spacetime.}
 %\begin{align}
 %    \partial_\mu j^\mu_D= & T^\mu_{c\ \mu}+\Delta\partial_\mu\left(\pdv{\mathcal{L}}{(\partial_\mu\Phi)}\Phi\right)\notag \\
-%    =                     & 0.\label{eq:conformal_tensor:consevation_j}
+%    =                     & 0.
 %\end{align}
 Now we define the \textit{virial}\sidenote{Maybe there is a typo in \cite{DiFrancesco:1997nk} on the definition of $V^\mu$.} of the field $\Phi$
 \begin{align}
@@ -1043,6 +1047,8 @@ Because of the translational invariance, we have $\tensor{T}{^\mu_\mu}(x)=0$ \te
 
 \clearpage
 \section{Conformal Invariance in Two Dimensions}
+The work of Belavin, Polyakov and Zamolodchikov \cite{Belavin:1984vu} had an immense influence on $d=2$ CFT and most of the formalism in this section follows them.
+There are many reviews and books about topic of this section and some of them are \cite{Alvarez-Gaume:1989yow,itzykson_drouffe_1989,Nawata:2022lsw,Blumenhagen:2009zz,Schellekens:1996tg,Teschner,Gaberdiel:1999mc,Ribault:2016sla}. 
 \subsection{The Conformal Group in Two Dimensions}
 \subsubsection{Conformal Mappings}
 Consider the coordinates $(z^0,z^1)$ on the plane.
@@ -1618,14 +1624,48 @@ If the $d=2$ CFT is defined on a curved manifold, then curvature introduces a ma
 A proof of \cref{claim:2dcft:c_R} for the free boson can be found in \cite[Appendix 5.A]{DiFrancesco:1997nk}. 
 \clearpage
 \section{The Operator Formalism}
+\begin{intu}
+    Generally, the Hilbert space construction in QFT is linked to the choice of spacetime foliation.
+    Each leaf of the foliation becomes endowed with its own Hilbert space.
+\end{intu}
+\begin{definition}[Radial ordering]
+    The \textit{radial ordering} of two operators $\phi_1(z,\bar{z})$ and $\phi_2(w,\bar{w})$ is explicitly defined by\snm
+    \begin{align}
+        \mathcal{R}\left(\phi_1(z,\bar{z})\phi_2(w,\bar{w})\right)\equiv\begin{cases}
+            \phi_1(z,\bar{z})\phi_2(w,\bar{w})&\qif\abs{z}>\abs{w}\\
+            \phi_2(w,\bar{w})\phi_1(z,\bar{z})&\qif\abs{z}<\abs{w}.
+        \end{cases}
+    \end{align} 
+    If the two fields are fermions, a minus sign is added in front of the second expression.
+\end{definition}
+\snt{The radial ordering is defined with respect to the holomorphic coordinate unless we point out.}
+
+In radial quantization, we have 
+\begin{boxmath}{Radial quantization}
+    \begin{align}
+        \bra{0}\mathcal{R}\left(\phi_1(z_1,\bar{z}_1)\dots\phi_n(z_n,\bar{z}_n)\right)\ket{0}=\frac{1}{Z}\int[\dd[]{\phi}]\phi_1(z_1,\bar{z}_1)\dots\phi_n(z_n,\bar{z}_n)\exp(-S[\phi])
+    \end{align}
+\end{boxmath}
+where $Z\equiv\int[\dd[]{\phi}]\exp(-S[\phi])$.
 \subsection{The Operator Formalism of Conformal Field Theory}
+\subsubsection{Radial Quantization}
+\paragraph{The Hermitian product}
+\paragraph{Mode expansions}
+\subsubsection{Radial Ordering and Operator Product Quantization}
 \subsection{The Virasoro Algebra}
+\subsubsection{Conformal Generators}
+\subsubsection{The Hilbert Space}
 \subsection{The Free Boson}
+\subsubsection{Canonical Quantization on the Cylinder}
+\subsubsection{Vertex Operators}
+\subsubsection{The Fock Space}
+\subsubsection{Twisted Boundary Conditions}
+\subsubsection{Compactified Boson}
 \subsection{The Free Fermion}
 \subsection{Normal Ordering\label{subsec:operator:normal_ordering}}
 \subsection{Conformal Families and Operator Algebra}
 
-\clearpage
+\clearpage 
 \appendix
 \section{Technical Details}
 \subsection{Derivation of OPEs}
@@ -1663,7 +1703,7 @@ From Wick's theorem, we have
         \end{aligned}\right\rbrace\text{2 contractions}
     \end{aligned}
 \end{equation}
-and 
+and
 \begin{align}
     \partial\phi(z)\partial\phi(z_1)=:\partial\phi(z)\partial\phi(z_1):+\expval{\partial\phi(z)\partial\phi(z_1)}\label{eq:app:OPE:boson:TT:wick_2}
 \end{align}
@@ -1682,6 +1722,19 @@ So we can write the OPE of $T$ with itself
 \end{align}
 
 
+\clearpage
+\section*{Outlook}
+\addcontentsline{toc}{section}{\protect\numberline{}Outlook}
+Conformal field theory is widely used in many aspects of the modern theoretical physics. 
+There are lots of interesting topics to be discovered and some of them with references are listed here:
+\begin{itemize}
+    \item CFT in $d\geq3$: \cite{Rychkov:2016iqz}
+    \item AdS/CFT: Orignial papers: \cite{Maldacena:1997re,Witten:1998qj}. Reviews, lectures and books:\cite{Ammon:2015wua,Aharony:1999ti,Erdmenger2012,Petersen:1999zh,Penedones:2016voo,Maldacena:2003nj,Nastase:2007kj,becker_becker_schwarz_2006,Kiritsis:2019npv,McMahon:2009zza,Natsuume:2014sfa,DeHaro:2015aht,Kraus2008}.
+    \item Conformal bootstrap: \cite{Simmons-Duffin:2016gjk}
+    \item Entanglement entropy: \cite{Calabrese:2009qy,Calabrese:2004eu,Rangamani:2016dms}
+    \item CFT in statistical physics:
+    \item Vertex algebra:
+\end{itemize}
 \clearpage
 \bibliographystyle{jhep}
 \bibliography{ref}
