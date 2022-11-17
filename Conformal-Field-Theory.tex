@@ -44,9 +44,34 @@ There are also useful lecture notes like \cite{Qualls:2015qjb,Tong:2009np}.
 \clearpage
 \part{Review}
 \section{Quantum Field Theory}
+This section only contains some topics of QFT and necessary notations we will use later.
+For a complete introduction to QFT, see \cite{Peskin:1995ev,srednicki_2007,weinberg_1995,schwartz_2013,Zee:2003mt,Coleman:2018mew}.
 \subsection{Path Integral Quantization}
+\begin{intu}
+    The way to quantize a \textit{classical} system\snm is not unique and different formulations of quantization may give different results.
+    For example, in canonical quantization, the ordering of operators may lead to different quantization \textit{schemes}.
+    Different quantization formulations may have mathematical connections which may simplify problems.
+
+    In each quantization formalism, the method to compute the correlation function of fields must be given and the results of correlation functions are used to judge if the formalisms are equivalent.
+\end{intu}
+\snt{Geometric quantization is among them\cite{woodhouse1997geometric,carosso2018geometric}. See more about this topic in \cite{Ali:2004ft}.}
+In the path integral formulation of QFT, we directly\sidenote{In canonical quantization, we do not directly compute the correlation function. Instead, we first construct Hilbert space and opertors in it.} focus on correlation functions of fields.
 \subsubsection{Lorentzian Formalism}
+In a Lorentzian spacetime, we define the Lorentzian quantization of field by requiring the correlation functions to satisfy the following relation:
+\begin{boxmath}{Lorentzian Path Integral Quantization}
+    \begin{align}
+        \expval{\phi_1(x_1)\dots\phi_n(x_n)}=\frac{\int [\dd[]{\phi}]\phi_1(x_1)\dots\phi_n(x_n)\exp(\ii S[\phi])}{\int[\dd[]{\phi}]\exp(\ii S[\phi])}
+    \end{align}
+\end{boxmath}
+where the time integral of the action $S=\int\dd[4]{x}\mathcal{L}$ should be performed along $t(1-\ii\epsilon)$ where $\epsilon\to0$ (see \cite{Peskin:1995ev} for more details).
 \subsubsection{Euclidean Formalism}
+In a Euclidean spacetime, there is no notion of "time", so we simply pick out a coordinate and call it "Euclidean time" $\tau$.
+We define the Euclidean quantization of field by requiring the correlation functions to satisfy the following relation:
+\begin{boxmath}{Euclidean Path Integral Quantization}
+    \begin{align}
+        \expval{\phi_1(\tau_1,\vec{x}_1)\dots\phi_n(\tau_n,\vec{x}_n)}=\frac{\int [\dd[]{\phi}]\phi_1(\tau_1,\vec{x}_1)\dots\phi_n(\tau_n,\vec{x}_n)\exp(-S_E[\phi])}{\int [\dd[]{\phi}]\exp(-S_E[\phi])}
+    \end{align}
+\end{boxmath}
 \subsubsection{Lorentzian/Euclidean Duality}
 \subsection{Symmetries and Conservation Laws}
 \subsubsection{Continuous Symmetry Transformations}
@@ -1624,34 +1649,122 @@ If the $d=2$ CFT is defined on a curved manifold, then curvature introduces a ma
 A proof of \cref{claim:2dcft:c_R} for the free boson can be found in \cite[Appendix 5.A]{DiFrancesco:1997nk}. 
 \clearpage
 \section{The Operator Formalism}
+In this section, we develop a new quantization formalism of $d=2$ CFT which is based on a Hilbert space and operators in it.
 \begin{intu}
     Generally, the Hilbert space construction in QFT is linked to the choice of spacetime foliation.
     Each leaf of the foliation becomes endowed with its own Hilbert space.
 \end{intu}
-\begin{definition}[Radial ordering]
-    The \textit{radial ordering} of two operators $\phi_1(z,\bar{z})$ and $\phi_2(w,\bar{w})$ is explicitly defined by\snm
+
+\subsection{The Operator Formalism of Conformal Field Theory}
+\subsubsection{Radial Quantization}
+Now, we introduce the new quantization formalism which is called the \textit{radial quantization}.
+\begin{property}{Radial quantization}
+    In radial quantization: 
+    \begin{itemize}
+        \item The fields $\phi(z,\bar{z})$ are now operators.
+        \item Hilbert space are constructed from \textit{vacuum} $\ket{0}$.
+        \item Vacuum $\ket{0}$ is now defined from its reaction to operators $\phi(z,\bar{z})$ as we will see later.
+    \end{itemize}
+\end{property}
+%In radial quantization, we have 
+%\begin{boxmath}{Radial quantization}
+%    \begin{align}
+%        \bra{0}\mathcal{R}\left(\phi_1(z_1,\bar{z}_1)\dots\phi_n(z_n,\bar{z}_n)\right)\ket{0}=\frac{1}{Z}\int[\dd[]{\phi}]\phi_1(z_1,\bar{z}_1)\dots\phi_n(z_n,\bar{z}_n)\exp(-S[\phi])
+%    \end{align}
+%\end{boxmath}
+%where $Z\equiv\int[\dd[]{\phi}]\exp(-S[\phi])$.
+\paragraph{The Hermitian product}
+Usually, when we define a Hilbert space, we have to specify the inner products.
+If we first have the inner products defined, the Hermitian conjugation of operators can be naturally introduced.
+\begin{intu}
+    Now, we turn around: define the Hermitian conjugation of operators first then induce the definition of inner product\snm.
+\end{intu}
+\snt{Notice that for an operator $\mathcal{O}$, its Hermitian conjugation satisfies $$\bra{A}\mathcal{O}\ket{B}=\bra{B}\mathcal{O}^\dagger\ket{A}$$ for any states $\ket{A}$ and $\ket{B}$. You can think of the Hermitian conjugation of an operator as a map of the operator to another which is determined by the choice of inner product. So in the other direction, we can say the choice of Hermitian conjugation can determine the inner product.}
+\begin{definition}[Hermitian conjugation in radial quantization\label{thm:Hermitian_conjugation_in_radial_quantization}]
+    In radial quantization, the Hermitian conjugation of an operator $\phi(z,\bar{z})$ is defined to be 
     \begin{align}
-        \mathcal{R}\left(\phi_1(z,\bar{z})\phi_2(w,\bar{w})\right)\equiv\begin{cases}
-            \phi_1(z,\bar{z})\phi_2(w,\bar{w})&\qif\abs{z}>\abs{w}\\
-            \phi_2(w,\bar{w})\phi_1(z,\bar{z})&\qif\abs{z}<\abs{w}.
+        \left[\phi(z,\bar{z})\right]^\dagger\equiv\bar{z}^{-2h}z^{-2\bar{h}}\phi\left(\frac{1}{\bar{z}},\frac{1}{z}\right)
+    \end{align}
+    where by assumption $\phi$ is a quasi-primary field of dimensions $h$ and $\bar{h}$.
+\end{definition}
+Now that we have the Hermitian conjugate of operators, we can partially "recover" inner product of two arbitrary state vectors $\phi_1(z_1,\bar{z}_1)\ket{0}$ and $\phi_2(z_2,\bar{z}_2)\ket{0}$ in Hilbert space\sidenote{We used the assumption that all states in this Hilbert state can be constructed from acting some operators on the vacuum $\ket{0}$ (see the property of radial quantization above.).}:
+\begin{align}
+    (\phi_1(z_1,\bar{z}_1)\ket{0},\phi_2(z_2,\bar{z}_2)\ket{0})&=\bra{0}\phi_1(z_1,\bar{z}_1)^\dagger\phi_2(z_2,\bar{z}_2)\ket{0}\notag\\
+                                                                &=\bar{z}^{-2h_1}z^{-2\bar{h}_1}\ev**{\phi_1\left(\frac{1}{\bar{z}_1},\frac{1}{z_1}\right)\phi_2(z_2,\bar{z}_2)}{0},
+\end{align}
+and with the definition of the action of any operator on the vacuum state $\ket{0}$, we can fully recover the inner product.
+
+\paragraph{Mode expansions}
+A conformal field $\phi(z,\bar{z})$ of dimensions $(h,\bar{h})$ may be mode expanded as 
+\begin{subequations}\label{eq:operator:phi_expansion}
+    \begin{align}
+        \phi(z,\bar{z})=&\sum_{m\in\mathbb{Z}}\sum_{n\in\mathbb{Z}}z^{-m-h}\bar{z}^{-n-\bar{h}}\phi_{m,n}\\
+        \phi_{m,n}=&\frac{1}{2\pi\ii}\oint\dd[]{z}z^{m+h-1}\frac{1}{2\pi\ii}\oint\dd[]{\bar{z}}\bar{z}^{n+\bar{h}-1}\phi(z,\bar{z}).
+    \end{align}
+\end{subequations}
+From \cref{thm:Hermitian_conjugation_in_radial_quantization}, we can write 
+\begin{align}
+    \phi(z,\bar{z})^\dagger\equiv&\bar{z}^{-2h} z^{-2\bar{h}}\phi(1/\bar{z},1/z)\notag\\
+                            =&\bar{z}^{-2h}z^{-2\bar{h}}\sum_{m\in\mathbb{Z}}\sum_{n\in\mathbb{Z}}\phi_{m,n}\bar{z}^{m+h}z^{n+\bar{h}}\notag\\
+                            =&\sum_{m\in\mathbb{Z}}\sum_{n\in\mathbb{Z}}\phi_{-m,-n}\bar{z}^{-m-h}z^{-n-\bar{h}}.\label{eq:operator:conju_exp_1}
+\end{align}
+If we denote $\phi^\dagger_{m,n}\equiv\phi_{-m,-n}$, \cref{eq:operator:conju_exp_1} can be written as 
+\begin{align}
+    \phi(z,\bar{z})^\dagger=\sum_{m\in\mathbb{Z}}\sum_{n\in\mathbb{Z}}\bar{z}^{-m-h}z^{-n-\bar{h}}\phi^\dagger_{m,n}.
+\end{align}
+\begin{definition}[Vacuum in radial quantization]
+    The vacuum in radial quantization is defined to be a state $\ket{0}$ which satisfies 
+    \begin{align}
+        \phi_{m,n}\ket{0}=0\qfor m>-h,n>-\bar{h}.
+    \end{align}
+\end{definition}
+\begin{remark}
+    Now the Hilbert space of the radial quantization is defined completely.
+\end{remark}
+In the following sections, we will use the simplified notation which drops the dependence of fields upon the antiholomorphic coordinate.
+Thus, the expansion \cref{eq:operator:phi_expansion} is now written in the simplified form\sidenote{It should be remembered that the antiholomorphic dependence is still here and can be easily restored due to the fact that the holomorphic and antiholomorphic degrees of freedom decouple.} 
+\begin{subequations}
+    \begin{align}
+        \phi(z)=&\sum_{m\in\mathbb{Z}}z^{-m-h}\phi_m\\
+        \phi_m=&\frac{1}{2\pi\ii}\oint\dd[]{z}z^{m+h-1}\phi(z).
+    \end{align}
+\end{subequations}
+
+\subsubsection{Radial Ordering and Operator Product Quantization}
+\begin{definition}[Radial ordering]
+    The \textit{radial ordering} of two operators $\phi_1(z)$ and $\phi_2(w)$ is explicitly defined by\snm
+    \begin{align}
+        \mathcal{R}\left(\phi_1(z)\phi_2(w)\right)\equiv\begin{cases}
+            \phi_1(z)\phi_2(w)&\qif\abs{z}>\abs{w}\\
+            \phi_2(w)\phi_1(z)&\qif\abs{z}<\abs{w}.
         \end{cases}
     \end{align} 
+    It is easy to generalize this to the case where more than 2 operators present.
     If the two fields are fermions, a minus sign is added in front of the second expression.
 \end{definition}
 \snt{The radial ordering is defined with respect to the holomorphic coordinate unless we point out.}
-
-In radial quantization, we have 
-\begin{boxmath}{Radial quantization}
+Now we introduce the computation of the correlation functions in radial quantization
+\begin{boxmath}{Radial Quantization}
     \begin{align}
-        \bra{0}\mathcal{R}\left(\phi_1(z_1,\bar{z}_1)\dots\phi_n(z_n,\bar{z}_n)\right)\ket{0}=\frac{1}{Z}\int[\dd[]{\phi}]\phi_1(z_1,\bar{z}_1)\dots\phi_n(z_n,\bar{z}_n)\exp(-S[\phi])
+        \expval{\phi_1(z_1)\dots\phi_n(z_n)}=\ev*{\mathcal{R}(\phi_1(x_1)\dots\phi_n(x_n))}{0}.
     \end{align}
 \end{boxmath}
-where $Z\equiv\int[\dd[]{\phi}]\exp(-S[\phi])$.
-\subsection{The Operator Formalism of Conformal Field Theory}
-\subsubsection{Radial Quantization}
-\paragraph{The Hermitian product}
-\paragraph{Mode expansions}
-\subsubsection{Radial Ordering and Operator Product Quantization}
+In the following, we shall not write the radial ordering symbol $\mathcal{R}$ every time, but radial ordering is implicit.
+\paragraph{OPE and commutation relation}
+Let $a(z)$ and $b(z)$ be two fields and consider the integral 
+\begin{align}
+    \oint_w\dd[]{z}\expval{a(z)b(w)}=&\oint_{C_1}\dd[]{z}\ev**{a(z)b(w)}{0}-\oint_{C_2}\dd[]{z}\ev**{b(w)a(z)}{0}\notag\\
+                                    =&\ev**{\comm{A}{b(w)}}{0}\label{eq:operator:OPE_comm:A_bw}
+\end{align}
+where $A\equiv\oint a(z)\dd[]{z}$ and the commutator here is only defined for a local field operator with an "integral" operator
+\begin{align}
+    \comm{A}{b(w)}\equiv\oint_{C_1}a(z)b(w)-\oint_{C_2}b(w)a(z).
+\end{align}
+
+Integrate both sides of \cref{eq:operator:OPE_comm:A_bw}, we have 
+\begin{align}
+    \ev**{\comm{A}{B}}{0}=\oint_0\dd[]{w}\ev**{\comm{A}{b(w)}}{0}=\oint_0\dd[]{w}\oint_w\dd[]{z}\expval{a(z)b(w)}.
+\end{align}
 \subsection{The Virasoro Algebra}
 \subsubsection{Conformal Generators}
 \subsubsection{The Hilbert Space}
