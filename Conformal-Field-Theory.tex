@@ -31,8 +31,8 @@
 \emailAdd{sjzhou@whu.edu.cn}
 \abstract{\textit{Last updated on: \today}\\Latest version: \url{https://github.com/spaceofzsj/Conformal-Field-Theory/releases}\\Source files: \url{https://github.com/spaceofzsj/Conformal-Field-Theory}\\Personal Website: \url{https://spaceofzsj.github.io/ShangjieZhou/}}
 \maketitle
+\phantomsection\addcontentsline{toc}{section}{\protect\numberline{}Introduction}
 \section*{Introduction}
-\addcontentsline{toc}{section}{\protect\numberline{}Introduction}
 A conformal field theory (CFT) is a quantum field theory that is invariant under \textit{conformal transformations}.
 
 Conformal field theory has important applications to condensed matter physics, statistical mechanics, quantum statistical mechanics, and string theory.
@@ -1256,7 +1256,7 @@ With the holomorphic conformal dimension $h$ and the antiholomorphic conformal d
 \paragraph{Variation of the field}
 Consider the infinitesimal transformation $z\to w=z+\epsilon(z)$ and $\bar{z}\to\bar{w}=\bar{z}+\bar{\epsilon}(\bar{z})$ where $\epsilon,\bar{\epsilon}\to0$, the variation of the quasi-primary field is
 \begin{align}
-    \delta_{\epsilon,\bar{\epsilon}}\equiv & \phi'(z,\bar{z})-\phi(z,\bar{z})\notag                                                                                                                      \\
+    \delta_{\epsilon,\bar{\epsilon}}\phi(z,\bar{z})\equiv & \phi'(z,\bar{z})-\phi(z,\bar{z})\notag                                                                                                                      \\
     =                                      & -\left(h\phi\partial_z\epsilon+\epsilon\partial_z\phi\right)-\left(\bar{h}\phi\partial_{\bar{z}}\bar{\epsilon}+\bar{\epsilon}\partial_{\bar{z}}\phi\right).\label{eq:2dcft:primary_infinitesimal}
 \end{align}
 
@@ -1429,10 +1429,10 @@ Using Ward identities \cref{eq:2dcft:ward:modified_1,eq:2dcft:ward:modified_2,eq
 Integrate both sides of \cref{eq:2DCWI:after_ward} over region $M$ where all the coordinates in $X$ are included, we have 
 \begin{align}
     \int_M\dd[2]{x}\partial_\mu\expval{T^{\mu\nu}\epsilon_\nu X}=&\int_M\dd[2]{x}\sum_{i=1}^n\delta(x-x_i)\left(-\epsilon^\nu\pdv{x_i^\nu}-\frac{1}{2}\Delta_i\partial_\rho\epsilon^\rho-\frac{\ii}{2}\varepsilon^{\alpha\beta} s_i\partial_\alpha\epsilon_\beta\right)\expval{X}\notag\\
-                                                                =&\eval{\sum_{i=1}^n\left(-\epsilon^\nu\pdv{x_i^\nu}-\frac{1}{2}\Delta_i\partial_\rho\epsilon^\rho-\frac{\ii}{2}\varepsilon^{\alpha\beta} s_i\partial_\alpha\epsilon_\beta\right)\expval{X}}_{x=x_i}
+                                                                =&\eval{\sum_{i=1}^n\left(-\epsilon^\nu\pdv{x_i^\nu}-\frac{1}{2}\Delta_i\partial_\rho\epsilon^\rho-\frac{\ii}{2}\varepsilon^{\alpha\beta} s_i\partial_\alpha\epsilon_\beta\right)\expval{X}}_{x=x_i}\label{eq:2dcft:ward_before_primary}
 \end{align}
 
-From \cref{eq:ward:anyomega,eq:2DCWI:arbi}, we have
+From \cref{eq:2dcft:primary_infinitesimal,eq:2dcft:ward_before_primary}, we have
 \begin{align}
     \delta_\epsilon\expval{X}=\int_M\dd[2]{x}\partial_\mu\expval{T^{\mu\nu}(x)\epsilon_\nu(x)X}\label{eq:2DCWI:conformal_ward_1}
 \end{align}
@@ -1455,7 +1455,12 @@ Finally using the definition \cref{eq:2dcft:ward:def_renormalized_T}, \cref{eq:2
     \end{align}
 \end{boxmath}
 The counterclockwise contour $C$ needs only to include all the coordinates $(w_i,\bar{w}_i)$ of the fields in $X$.
-
+\begin{remark}
+    Although in the derivation of the conformal Wald identity we used the assumption that the operators in $X$ are primary, the validaty of the formula can be extended to any local fields.
+    
+    In fact, the conformal Wald identity \cref{eq:2dcft:conformal_ward_final} may be taken as a definition of the effect of conformal transformations on an arbitrary local field within a correlation function\snm.
+\end{remark}
+\snt{This definition is made in the path integral formalism in order to make the result consistent with that in the operator formalism\cite{Blumenhagen:2009zz}.}
 
 \subsection{Free Fields and the Operator Product Expansion}
 \subsubsection{The Free Boson\label{subsubsec:2dcft:FFOPE:boson}}
@@ -1681,12 +1686,13 @@ If we first have the inner products defined, the Hermitian conjugation of operat
 \end{intu}
 \snt{Notice that for an operator $\mathcal{O}$, its Hermitian conjugation satisfies $$\bra{A}\mathcal{O}\ket{B}=\bra{B}\mathcal{O}^\dagger\ket{A}$$ for any states $\ket{A}$ and $\ket{B}$. You can think of the Hermitian conjugation of an operator as a map of the operator to another which is determined by the choice of inner product. So in the other direction, we can say the choice of Hermitian conjugation can determine the inner product.}
 \begin{definition}[Hermitian conjugation in radial quantization\label{thm:Hermitian_conjugation_in_radial_quantization}]
-    In radial quantization, the Hermitian conjugation of an operator $\phi(z,\bar{z})$ is defined to be 
+    In radial quantization, the Hermitian conjugation of a local operator\snm $\phi(z,\bar{z})$ is defined to be 
     \begin{align}
         \left[\phi(z,\bar{z})\right]^\dagger\equiv\bar{z}^{-2h}z^{-2\bar{h}}\phi\left(\frac{1}{\bar{z}},\frac{1}{z}\right)
     \end{align}
-    where by assumption $\phi$ is a quasi-primary field of dimensions $h$ and $\bar{h}$.
+    where by assumption $\phi$ is a field of dimensions $h$ and $\bar{h}$.
 \end{definition}
+\snt{Note that the energy-momentum tensor is also a local operator.}
 Now that we have the Hermitian conjugate of operators, we can partially "recover" inner product of two arbitrary state vectors $\phi_1(z_1,\bar{z}_1)\ket{0}$ and $\phi_2(z_2,\bar{z}_2)\ket{0}$ in Hilbert space\sidenote{We used the assumption that all states in this Hilbert state can be constructed from acting some operators on the vacuum $\ket{0}$ (see the property of radial quantization above.).}:
 \begin{align}
     (\phi_1(z_1,\bar{z}_1)\ket{0},\phi_2(z_2,\bar{z}_2)\ket{0})&=\bra{0}\phi_1(z_1,\bar{z}_1)^\dagger\phi_2(z_2,\bar{z}_2)\ket{0}\notag\\
@@ -1698,7 +1704,7 @@ and with the definition of the action of any operator on the vacuum state $\ket{
 A conformal field $\phi(z,\bar{z})$ of dimensions $(h,\bar{h})$ may be mode expanded as 
 \begin{subequations}\label{eq:operator:phi_expansion}
     \begin{align}
-        \phi(z,\bar{z})=&\sum_{m\in\mathbb{Z}}\sum_{n\in\mathbb{Z}}z^{-m-h}\bar{z}^{-n-\bar{h}}\phi_{m,n}\\
+        \phi(z,\bar{z})=&\sum_{m\in\mathbb{Z}}\sum_{n\in\mathbb{Z}}z^{-m-h}\bar{z}^{-n-\bar{h}}\phi_{m,n}\label{eq:operator:phi_expansion_a}\\
         \phi_{m,n}=&\frac{1}{2\pi\ii}\oint\dd[]{z}z^{m+h-1}\frac{1}{2\pi\ii}\oint\dd[]{\bar{z}}\bar{z}^{n+\bar{h}-1}\phi(z,\bar{z}).
     \end{align}
 \end{subequations}
@@ -1708,18 +1714,25 @@ From \cref{thm:Hermitian_conjugation_in_radial_quantization}, we can write
                             =&\bar{z}^{-2h}z^{-2\bar{h}}\sum_{m\in\mathbb{Z}}\sum_{n\in\mathbb{Z}}\phi_{m,n}\bar{z}^{m+h}z^{n+\bar{h}}\notag\\
                             =&\sum_{m\in\mathbb{Z}}\sum_{n\in\mathbb{Z}}\phi_{-m,-n}\bar{z}^{-m-h}z^{-n-\bar{h}}.\label{eq:operator:conju_exp_1}
 \end{align}
-If we denote $\phi^\dagger_{m,n}\equiv\phi_{-m,-n}$, \cref{eq:operator:conju_exp_1} can be written as 
+
+Note that on the real surface, using \cref{eq:operator:phi_expansion_a} we can also write 
 \begin{align}
-    \phi(z,\bar{z})^\dagger=\sum_{m\in\mathbb{Z}}\sum_{n\in\mathbb{Z}}\bar{z}^{-m-h}z^{-n-\bar{h}}\phi^\dagger_{m,n}.
+    \phi(z,\bar{z})^\dagger=\sum_{m\in\mathbb{Z}}\sum_{n\in\mathbb{Z}}\bar{z}^{-m-h}z^{-n-\bar{h}}\phi^\dagger_{m,n}\label{eq:operator:conju_exp_alter}
 \end{align}
-\begin{definition}[Vacuum in radial quantization]
-    The vacuum in radial quantization is defined to be a state $\ket{0}$ which satisfies 
+and compare \cref{eq:operator:conju_exp_1,eq:operator:conju_exp_alter}, we have 
+\begin{align}
+    \phi^\dagger_{m,n}=\phi_{-m,-n}.
+\end{align}
+\paragraph{Aspects of vacuum}
+Now for the state $\phi(0,0)$ to be well defined, there must be some constraints on the definition of vacuum $\ket{0}$.
+\begin{property}[Vacuum in radial quantization]
+    The vacuum $\ket{0}$ in radial quantization is defined to satisfy 
     \begin{align}
-        \phi_{m,n}\ket{0}=0\qfor m>-h,n>-\bar{h}.
+        \phi_{m,n}\ket{0}=0\qfor m>-h,n>-\bar{h}.\label{eq:operator_formalism:partial_vacuum_def}
     \end{align}
-\end{definition}
+\end{property}
 \begin{remark}
-    Now the Hilbert space of the radial quantization is defined completely.
+    Note that \cref{eq:operator_formalism:partial_vacuum_def} is only part of the requirements that $\ket{0}$ must follow and in following sections there are more constraints.
 \end{remark}
 In the following sections, we will use the simplified notation which drops the dependence of fields upon the antiholomorphic coordinate.
 Thus, the expansion \cref{eq:operator:phi_expansion} is now written in the simplified form\sidenote{It should be remembered that the antiholomorphic dependence is still here and can be easily restored due to the fact that the holomorphic and antiholomorphic degrees of freedom decouple.} 
@@ -1753,21 +1766,143 @@ In the following, we shall not write the radial ordering symbol $\mathcal{R}$ ev
 \paragraph{OPE and commutation relation}
 Let $a(z)$ and $b(z)$ be two fields and consider the integral 
 \begin{align}
-    \oint_w\dd[]{z}\expval{a(z)b(w)}=&\oint_{C_1}\dd[]{z}\ev**{a(z)b(w)}{0}-\oint_{C_2}\dd[]{z}\ev**{b(w)a(z)}{0}\notag\\
-                                    =&\ev**{\comm{A}{b(w)}}{0}\label{eq:operator:OPE_comm:A_bw}
+    \oint_w\dd[]{z}\expval{a(z)b(w)}=&\oint_{C_1}\dd[]{z}\ev**{a(z)b(w)}{0}-\oint_{C_2}\dd[]{z}\ev**{b(w)a(z)}{0}\label{eq:operator:OPE_comm:A_bw}
+                                    %=&\ev**{\comm{A}{b(w)}}{0}
 \end{align}
-where $A\equiv\oint a(z)\dd[]{z}$ and the commutator here is only defined for a local field operator with an "integral" operator
+where the integral $\oint_w\dd[]{z}$ is evaluated along a circle at $z=w$. 
+The radius of the circle $C_1$ and $C_2$ are $\abs{w}+\epsilon$ and $\abs{w}-\epsilon$ respectively.
+We see that the LHS of \cref{eq:operator:OPE_comm:A_bw} does not depend on the parameter $\epsilon$, so we can take the limit $\epsilon\to0$ in a well-defined way and thus \cref{eq:operator:OPE_comm:A_bw} becomes
 \begin{align}
-    \comm{A}{b(w)}\equiv\oint_{C_1}a(z)b(w)-\oint_{C_2}b(w)a(z).
+    \oint_w\dd[]{z}\expval{a(z)b(w)}=&\ev**{\comm{A}{b(w)}}{0}\label{eq:operator:OPE_comm:def}
 \end{align}
+where $A\equiv\oint_C a(z)\dd[]{z}$ and radius of circle $C$ is $\abs{w}$.
+%\begin{align}
+%    \comm{A}{b(w)}\equiv\oint_{C_1}\dd[]{z}a(z)b(w)-\oint_{C_2}\dd[]{z}b(w)a(z).\label{eq:operator:def_comm}
+%\end{align}
 
-Integrate both sides of \cref{eq:operator:OPE_comm:A_bw}, we have 
-\begin{align}
-    \ev**{\comm{A}{B}}{0}=\oint_0\dd[]{w}\ev**{\comm{A}{b(w)}}{0}=\oint_0\dd[]{w}\oint_w\dd[]{z}\expval{a(z)b(w)}.
-\end{align}
+Integrate both sides of \cref{eq:operator:OPE_comm:def}, we have 
+\begin{boxmath}{Equal-time Commutator}
+    \begin{align}
+        \ev**{\comm{A}{B}}{0}=\oint_0\dd[]{w}\ev**{\comm{A}{b(w)}}{0}=\oint_0\dd[]{w}\oint_w\dd[]{z}\expval{a(z)b(w)}.\label{eq:operator:equal_time_comm}
+    \end{align}
+\end{boxmath}
+where the second integral $\oint_0\dd[]{w}$ is evaluated along a circle at origin with radius $\abs{w}=\abs{w_0}$.
+The LHS of \cref{eq:operator:equal_time_comm} can be seen as an "equal-time" commutator at time $\abs{w_0}$.
+\begin{remark}
+    In \cref{eq:operator:equal_time_comm}, we can take the integral contour of $\oint_w\dd[]{z}$ infinitely close to $w$ and thus OPE of $a(z)$ and $b(w)$ can be implemented.
+\end{remark}
+
+
 \subsection{The Virasoro Algebra}
 \subsubsection{Conformal Generators}
+Let $\epsilon(z)$ be the holomorphic component of an infinitesimal conformal change of coordinates.
+We define the \textit{conformal charge}
+\begin{align}
+    Q_\epsilon\equiv\frac{1}{2\pi\ii}\oint_C\dd[]{z}\epsilon(z)T(z).\label{eq:operator:def:Q_epsilon}
+\end{align}
+where the integral contour circle $C$ is taken to be large enough to contain other operators we will see later. 
+Using the conforamal Ward identity \cref{eq:2dcft:conformal_ward_final}, we have 
+\begin{align}
+    \delta_\epsilon\expval{\phi(w)}=-\ev**{\comm{Q_\epsilon}{\phi(w)}}{0}
+\end{align}
+which means that the generator $Q_\epsilon$ is the generator of conformal transformations\sidenote{Usually in quantum mechanics, generators are defined to be operaotors. Here the definition of generators are understood within the correlation functions.}.
+
+Expand the energy-momentum tensor 
+\begin{subequations}
+    \begin{align}
+        T(z)&=\sum_{n\in\mathbb{Z}}z^{-n-2}L_n\quad L_n=\frac{1}{2\pi\ii}\oint_C\dd[]{z}z^{n+1}T(z)\label{eq:operator:conformal_generator:T_expand}\\
+        \bar{T}(\bar{z})&=\sum_{n\in\mathbb{Z}}\bar{z}^{-n-2}L_n\quad \bar{L}_n=\frac{1}{2\pi\ii}\oint_C\dd[]{\bar{z}}\bar{z}^{n+1}\bar{T}(\bar{z})
+    \end{align}
+\end{subequations}
+and also expand the infinitesimal conforamal change $\epsilon(z)$ as 
+\begin{align}
+    \epsilon(z)=\sum_{n\in\mathbb{Z}}z^{n+1}\epsilon_n.\label{eq:operator:conformal_generator:epsilon_expand}
+\end{align} 
+Now using \cref{eq:operator:conformal_generator:T_expand,eq:operator:conformal_generator:epsilon_expand}, \cref{eq:operator:def:Q_epsilon} becomes
+\begin{align}
+    Q_{\epsilon}=\sum_{n\in\mathbb{Z}}\epsilon_n L_n.
+\end{align}
+\begin{boxmath}{Virasoro Algebra}
+    \begin{subequations}
+        \begin{align}
+            \comm{L_n}{L_m}&=(n-m)L_{n+m}+\frac{c}{12}n(n^2-1)\delta_{n+m,0}\label{eq:operator:virasoro_1}\\
+            \comm{L_n}{\bar{L}_m}&=0\\
+            \comm{\bar{L}_n}{\bar{L}_m}&=(n-m)\bar{L}_{n+m}+\frac{c}{12}n(n^2-1)\delta_{n+m,0}
+        \end{align}
+    \end{subequations}
+\end{boxmath}
+\begin{remark}
+    Actually, the Virasoro algebra here is only valid in the correlation functions.
+\end{remark}
+
 \subsubsection{The Hilbert Space}
+\paragraph{Vacuum and symmetry}From the perspective of symmetry, the vacuum state $\ket{0}$ must be invariant under global conformal transformations which means that it must be annihilated by $L_{-1}$, $L_0$ and $L_1$ and their antiholomorphic counterparts.
+This can be achieved by the following requirement on $\ket{0}$
+\begin{property}[Vacuum in radial quantization]
+    The vacuum $\ket{0}$ in radial quantization is defined to satisfy that $T(z)\ket{0}$ and $\bar{T}\ket{0}$ are well-defined as $z,\bar{z}\to0$, which implies 
+    \begin{subequations}\label{eq:operator_formalism:hilbert:vacuum:L}
+        \begin{align}
+            L_n\ket{0}&=0\\
+            \bar{L}_n\ket{0}&=0,
+        \end{align}
+    \end{subequations}
+    where $n\geq1$.
+\end{property}
+\Cref{eq:operator_formalism:hilbert:vacuum:L} also implies 
+\begin{align}
+    \ev**{T(z)}{0}=\ev**{\bar{T}(z)}{0}=0.
+\end{align}
+\paragraph{Construction of Hilbert space from vacuum}
+\begin{align}
+    \ev**{\comm{L_n}{\phi(w,\bar{w})}}{0}&=\frac{1}{2\pi\ii}\oint_w\dd[]{z}z^{n+1}\expval{T(z)\phi(w,\bar{w})}\notag\\
+                                        &=\frac{1}{2\pi\ii}\oint_w z^{n+1}\left[\frac{h\phi(w,\bar{w})}{(z-w)^2}+\frac{\partial\phi(w,\bar{w})}{z-w}+\mathrm{reg.}\right]\notag\\
+                                        &=h(n+1)w^n\phi(w,\bar{w})+w^{n+1}\partial\phi(w,\bar{w})\label{eq:operator_formalism:hilbert:holo_comm}
+\end{align}
+In the same way, we have 
+\begin{align}
+    \ev**{\comm{\bar{L}_n}{\phi(w,\bar{w})}}{0}=\bar{h}(n+1)\bar{w}^n\phi(w,\bar{w})+\bar{w}^{n+1}\bar{\partial}\phi(w,\bar{w}).\label{eq:operator_formalism:hilbert:antiholo_comm}
+\end{align}
+We define the \textit{asymptotic state} to be 
+\begin{align}
+    \ket{h,\bar{h}}\equiv\phi(0,0)\ket{0}.
+\end{align}
+Using \cref{eq:operator_formalism:hilbert:holo_comm,eq:operator_formalism:hilbert:antiholo_comm} we can conclude that 
+\begin{align}
+    \mel**{0}{L_0}{h,\bar{h}}=\mel**{0}{h}{h,\bar{h}}\quad\mel**{0}{\bar{L}_0}{h,\bar{h}}=\mel**{0}{\bar{h}}{h,\bar{h}}
+\end{align}
+and 
+\begin{align}
+    \begin{aligned}
+        \mel**{0}{L_n}{h,\bar{h}}&=0\\
+        \mel**{0}{\bar{L}_n}{h,\bar{h}}&=0
+    \end{aligned}\qif n>0.
+\end{align}
+
+\begin{align}
+    \ev**{\comm{L_n}{\phi_m}}{0}=\left[n(h-1)-m\right]\expval{\phi_{n+m}}=\left[n(h-1)-m\right]\ev**{\phi_{n+m}}{0}
+\end{align}
+of which a special case is 
+\begin{align}
+    \ev**{\comm{L_0}{\phi_m}}{0}=-m\ev**{\phi_m}{0}.
+\end{align}
+\begin{important}
+From now on, we shall omit the $\bra{0}$ and some of the $\ket{0}$ in the relavant formulas to simplify the notation. They should recovered in the final results.
+\end{important}
+From \cref{eq:operator:virasoro_1}, we can see the generators $L_{-m}(m>0)$ increase the conformal dimension
+\begin{align}
+    \comm{L_0}{L_{-m}}=mL_{-m}.
+\end{align}
+This means that excited states may be obtained by successive applications of these operators on the asymptotic state $\ket{h}$:
+\begin{align}
+    L_{-k_1}L_{-k_2}\dots L_{-k_n}\ket{h}\quad(1\leq k_1\leq\dots\leq k_n)\label{eq:operator:hilbert:excited_state}
+\end{align}
+The state \cref{eq:operator:hilbert:excited_state} is an eigenstate of $L_0$ with eigenvalue
+\begin{align}
+    h'=h+k_1+k_2+\dots+k_n\equiv h+N.
+\end{align}
+The states in the form of \cref{eq:operator:hilbert:excited_state} are called \textit{descendants} of the asymptotic state $\ket{h}$ and the integer $N$ is called the level of the descendant.
+
+
 \subsection{The Free Boson}
 \subsubsection{Canonical Quantization on the Cylinder}
 \subsubsection{Vertex Operators}
@@ -1776,11 +1911,121 @@ Integrate both sides of \cref{eq:operator:OPE_comm:A_bw}, we have
 \subsubsection{Compactified Boson}
 \subsection{The Free Fermion}
 \subsection{Normal Ordering\label{subsec:operator:normal_ordering}}
+\begin{intu}
+    In operator formalism of quantization, we seek a map $F:f\to\hat{f}$ from classical field (function in the phase space) to field operator. 
+    We can see many composite fields in field theory, such as energy-momentum tensor $T$ in \cref{eq:FFOPE:FB:T_classical}, and for these fields the map $F$ can be done using the \textit{normal ordering} procedure.
+\end{intu}
+\paragraph{Normal ordering in radial quantization}
+Suppose $A(z)$ and $B(w)$ are two fields, the normal-ordered version of $A(z)B(w)$ will be written as $(A(z)B(w))$\sidenote{This is still an operator.}.
+When $z=w$, we write $(A(z)B(z))\equiv(AB)(z)$.
+
+If the correlation function of $A$ and $B$ can be expanded as
+\begin{align}
+    \expval{A(z)B(w)}=\sum_{n=-\infty}^{N}\frac{\left\{AB\right\}_n(w)}{(z-w)^n}\label{eq:operator:normal_o:ABOPE}
+\end{align}
+where $N$ is a positive integer, then we require
+\begin{align}
+    \expval{(A(z)B(w))}\equiv\sum_{n=-\infty}^{0}\frac{\left\{AB\right\}_n(w)}{(z-w)^n}.\label{eq:operator:normal_o:def:nomal_o}
+\end{align}
+and from \cref{eq:operator:normal_o:def:nomal_o} we have
+\begin{align}
+    \expval{(AB)(z)}=\left\{AB\right\}_0(w).
+\end{align}
+
+Now, we define the generalized contraction to include all the singular terms of the OPE 
+\begin{align}
+    \wick{\c A(z) \c B}(w)\equiv\sum_{n=1}^N\frac{\left\{AB\right\}_n(w)}{(z-w)^n}\label{eq:operator:normal_o:def:contrac}
+\end{align}
+Using \cref{eq:operator:normal_o:def:nomal_o,eq:operator:normal_o:def:contrac}, we can write 
+\begin{align}
+    \expval{(AB)(w)}=\lim_{z\to w}\left[\expval{A(z)B(w)}-\wick{\c A(z) \c B}(w)\right]
+\end{align}
+and 
+\begin{align}
+    \expval{A(z)B(w)}=\wick{\c A(z) \c B}(w)+\expval{\left(A(z)B(w)\right)}.
+\end{align}
+\begin{claim}
+    A use representation of the normal ordering is 
+    \begin{align}
+        \expval{(AB)(w)}=\frac{1}{2\pi\ii}\oint_w\frac{\dd[]{z}}{z-w}\expval{A(z)B(w)},\label{eq:operator:normal_o:alternative_norm_O}
+    \end{align}
+    which is easy to check.
+\end{claim}
+\paragraph{Expansion of operators}
+Until now, all Laurent expansions for fields were made around the point $z=0$, but this point is not special.
+We can expand an field operator around an arbitrary point $w$ as 
+\begin{align}
+    \phi(z)=\sum_{n\in\mathbb{Z}}(z-w)^{-n-h}\phi_n(w)
+\end{align}
+and energy-momentum tensor operator can be expanded as 
+\begin{subequations}
+    \begin{align}
+        T(z)=&\sum_{n\in\mathbb{Z}}(z-w)^{-n-2}L_n(w)\\
+        L_n(w)=&\frac{1}{2\pi\ii}\oint_w\dd[]{z}(z-w)^{n+1}T(z).
+    \end{align}
+\end{subequations}
+\begin{remark}
+    Note that $\phi_n(w)$ and $L_n(w)$ here are not local operators, so correlation functions like $\expval{\phi_n(w)L_n(w)}$ do not diverge.
+\end{remark}
+
+\paragraph{Modes of normal-ordered operator}
+The mode expansion $(AB)_n(w)$ of the normal-ordered operator $(AB)(w)$ can be defined in the usual way 
+\begin{subequations}
+    \begin{align}
+        \expval{(AB)(w)}&=\sum_{n\in\mathbb{Z}}(w-x)^{-n-h_A-h_B}\expval{(AB)_n(x)}\\
+        \expval{AB(x)_n}&=\frac{1}{2\pi\ii}\oint_x\dd[]{w} (w-x)^{n+h_A+h_B-1}\expval{(AB)(w)}.
+    \end{align}
+\end{subequations}
+
+We evaluate \cref{eq:operator:normal_o:alternative_norm_O} using the modes of operators.
+Note that  
+\begin{align}
+    \oint_w&\frac{\dd[]{z}}{z-w}\expval{A(z)B(w)}\notag\\
+            &=\oint_{\abs{z}>\abs{w}}\frac{\dd[]{z}}{z-w}\ev**{A(z)B(w)}{0}-\oint_{\abs{z}<\abs{w}}\frac{\dd[]{z}}{z-w}\ev**{B(w)A(z)}{0}.\label{eq:operator:normal_o:alternative_norm_O_expanded}
+\end{align}
+
+Consider the first term in RHS of \cref{eq:operator:normal_o:alternative_norm_O_expanded}.
+Expand two fields around $x$ such that $\abs{z}>\abs{x}>\abs{w}$, we have 
+\begin{subequations}
+    \begin{align}
+        A(z)=&\sum_{n\in\mathbb{Z}}(z-x)^{-n-h_A}A_n(x)\\
+        B(w)=&\sum_{p\in\mathbb{Z}} (w-x)^{-p-h_B}B_p(x).
+    \end{align}
+\end{subequations}
+And notice that 
+\begin{align}
+    \frac{1}{z-w}=\frac{1}{(z-x)-(w-x)}=\sum_{l\in\mathbb{N}}\frac{(w-x)^l}{(z-x)^{l+1}},
+\end{align} 
+we find
+\begin{subequations}
+    \begin{align}
+        \frac{1}{2\pi\ii}&\oint_{\abs{z}>\abs{w}}\frac{\dd[]{z}}{z-w}\ev**{A(z)B(w)}{0}\notag\\
+        &=\frac{1}{2\pi\ii}\oint\dd[]{z}\sum_{n,p\in\mathbb{Z}}\sum_{l\in\mathbb{N}}(w-x)^{l-p-h_B}(z-x)^{-n-h_A-l-1}\ev**{A_n(x)B_p(x)}{0}\label{eq:operator:normal_o:mode_AB_1}\\
+        &=\sum_{n\leq-h_A}\sum_{p\in\mathbb{Z}}(w-x)^{-n-p-h_A-h_B}\ev**{A_n(x)B_p(x)}{0}.\label{eq:operator:normal_o:mode_AB_2}
+    \end{align}
+\end{subequations}
+From \cref{eq:operator:normal_o:mode_AB_1} to \cref{eq:operator:normal_o:mode_AB_2}, after evaluation of the contour integral, we find only the terms with $l+n+h_A=0$ contribute and $n\leq-h_A$ since $l\geq0$.
+In the same way, it can be shown 
+\begin{align}
+    \frac{1}{2\pi\ii}&\oint_{\abs{w}>\abs{z}}\frac{\dd[]{z}}{z-w}\ev**{B(w)A(z)}{0}\notag\\
+            &=-\sum_{n>-h_A}\sum_{p\in\mathbb{Z}}(w-x)^{-n-p-h_A-h_B}\ev**{B_p(x)A_n(x)}{0}.\label{eq:operator:normal_o:mode_AB_3}
+\end{align}
+
+Collecting \cref{eq:operator:normal_o:mode_AB_2,eq:operator:normal_o:mode_AB_3}, we have 
+\begin{align}
+    \expval{(AB)_m(w)}=\sum_{n\leq-h_A}\ev**{A_n(w) B_{m-n}(w)}{0}+\sum_{n>-h_A}\ev**{B_{m-n}(w)A_n(w)}{0}.
+\end{align}
+
 \subsection{Conformal Families and Operator Algebra}
+\subsubsection{Descendant Fields}
+\subsubsection{Conformal Families}
+\subsubsection{The Operator Algebra}
+\subsubsection{Conformal Blocks}
+\subsubsection{Crossing Symmetry and the Conformal Bootstrap}
 
 \clearpage 
+\phantomsection\addcontentsline{toc}{section}{\protect\numberline{}Outlook}
 \section*{Outlook}
-\addcontentsline{toc}{section}{\protect\numberline{}Outlook}
 Conformal field theory is widely used in many aspects of the modern theoretical physics. 
 There are lots of interesting topics to be discovered and some of them with references are listed here:
 \begin{itemize}
