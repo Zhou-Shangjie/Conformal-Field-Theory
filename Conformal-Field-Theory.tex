@@ -1905,6 +1905,93 @@ The states in the form of \cref{eq:operator:hilbert:excited_state} are called \t
 
 \subsection{The Free Boson}
 \subsubsection{Canonical Quantization on the Cylinder}
+Let $\phi(x,t)$ be a free Bose field defined on a cylinder of circumference $L$: $\phi(x+L,t)\equiv\phi(x,t)$.
+This field may be Fourier expanded as follows:
+\begin{subequations}
+    \begin{align}
+        \phi(x,t)&=\sum_n\me^{2\pi\ii nx/L}\phi_n(t)\\
+        \phi_n(t)&=\frac{1}{L}\int_0^L\dd{x}\me^{-2\pi\ii nx/L}\phi(x,t).\label{eq:operator:boson:mode_field:2}
+    \end{align}
+\end{subequations}
+The free field Lagrangian now can be written as 
+\begin{align}
+    \frac{1}{2}g\int_0^L\dd{x}\left[\left(\partial_t\phi\right)^2-\left(\partial_x\phi\right)^2\right]=\frac{1}{2}gL\sum_n\left[\dot{\phi}_n(t)\dot{\phi}_{-n}(t)-\left(\frac{2\pi n}{L}\right)^2\phi_n(t)\phi_{-n}(t)\right].
+\end{align}
+The momentum conjugate to $\phi_n$ is 
+\begin{align}
+    \pi_n(t)=gL\dot{\phi}_{-n}(t)
+\end{align}
+and the Hamiltonian is 
+\begin{align}
+    H=\frac{1}{2gL}\sum_n\left[\pi_n(t)\pi_{-n}(t)+\left(2\pi ng\right)^2\phi_n(t)\phi_{-n}(t)\right].
+\end{align}
+We assume the Hamiltonian does not depend on time, so we may write 
+\begin{align}
+    H=\frac{1}{2gL}\sum_n\left[\pi_n\pi_{-n}+\left(2\pi ng\right)^2\phi_n\phi_{-n}\right].
+\end{align}
+where $\phi_n\equiv\phi_n(0)$ and $\pi_n\equiv\pi_n(0)$.
+We can simplify the notation by writing a time-dependent operator $A(t)$ at time $t=0$ as $A$.
+\begin{property}
+In canonical quantization, the modes $\phi_n$ and their corresponding momentum conjugation $\pi_n$ are turned into operators and the equal-time canonical commutation relation\snm is imposed:
+\begin{align}
+    \comm{\phi_m}{\pi_n}=i\delta_{nm}.\label{eq:operator:boson:commutation}
+\end{align}
+\end{property}
+\snt{Of course, it can be shown$$\comm{\phi_m(t)}{\pi_n(t)}=i\delta_{nm}$$by using the time evolution operator.}
+We define the operators\sidenote{Similar to the usual creation and annihilation operators but the $n=0$ case is not well-defined.} $\tilde{a}_n(t)$
+\begin{align}
+    \tilde{a}_n(t)\equiv\frac{1}{\sqrt{4\pi g\abs{n}}}\left(2\pi g\abs{n}\phi_n(t)+\ii\pi_{-n}(t)\right)\quad(n\neq0)\label{eq:operator:boson:origin_ladder}
+\end{align}
+and it can be checked that $\comm{\tilde{a}_n}{\tilde{a}_m}=0$ and $\comm{\tilde{a}_n^\dagger}{\tilde{a}_m^\dagger}=\delta_{mn}$.
+We further define the following operators 
+\begin{align}
+    a_n(t)\equiv\begin{cases}
+        -\ii\sqrt{n}\tilde{a}_n(t)&(n>0)\\
+        \ii\sqrt{-n}\tilde{a}^\dagger_{-n}(t)&(n<0)
+    \end{cases}
+    \quad
+    \bar{a}_n\equiv\begin{cases}
+        -\ii \sqrt{n}\tilde{a}_{-n}(t)&(n>0)\\
+        \ii \sqrt{-n}\tilde{a}_n^\dagger(t)&(n<0)
+    \end{cases}\label{eq:operator:boson:new_ladder}
+\end{align}
+and treat the mode $\phi_0$ separately.
+The associated commutation relations become
+\begin{align}
+    \comm{a_n(t)}{a_m(t)}=n\delta_{n+m}\quad\comm{a_n(t)}{\bar{a}_m(t)}=0\quad\comm{\bar{a}_n(t)}{\bar{a}_m(t)}=n\delta_{n+m}
+\end{align}
+and the Hamiltonian becomes 
+\begin{align}
+    H=\frac{1}{2gL}\pi_0^2+\frac{2\pi}{L}\sum_{n\neq0}\left(a_{-n}a_n+\bar{a}_{-n}\bar{a}_n\right).
+\end{align}
+It can be easily checked that 
+\begin{align}
+    \comm{H}{a_{-m}}=\frac{2\pi}{L}ma_{-m}
+\end{align}
+which means that $a_{-m} (m>0)$ is an ladder operator.
+
+From \cref{eq:operator:boson:origin_ladder,eq:operator:boson:origin_ladder}, we have 
+\begin{align}
+    \phi_n=\frac{\ii}{n\sqrt{4\pi g}}\left(a_n-\bar{a}_{-n}\right)
+\end{align}
+and the mode expansion at $t=0$ can be written as 
+\begin{align}
+    \phi(x,0)=\phi_0+\frac{\ii}{\sqrt{4\pi g}}\sum_{n\neq0}\left(a_n-\bar{a}_{-n}\right)\me^{2\pi\ii nx/L}\label{eq:operator:boson:t0_mode}
+\end{align}
+Since $\phi(x,t)=\me^{\ii Ht}\phi(x,0)\me^{-\ii Ht}$, using \cref{eq:operator:boson:mode_field:2,eq:operator:boson:commutation,eq:operator:boson:origin_ladder,eq:operator:boson:new_ladder} we have 
+\begin{subequations}\label{eq:operator:boson:heis}
+    \begin{align}
+        \phi_0(t)=&\me^{\ii Ht}\phi_0\me^{-\ii Ht}=\phi_0+\frac{1}{gL}\pi_0 t\\
+        a_n(t)=&\me^{\ii Ht}a_n\me^{-\ii Ht}=a_n\me^{-2\pi\ii nt/L}\\
+        \bar{a}_n(t)=&\me^{\ii Ht}\bar{a}_n\me^{-\ii Ht}=\bar{a}_n\me^{-2\pi\ii nt}
+    \end{align}
+\end{subequations}
+Now using \cref{eq:operator:boson:t0_mode,eq:operator:boson:heis} we have 
+\begin{align}
+    \phi(x,t)&=\me^{\ii Ht}\phi(x,0)\me^{-\ii Ht}\notag\\
+             &=\phi_0+\frac{1}{gL}\pi_0 t+\frac{\ii}{\sqrt{4\pi g}}\sum_{n\neq0}\left(a_n\me^{2\pi\ii n(x-t)/L}-\bar{a}_{-n}\me^{2\pi\ii n(x+t)/L}\right)
+\end{align}
+
 \subsubsection{Vertex Operators}
 \subsubsection{The Fock Space}
 \subsubsection{Twisted Boundary Conditions}
