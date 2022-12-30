@@ -1972,7 +1972,7 @@ which means that $a_{-m} (m>0)$ is an ladder operator.
 
 From \cref{eq:operator:boson:origin_ladder,eq:operator:boson:origin_ladder}, we have 
 \begin{align}
-    \phi_n=\frac{\ii}{n\sqrt{4\pi g}}\left(a_n-\bar{a}_{-n}\right)
+    \phi_n=\frac{\ii}{n\sqrt{4\pi g}}\left(a_n-\bar{a}_{-n}\right)\qfor n\neq0
 \end{align}
 and the mode expansion at $t=0$ can be written as 
 \begin{align}
@@ -1990,6 +1990,28 @@ Now using \cref{eq:operator:boson:t0_mode,eq:operator:boson:heis} we have
 \begin{align}
     \phi(x,t)&=\me^{\ii Ht}\phi(x,0)\me^{-\ii Ht}\notag\\
              &=\phi_0+\frac{1}{gL}\pi_0 t+\frac{\ii}{\sqrt{4\pi g}}\sum_{n\neq0}\left(a_n\me^{2\pi\ii n(x-t)/L}-\bar{a}_{-n}\me^{2\pi\ii n(x+t)/L}\right)
+\end{align}
+Going over to Euclidean time (i.e., replace $t$ by $-\ii\tau$) and using the conformal coordinates
+\begin{align}
+    z=\me^{2\pi(\tau-\ii x)/L}\quad \bar{z}=\me^{2\pi(\tau+\ii x)/L}
+\end{align}
+we finally have 
+\begin{align}
+    \phi(z,\bar{z})=\phi_0-\frac{\ii}{4\pi g}\pi_0\ln(z\bar{z})+\frac{\ii}{\sqrt{4\pi g}}\sum_{n\neq0}\frac{1}{n}\left(a_n z^{-n}+\bar{a}_n\bar{z}^{-n}\right).\label{eq:operator:boson:phi_expan}
+\end{align}
+
+$\phi$ is not itself a primary field, but that its derivatives $\partial\phi$ and $\bar{\partial}\bar{\phi}$ are.
+From \cref{eq:operator:boson:phi_expan}, we have 
+\begin{align}
+    \ii\partial\phi(z)=\frac{1}{4\pi g}\frac{\pi_0}{z}+\frac{1}{\sqrt{4\pi g}}\sum_{n\neq0}a_n z^{-n-1}.
+\end{align}
+Comparing to \cref{eq:operator:phi_expansion_a}, we may introduce two operators $a_0$ and $\bar{a}_0$:
+\begin{align}
+    a_0\equiv\bar{a}_0\equiv\frac{\pi_0}{\sqrt{4\pi g}}
+\end{align}
+which allow us to include the zero-mode term into the sum 
+\begin{align}
+    \ii\partial\phi(z)=\frac{1}{\sqrt{4\pi g}}\sum_{n}a_n z^{-n-1}.
 \end{align}
 
 \subsubsection{Vertex Operators}
