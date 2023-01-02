@@ -101,7 +101,7 @@ The new action is
 \begin{align}
     S' & =\int\dd[d]{x}\mathcal{L}\left(\Phi'(x),\partial_\mu\Phi'(x)\right)\notag                                                                                               \\
        & =\int\dd[d]{x'}\mathcal{L}\left(\Phi'(x'),\partial'_\mu\Phi'(x')\right)\notag                                                                                           \\
-       & =\int\dd[d]{x'}\mathcal{L}\left(\mathcal{F}\left[\Phi(x)\right],\partial'_\mu\mathcal{F}\left[\Phi(x)\right]\right)\notag                                                          \\
+       & =\int\dd[d]{x'}\mathcal{L}\left(\mathcal{F}\left[\Phi(x)\right],\partial'_\mu\mathcal{F}\left[\Phi(x)\right]\right)\notag                                               \\
        & =\int\dd[d]{x}\abs{\pdv{x'}{x}}\mathcal{L}\left(\mathcal{F}[\Phi(x)],\left(\pdv*{x^\nu}{x'^\mu}\right)\partial_\nu\mathcal{F}[\Phi(x)]\right).\label{eq:CST:new_action}
 \end{align}
 \subsubsection{Infinitesimal Transformations and Noether's Theorem}
@@ -727,7 +727,7 @@ Using \cref{eq:conformal_algebra_1,eq:conformal_algebra_2,eq:conformal_algebra_3
 \end{align}
 and therefore
 \begin{align}
-    D\Phi(x)=     & \left(-\ii x^\nu\partial_\nu+\tilde{\Delta}\right)\Phi(x)\label{eq:representation:dilation_operator}                                                                  \\
+    D\Phi(x)=     & \left(-\ii x^\nu\partial_\nu+\tilde{\Delta}\right)\Phi(x)\label{eq:representation:dilation_operator}                    \\
     K_\mu\Phi(x)= & \left(\kappa_\mu+2x_\mu\tilde{\Delta}-x^\nu S_{\mu\nu}-2\ii x_\mu x^\nu\partial_\nu+\ii x^2 \partial_\mu\right)\Phi(x).
 \end{align}
 
@@ -974,7 +974,7 @@ The corresponding conserved current can be written as (see \cref{subsubsec:confo
 \begin{align}
     j^{\mu\nu\rho}=T^{\mu\nu}x^\rho-T^{\mu\rho}x^\nu
 \end{align}
-and using \cref{eq:QFT:ward_identity,eq:CST:Lorentz_operator} we have the Ward identity 
+and using \cref{eq:QFT:ward_identity,eq:CST:Lorentz_operator} we have the Ward identity
 \begin{align}
     \partial_\mu\expval{\left(T^{\mu\nu} x^\rho-T^{\mu\rho} x^\nu\right)X}=\sum_i\delta(x-x_i)\left[\left(x_i^\nu\partial_i^\rho-x_i^\rho\partial_i^\nu\right)\expval{X}-\ii S^{\nu\rho}_i\expval{X}\right].\label{eq:GCI:conformal_ward_lorentz_1}
 \end{align}
@@ -991,23 +991,23 @@ and for a field of scaling dimension $\Delta$ the generator for dilation is (see
 \begin{align}
     D=-\ii x^\nu\partial_\nu-\ii\Delta.\label{eq:GCI:dilation_operator}
 \end{align}
-Using \cref{eq:QFT:ward_identity,eq:GCI:dilation_current,eq:GCI:dilation_operator} we have the Ward identity 
+Using \cref{eq:QFT:ward_identity,eq:GCI:dilation_current,eq:GCI:dilation_operator} we have the Ward identity
 \begin{align}
     \partial_\mu\expval{\tensor{T}{^\mu_\nu}x^\nu X}=-\sum_i\delta(x-x_i)\left(x_i^\nu\pdv{x_i^\nu}\expval{X}+\Delta_i\expval{X}\right)\label{eq:GCI:conformal_ward_3_before}
 \end{align}
-and using \cref{eq:GCI:conformal_ward_1}, \cref{eq:GCI:conformal_ward_3_before} becomes 
+and using \cref{eq:GCI:conformal_ward_1}, \cref{eq:GCI:conformal_ward_3_before} becomes
 \begin{align}
     \expval{\tensor{T}{^\mu_\mu}X}=-\sum_i\delta(x-x_i)\Delta_i\expval{X}\label{eq:GCI:conformal_ward_3}.
 \end{align}
-In summary, we have 
+In summary, we have
 \begin{boxmath}{Conformal Ward Identity}
-\begin{subequations}
+    \begin{subequations}
         \begin{align}
-            \partial_\mu\expval{\tensor{T}{^\mu_\nu}X}&=-\sum_i\delta(x-x_i)\pdv{x^\nu_i}\expval{X}\label{eq:GCI:conformal_ward_final_1}\\
-            \expval{\left(T^{\rho\nu}-T^{\nu\rho}\right)X}&=-\ii\sum_i\delta(x-x_i)S^{\nu\rho}_i\expval{X}\label{eq:GCI:conformal_ward_final_2}\\
-            \expval{\tensor{T}{^\mu_\mu}X}&=-\sum_i\delta(x-x_i)\Delta_i\expval{X}.\label{eq:GCI:conformal_ward_final_3}
+            \partial_\mu\expval{\tensor{T}{^\mu_\nu}X}     & =-\sum_i\delta(x-x_i)\pdv{x^\nu_i}\expval{X}\label{eq:GCI:conformal_ward_final_1}    \\
+            \expval{\left(T^{\rho\nu}-T^{\nu\rho}\right)X} & =-\ii\sum_i\delta(x-x_i)S^{\nu\rho}_i\expval{X}\label{eq:GCI:conformal_ward_final_2} \\
+            \expval{\tensor{T}{^\mu_\mu}X}                 & =-\sum_i\delta(x-x_i)\Delta_i\expval{X}.\label{eq:GCI:conformal_ward_final_3}
         \end{align}
-\end{subequations}
+    \end{subequations}
 \end{boxmath}
 \begin{remark}
     Under some technical assumptions, we can prove that scale invariant quantum field theories in $d=2$ dimension necessarily possess the enhanced conformal symmetry and although without rigorous proof the consensus is that there is no known example of scale invariant but non-conformal field theories in $d=4$ dimension under some assumptions (see \cite{Nakayama:2013is}).
@@ -1073,7 +1073,7 @@ Because of the translational invariance, we have $\tensor{T}{^\mu_\mu}(x)=0$ \te
 \clearpage
 \section{Conformal Invariance in Two Dimensions}
 The work of Belavin, Polyakov and Zamolodchikov \cite{Belavin:1984vu} had an immense influence on $d=2$ CFT and most of the formalism in this section follows them.
-There are many reviews and books about topic of this section and some of them are \cite{Alvarez-Gaume:1989yow,itzykson_drouffe_1989,Nawata:2022lsw,Blumenhagen:2009zz,Schellekens:1996tg,Teschner,Gaberdiel:1999mc,Ribault:2016sla}. 
+There are many reviews and books about topic of this section and some of them are \cite{Alvarez-Gaume:1989yow,itzykson_drouffe_1989,Nawata:2022lsw,Blumenhagen:2009zz,Schellekens:1996tg,Teschner,Gaberdiel:1999mc,Ribault:2016sla}.
 \subsection{The Conformal Group in Two Dimensions}
 \subsubsection{Conformal Mappings}
 Consider the coordinates $(z^0,z^1)$ on the plane.
@@ -1256,8 +1256,8 @@ With the holomorphic conformal dimension $h$ and the antiholomorphic conformal d
 \paragraph{Variation of the field}
 Consider the infinitesimal transformation $z\to w=z+\epsilon(z)$ and $\bar{z}\to\bar{w}=\bar{z}+\bar{\epsilon}(\bar{z})$ where $\epsilon,\bar{\epsilon}\to0$, the variation of the quasi-primary field is
 \begin{align}
-    \delta_{\epsilon,\bar{\epsilon}}\phi(z,\bar{z})\equiv & \phi'(z,\bar{z})-\phi(z,\bar{z})\notag                                                                                                                      \\
-    =                                      & -\left(h\phi\partial_z\epsilon+\epsilon\partial_z\phi\right)-\left(\bar{h}\phi\partial_{\bar{z}}\bar{\epsilon}+\bar{\epsilon}\partial_{\bar{z}}\phi\right).\label{eq:2dcft:primary_infinitesimal}
+    \delta_{\epsilon,\bar{\epsilon}}\phi(z,\bar{z})\equiv & \phi'(z,\bar{z})-\phi(z,\bar{z})\notag                                                                                                                                                            \\
+    =                                                     & -\left(h\phi\partial_z\epsilon+\epsilon\partial_z\phi\right)-\left(\bar{h}\phi\partial_{\bar{z}}\bar{\epsilon}+\bar{\epsilon}\partial_{\bar{z}}\phi\right).\label{eq:2dcft:primary_infinitesimal}
 \end{align}
 
 A field which is not primary is generally called \textit{secondary}.
@@ -1298,12 +1298,12 @@ Ans now \cref{eq:CIQFT:4_points} is generalized to
 where $h\equiv\sum_{i=1}^4 h_i$ and $\bar{h}\equiv\sum_{i=1}^4\bar{h}_i$.
 
 \subsection{Ward Identities}
-In the two-dimensionl case, if $X$ is a product of \textit{primary fields} $\Phi(x_1)\dots\Phi(x_n)$ at $x_1,\dots,x_n$, then the Ward identities \cref{eq:GCI:conformal_ward_final_1,eq:GCI:conformal_ward_final_2,eq:GCI:conformal_ward_final_3} can be rewritten as 
+In the two-dimensionl case, if $X$ is a product of \textit{primary fields} $\Phi(x_1)\dots\Phi(x_n)$ at $x_1,\dots,x_n$, then the Ward identities \cref{eq:GCI:conformal_ward_final_1,eq:GCI:conformal_ward_final_2,eq:GCI:conformal_ward_final_3} can be rewritten as
 \begin{subequations}
     \begin{align}
-        \pdv{x^\mu}\expval{\tensor{T}{^\mu_\nu}(x)X}&=-\sum_{i=1}^n\delta(x-x_i)\pdv{x^\nu_i}\expval{X}\label{eq:2dcft:ward:modified_1}\\
-            \eqnmarkbox[blue]{node1}{\varepsilon_{\mu\nu}}\expval{T^{\mu\nu}(x)X}&=-\ii\sum_{i=1}^n s_i\delta(x-x_i)\expval{X}\label{eq:2dcft:ward:modified_2}\\
-            \expval{\tensor{T}{^\mu_\mu}(x)X}&=-\sum_{i=1}^n\delta(x-x_i)\Delta_i\expval{X}\label{eq:2dcft:ward:modified_3}
+        \pdv{x^\mu}\expval{\tensor{T}{^\mu_\nu}(x)X}                          & =-\sum_{i=1}^n\delta(x-x_i)\pdv{x^\nu_i}\expval{X}\label{eq:2dcft:ward:modified_1} \\
+        \eqnmarkbox[blue]{node1}{\varepsilon_{\mu\nu}}\expval{T^{\mu\nu}(x)X} & =-\ii\sum_{i=1}^n s_i\delta(x-x_i)\expval{X}\label{eq:2dcft:ward:modified_2}       \\
+        \expval{\tensor{T}{^\mu_\mu}(x)X}                                     & =-\sum_{i=1}^n\delta(x-x_i)\Delta_i\expval{X}\label{eq:2dcft:ward:modified_3}
     \end{align}
 \end{subequations}\annotate[yshift=0]{below,left}{node1}{Antisymmetric tensor}\\
 where we have used the specific two-dimensional form $s_i\varepsilon_{\mu\nu}$ of the spin generators $S_{\mu\nu}^i$ and $s_i$ is the spin of the field $\phi_i$.
@@ -1312,9 +1312,9 @@ where we have used the specific two-dimensional form $s_i\varepsilon_{\mu\nu}$ o
 We perform the same complex change of coordinates, under which $T$ transforms as $T_{\mu\nu}\to\pdv{x^\rho}{x^\mu}\pdv{x^\sigma}{x^\nu}T_{\rho\sigma}$, and we have%\sidenote{We have assumed here the energy-momentum tensor is traceless.}
 \begin{subequations}\label{eq:emtcc:EMT}
     \begin{align}
-        T_{z\bar{z}}       & =\frac{1}{4}\left(T_{00}+T_{11}\right)+\frac{\ii}{4}\left(T_{01}-T_{10}\right)\\
-        T_{\bar{z}z}&=\frac{1}{4}\left(T_{00}+T_{11}\right)-\frac{\ii}{4}\left(T_{01}-T_{10}\right)                        \\
-        T_{zz}             & =\frac{1}{4}\left(T_{00}-T_{11}\right)-\frac{\ii}{4}\left(T_{01}+T_{10}\right) \\
+        T_{z\bar{z}}       & =\frac{1}{4}\left(T_{00}+T_{11}\right)+\frac{\ii}{4}\left(T_{01}-T_{10}\right)  \\
+        T_{\bar{z}z}       & =\frac{1}{4}\left(T_{00}+T_{11}\right)-\frac{\ii}{4}\left(T_{01}-T_{10}\right)  \\
+        T_{zz}             & =\frac{1}{4}\left(T_{00}-T_{11}\right)-\frac{\ii}{4}\left(T_{01}+T_{10}\right)  \\
         T_{\bar{z}\bar{z}} & =\frac{1}{4}\left(T_{00}-T_{11}\right)+\frac{\ii}{4}\left(T_{01}+T_{10}\right).
     \end{align}
 \end{subequations}
@@ -1382,8 +1382,8 @@ where $w_i$ and $\bar{w}_i$ are complex coordinates of the fields.
 If we add substract \cref{eq:2dcft:ward_holo_3,eq:2dcft:ward_holo_4}, we have
 \begin{subequations}
     \begin{align}
-        2\pi\expval{T_{\bar{z}z}X}= &-\pi\sum_{i=1}^n\delta(x-x_i)h_i\expval{X}= -\sum_{i=1}^n\partial_{\bar{z}}\frac{1}{z-w_i}h_i\expval{X}\label{eq:2dcft:ward_holo_5}            \\
-        2\pi\expval{T_{z\bar{z}}X}= &-\pi\sum_{i=1}^n\delta(x-x_i)\bar{h}_i\expval{X}= -\sum_{i=1}^n\partial_z\frac{1}{\bar{z}-\bar{w}_i}\bar{h}_i\expval{X}.\label{eq:2dcft:ward_holo_6}
+        2\pi\expval{T_{\bar{z}z}X}= & -\pi\sum_{i=1}^n\delta(x-x_i)h_i\expval{X}= -\sum_{i=1}^n\partial_{\bar{z}}\frac{1}{z-w_i}h_i\expval{X}\label{eq:2dcft:ward_holo_5}                  \\
+        2\pi\expval{T_{z\bar{z}}X}= & -\pi\sum_{i=1}^n\delta(x-x_i)\bar{h}_i\expval{X}= -\sum_{i=1}^n\partial_z\frac{1}{\bar{z}-\bar{w}_i}\bar{h}_i\expval{X}.\label{eq:2dcft:ward_holo_6}
     \end{align}
 \end{subequations}
 where we used \cref{eq:holomorphic_conformal_dimension}.
@@ -1401,7 +1401,7 @@ where we defined the renormalized energy-momentum tensor
 It can be implied that the expressions between the square brackets in \cref{eq:2dcft:ward_holo_7,eq:2dcft:ward_holo_8} are respectively holomorphic and antiholomorphic, thus we may write
 \begin{subequations}
     \begin{align}
-        \expval{T(z,\bar{z})X}             & =\sum_{i=1}^n\left(\frac{1}{z-w_i}\partial_{w_i}\expval{X}+\frac{h_i}{(z-w_i)^2}\expval{X}\right)+\text{reg.}                                     \\
+        \expval{T(z,\bar{z})X}       & =\sum_{i=1}^n\left(\frac{1}{z-w_i}\partial_{w_i}\expval{X}+\frac{h_i}{(z-w_i)^2}\expval{X}\right)+\text{reg.}                                     \\
         \expval{\bar{T}(z,\bar{z})X} & =\sum_{i=1}^n\left(\frac{1}{\bar{z}-\bar{w}_i}\partial_{\bar{w}_i}\expval{X}+\frac{\bar{h}_i}{(\bar{z}-\bar{w}_i)^2}\expval{X}\right)+\text{reg.}
     \end{align}
 \end{subequations}
@@ -1411,41 +1411,41 @@ where "reg." stands for a holomorphic function of $z$ which is regular at $z=w_i
 \begin{intu}
     We can bring the Ward identities \cref{eq:GCI:conformal_ward_final_1,eq:GCI:conformal_ward_final_2,eq:GCI:conformal_ward_final_3} into a single relation.
 \end{intu}
-Given an arbitrary infinitesimal conformal coordinate variation $\epsilon^\nu(x)$, we can write 
-    \begin{align}
-        \partial_\mu\left(\epsilon_\nu T^{\mu\nu}\right)= & \epsilon_\nu \partial_\mu T^{\mu\nu}+\frac{1}{2}\left(\partial_\mu\epsilon_\nu+\partial_\nu\epsilon_\mu\right)T^{\mu\nu}+\frac{1}{2}\left(\partial_\mu\epsilon_\nu-\partial_\nu\epsilon_\mu\right)T^{\mu\nu}\notag                                                \\
-        =                                                 & \epsilon_\nu\partial_\mu T^{\mu\nu}+\frac{1}{2}\left(\partial_\rho\epsilon^\rho\right)\eta_{\mu\nu}T^{\mu\nu}+\frac{1}{2}\eqnmarkbox[blue]{node1}{\varepsilon^{\alpha\beta}}\partial_\alpha\epsilon_\beta\eqnmarkbox[blue]{node2}{\varepsilon_{\mu\nu}}T^{\mu\nu}\label{eq:2DCWI:arbi}
-    \end{align}\annotatetwo[yshift=-0.7em]{below,label below}{node1}{node2}{Antisymmetric tensor}\\
+Given an arbitrary infinitesimal conformal coordinate variation $\epsilon^\nu(x)$, we can write
+\begin{align}
+    \partial_\mu\left(\epsilon_\nu T^{\mu\nu}\right)= & \epsilon_\nu \partial_\mu T^{\mu\nu}+\frac{1}{2}\left(\partial_\mu\epsilon_\nu+\partial_\nu\epsilon_\mu\right)T^{\mu\nu}+\frac{1}{2}\left(\partial_\mu\epsilon_\nu-\partial_\nu\epsilon_\mu\right)T^{\mu\nu}\notag                                                                     \\
+    =                                                 & \epsilon_\nu\partial_\mu T^{\mu\nu}+\frac{1}{2}\left(\partial_\rho\epsilon^\rho\right)\eta_{\mu\nu}T^{\mu\nu}+\frac{1}{2}\eqnmarkbox[blue]{node1}{\varepsilon^{\alpha\beta}}\partial_\alpha\epsilon_\beta\eqnmarkbox[blue]{node2}{\varepsilon_{\mu\nu}}T^{\mu\nu}\label{eq:2DCWI:arbi}
+\end{align}\annotatetwo[yshift=-0.7em]{below,label below}{node1}{node2}{Antisymmetric tensor}\\
 where we have used the relation $\frac{1}{2}\left(\partial_\mu\epsilon_\nu+\partial_\nu\epsilon_\mu\right)=\frac{1}{2}\left(\partial_\rho\epsilon^\rho\right)\eta_{\mu\nu}$ which can be derived from \cref{eq:GCI:fx,eq:GCI:fx1} and the relation $\frac{1}{2}\left(\partial_\mu\epsilon_\nu-\partial_\nu\epsilon_\mu\right)=\frac{1}{2}\varepsilon^{\alpha\beta}\partial_\alpha\epsilon_\beta\varepsilon_{\mu\nu}$ which can be checked explicitly.
 
-Multiply both sides of \cref{eq:2DCWI:arbi} with a string of \textit{primary field operators}\sidenote{Note that we are considering primary field operator, so we may use \cref{eq:2dcft:primary_infinitesimal} later.} operators $X$ and then do a path integral over the field, we have 
+Multiply both sides of \cref{eq:2DCWI:arbi} with a string of \textit{primary field operators}\sidenote{Note that we are considering primary field operator, so we may use \cref{eq:2dcft:primary_infinitesimal} later.} operators $X$ and then do a path integral over the field, we have
 \begin{align}
     \partial_\mu\expval{\epsilon_\nu T^{\mu\nu}X}=\epsilon_\nu\partial_\mu\expval{T^{\mu\nu}X}+\frac{1}{2}\left(\partial_\rho \epsilon^\rho\right)\expval{\tensor{T}{^\mu_\mu}X}+\frac{1}{2}\varepsilon^{\alpha\beta}\partial_\alpha\epsilon_\beta\varepsilon_{\alpha\beta}\expval{T^{\mu\nu}X}.\label{eq:2DCWI:before_ward}
 \end{align}
-Using Ward identities \cref{eq:2dcft:ward:modified_1,eq:2dcft:ward:modified_2,eq:2dcft:ward:modified_3}, \cref{eq:2DCWI:before_ward} becomes 
+Using Ward identities \cref{eq:2dcft:ward:modified_1,eq:2dcft:ward:modified_2,eq:2dcft:ward:modified_3}, \cref{eq:2DCWI:before_ward} becomes
 \begin{align}
     \partial_\mu\expval{\epsilon_\nu T^{\mu\nu}X}=\sum_{i=1}^n\delta(x-x_i)\left(-\epsilon^\nu\pdv{x_i^\nu}-\frac{1}{2}\Delta_i\partial_\rho\epsilon^\rho-\frac{\ii}{2}\varepsilon^{\alpha\beta} s_i\partial_\alpha\epsilon_\beta\right)\expval{X}.\label{eq:2DCWI:after_ward}
 \end{align}
-Integrate both sides of \cref{eq:2DCWI:after_ward} over region $M$ where all the coordinates in $X$ are included, we have 
+Integrate both sides of \cref{eq:2DCWI:after_ward} over region $M$ where all the coordinates in $X$ are included, we have
 \begin{align}
-    \int_M\dd[2]{x}\partial_\mu\expval{T^{\mu\nu}\epsilon_\nu X}=&\int_M\dd[2]{x}\sum_{i=1}^n\delta(x-x_i)\left(-\epsilon^\nu\pdv{x_i^\nu}-\frac{1}{2}\Delta_i\partial_\rho\epsilon^\rho-\frac{\ii}{2}\varepsilon^{\alpha\beta} s_i\partial_\alpha\epsilon_\beta\right)\expval{X}\notag\\
-                                                                =&\eval{\sum_{i=1}^n\left(-\epsilon^\nu\pdv{x_i^\nu}-\frac{1}{2}\Delta_i\partial_\rho\epsilon^\rho-\frac{\ii}{2}\varepsilon^{\alpha\beta} s_i\partial_\alpha\epsilon_\beta\right)\expval{X}}_{x=x_i}\label{eq:2dcft:ward_before_primary}
+    \int_M\dd[2]{x}\partial_\mu\expval{T^{\mu\nu}\epsilon_\nu X}= & \int_M\dd[2]{x}\sum_{i=1}^n\delta(x-x_i)\left(-\epsilon^\nu\pdv{x_i^\nu}-\frac{1}{2}\Delta_i\partial_\rho\epsilon^\rho-\frac{\ii}{2}\varepsilon^{\alpha\beta} s_i\partial_\alpha\epsilon_\beta\right)\expval{X}\notag                  \\
+    =                                                             & \eval{\sum_{i=1}^n\left(-\epsilon^\nu\pdv{x_i^\nu}-\frac{1}{2}\Delta_i\partial_\rho\epsilon^\rho-\frac{\ii}{2}\varepsilon^{\alpha\beta} s_i\partial_\alpha\epsilon_\beta\right)\expval{X}}_{x=x_i}\label{eq:2dcft:ward_before_primary}
 \end{align}
 
 From \cref{eq:2dcft:primary_infinitesimal,eq:2dcft:ward_before_primary}, we have
 \begin{align}
     \delta_\epsilon\expval{X}=\int_M\dd[2]{x}\partial_\mu\expval{T^{\mu\nu}(x)\epsilon_\nu(x)X}\label{eq:2DCWI:conformal_ward_1}
 \end{align}
-We can think of the integrand in \cref{eq:2DCWI:conformal_ward_1} as a divergence of a vector field $F^\mu\equiv\expval{T^{\mu\nu}(x)\epsilon_\nu(x)X}$ and apply Gauss's theorem, one finds 
+We can think of the integrand in \cref{eq:2DCWI:conformal_ward_1} as a divergence of a vector field $F^\mu\equiv\expval{T^{\mu\nu}(x)\epsilon_\nu(x)X}$ and apply Gauss's theorem, one finds
 \begin{subequations}
     \begin{align}
-        \delta_{\epsilon,\bar{\epsilon}}\expval{X}\notag&\\
-        =&\frac{1}{2}\ii\oint_C\left[-\dd[]{z}\left(\expval{T^{\bar{z}\bar{z}}\epsilon_{\bar{z}}X}+\eqnmarkbox[blue]{node1}{\expval{T^{\bar{z}z}\epsilon_{z}X}}\right)+\dd[]{\bar{z}}\left(\expval{T^{zz}\epsilon_z X}+\eqnmarkbox[blue]{node2}{\expval{T^{z\bar{z}}\epsilon_{\bar{z}} X}}\right)\right]\label{eq:2DCWI:conformal_ward_gauss_1}\\
-                                                      =&\frac{1}{2}\ii\oint_C\left(-\dd[]{z}\expval{T^{\bar{z}\bar{z}}\epsilon_{\bar{z}}X}+\dd[]{\bar{z}}\expval{T^{zz}\epsilon_z X}\right)\label{eq:2DCWI:conformal_ward_gauss_2}
+        \delta_{\epsilon,\bar{\epsilon}}\expval{X}\notag &                                                                                                                                                                                                                                                                                                                                       \\
+        =                                                & \frac{1}{2}\ii\oint_C\left[-\dd[]{z}\left(\expval{T^{\bar{z}\bar{z}}\epsilon_{\bar{z}}X}+\eqnmarkbox[blue]{node1}{\expval{T^{\bar{z}z}\epsilon_{z}X}}\right)+\dd[]{\bar{z}}\left(\expval{T^{zz}\epsilon_z X}+\eqnmarkbox[blue]{node2}{\expval{T^{z\bar{z}}\epsilon_{\bar{z}} X}}\right)\right]\label{eq:2DCWI:conformal_ward_gauss_1} \\
+        =                                                & \frac{1}{2}\ii\oint_C\left(-\dd[]{z}\expval{T^{\bar{z}\bar{z}}\epsilon_{\bar{z}}X}+\dd[]{\bar{z}}\expval{T^{zz}\epsilon_z X}\right)\label{eq:2DCWI:conformal_ward_gauss_2}
     \end{align}
 \end{subequations}\annotatetwo[yshift=0.2cm]{}{node1}{node2}{Remember to use \cref{eq:2dcft:ward_holo_5,eq:2dcft:ward_holo_6}}\\
 where we have defined $\epsilon\equiv\epsilon^z$ and $\bar{\epsilon}\equiv\epsilon^{\bar{z}}$.
-We have used \cref{eq:2dcft:ward_holo_5,eq:2dcft:ward_holo_6} from \cref{eq:2DCWI:conformal_ward_gauss_1} to \cref{eq:2DCWI:conformal_ward_gauss_2}. 
+We have used \cref{eq:2dcft:ward_holo_5,eq:2dcft:ward_holo_6} from \cref{eq:2DCWI:conformal_ward_gauss_1} to \cref{eq:2DCWI:conformal_ward_gauss_2}.
 The contribution to the contour integral from $\expval{T^{\bar{z}z}X}$ and $\expval{T^{z\bar{z}}X}$ vanish\sidenote{Note that $$\expval{T^{\bar{z}z}\epsilon_{z}X}=\epsilon_{z}\expval{T^{\bar{z}z}X}$$ and $$\expval{T^{z\bar{z}}\epsilon_{\bar{z}} X}=\epsilon_{\bar{z}} \expval{T^{z\bar{z}}X}$$which can be seen from the path integral.} since the contour $C$ can be chosen to avoid coordinates $x_i$ of the fields in $X$ to ensure $\expval{T^{\bar{z}z}X}$ and $\expval{T^{z\bar{z}}X}$ vanish\sidenote{Thanks to to Dirac delta functions.}.
 
 Finally using the definition \cref{eq:2dcft:ward:def_renormalized_T}, \cref{eq:2DCWI:conformal_ward_gauss_2} can be written as the \textit{conformal Ward identity}\sidenote{We have lifted and lowed the indices using the metric \cref{eq:2dcft:metric_complex} and we have \begin{align}T&=-\frac{\pi}{2}T^{\bar{z}\bar{z}}\notag\\\bar{T}&=-\frac{\pi}{2}T^{zz}\notag\\\epsilon&\equiv\epsilon^z=2\epsilon_{\bar{z}}\notag\\\bar{\epsilon}&\equiv\epsilon^{\bar{z}}=2\epsilon_z.\notag\end{align}}
@@ -1457,14 +1457,14 @@ Finally using the definition \cref{eq:2dcft:ward:def_renormalized_T}, \cref{eq:2
 The counterclockwise contour $C$ needs only to include all the coordinates $(w_i,\bar{w}_i)$ of the fields in $X$.
 \begin{remark}
     Although in the derivation of the conformal Wald identity we used the assumption that the operators in $X$ are primary, the validaty of the formula can be extended to any local fields.
-    
+
     In fact, the conformal Wald identity \cref{eq:2dcft:conformal_ward_final} may be taken as a definition of the effect of conformal transformations on an arbitrary local field within a correlation function\snm.
 \end{remark}
 \snt{This definition is made in the path integral formalism in order to make the result consistent with that in the operator formalism\cite{Blumenhagen:2009zz}.}
 
 \subsection{Free Fields and the Operator Product Expansion}
 \subsubsection{The Free Boson\label{subsubsec:2dcft:FFOPE:boson}}
-The simplest conformal field theory is that of a free massless boson $\phi$, with the following action 
+The simplest conformal field theory is that of a free massless boson $\phi$, with the following action
 \begin{align}
     S=\frac{1}{2}g\int\dd[2]{x}\partial_\mu\phi\partial^\mu\phi
 \end{align}
@@ -1474,22 +1474,22 @@ The two-point function of this theory is (see details in \cite[Section 2.3]{DiFr
 \begin{align}
     \expval{\phi(x)\phi(y)}=-\frac{1}{4\pi g}\ln(x-y)^2+\text{const.}\label{eq:FFOPE:FB:2_p_before}
 \end{align}
-Using complex coordinates, \cref{eq:FFOPE:FB:2_p_before} can be written as 
+Using complex coordinates, \cref{eq:FFOPE:FB:2_p_before} can be written as
 \begin{align}
     \expval{\phi(z,\bar{z})\phi(w,\bar{w})}=-\frac{1}{4\pi g}\left(\ln(z-w)+\ln(\bar{z}-\bar{w})\right)+\text{const.}\label{eq:FFOPE:FB:2_p_complex}
 \end{align}
-Taking the derivatives on both sides of \cref{eq:FFOPE:FB:2_p_complex}, we have 
+Taking the derivatives on both sides of \cref{eq:FFOPE:FB:2_p_complex}, we have
 \begin{subequations}
     \begin{align}
-        \expval{\partial_z\phi(z,\bar{z})\partial_w\phi(w,\bar{w})}=&-\frac{1}{4\pi g}\frac{1}{(z-w)^2}\label{eq:FFOPE:FB:2_p_after_derivative_1}\\
-        \expval{\partial_{\bar{z}}\phi(z,\bar{z})\partial_{\bar{w}}\phi(w,\bar{w})}=&-\frac{1}{4\pi g}\frac{1}{(\bar{z}-\bar{w})^2}.\label{eq:FFOPE:FB:2_p_after_derivative_2}
+        \expval{\partial_z\phi(z,\bar{z})\partial_w\phi(w,\bar{w})}=                 & -\frac{1}{4\pi g}\frac{1}{(z-w)^2}\label{eq:FFOPE:FB:2_p_after_derivative_1}              \\
+        \expval{\partial_{\bar{z}}\phi(z,\bar{z})\partial_{\bar{w}}\phi(w,\bar{w})}= & -\frac{1}{4\pi g}\frac{1}{(\bar{z}-\bar{w})^2}.\label{eq:FFOPE:FB:2_p_after_derivative_2}
     \end{align}
 \end{subequations}
-It is clear from \cref{eq:FFOPE:FB:2_p_after_derivative_1,eq:FFOPE:FB:2_p_after_derivative_2} we have the OPEs\sidenote{In \cref{eq:2dcft:boson_OPE:partial_phi_partial_phi_final}, we omit the antiholomorphic coordinate of $\partial\phi$ in the following OPE since the OPE does not depend on the antiholomorphic coordinates. This convention is also used in later sections.} 
+It is clear from \cref{eq:FFOPE:FB:2_p_after_derivative_1,eq:FFOPE:FB:2_p_after_derivative_2} we have the OPEs\sidenote{In \cref{eq:2dcft:boson_OPE:partial_phi_partial_phi_final}, we omit the antiholomorphic coordinate of $\partial\phi$ in the following OPE since the OPE does not depend on the antiholomorphic coordinates. This convention is also used in later sections.}
 \begin{subequations}
     \begin{align}
-        \partial\phi(z)\partial\phi(w)&\sim-\frac{1}{4\pi g}\frac{1}{(z-w)^2}\label{eq:2dcft:boson_OPE:partial_phi_partial_phi_final}\\
-        \bar{\partial}\phi(\bar{z})\bar{\partial}\phi(\bar{w})&\sim-\frac{1}{4\pi g}\frac{1}{(\bar{z}-\bar{w})^2}.
+        \partial\phi(z)\partial\phi(w)                         & \sim-\frac{1}{4\pi g}\frac{1}{(z-w)^2}\label{eq:2dcft:boson_OPE:partial_phi_partial_phi_final} \\
+        \bar{\partial}\phi(\bar{z})\bar{\partial}\phi(\bar{w}) & \sim-\frac{1}{4\pi g}\frac{1}{(\bar{z}-\bar{w})^2}.
     \end{align}
 \end{subequations}
 \begin{remark}
@@ -1500,12 +1500,12 @@ The \textit{classical} energy-momentum tensor associated with the free massless 
 \begin{align}
     T_{\mu\nu}=g\left(\partial_\mu\phi\partial_\nu\phi-\frac{1}{2}\eta_{\mu\nu}\partial_\rho\phi\partial^\rho\phi\right)
 \end{align}
-and in the complex coordinates we have 
+and in the complex coordinates we have
 \begin{align}
     T(z,\bar{z})\equiv-2\pi T_{zz}=-2\pi g\left[(\partial\phi)^2-\frac{1}{2}\eta_{zz}\partial_\rho\phi\partial^\rho\phi\right]=-2\pi g\left(\partial\phi\right)^2\label{eq:FFOPE:FB:T_classical}
 \end{align}
 where we have used $\eta_{zz}=0$.
-In the same way, we have 
+In the same way, we have
 \begin{align}
     \bar{T}(z,\bar{z})\equiv-2\pi \bar{T}_{zz}=-2\pi g\left[(\bar{\partial}\phi)^2-\frac{1}{2}\eta_{\bar{z}\bar{z}}\partial_\rho\phi\partial^\rho\phi\right]=-2\pi g\left(\bar{\partial}\phi\right)^2.\label{eq:FFOPE:FB:T_bar_classical}
 \end{align}
@@ -1533,23 +1533,23 @@ The normal ordered product of energy-momentum tensor is equivalent to\sidenote{F
 The OPE of $T$ and $\partial\phi$ can be calculated using Wick's theorem\sidenote{Don't be too serious on the Wick's theorem we are using here.}:
 \begin{subequations}
     \begin{align}
-        T(z,\bar{z})\partial\phi(w,\bar{w})&=-2\pi g\lim_{z_1\to z}\lim_{\bar{z}_1\to\bar{z}}\left(\partial\phi(z,\bar{z})\partial\phi(z_1,\bar{z}_1)-\expval{\partial\phi(z,\bar{z})\partial\phi(z_1,\bar{z}_1)}\right)\partial\phi(w,\bar{w})\notag\\
-                    &\sim -2\pi g\lim_{z_1\to z}\lim_{\bar{z}_1\to\bar{z}}\left[\left(\expval{\partial\phi(z,\bar{z})\partial\phi(w,\bar{w})}\partial\phi(z_1,\bar{z}_1)\right.\right.\notag\\
-                    &\quad\quad\quad\quad\quad\quad\quad\quad+\expval{\partial\phi(z,\bar{z})\partial\phi(z_1,\bar{z}_1)}\partial\phi(w,\bar{w})\notag\\
-                    &\left.\quad\quad\quad\quad\quad\quad\quad\quad+\expval{\partial\phi(z_1,\bar{z}_1)\partial\phi(w,\bar{w})}\partial\phi(z,\bar{z})\right)\notag\\
-                    &\quad\quad\quad\quad\quad\quad\quad\quad\left.-\expval{\partial\phi(z,\bar{z})\partial\phi(z_1,\bar{z}_1)}\partial\phi(w,\bar{w})\right]\notag\\
-                    &\sim -2\pi g\lim_{z_1\to z}\lim_{\bar{z}_1\to\bar{z}}\left(\expval{\partial\phi(z,\bar{z})\partial\phi(w,\bar{w})}\partial\phi(z_1,\bar{z}_1)\right.\notag\\
-                    &\quad\quad\quad\quad\quad\quad\quad\quad\left.+\expval{\partial\phi(z_1,\bar{z}_1)\partial\phi(w,\bar{w})}\partial\phi(z,\bar{z})\right)\notag\\
-                    &\sim -4\pi g\expval{\partial\phi(z,\bar{z})\partial\phi(w,\bar{w})}\partial\phi(z,\bar{z})\label{eq:2dcft:boson_OPE:T_partial_phi_1}\\
-                    &\sim \frac{\partial\phi(z,\bar{z})}{(z-w)^2}\label{eq:2dcft:boson_OPE:T_partial_phi_final}
-    \end{align} 
-\end{subequations} 
+        T(z,\bar{z})\partial\phi(w,\bar{w}) & =-2\pi g\lim_{z_1\to z}\lim_{\bar{z}_1\to\bar{z}}\left(\partial\phi(z,\bar{z})\partial\phi(z_1,\bar{z}_1)-\expval{\partial\phi(z,\bar{z})\partial\phi(z_1,\bar{z}_1)}\right)\partial\phi(w,\bar{w})\notag \\
+                                            & \sim -2\pi g\lim_{z_1\to z}\lim_{\bar{z}_1\to\bar{z}}\left[\left(\expval{\partial\phi(z,\bar{z})\partial\phi(w,\bar{w})}\partial\phi(z_1,\bar{z}_1)\right.\right.\notag                                   \\
+                                            & \quad\quad\quad\quad\quad\quad\quad\quad+\expval{\partial\phi(z,\bar{z})\partial\phi(z_1,\bar{z}_1)}\partial\phi(w,\bar{w})\notag                                                                         \\
+                                            & \left.\quad\quad\quad\quad\quad\quad\quad\quad+\expval{\partial\phi(z_1,\bar{z}_1)\partial\phi(w,\bar{w})}\partial\phi(z,\bar{z})\right)\notag                                                            \\
+                                            & \quad\quad\quad\quad\quad\quad\quad\quad\left.-\expval{\partial\phi(z,\bar{z})\partial\phi(z_1,\bar{z}_1)}\partial\phi(w,\bar{w})\right]\notag                                                            \\
+                                            & \sim -2\pi g\lim_{z_1\to z}\lim_{\bar{z}_1\to\bar{z}}\left(\expval{\partial\phi(z,\bar{z})\partial\phi(w,\bar{w})}\partial\phi(z_1,\bar{z}_1)\right.\notag                                                \\
+                                            & \quad\quad\quad\quad\quad\quad\quad\quad\left.+\expval{\partial\phi(z_1,\bar{z}_1)\partial\phi(w,\bar{w})}\partial\phi(z,\bar{z})\right)\notag                                                            \\
+                                            & \sim -4\pi g\expval{\partial\phi(z,\bar{z})\partial\phi(w,\bar{w})}\partial\phi(z,\bar{z})\label{eq:2dcft:boson_OPE:T_partial_phi_1}                                                                      \\
+                                            & \sim \frac{\partial\phi(z,\bar{z})}{(z-w)^2}\label{eq:2dcft:boson_OPE:T_partial_phi_final}
+    \end{align}
+\end{subequations}
 We used \cref{eq:2dcft:boson_OPE:partial_phi_partial_phi_final} from \cref{eq:2dcft:boson_OPE:T_partial_phi_1} to \cref{eq:2dcft:boson_OPE:T_partial_phi_final}.
 %\Cref{eq:2dcft:boson_OPE:T_partial_phi_final} can also be written as 
 %\begin{align}
 %    T(z)\partial\phi(w,\bar{w})\sim\frac{\partial\phi(z)}{(z-w)^2}
 %\end{align}
-Then by expanding $\partial\phi(z,\bar{z})$ around $(w,\bar{w})$, we have the OPE 
+Then by expanding $\partial\phi(z,\bar{z})$ around $(w,\bar{w})$, we have the OPE
 \begin{align}
     T(z)\partial\phi(w,\bar{w})\sim\frac{\partial\phi(w,\bar{w})}{(z-w)^2}+\frac{\partial^2\phi(w,\bar{w})}{(z-w)}.
 \end{align}
@@ -1557,15 +1557,15 @@ Then by expanding $\partial\phi(z,\bar{z})$ around $(w,\bar{w})$, we have the OP
 %    The book \cite{DiFrancesco:1997nk} only considered the case when $z$ and $w$ are close while $\bar{z}$ and $\bar{w}$ are not, so the result is slightly different.
 %\end{remark}
 \paragraph{The OPE of $T$ and $T$}
-Using the same method, we also have the OPE of the energy-momentum tensor with itself 
+Using the same method, we also have the OPE of the energy-momentum tensor with itself
 \begin{subequations}
     \begin{align}
-        T(z,\bar{z})T(w,\bar{w})=&4\pi^2 g^2:\partial\phi(z,\bar{z})\partial\phi(z,\bar{z})::\partial\phi(w,\bar{w})\partial\phi(w,\bar{w}):\label{eq:2dcft:boson_OPE:T_T_1}\\
-                &\sim\frac{1/2}{(z-w)^4}+\frac{2T(w)}{(z-w)^2}+\frac{\partial T(w)}{(z-w)}.\label{eq:2dcft:boson_OPE:T_T_final}
+        T(z,\bar{z})T(w,\bar{w})= & 4\pi^2 g^2:\partial\phi(z,\bar{z})\partial\phi(z,\bar{z})::\partial\phi(w,\bar{w})\partial\phi(w,\bar{w}):\label{eq:2dcft:boson_OPE:T_T_1} \\
+                                  & \sim\frac{1/2}{(z-w)^4}+\frac{2T(w)}{(z-w)^2}+\frac{\partial T(w)}{(z-w)}.\label{eq:2dcft:boson_OPE:T_T_final}
     \end{align}
 \end{subequations}
 See the full derivation in \cref{appendix:deriva_OPE:boson_T_T}.
-Thus we can write 
+Thus we can write
 \begin{align}
     T(z)T(w)\sim\frac{1/2}{(z-w)^4}+\frac{2T(w)}{(z-w)^2}+\frac{\partial T(w)}{(z-w)}.
 \end{align}
@@ -1574,11 +1574,11 @@ And in the same way we also have
     \bar{T}(\bar{z})\bar{T}(\bar{w})\sim\frac{1/2}{(\bar{z}-\bar{w})^4}+\frac{2\bar{T}(\bar{w})}{(\bar{z}-\bar{w})^2}+\frac{\partial \bar{T}(\bar{w})}{(\bar{z}-\bar{w})}.
 \end{align}
 \paragraph{The OPE of $T$ and $\bar{T}$}
-From \cref{eq:2dcft:boson_OPE:partial_phi_partial_phi_final}, we have 
+From \cref{eq:2dcft:boson_OPE:partial_phi_partial_phi_final}, we have
 \begin{align}
     \expval{\partial\phi(z,\bar{z})\bar{\partial}\phi(w,\bar{w})}=0
 \end{align}
-and from this fact, it is easy to get 
+and from this fact, it is easy to get
 \begin{align}
     T(z,\bar{z})\bar{T}(w,\bar{w})\sim0.
 \end{align}
@@ -1586,33 +1586,33 @@ and from this fact, it is easy to get
 
 
 \subsubsection{The Free Fermion\label{subsubsec:2dcft:FFOPE:fermion}}
-In two dimensions, the Euclidean action of a free Majorana fermion is\sidenote{Some information about spinors in Eulidean spacetime can be found in \cite{Wetterich:2010ni,Stone:2020vva,McKeon:2001pm} and references therein.} 
+In two dimensions, the Euclidean action of a free Majorana fermion is\sidenote{Some information about spinors in Eulidean spacetime can be found in \cite{Wetterich:2010ni,Stone:2020vva,McKeon:2001pm} and references therein.}
 \begin{align}
     S=\frac{1}{2}g\int\dd[2]{x}\Psi^\dagger\gamma^0\gamma^\mu\partial_\mu\Psi
 \end{align}
-where the Dirac matrices $\gamma^\mu$ satisfy the so-called Dirac algebra 
+where the Dirac matrices $\gamma^\mu$ satisfy the so-called Dirac algebra
 \begin{align}
     \gamma^\mu\gamma^\nu+\gamma^\nu\gamma^\mu=2\eta^{\mu\nu}
 \end{align}
 \subsubsection{The Ghost System\label{subsubsec:2dcft:FFOPE:ghost}}
 \subsection{The Central Charge}
-As we saw in \cref{subsubsec:2dcft:FFOPE:boson,subsubsec:2dcft:FFOPE:fermion,subsubsec:2dcft:FFOPE:ghost}, a general OPE for energy-momentum tensor can be written in the form 
+As we saw in \cref{subsubsec:2dcft:FFOPE:boson,subsubsec:2dcft:FFOPE:fermion,subsubsec:2dcft:FFOPE:ghost}, a general OPE for energy-momentum tensor can be written in the form
 \begin{align}
     T(z)T(w)\sim\frac{c/2}{(z-w)^4}+\frac{2T(w)}{(z-w)^2}+\frac{\partial T(w)}{(z-w)}
 \end{align}
 where the constant $c$ depends on the specific model and it is called the \textit{central charge}.
 \begin{remark}
-    The central charge may not be determined from symmetry considerations: its value is determined by the short-distance behavior of the theory. 
+    The central charge may not be determined from symmetry considerations: its value is determined by the short-distance behavior of the theory.
 
-    When two decoupled systems (e.g., two free fields) are put together, the energy-momentum tensor of the total system is simply the sum of the energy-momentum tensors associated with each part, and the associated central charge is simply the sum of the central charges of the parts. 
+    When two decoupled systems (e.g., two free fields) are put together, the energy-momentum tensor of the total system is simply the sum of the energy-momentum tensors associated with each part, and the associated central charge is simply the sum of the central charges of the parts.
     Thus, the central charge is somehow an extensive measure of the number of degrees of freedom of the system.
 \end{remark}
 \subsubsection{Transfonnation of the Energy-Momentum Tensor}
 Under an infinitesimal local conformal transformation $z\to w(z,\bar{z})=z+\epsilon(z,\bar{z})$ and $\bar{z}\to \bar{w}(z,\bar{z})=\bar{z}+\bar{\epsilon}(z,\bar{z})$, using the conformal Ward identity \cref{eq:2dcft:conformal_ward_final} , we have%\sidenote{It shows that the variation of $T$ depends only on the variation of the holomorphic coordinate.} 
 \begin{align}
-    \delta_{\epsilon,\bar{\epsilon}} T(w,\bar{w})&=-\frac{1}{2\pi\ii}\oint_C\dd[]{z}\epsilon(z,\bar{z})\expval{T(z,\bar{z})T(w,\bar{w})}+\frac{1}{2\pi\ii}\oint_C\dd[]{\bar{z}}\bar{\epsilon}(z,\bar{z})\expval{\bar{T}(z,\bar{z})T(w,\bar{w})}\notag\\
-                        &\sim-\frac{1}{2\pi\ii}\oint_C\dd[]{z}\epsilon(z,\bar{z})T(z)T(w)\notag\\
-                        &\sim-\frac{1}{12}c\partial^3_w\epsilon(w,\bar{w})-2T(w,\bar{w})\partial_w\epsilon(w,\bar{w})-\epsilon(w,\bar{w})\partial_w T(w,\bar{w}),\label{eq:2dcft:central_charge:EMtensor_transform}
+    \delta_{\epsilon,\bar{\epsilon}} T(w,\bar{w}) & =-\frac{1}{2\pi\ii}\oint_C\dd[]{z}\epsilon(z,\bar{z})\expval{T(z,\bar{z})T(w,\bar{w})}+\frac{1}{2\pi\ii}\oint_C\dd[]{\bar{z}}\bar{\epsilon}(z,\bar{z})\expval{\bar{T}(z,\bar{z})T(w,\bar{w})}\notag \\
+                                                  & \sim-\frac{1}{2\pi\ii}\oint_C\dd[]{z}\epsilon(z,\bar{z})T(z)T(w)\notag                                                                                                                              \\
+                                                  & \sim-\frac{1}{12}c\partial^3_w\epsilon(w,\bar{w})-2T(w,\bar{w})\partial_w\epsilon(w,\bar{w})-\epsilon(w,\bar{w})\partial_w T(w,\bar{w}),\label{eq:2dcft:central_charge:EMtensor_transform}
 \end{align}
 where $C$ is an infinitesimal closed contour that includes $(w,\bar{w})$ and residue theorem is used in the evaluation of the integral.
 The finite form of \cref{eq:2dcft:central_charge:EMtensor_transform} is%\sidenote{Also shows that the variation of $T$ depends only on the variation of the holomorphic coordinate.}
@@ -1628,19 +1628,19 @@ where we have introduced the \textit{Schwarzian derivative}
     The appearance of the central charge $c$, also known as the \textit{conformal anomaly}, is related to a "soft" breaking of conformal symmetry by the introduction of a macroscopic scale into the system.
 \end{intu}
 \begin{example}[CFT on a cylinder]
-    Consider a CFT living on the whole complex plane whose central charge is $c$ and we map this theory to a cylinder of circumference $L$ by the transformation 
+    Consider a CFT living on the whole complex plane whose central charge is $c$ and we map this theory to a cylinder of circumference $L$ by the transformation
     \begin{align}
         z\to w=\frac{L}{2\pi}\ln{z}\qand \bar{z}\to \bar{w}=\frac{L}{2\pi}\ln{\bar{z}}.
     \end{align}
-    Using \cref{eq:2dcft:c:transformation_T}, we know the energy-momentum tensor $T_{\text{cyl.}}(w)$ is related to corresponding tensor $T_{\text{pl.}}(z)$ on the plane by 
+    Using \cref{eq:2dcft:c:transformation_T}, we know the energy-momentum tensor $T_{\text{cyl.}}(w)$ is related to corresponding tensor $T_{\text{pl.}}(z)$ on the plane by
     \begin{align}
         T_{\text{cyl.}}(w,\bar{w})=\left(\frac{2\pi}{L}\right)^2\left[T_{\text{pl.}}(z,\bar{z})z^2-\frac{c}{24}\right].
     \end{align}
-    If $\expval{T_{\text{pl.}}}=0$ after quantization, then we have 
+    If $\expval{T_{\text{pl.}}}=0$ after quantization, then we have
     \begin{align}
         \expval{T_{\text{cyl.}}(w,\bar{w})}=-\frac{c\pi^2}{6L^2}
     \end{align}
-    which means the central charge is proportional to the vacuum energy, the \textit{Casimir energy}. 
+    which means the central charge is proportional to the vacuum energy, the \textit{Casimir energy}.
 \end{example}
 
 If the $d=2$ CFT is defined on a curved manifold, then curvature introduces a macroscopic scale in the system which will make the energy-momentum tensor not traceless anymore.
@@ -1651,7 +1651,7 @@ If the $d=2$ CFT is defined on a curved manifold, then curvature introduces a ma
     \end{align}
 \end{claim}
 \snt{Note that we are using ordinary coordinates here, not complex coordonates.}
-A proof of \cref{claim:2dcft:c_R} for the free boson can be found in \cite[Appendix 5.A]{DiFrancesco:1997nk}. 
+A proof of \cref{claim:2dcft:c_R} for the free boson can be found in \cite[Appendix 5.A]{DiFrancesco:1997nk}.
 \clearpage
 \section{The Operator Formalism}
 In this section, we develop a new quantization formalism of $d=2$ CFT which is based on a Hilbert space and operators in it.
@@ -1664,7 +1664,7 @@ In this section, we develop a new quantization formalism of $d=2$ CFT which is b
 \subsubsection{Radial Quantization}
 Now, we introduce the new quantization formalism which is called the \textit{radial quantization}.
 \begin{property}{Radial quantization}
-    In radial quantization: 
+    In radial quantization:
     \begin{itemize}
         \item The fields $\phi(z,\bar{z})$ are now operators.
         \item Hilbert space are constructed from \textit{vacuum} $\ket{0}$.
@@ -1686,7 +1686,7 @@ If we first have the inner products defined, the Hermitian conjugation of operat
 \end{intu}
 \snt{Notice that for an operator $\mathcal{O}$, its Hermitian conjugation satisfies $$\bra{A}\mathcal{O}\ket{B}=\bra{B}\mathcal{O}^\dagger\ket{A}$$ for any states $\ket{A}$ and $\ket{B}$. You can think of the Hermitian conjugation of an operator as a map of the operator to another which is determined by the choice of inner product. So in the other direction, we can say the choice of Hermitian conjugation can determine the inner product.}
 \begin{definition}[Hermitian conjugation in radial quantization\label{thm:Hermitian_conjugation_in_radial_quantization}]
-    In radial quantization, the Hermitian conjugation of a local operator\snm $\phi(z,\bar{z})$ is defined to be 
+    In radial quantization, the Hermitian conjugation of a local operator\snm $\phi(z,\bar{z})$ is defined to be
     \begin{align}
         \left[\phi(z,\bar{z})\right]^\dagger\equiv\bar{z}^{-2h}z^{-2\bar{h}}\phi\left(\frac{1}{\bar{z}},\frac{1}{z}\right)
     \end{align}
@@ -1695,38 +1695,38 @@ If we first have the inner products defined, the Hermitian conjugation of operat
 \snt{Note that the energy-momentum tensor is also a local operator.}
 Now that we have the Hermitian conjugate of operators, we can partially "recover" inner product of two arbitrary state vectors $\phi_1(z_1,\bar{z}_1)\ket{0}$ and $\phi_2(z_2,\bar{z}_2)\ket{0}$ in Hilbert space\sidenote{We used the assumption that all states in this Hilbert state can be constructed from acting some operators on the vacuum $\ket{0}$ (see the property of radial quantization above.).}:
 \begin{align}
-    (\phi_1(z_1,\bar{z}_1)\ket{0},\phi_2(z_2,\bar{z}_2)\ket{0})&=\bra{0}\phi_1(z_1,\bar{z}_1)^\dagger\phi_2(z_2,\bar{z}_2)\ket{0}\notag\\
-                                                                &=\bar{z}^{-2h_1}z^{-2\bar{h}_1}\ev**{\phi_1\left(\frac{1}{\bar{z}_1},\frac{1}{z_1}\right)\phi_2(z_2,\bar{z}_2)}{0},
+    (\phi_1(z_1,\bar{z}_1)\ket{0},\phi_2(z_2,\bar{z}_2)\ket{0}) & =\bra{0}\phi_1(z_1,\bar{z}_1)^\dagger\phi_2(z_2,\bar{z}_2)\ket{0}\notag                                             \\
+                                                                & =\bar{z}^{-2h_1}z^{-2\bar{h}_1}\ev**{\phi_1\left(\frac{1}{\bar{z}_1},\frac{1}{z_1}\right)\phi_2(z_2,\bar{z}_2)}{0},
 \end{align}
 and with the definition of the action of any operator on the vacuum state $\ket{0}$, we can fully recover the inner product.
 
 \paragraph{Mode expansions}
-A conformal field $\phi(z,\bar{z})$ of dimensions $(h,\bar{h})$ may be mode expanded as 
+A conformal field $\phi(z,\bar{z})$ of dimensions $(h,\bar{h})$ may be mode expanded as
 \begin{subequations}\label{eq:operator:phi_expansion}
     \begin{align}
-        \phi(z,\bar{z})=&\sum_{m\in\mathbb{Z}}\sum_{n\in\mathbb{Z}}z^{-m-h}\bar{z}^{-n-\bar{h}}\phi_{m,n}\label{eq:operator:phi_expansion_a}\\
-        \phi_{m,n}=&\frac{1}{2\pi\ii}\oint\dd[]{z}z^{m+h-1}\frac{1}{2\pi\ii}\oint\dd[]{\bar{z}}\bar{z}^{n+\bar{h}-1}\phi(z,\bar{z}).
+        \phi(z,\bar{z})= & \sum_{m\in\mathbb{Z}}\sum_{n\in\mathbb{Z}}z^{-m-h}\bar{z}^{-n-\bar{h}}\phi_{m,n}\label{eq:operator:phi_expansion_a} \\
+        \phi_{m,n}=      & \frac{1}{2\pi\ii}\oint\dd[]{z}z^{m+h-1}\frac{1}{2\pi\ii}\oint\dd[]{\bar{z}}\bar{z}^{n+\bar{h}-1}\phi(z,\bar{z}).
     \end{align}
 \end{subequations}
-From \cref{thm:Hermitian_conjugation_in_radial_quantization}, we can write 
+From \cref{thm:Hermitian_conjugation_in_radial_quantization}, we can write
 \begin{align}
-    \phi(z,\bar{z})^\dagger\equiv&\bar{z}^{-2h} z^{-2\bar{h}}\phi(1/\bar{z},1/z)\notag\\
-                            =&\bar{z}^{-2h}z^{-2\bar{h}}\sum_{m\in\mathbb{Z}}\sum_{n\in\mathbb{Z}}\phi_{m,n}\bar{z}^{m+h}z^{n+\bar{h}}\notag\\
-                            =&\sum_{m\in\mathbb{Z}}\sum_{n\in\mathbb{Z}}\phi_{-m,-n}\bar{z}^{-m-h}z^{-n-\bar{h}}.\label{eq:operator:conju_exp_1}
+    \phi(z,\bar{z})^\dagger\equiv & \bar{z}^{-2h} z^{-2\bar{h}}\phi(1/\bar{z},1/z)\notag                                                               \\
+    =                             & \bar{z}^{-2h}z^{-2\bar{h}}\sum_{m\in\mathbb{Z}}\sum_{n\in\mathbb{Z}}\phi_{m,n}\bar{z}^{m+h}z^{n+\bar{h}}\notag     \\
+    =                             & \sum_{m\in\mathbb{Z}}\sum_{n\in\mathbb{Z}}\phi_{-m,-n}\bar{z}^{-m-h}z^{-n-\bar{h}}.\label{eq:operator:conju_exp_1}
 \end{align}
 
-Note that on the real surface, using \cref{eq:operator:phi_expansion_a} we can also write 
+Note that on the real surface, using \cref{eq:operator:phi_expansion_a} we can also write
 \begin{align}
     \phi(z,\bar{z})^\dagger=\sum_{m\in\mathbb{Z}}\sum_{n\in\mathbb{Z}}\bar{z}^{-m-h}z^{-n-\bar{h}}\phi^\dagger_{m,n}\label{eq:operator:conju_exp_alter}
 \end{align}
-and compare \cref{eq:operator:conju_exp_1,eq:operator:conju_exp_alter}, we have 
+and compare \cref{eq:operator:conju_exp_1,eq:operator:conju_exp_alter}, we have
 \begin{align}
     \phi^\dagger_{m,n}=\phi_{-m,-n}.
 \end{align}
 \paragraph{Aspects of vacuum}
 Now for the state $\phi(0,0)$ to be well defined, there must be some constraints on the definition of vacuum $\ket{0}$.
 \begin{property}[Vacuum in radial quantization]
-    The vacuum $\ket{0}$ in radial quantization is defined to satisfy 
+    The vacuum $\ket{0}$ in radial quantization is defined to satisfy
     \begin{align}
         \phi_{m,n}\ket{0}=0\qfor m>-h,n>-\bar{h}.\label{eq:operator_formalism:partial_vacuum_def}
     \end{align}
@@ -1735,11 +1735,11 @@ Now for the state $\phi(0,0)$ to be well defined, there must be some constraints
     Note that \cref{eq:operator_formalism:partial_vacuum_def} is only part of the requirements that $\ket{0}$ must follow and in following sections there are more constraints.
 \end{remark}
 In the following sections, we will use the simplified notation which drops the dependence of fields upon the antiholomorphic coordinate.
-Thus, the expansion \cref{eq:operator:phi_expansion} is now written in the simplified form\sidenote{It should be remembered that the antiholomorphic dependence is still here and can be easily restored due to the fact that the holomorphic and antiholomorphic degrees of freedom decouple.} 
+Thus, the expansion \cref{eq:operator:phi_expansion} is now written in the simplified form\sidenote{It should be remembered that the antiholomorphic dependence is still here and can be easily restored due to the fact that the holomorphic and antiholomorphic degrees of freedom decouple.}
 \begin{subequations}
     \begin{align}
-        \phi(z)=&\sum_{m\in\mathbb{Z}}z^{-m-h}\phi_m\\
-        \phi_m=&\frac{1}{2\pi\ii}\oint\dd[]{z}z^{m+h-1}\phi(z).
+        \phi(z)= & \sum_{m\in\mathbb{Z}}z^{-m-h}\phi_m             \\
+        \phi_m=  & \frac{1}{2\pi\ii}\oint\dd[]{z}z^{m+h-1}\phi(z).
     \end{align}
 \end{subequations}
 
@@ -1748,10 +1748,10 @@ Thus, the expansion \cref{eq:operator:phi_expansion} is now written in the simpl
     The \textit{radial ordering} of two operators $\phi_1(z)$ and $\phi_2(w)$ is explicitly defined by\snm
     \begin{align}
         \mathcal{R}\left(\phi_1(z)\phi_2(w)\right)\equiv\begin{cases}
-            \phi_1(z)\phi_2(w)&\qif\abs{z}>\abs{w}\\
-            \phi_2(w)\phi_1(z)&\qif\abs{z}<\abs{w}.
-        \end{cases}
-    \end{align} 
+                                                            \phi_1(z)\phi_2(w) & \qif\abs{z}>\abs{w}  \\
+                                                            \phi_2(w)\phi_1(z) & \qif\abs{z}<\abs{w}.
+                                                        \end{cases}
+    \end{align}
     It is easy to generalize this to the case where more than 2 operators present.
     If the two fields are fermions, a minus sign is added in front of the second expression.
 \end{definition}
@@ -1764,23 +1764,23 @@ Now we introduce the computation of the correlation functions in radial quantiza
 \end{boxmath}
 In the following, we shall not write the radial ordering symbol $\mathcal{R}$ every time, but radial ordering is implicit.
 \paragraph{OPE and commutation relation}
-Let $a(z)$ and $b(z)$ be two fields and consider the integral 
+Let $a(z)$ and $b(z)$ be two fields and consider the integral
 \begin{align}
-    \oint_w\dd[]{z}\expval{a(z)b(w)}=&\oint_{C_1}\dd[]{z}\ev**{a(z)b(w)}{0}-\oint_{C_2}\dd[]{z}\ev**{b(w)a(z)}{0}\label{eq:operator:OPE_comm:A_bw}
-                                    %=&\ev**{\comm{A}{b(w)}}{0}
+    \oint_w\dd[]{z}\expval{a(z)b(w)}= & \oint_{C_1}\dd[]{z}\ev**{a(z)b(w)}{0}-\oint_{C_2}\dd[]{z}\ev**{b(w)a(z)}{0}\label{eq:operator:OPE_comm:A_bw}
+    %=&\ev**{\comm{A}{b(w)}}{0}
 \end{align}
-where the integral $\oint_w\dd[]{z}$ is evaluated along a circle at $z=w$. 
+where the integral $\oint_w\dd[]{z}$ is evaluated along a circle at $z=w$.
 The radius of the circle $C_1$ and $C_2$ are $\abs{w}+\epsilon$ and $\abs{w}-\epsilon$ respectively.
 We see that the LHS of \cref{eq:operator:OPE_comm:A_bw} does not depend on the parameter $\epsilon$, so we can take the limit $\epsilon\to0$ in a well-defined way and thus \cref{eq:operator:OPE_comm:A_bw} becomes
 \begin{align}
-    \oint_w\dd[]{z}\expval{a(z)b(w)}=&\ev**{\comm{A}{b(w)}}{0}\label{eq:operator:OPE_comm:def}
+    \oint_w\dd[]{z}\expval{a(z)b(w)}= & \ev**{\comm{A}{b(w)}}{0}\label{eq:operator:OPE_comm:def}
 \end{align}
 where $A\equiv\oint_C a(z)\dd[]{z}$ and radius of circle $C$ is $\abs{w}$.
 %\begin{align}
 %    \comm{A}{b(w)}\equiv\oint_{C_1}\dd[]{z}a(z)b(w)-\oint_{C_2}\dd[]{z}b(w)a(z).\label{eq:operator:def_comm}
 %\end{align}
 
-Integrate both sides of \cref{eq:operator:OPE_comm:def}, we have 
+Integrate both sides of \cref{eq:operator:OPE_comm:def}, we have
 \begin{boxmath}{Equal-time Commutator}
     \begin{align}
         \ev**{\comm{A}{B}}{0}=\oint_0\dd[]{w}\ev**{\comm{A}{b(w)}}{0}=\oint_0\dd[]{w}\oint_w\dd[]{z}\expval{a(z)b(w)}.\label{eq:operator:equal_time_comm}
@@ -1800,24 +1800,24 @@ We define the \textit{conformal charge}
 \begin{align}
     Q_\epsilon\equiv\frac{1}{2\pi\ii}\oint_C\dd[]{z}\epsilon(z)T(z).\label{eq:operator:def:Q_epsilon}
 \end{align}
-where the integral contour circle $C$ is taken to be large enough to contain other operators we will see later. 
-Using the conforamal Ward identity \cref{eq:2dcft:conformal_ward_final}, we have 
+where the integral contour circle $C$ is taken to be large enough to contain other operators we will see later.
+Using the conforamal Ward identity \cref{eq:2dcft:conformal_ward_final}, we have
 \begin{align}
     \delta_\epsilon\expval{\phi(w)}=-\ev**{\comm{Q_\epsilon}{\phi(w)}}{0}
 \end{align}
 which means that the generator $Q_\epsilon$ is the generator of conformal transformations\sidenote{Usually in quantum mechanics, generators are defined to be operaotors. Here the definition of generators are understood within the correlation functions.}.
 
-Expand the energy-momentum tensor 
+Expand the energy-momentum tensor
 \begin{subequations}
     \begin{align}
-        T(z)&=\sum_{n\in\mathbb{Z}}z^{-n-2}L_n\quad L_n=\frac{1}{2\pi\ii}\oint_C\dd[]{z}z^{n+1}T(z)\label{eq:operator:conformal_generator:T_expand}\\
-        \bar{T}(\bar{z})&=\sum_{n\in\mathbb{Z}}\bar{z}^{-n-2}L_n\quad \bar{L}_n=\frac{1}{2\pi\ii}\oint_C\dd[]{\bar{z}}\bar{z}^{n+1}\bar{T}(\bar{z})
+        T(z)             & =\sum_{n\in\mathbb{Z}}z^{-n-2}L_n\quad L_n=\frac{1}{2\pi\ii}\oint_C\dd[]{z}z^{n+1}T(z)\label{eq:operator:conformal_generator:T_expand} \\
+        \bar{T}(\bar{z}) & =\sum_{n\in\mathbb{Z}}\bar{z}^{-n-2}L_n\quad \bar{L}_n=\frac{1}{2\pi\ii}\oint_C\dd[]{\bar{z}}\bar{z}^{n+1}\bar{T}(\bar{z})
     \end{align}
 \end{subequations}
-and also expand the infinitesimal conforamal change $\epsilon(z)$ as 
+and also expand the infinitesimal conforamal change $\epsilon(z)$ as
 \begin{align}
     \epsilon(z)=\sum_{n\in\mathbb{Z}}z^{n+1}\epsilon_n.\label{eq:operator:conformal_generator:epsilon_expand}
-\end{align} 
+\end{align}
 Now using \cref{eq:operator:conformal_generator:T_expand,eq:operator:conformal_generator:epsilon_expand}, \cref{eq:operator:def:Q_epsilon} becomes
 \begin{align}
     Q_{\epsilon}=\sum_{n\in\mathbb{Z}}\epsilon_n L_n.
@@ -1825,9 +1825,9 @@ Now using \cref{eq:operator:conformal_generator:T_expand,eq:operator:conformal_g
 \begin{boxmath}{Virasoro Algebra}
     \begin{subequations}
         \begin{align}
-            \comm{L_n}{L_m}&=(n-m)L_{n+m}+\frac{c}{12}n(n^2-1)\delta_{n+m,0}\label{eq:operator:virasoro_1}\\
-            \comm{L_n}{\bar{L}_m}&=0\\
-            \comm{\bar{L}_n}{\bar{L}_m}&=(n-m)\bar{L}_{n+m}+\frac{c}{12}n(n^2-1)\delta_{n+m,0}
+            \comm{L_n}{L_m}             & =(n-m)L_{n+m}+\frac{c}{12}n(n^2-1)\delta_{n+m,0}\label{eq:operator:virasoro_1} \\
+            \comm{L_n}{\bar{L}_m}       & =0                                                                             \\
+            \comm{\bar{L}_n}{\bar{L}_m} & =(n-m)\bar{L}_{n+m}+\frac{c}{12}n(n^2-1)\delta_{n+m,0}
         \end{align}
     \end{subequations}
 \end{boxmath}
@@ -1839,54 +1839,54 @@ Now using \cref{eq:operator:conformal_generator:T_expand,eq:operator:conformal_g
 \paragraph{Vacuum and symmetry}From the perspective of symmetry, the vacuum state $\ket{0}$ must be invariant under global conformal transformations which means that it must be annihilated by $L_{-1}$, $L_0$ and $L_1$ and their antiholomorphic counterparts.
 This can be achieved by the following requirement on $\ket{0}$
 \begin{property}[Vacuum in radial quantization]
-    The vacuum $\ket{0}$ in radial quantization is defined to satisfy that $T(z)\ket{0}$ and $\bar{T}\ket{0}$ are well-defined as $z,\bar{z}\to0$, which implies 
+    The vacuum $\ket{0}$ in radial quantization is defined to satisfy that $T(z)\ket{0}$ and $\bar{T}\ket{0}$ are well-defined as $z,\bar{z}\to0$, which implies
     \begin{subequations}\label{eq:operator_formalism:hilbert:vacuum:L}
         \begin{align}
-            L_n\ket{0}&=0\\
-            \bar{L}_n\ket{0}&=0,
+            L_n\ket{0}       & =0  \\
+            \bar{L}_n\ket{0} & =0,
         \end{align}
     \end{subequations}
     where $n\geq1$.
 \end{property}
-\Cref{eq:operator_formalism:hilbert:vacuum:L} also implies 
+\Cref{eq:operator_formalism:hilbert:vacuum:L} also implies
 \begin{align}
     \ev**{T(z)}{0}=\ev**{\bar{T}(z)}{0}=0.
 \end{align}
 \paragraph{Construction of Hilbert space from vacuum}
 \begin{align}
-    \ev**{\comm{L_n}{\phi(w,\bar{w})}}{0}&=\frac{1}{2\pi\ii}\oint_w\dd[]{z}z^{n+1}\expval{T(z)\phi(w,\bar{w})}\notag\\
-                                        &=\frac{1}{2\pi\ii}\oint_w z^{n+1}\left[\frac{h\phi(w,\bar{w})}{(z-w)^2}+\frac{\partial\phi(w,\bar{w})}{z-w}+\mathrm{reg.}\right]\notag\\
-                                        &=h(n+1)w^n\phi(w,\bar{w})+w^{n+1}\partial\phi(w,\bar{w})\label{eq:operator_formalism:hilbert:holo_comm}
+    \ev**{\comm{L_n}{\phi(w,\bar{w})}}{0} & =\frac{1}{2\pi\ii}\oint_w\dd[]{z}z^{n+1}\expval{T(z)\phi(w,\bar{w})}\notag                                                             \\
+                                          & =\frac{1}{2\pi\ii}\oint_w z^{n+1}\left[\frac{h\phi(w,\bar{w})}{(z-w)^2}+\frac{\partial\phi(w,\bar{w})}{z-w}+\mathrm{reg.}\right]\notag \\
+                                          & =h(n+1)w^n\phi(w,\bar{w})+w^{n+1}\partial\phi(w,\bar{w})\label{eq:operator_formalism:hilbert:holo_comm}
 \end{align}
-In the same way, we have 
+In the same way, we have
 \begin{align}
     \ev**{\comm{\bar{L}_n}{\phi(w,\bar{w})}}{0}=\bar{h}(n+1)\bar{w}^n\phi(w,\bar{w})+\bar{w}^{n+1}\bar{\partial}\phi(w,\bar{w}).\label{eq:operator_formalism:hilbert:antiholo_comm}
 \end{align}
-We define the \textit{asymptotic state} to be 
+We define the \textit{asymptotic state} to be
 \begin{align}
     \ket{h,\bar{h}}\equiv\phi(0,0)\ket{0}.
 \end{align}
-Using \cref{eq:operator_formalism:hilbert:holo_comm,eq:operator_formalism:hilbert:antiholo_comm} we can conclude that 
+Using \cref{eq:operator_formalism:hilbert:holo_comm,eq:operator_formalism:hilbert:antiholo_comm} we can conclude that
 \begin{align}
     \mel**{0}{L_0}{h,\bar{h}}=\mel**{0}{h}{h,\bar{h}}\quad\mel**{0}{\bar{L}_0}{h,\bar{h}}=\mel**{0}{\bar{h}}{h,\bar{h}}
 \end{align}
-and 
+and
 \begin{align}
     \begin{aligned}
-        \mel**{0}{L_n}{h,\bar{h}}&=0\\
-        \mel**{0}{\bar{L}_n}{h,\bar{h}}&=0
+        \mel**{0}{L_n}{h,\bar{h}}       & =0 \\
+        \mel**{0}{\bar{L}_n}{h,\bar{h}} & =0
     \end{aligned}\qif n>0.
 \end{align}
 
 \begin{align}
     \ev**{\comm{L_n}{\phi_m}}{0}=\left[n(h-1)-m\right]\expval{\phi_{n+m}}=\left[n(h-1)-m\right]\ev**{\phi_{n+m}}{0}
 \end{align}
-of which a special case is 
+of which a special case is
 \begin{align}
     \ev**{\comm{L_0}{\phi_m}}{0}=-m\ev**{\phi_m}{0}.
 \end{align}
 \begin{important}
-From now on, we shall omit the $\bra{0}$ and some of the $\ket{0}$ in the relavant formulas to simplify the notation. They should recovered in the final results.
+    From now on, we shall omit the $\bra{0}$ and some of the $\ket{0}$ in the relavant formulas to simplify the notation. They should recovered in the final results.
 \end{important}
 From \cref{eq:operator:virasoro_1}, we can see the generators $L_{-m}(m>0)$ increase the conformal dimension
 \begin{align}
@@ -1903,125 +1903,9 @@ The state \cref{eq:operator:hilbert:excited_state} is an eigenstate of $L_0$ wit
 The states in the form of \cref{eq:operator:hilbert:excited_state} are called \textit{descendants} of the asymptotic state $\ket{h}$ and the integer $N$ is called the level of the descendant.
 
 
-\subsection{The Free Boson}
-\subsubsection{Canonical Quantization on the Cylinder}
-Let $\phi(x,t)$ be a free Bose field defined on a cylinder of circumference $L$: $\phi(x+L,t)\equiv\phi(x,t)$.
-This field may be Fourier expanded as follows:
-\begin{subequations}
-    \begin{align}
-        \phi(x,t)&=\sum_n\me^{2\pi\ii nx/L}\phi_n(t)\\
-        \phi_n(t)&=\frac{1}{L}\int_0^L\dd{x}\me^{-2\pi\ii nx/L}\phi(x,t).\label{eq:operator:boson:mode_field:2}
-    \end{align}
-\end{subequations}
-The free field Lagrangian now can be written as 
-\begin{align}
-    \frac{1}{2}g\int_0^L\dd{x}\left[\left(\partial_t\phi\right)^2-\left(\partial_x\phi\right)^2\right]=\frac{1}{2}gL\sum_n\left[\dot{\phi}_n(t)\dot{\phi}_{-n}(t)-\left(\frac{2\pi n}{L}\right)^2\phi_n(t)\phi_{-n}(t)\right].
-\end{align}
-The momentum conjugate to $\phi_n$ is 
-\begin{align}
-    \pi_n(t)=gL\dot{\phi}_{-n}(t)
-\end{align}
-and the Hamiltonian is 
-\begin{align}
-    H=\frac{1}{2gL}\sum_n\left[\pi_n(t)\pi_{-n}(t)+\left(2\pi ng\right)^2\phi_n(t)\phi_{-n}(t)\right].
-\end{align}
-We assume the Hamiltonian does not depend on time, so we may write 
-\begin{align}
-    H=\frac{1}{2gL}\sum_n\left[\pi_n\pi_{-n}+\left(2\pi ng\right)^2\phi_n\phi_{-n}\right].
-\end{align}
-where $\phi_n\equiv\phi_n(0)$ and $\pi_n\equiv\pi_n(0)$.
-We can simplify the notation by writing a time-dependent operator $A(t)$ at time $t=0$ as $A$.
-\begin{property}
-In canonical quantization, the modes $\phi_n$ and their corresponding momentum conjugation $\pi_n$ are turned into operators and the equal-time canonical commutation relation\snm is imposed:
-\begin{align}
-    \comm{\phi_m}{\pi_n}=i\delta_{nm}.\label{eq:operator:boson:commutation}
-\end{align}
-\end{property}
-\snt{Of course, it can be shown$$\comm{\phi_m(t)}{\pi_n(t)}=i\delta_{nm}$$by using the time evolution operator.}
-We define the operators\sidenote{Similar to the usual creation and annihilation operators but the $n=0$ case is not well-defined.} $\tilde{a}_n(t)$
-\begin{align}
-    \tilde{a}_n(t)\equiv\frac{1}{\sqrt{4\pi g\abs{n}}}\left(2\pi g\abs{n}\phi_n(t)+\ii\pi_{-n}(t)\right)\quad(n\neq0)\label{eq:operator:boson:origin_ladder}
-\end{align}
-and it can be checked that $\comm{\tilde{a}_n}{\tilde{a}_m}=0$ and $\comm{\tilde{a}_n^\dagger}{\tilde{a}_m^\dagger}=\delta_{mn}$.
-We further define the following operators 
-\begin{align}
-    a_n(t)\equiv\begin{cases}
-        -\ii\sqrt{n}\tilde{a}_n(t)&(n>0)\\
-        \ii\sqrt{-n}\tilde{a}^\dagger_{-n}(t)&(n<0)
-    \end{cases}
-    \quad
-    \bar{a}_n\equiv\begin{cases}
-        -\ii \sqrt{n}\tilde{a}_{-n}(t)&(n>0)\\
-        \ii \sqrt{-n}\tilde{a}_n^\dagger(t)&(n<0)
-    \end{cases}\label{eq:operator:boson:new_ladder}
-\end{align}
-and treat the mode $\phi_0$ separately.
-The associated commutation relations become
-\begin{align}
-    \comm{a_n(t)}{a_m(t)}=n\delta_{n+m}\quad\comm{a_n(t)}{\bar{a}_m(t)}=0\quad\comm{\bar{a}_n(t)}{\bar{a}_m(t)}=n\delta_{n+m}
-\end{align}
-and the Hamiltonian becomes 
-\begin{align}
-    H=\frac{1}{2gL}\pi_0^2+\frac{2\pi}{L}\sum_{n\neq0}\left(a_{-n}a_n+\bar{a}_{-n}\bar{a}_n\right).
-\end{align}
-It can be easily checked that 
-\begin{align}
-    \comm{H}{a_{-m}}=\frac{2\pi}{L}ma_{-m}
-\end{align}
-which means that $a_{-m} (m>0)$ is an ladder operator.
-
-From \cref{eq:operator:boson:origin_ladder,eq:operator:boson:origin_ladder}, we have 
-\begin{align}
-    \phi_n=\frac{\ii}{n\sqrt{4\pi g}}\left(a_n-\bar{a}_{-n}\right)\qfor n\neq0
-\end{align}
-and the mode expansion at $t=0$ can be written as 
-\begin{align}
-    \phi(x,0)=\phi_0+\frac{\ii}{\sqrt{4\pi g}}\sum_{n\neq0}\left(a_n-\bar{a}_{-n}\right)\me^{2\pi\ii nx/L}\label{eq:operator:boson:t0_mode}
-\end{align}
-Since $\phi(x,t)=\me^{\ii Ht}\phi(x,0)\me^{-\ii Ht}$, using \cref{eq:operator:boson:mode_field:2,eq:operator:boson:commutation,eq:operator:boson:origin_ladder,eq:operator:boson:new_ladder} we have 
-\begin{subequations}\label{eq:operator:boson:heis}
-    \begin{align}
-        \phi_0(t)=&\me^{\ii Ht}\phi_0\me^{-\ii Ht}=\phi_0+\frac{1}{gL}\pi_0 t\\
-        a_n(t)=&\me^{\ii Ht}a_n\me^{-\ii Ht}=a_n\me^{-2\pi\ii nt/L}\\
-        \bar{a}_n(t)=&\me^{\ii Ht}\bar{a}_n\me^{-\ii Ht}=\bar{a}_n\me^{-2\pi\ii nt}
-    \end{align}
-\end{subequations}
-Now using \cref{eq:operator:boson:t0_mode,eq:operator:boson:heis} we have 
-\begin{align}
-    \phi(x,t)&=\me^{\ii Ht}\phi(x,0)\me^{-\ii Ht}\notag\\
-             &=\phi_0+\frac{1}{gL}\pi_0 t+\frac{\ii}{\sqrt{4\pi g}}\sum_{n\neq0}\left(a_n\me^{2\pi\ii n(x-t)/L}-\bar{a}_{-n}\me^{2\pi\ii n(x+t)/L}\right)
-\end{align}
-Going over to Euclidean time (i.e., replace $t$ by $-\ii\tau$) and using the conformal coordinates
-\begin{align}
-    z=\me^{2\pi(\tau-\ii x)/L}\quad \bar{z}=\me^{2\pi(\tau+\ii x)/L}
-\end{align}
-we finally have 
-\begin{align}
-    \phi(z,\bar{z})=\phi_0-\frac{\ii}{4\pi g}\pi_0\ln(z\bar{z})+\frac{\ii}{\sqrt{4\pi g}}\sum_{n\neq0}\frac{1}{n}\left(a_n z^{-n}+\bar{a}_n\bar{z}^{-n}\right).\label{eq:operator:boson:phi_expan}
-\end{align}
-
-$\phi$ is not itself a primary field, but that its derivatives $\partial\phi$ and $\bar{\partial}\bar{\phi}$ are.
-From \cref{eq:operator:boson:phi_expan}, we have 
-\begin{align}
-    \ii\partial\phi(z)=\frac{1}{4\pi g}\frac{\pi_0}{z}+\frac{1}{\sqrt{4\pi g}}\sum_{n\neq0}a_n z^{-n-1}.
-\end{align}
-Comparing to \cref{eq:operator:phi_expansion_a}, we may introduce two operators $a_0$ and $\bar{a}_0$:
-\begin{align}
-    a_0\equiv\bar{a}_0\equiv\frac{\pi_0}{\sqrt{4\pi g}}
-\end{align}
-which allow us to include the zero-mode term into the sum 
-\begin{align}
-    \ii\partial\phi(z)=\frac{1}{\sqrt{4\pi g}}\sum_{n}a_n z^{-n-1}.
-\end{align}
-
-\subsubsection{Vertex Operators}
-\subsubsection{The Fock Space}
-\subsubsection{Twisted Boundary Conditions}
-\subsubsection{Compactified Boson}
-\subsection{The Free Fermion}
 \subsection{Normal Ordering\label{subsec:operator:normal_ordering}}
 \begin{intu}
-    In operator formalism of quantization, we seek a map $F:f\to\hat{f}$ from classical field (function in the phase space) to field operator. 
+    In operator formalism of quantization, we seek a map $F:f\to\hat{f}$ from classical field (function in the phase space) to field operator.
     We can see many composite fields in field theory, such as energy-momentum tensor $T$ in \cref{eq:FFOPE:FB:T_classical}, and for these fields the map $F$ can be done using the \textit{normal ordering} procedure.
 \end{intu}
 \paragraph{Normal ordering in radial quantization}
@@ -2041,20 +1925,20 @@ and from \cref{eq:operator:normal_o:def:nomal_o} we have
     \expval{(AB)(z)}=\left\{AB\right\}_0(w).
 \end{align}
 
-Now, we define the generalized contraction to include all the singular terms of the OPE 
+Now, we define the generalized contraction to include all the singular terms of the OPE
 \begin{align}
     \wick{\c A(z) \c B}(w)\equiv\sum_{n=1}^N\frac{\left\{AB\right\}_n(w)}{(z-w)^n}\label{eq:operator:normal_o:def:contrac}
 \end{align}
-Using \cref{eq:operator:normal_o:def:nomal_o,eq:operator:normal_o:def:contrac}, we can write 
+Using \cref{eq:operator:normal_o:def:nomal_o,eq:operator:normal_o:def:contrac}, we can write
 \begin{align}
     \expval{(AB)(w)}=\lim_{z\to w}\left[\expval{A(z)B(w)}-\wick{\c A(z) \c B}(w)\right]
 \end{align}
-and 
+and
 \begin{align}
     \expval{A(z)B(w)}=\wick{\c A(z) \c B}(w)+\expval{\left(A(z)B(w)\right)}.
 \end{align}
 \begin{claim}
-    A use representation of the normal ordering is 
+    A use representation of the normal ordering is
     \begin{align}
         \expval{(AB)(w)}=\frac{1}{2\pi\ii}\oint_w\frac{\dd[]{z}}{z-w}\expval{A(z)B(w)},\label{eq:operator:normal_o:alternative_norm_O}
     \end{align}
@@ -2062,15 +1946,15 @@ and
 \end{claim}
 \paragraph{Expansion of operators}
 Until now, all Laurent expansions for fields were made around the point $z=0$, but this point is not special.
-We can expand an field operator around an arbitrary point $w$ as 
+We can expand an field operator around an arbitrary point $w$ as
 \begin{align}
     \phi(z)=\sum_{n\in\mathbb{Z}}(z-w)^{-n-h}\phi_n(w)
 \end{align}
-and energy-momentum tensor operator can be expanded as 
+and energy-momentum tensor operator can be expanded as
 \begin{subequations}
     \begin{align}
-        T(z)=&\sum_{n\in\mathbb{Z}}(z-w)^{-n-2}L_n(w)\\
-        L_n(w)=&\frac{1}{2\pi\ii}\oint_w\dd[]{z}(z-w)^{n+1}T(z).
+        T(z)=   & \sum_{n\in\mathbb{Z}}(z-w)^{-n-2}L_n(w)          \\
+        L_n(w)= & \frac{1}{2\pi\ii}\oint_w\dd[]{z}(z-w)^{n+1}T(z).
     \end{align}
 \end{subequations}
 \begin{remark}
@@ -2078,52 +1962,205 @@ and energy-momentum tensor operator can be expanded as
 \end{remark}
 
 \paragraph{Modes of normal-ordered operator}
-The mode expansion $(AB)_n(w)$ of the normal-ordered operator $(AB)(w)$ can be defined in the usual way 
+The mode expansion $(AB)_n(w)$ of the normal-ordered operator $(AB)(w)$ can be defined in the usual way
 \begin{subequations}
     \begin{align}
-        \expval{(AB)(w)}&=\sum_{n\in\mathbb{Z}}(w-x)^{-n-h_A-h_B}\expval{(AB)_n(x)}\\
-        \expval{AB(x)_n}&=\frac{1}{2\pi\ii}\oint_x\dd[]{w} (w-x)^{n+h_A+h_B-1}\expval{(AB)(w)}.
+        \expval{(AB)(w)} & =\sum_{n\in\mathbb{Z}}(w-x)^{-n-h_A-h_B}\expval{(AB)_n(x)}             \\
+        \expval{AB(x)_n} & =\frac{1}{2\pi\ii}\oint_x\dd[]{w} (w-x)^{n+h_A+h_B-1}\expval{(AB)(w)}.
     \end{align}
 \end{subequations}
 
 We evaluate \cref{eq:operator:normal_o:alternative_norm_O} using the modes of operators.
-Note that  
+Note that
 \begin{align}
-    \oint_w&\frac{\dd[]{z}}{z-w}\expval{A(z)B(w)}\notag\\
-            &=\oint_{\abs{z}>\abs{w}}\frac{\dd[]{z}}{z-w}\ev**{A(z)B(w)}{0}-\oint_{\abs{z}<\abs{w}}\frac{\dd[]{z}}{z-w}\ev**{B(w)A(z)}{0}.\label{eq:operator:normal_o:alternative_norm_O_expanded}
+    \oint_w & \frac{\dd[]{z}}{z-w}\expval{A(z)B(w)}\notag                                                                                                                                           \\
+            & =\oint_{\abs{z}>\abs{w}}\frac{\dd[]{z}}{z-w}\ev**{A(z)B(w)}{0}-\oint_{\abs{z}<\abs{w}}\frac{\dd[]{z}}{z-w}\ev**{B(w)A(z)}{0}.\label{eq:operator:normal_o:alternative_norm_O_expanded}
 \end{align}
 
 Consider the first term in RHS of \cref{eq:operator:normal_o:alternative_norm_O_expanded}.
-Expand two fields around $x$ such that $\abs{z}>\abs{x}>\abs{w}$, we have 
+Expand two fields around $x$ such that $\abs{z}>\abs{x}>\abs{w}$, we have
 \begin{subequations}
     \begin{align}
-        A(z)=&\sum_{n\in\mathbb{Z}}(z-x)^{-n-h_A}A_n(x)\\
-        B(w)=&\sum_{p\in\mathbb{Z}} (w-x)^{-p-h_B}B_p(x).
+        A(z)= & \sum_{n\in\mathbb{Z}}(z-x)^{-n-h_A}A_n(x)   \\
+        B(w)= & \sum_{p\in\mathbb{Z}} (w-x)^{-p-h_B}B_p(x).
     \end{align}
 \end{subequations}
-And notice that 
+And notice that
 \begin{align}
     \frac{1}{z-w}=\frac{1}{(z-x)-(w-x)}=\sum_{l\in\mathbb{N}}\frac{(w-x)^l}{(z-x)^{l+1}},
-\end{align} 
+\end{align}
 we find
 \begin{subequations}
     \begin{align}
-        \frac{1}{2\pi\ii}&\oint_{\abs{z}>\abs{w}}\frac{\dd[]{z}}{z-w}\ev**{A(z)B(w)}{0}\notag\\
-        &=\frac{1}{2\pi\ii}\oint\dd[]{z}\sum_{n,p\in\mathbb{Z}}\sum_{l\in\mathbb{N}}(w-x)^{l-p-h_B}(z-x)^{-n-h_A-l-1}\ev**{A_n(x)B_p(x)}{0}\label{eq:operator:normal_o:mode_AB_1}\\
-        &=\sum_{n\leq-h_A}\sum_{p\in\mathbb{Z}}(w-x)^{-n-p-h_A-h_B}\ev**{A_n(x)B_p(x)}{0}.\label{eq:operator:normal_o:mode_AB_2}
+        \frac{1}{2\pi\ii} & \oint_{\abs{z}>\abs{w}}\frac{\dd[]{z}}{z-w}\ev**{A(z)B(w)}{0}\notag                                                                                                      \\
+                          & =\frac{1}{2\pi\ii}\oint\dd[]{z}\sum_{n,p\in\mathbb{Z}}\sum_{l\in\mathbb{N}}(w-x)^{l-p-h_B}(z-x)^{-n-h_A-l-1}\ev**{A_n(x)B_p(x)}{0}\label{eq:operator:normal_o:mode_AB_1} \\
+                          & =\sum_{n\leq-h_A}\sum_{p\in\mathbb{Z}}(w-x)^{-n-p-h_A-h_B}\ev**{A_n(x)B_p(x)}{0}.\label{eq:operator:normal_o:mode_AB_2}
     \end{align}
 \end{subequations}
 From \cref{eq:operator:normal_o:mode_AB_1} to \cref{eq:operator:normal_o:mode_AB_2}, after evaluation of the contour integral, we find only the terms with $l+n+h_A=0$ contribute and $n\leq-h_A$ since $l\geq0$.
-In the same way, it can be shown 
+In the same way, it can be shown
 \begin{align}
-    \frac{1}{2\pi\ii}&\oint_{\abs{w}>\abs{z}}\frac{\dd[]{z}}{z-w}\ev**{B(w)A(z)}{0}\notag\\
-            &=-\sum_{n>-h_A}\sum_{p\in\mathbb{Z}}(w-x)^{-n-p-h_A-h_B}\ev**{B_p(x)A_n(x)}{0}.\label{eq:operator:normal_o:mode_AB_3}
+    \frac{1}{2\pi\ii} & \oint_{\abs{w}>\abs{z}}\frac{\dd[]{z}}{z-w}\ev**{B(w)A(z)}{0}\notag                                                   \\
+                      & =-\sum_{n>-h_A}\sum_{p\in\mathbb{Z}}(w-x)^{-n-p-h_A-h_B}\ev**{B_p(x)A_n(x)}{0}.\label{eq:operator:normal_o:mode_AB_3}
 \end{align}
 
-Collecting \cref{eq:operator:normal_o:mode_AB_2,eq:operator:normal_o:mode_AB_3}, we have 
+Collecting \cref{eq:operator:normal_o:mode_AB_2,eq:operator:normal_o:mode_AB_3}, we have
 \begin{align}
     \expval{(AB)_m(w)}=\sum_{n\leq-h_A}\ev**{A_n(w) B_{m-n}(w)}{0}+\sum_{n>-h_A}\ev**{B_{m-n}(w)A_n(w)}{0}.
 \end{align}
+
+\paragraph{The generalized Wick theorem}
+For free fields, the Wick theorem can be written as 
+\begin{align}
+    \wick[sep=0pt,offset=1.5em]{\c1 \phi_1(x):\phi_2\c1 \phi_3:(y)=\c2 \phi_1(x)\c2 \phi_2(y):\phi_3(y):+\c3 \phi_1(x)\c3 \phi_3(y):\phi_2(y):}
+\end{align}
+The generalization of this relation to interacting fields is
+\begin{align}
+    \wick[sep=0pt,offset=1.5em]{\c1 A(z)(B\c1 C)(w)=\frac{1}{2\pi\ii}\oint_w\frac{\dd{x}}{x-w}\left[\c2 A(z)\c2 B(x)C(w)+B(x)\c3 A(z)\c3 C(w)\right]}
+\end{align}
+The argument for the generalization can be found in \cite{DiFrancesco:1997nk}. 
+\begin{remark}
+    Wick theorem is not merely a theorem about QFT, but is rather a completely general theorem about algebras obeying a few simple axioms. 
+    See an introduction in \url{https://physics.stackexchange.com/q/24180} (version: 2018-04-22).
+\end{remark}
+
+\subsection{The Free Boson}
+\subsubsection{Canonical Quantization on the Cylinder}
+Let $\phi(x,t)$ be a free Bose field defined on a cylinder of circumference $L$: $\phi(x+L,t)\equiv\phi(x,t)$.
+This field may be Fourier expanded as follows:
+\begin{subequations}
+    \begin{align}
+        \phi(x,t) & =\sum_n\me^{2\pi\ii nx/L}\phi_n(t)                                                            \\
+        \phi_n(t) & =\frac{1}{L}\int_0^L\dd{x}\me^{-2\pi\ii nx/L}\phi(x,t).\label{eq:operator:boson:mode_field:2}
+    \end{align}
+\end{subequations}
+The free field Lagrangian now can be written as
+\begin{align}
+    \frac{1}{2}g\int_0^L\dd{x}\left[\left(\partial_t\phi\right)^2-\left(\partial_x\phi\right)^2\right]=\frac{1}{2}gL\sum_n\left[\dot{\phi}_n(t)\dot{\phi}_{-n}(t)-\left(\frac{2\pi n}{L}\right)^2\phi_n(t)\phi_{-n}(t)\right].
+\end{align}
+The momentum conjugate to $\phi_n$ is
+\begin{align}
+    \pi_n(t)=gL\dot{\phi}_{-n}(t)
+\end{align}
+and the Hamiltonian is
+\begin{align}
+    H=\frac{1}{2gL}\sum_n\left[\pi_n(t)\pi_{-n}(t)+\left(2\pi ng\right)^2\phi_n(t)\phi_{-n}(t)\right].
+\end{align}
+We assume the Hamiltonian does not depend on time, so we may write
+\begin{align}
+    H=\frac{1}{2gL}\sum_n\left[\pi_n\pi_{-n}+\left(2\pi ng\right)^2\phi_n\phi_{-n}\right].
+\end{align}
+where $\phi_n\equiv\phi_n(0)$ and $\pi_n\equiv\pi_n(0)$.
+We can simplify the notation by writing a time-dependent operator $A(t)$ at time $t=0$ as $A$.
+\begin{property}
+    In canonical quantization, the modes $\phi_n$ and their corresponding momentum conjugation $\pi_n$ are turned into operators and the equal-time canonical commutation relation\snm is imposed:
+    \begin{align}
+        \comm{\phi_m}{\pi_n}=i\delta_{nm}.\label{eq:operator:boson:commutation}
+    \end{align}
+\end{property}
+\snt{Of course, it can be shown$$\comm{\phi_m(t)}{\pi_n(t)}=i\delta_{nm}$$by using the time evolution operator.}
+We define the operators\sidenote{Similar to the usual creation and annihilation operators but the $n=0$ case is not well-defined.} $\tilde{a}_n(t)$
+\begin{align}
+    \tilde{a}_n(t)\equiv\frac{1}{\sqrt{4\pi g\abs{n}}}\left(2\pi g\abs{n}\phi_n(t)+\ii\pi_{-n}(t)\right)\quad(n\neq0)\label{eq:operator:boson:origin_ladder}
+\end{align}
+and it can be checked that $\comm{\tilde{a}_n}{\tilde{a}_m}=0$ and $\comm{\tilde{a}_n^\dagger}{\tilde{a}_m^\dagger}=\delta_{mn}$.
+We further define the following operators
+\begin{align}
+    a_n(t)\equiv\begin{cases}
+                    -\ii\sqrt{n}\tilde{a}_n(t)            & (n>0) \\
+                    \ii\sqrt{-n}\tilde{a}^\dagger_{-n}(t) & (n<0)
+                \end{cases}
+    \quad
+    \bar{a}_n\equiv\begin{cases}
+                       -\ii \sqrt{n}\tilde{a}_{-n}(t)      & (n>0) \\
+                       \ii \sqrt{-n}\tilde{a}_n^\dagger(t) & (n<0)
+                   \end{cases}\label{eq:operator:boson:new_ladder}
+\end{align}
+and treat the mode $\phi_0$ separately.
+The associated commutation relations become
+\begin{align}
+    \comm{a_n(t)}{a_m(t)}=n\delta_{n+m}\quad\comm{a_n(t)}{\bar{a}_m(t)}=0\quad\comm{\bar{a}_n(t)}{\bar{a}_m(t)}=n\delta_{n+m}
+\end{align}
+and the Hamiltonian becomes
+\begin{align}
+    H=\frac{1}{2gL}\pi_0^2+\frac{2\pi}{L}\sum_{n\neq0}\left(a_{-n}a_n+\bar{a}_{-n}\bar{a}_n\right).
+\end{align}
+It can be easily checked that
+\begin{align}
+    \comm{H}{a_{-m}}=\frac{2\pi}{L}ma_{-m}
+\end{align}
+which means that $a_{-m} (m>0)$ is an ladder operator.
+
+From \cref{eq:operator:boson:origin_ladder,eq:operator:boson:origin_ladder}, we have
+\begin{align}
+    \phi_n=\frac{\ii}{n\sqrt{4\pi g}}\left(a_n-\bar{a}_{-n}\right)\qfor n\neq0
+\end{align}
+and the mode expansion at $t=0$ can be written as
+\begin{align}
+    \phi(x,0)=\phi_0+\frac{\ii}{\sqrt{4\pi g}}\sum_{n\neq0}\left(a_n-\bar{a}_{-n}\right)\me^{2\pi\ii nx/L}\label{eq:operator:boson:t0_mode}
+\end{align}
+Since $\phi(x,t)=\me^{\ii Ht}\phi(x,0)\me^{-\ii Ht}$, using \cref{eq:operator:boson:mode_field:2,eq:operator:boson:commutation,eq:operator:boson:origin_ladder,eq:operator:boson:new_ladder} we have
+\begin{subequations}\label{eq:operator:boson:heis}
+    \begin{align}
+        \phi_0(t)=    & \me^{\ii Ht}\phi_0\me^{-\ii Ht}=\phi_0+\frac{1}{gL}\pi_0 t    \\
+        a_n(t)=       & \me^{\ii Ht}a_n\me^{-\ii Ht}=a_n\me^{-2\pi\ii nt/L}           \\
+        \bar{a}_n(t)= & \me^{\ii Ht}\bar{a}_n\me^{-\ii Ht}=\bar{a}_n\me^{-2\pi\ii nt}
+    \end{align}
+\end{subequations}
+Now using \cref{eq:operator:boson:t0_mode,eq:operator:boson:heis} we have
+\begin{align}
+    \phi(x,t) & =\me^{\ii Ht}\phi(x,0)\me^{-\ii Ht}\notag                                                                                                   \\
+              & =\phi_0+\frac{1}{gL}\pi_0 t+\frac{\ii}{\sqrt{4\pi g}}\sum_{n\neq0}\left(a_n\me^{2\pi\ii n(x-t)/L}-\bar{a}_{-n}\me^{2\pi\ii n(x+t)/L}\right)
+\end{align}
+Going over to Euclidean time (i.e., replace $t$ by $-\ii\tau$) and using the conformal coordinates
+\begin{align}
+    z=\me^{2\pi(\tau-\ii x)/L}\quad \bar{z}=\me^{2\pi(\tau+\ii x)/L}
+\end{align}
+we finally have
+\begin{align}
+    \phi(z,\bar{z})=\phi_0-\frac{\ii}{4\pi g}\pi_0\ln(z\bar{z})+\frac{\ii}{\sqrt{4\pi g}}\sum_{n\neq0}\frac{1}{n}\left(a_n z^{-n}+\bar{a}_n\bar{z}^{-n}\right).\label{eq:operator:boson:phi_expan}
+\end{align}
+
+$\phi$ is not itself a primary field, but that its derivatives $\partial\phi$ and $\bar{\partial}\bar{\phi}$ are\sidenote{See \url{https://physics.stackexchange.com/q/235451} (version: 2016-02-12) for more details.}.
+From \cref{eq:operator:boson:phi_expan}, we have
+\begin{align}
+    \ii\partial\phi(z)=\frac{1}{4\pi g}\frac{\pi_0}{z}+\frac{1}{\sqrt{4\pi g}}\sum_{n\neq0}a_n z^{-n-1}.
+\end{align}
+Comparing to \cref{eq:operator:phi_expansion_a}, we may introduce two operators $a_0$ and $\bar{a}_0$:
+\begin{align}
+    a_0\equiv\bar{a}_0\equiv\frac{\pi_0}{\sqrt{4\pi g}}
+\end{align}
+which allow us to include the zero-mode term into the sum
+\begin{align}
+    \ii\partial\phi(z)=\frac{1}{\sqrt{4\pi g}}\sum_{n}a_n z^{-n-1}.
+\end{align}
+
+\subsubsection{Vertex Operators}
+\begin{align}
+    \mathcal{V}_\alpha(z,\bar{z})\equiv:\me^{\ii\alpha\phi(z,\bar{z})}:
+\end{align}
+The normal ordering has the following meaning, in terms of the operators appearing in the mode expansion \cref{eq:operator:boson:phi_expan}
+\begin{align}
+    \mathcal{V}_\alpha(z,\bar{z})= & \exp[\ii\alpha\phi_0+\frac{\alpha}{\sqrt{4\pi g}}\sum_{n>0}\frac{1}{n}\left(a_{-n}z^n+\bar{a}_{-n}\bar{z}^n\right)]\notag              \\
+                                   & \times\exp[\frac{\alpha}{4\pi g}\pi_0-\frac{\alpha}{\sqrt{4\pi g}}\sum_{n>0}\frac{1}{n}\left(a_n z^{-n}+\bar{a}_n \bar{z}^{-n}\right)]
+\end{align}
+\begin{claim}
+    The vertex operator fields are primary, with holomorphic and antiholomorphic dimensions
+    \begin{align}
+        h(\alpha)=\bar{h}(\alpha)=\frac{\alpha^2}{8\pi g}.
+    \end{align}
+\end{claim}
+\begin{proof}
+    Firstly, the OPE of $\partial\phi$ with $\mathcal{V}_\alpha$ is
+    \begin{align}
+        \partial\phi(z)\mathcal{V}_\alpha(w,\bar{w})=\sum_{n=0}^\infty\frac{(\ii\alpha)^n}{n!}\partial\phi(z):\phi(w,\bar{w})^n:
+    \end{align}
+\end{proof}
+\subsubsection{The Fock Space}
+\subsubsection{Twisted Boundary Conditions}
+\subsubsection{Compactified Boson}
+\subsection{The Free Fermion}
+
 
 \subsection{Conformal Families and Operator Algebra}
 \subsubsection{Descendant Fields}
@@ -2132,10 +2169,10 @@ Collecting \cref{eq:operator:normal_o:mode_AB_2,eq:operator:normal_o:mode_AB_3},
 \subsubsection{Conformal Blocks}
 \subsubsection{Crossing Symmetry and the Conformal Bootstrap}
 
-\clearpage 
+\clearpage
 \phantomsection\addcontentsline{toc}{section}{\protect\numberline{}Outlook}
 \section*{Outlook}
-Conformal field theory is widely used in many aspects of the modern theoretical physics. 
+Conformal field theory is widely used in many aspects of the modern theoretical physics.
 There are lots of interesting topics to be discovered and some of them with references are listed here:
 \begin{itemize}
     \item CFT in $d\geq3$: \cite{Rychkov:2016iqz}
@@ -2150,53 +2187,53 @@ There are lots of interesting topics to be discovered and some of them with refe
 \section{Technical Details}
 \subsection{Derivation of OPEs}
 \subsubsection{OPE for \texorpdfstring{$T$}{T} and \texorpdfstring{$T$}{T} of the Free Boson\label{appendix:deriva_OPE:boson_T_T}}
-Continuing from \cref{eq:2dcft:boson_OPE:T_T_1}, we have 
-    \begin{align}
-        &T(z,\bar{z})T(w,\bar{w})\notag\\
-        =&4\pi^2 g^2:\partial\phi(z,\bar{z})\partial\phi(z,\bar{z})::\partial\phi(w,\bar{w})\partial\phi(w,\bar{w}):\notag\\
-                                =&4\pi^2 g^2\lim_{z_1\to z}\lim_{\bar{z}_1\to\bar{z}}\lim_{w_1\to w}\lim_{\bar{w}_1\to\bar{w}}\notag\\
-                                &\left(\partial\phi(z,\bar{z})\partial\phi(z_1,\bar{z}_1)-\expval{\partial\phi(z,\bar{z})\partial\phi(z_1,\bar{z}_1)}\right)\notag\\
-                                &\left(\partial\phi(w,\bar{w})\partial\phi(w_1,\bar{w}_1)-\expval{\partial\phi(w,\bar{w})\partial\phi(w_1,\bar{w}_1)}\right)\notag\\
-                                =&4\pi^2 g^2\lim_{z_1\to z}\lim_{\bar{z}_1\to\bar{z}}\lim_{w_1\to w}\lim_{\bar{w}_1\to\bar{w}}\notag\\
-                                &\left(\partial\phi(z,\bar{z})\partial\phi(z_1,\bar{z}_1)\partial\phi(w,\bar{w})\partial\phi(w_1,\bar{w}_1)\right.\notag\\
-                                &-\expval{\partial\phi(z,\bar{z})\partial\phi(z_1,\bar{z}_1)}\partial\phi(w,\bar{w})\partial\phi(w_1,\bar{w}_1)-\expval{\partial\phi(w,\bar{w})\partial\phi(w_1,\bar{w}_1)}\partial\phi(z,\bar{z})\partial\phi(z_1,\bar{z}_1)\notag\\
-                                &\left.+\expval{\partial\phi(z,\bar{z})\partial\phi(z_1,\bar{z}_1)}\expval{\partial\phi(w,\bar{w})\partial\phi(w_1,\bar{w}_1)}\right).\label{eq:app:OPE:boson:TT:1}
-    \end{align}
+Continuing from \cref{eq:2dcft:boson_OPE:T_T_1}, we have
+\begin{align}
+      & T(z,\bar{z})T(w,\bar{w})\notag                                                                                                                                                                                                     \\
+    = & 4\pi^2 g^2:\partial\phi(z,\bar{z})\partial\phi(z,\bar{z})::\partial\phi(w,\bar{w})\partial\phi(w,\bar{w}):\notag                                                                                                                   \\
+    = & 4\pi^2 g^2\lim_{z_1\to z}\lim_{\bar{z}_1\to\bar{z}}\lim_{w_1\to w}\lim_{\bar{w}_1\to\bar{w}}\notag                                                                                                                                 \\
+      & \left(\partial\phi(z,\bar{z})\partial\phi(z_1,\bar{z}_1)-\expval{\partial\phi(z,\bar{z})\partial\phi(z_1,\bar{z}_1)}\right)\notag                                                                                                  \\
+      & \left(\partial\phi(w,\bar{w})\partial\phi(w_1,\bar{w}_1)-\expval{\partial\phi(w,\bar{w})\partial\phi(w_1,\bar{w}_1)}\right)\notag                                                                                                  \\
+    = & 4\pi^2 g^2\lim_{z_1\to z}\lim_{\bar{z}_1\to\bar{z}}\lim_{w_1\to w}\lim_{\bar{w}_1\to\bar{w}}\notag                                                                                                                                 \\
+      & \left(\partial\phi(z,\bar{z})\partial\phi(z_1,\bar{z}_1)\partial\phi(w,\bar{w})\partial\phi(w_1,\bar{w}_1)\right.\notag                                                                                                            \\
+      & -\expval{\partial\phi(z,\bar{z})\partial\phi(z_1,\bar{z}_1)}\partial\phi(w,\bar{w})\partial\phi(w_1,\bar{w}_1)-\expval{\partial\phi(w,\bar{w})\partial\phi(w_1,\bar{w}_1)}\partial\phi(z,\bar{z})\partial\phi(z_1,\bar{z}_1)\notag \\
+      & \left.+\expval{\partial\phi(z,\bar{z})\partial\phi(z_1,\bar{z}_1)}\expval{\partial\phi(w,\bar{w})\partial\phi(w_1,\bar{w}_1)}\right).\label{eq:app:OPE:boson:TT:1}
+\end{align}
 
-From Wick's theorem, we have 
+From Wick's theorem, we have
 \begin{equation}\label{eq:app:OPE:boson:TT:wick_1}
     \begin{aligned}
-        &\partial\phi(z,\bar{z})\partial\phi(z_1,\bar{z}_1)\phi(w,\bar{w})\partial\phi(w_1,\bar{w}_1)\\
-        =&\left.:\partial\phi(z,\bar{z})\partial\phi(z_1,\bar{z}_1)\partial\phi(w,\bar{w})\partial\phi(w_1,\bar{w}_1):\right\rbrace\text{Normal ordered product}\\
-        &\left.\begin{aligned}
-         &+\expval{\partial\phi(z,\bar{z})\partial\phi(z_1,\bar{z}_1)}:\partial\phi(w,\bar{w})\partial\phi(w_1,\bar{w}_1):\\
-         &+\expval{\partial\phi(z,\bar{z})\partial\phi(w,\bar{w})}:\partial\phi(z_1,\bar{z}_1)\partial\phi(w_1,\bar{w}_1):\\
-         &+\expval{\partial\phi(z,\bar{z})\partial\phi(w_1,\bar{w}_1)}:\partial\phi(z_1,\bar{z}_1)\partial\phi(w,\bar{w}):\\
-         &+\expval{\partial\phi(z_1,\bar{z}_1)\partial\phi(w,\bar{w})}:\partial\phi(z,\bar{z})\partial\phi(w_1,\bar{w}_1):\\
-         &+\expval{\partial\phi(z_1,\bar{z}_1)\partial\phi(w_1,\bar{w}_1)}:\partial\phi(z,\bar{z})\partial\phi(w,\bar{w}):\\
-         &+\expval{\partial\phi(w,\bar{w})\partial\phi(w_1,\bar{w}_1)}:\partial\phi(z,\bar{z})\partial\phi(z_1,\bar{z}_1):
-        \end{aligned}\right\rbrace\text{1 contraction}\\
-        &\left.\begin{aligned}
-            &+\expval{\partial\phi(z,\bar{z})\partial\phi(z_1,\bar{z}_1)}\expval{\partial\phi(w,\bar{w})\partial\phi(w_1,\bar{w}_1)}\\
-        &+\expval{\partial\phi(z,\bar{z})\partial\phi(w,\bar{w})}\expval{\partial\phi(z_1,\bar{z}_1)\partial\phi(w_1,\bar{w}_1)}\\
-        &+\expval{\partial\phi(z,\bar{z})\partial\phi(w_1,\bar{w}_1)}\expval{\partial\phi(z_1,\bar{z}_1)\partial\phi(w,\bar{w})}
-        \end{aligned}\right\rbrace\text{2 contractions}
+          & \partial\phi(z,\bar{z})\partial\phi(z_1,\bar{z}_1)\partial\phi(w,\bar{w})\partial\phi(w_1,\bar{w}_1)                                                                 \\
+        = & \left.:\partial\phi(z,\bar{z})\partial\phi(z_1,\bar{z}_1)\partial\phi(w,\bar{w})\partial\phi(w_1,\bar{w}_1):\right\rbrace\text{Normal ordered product}       \\
+          & \left.\begin{aligned}
+                       & +\expval{\partial\phi(z,\bar{z})\partial\phi(z_1,\bar{z}_1)}:\partial\phi(w,\bar{w})\partial\phi(w_1,\bar{w}_1): \\
+                       & +\expval{\partial\phi(z,\bar{z})\partial\phi(w,\bar{w})}:\partial\phi(z_1,\bar{z}_1)\partial\phi(w_1,\bar{w}_1): \\
+                       & +\expval{\partial\phi(z,\bar{z})\partial\phi(w_1,\bar{w}_1)}:\partial\phi(z_1,\bar{z}_1)\partial\phi(w,\bar{w}): \\
+                       & +\expval{\partial\phi(z_1,\bar{z}_1)\partial\phi(w,\bar{w})}:\partial\phi(z,\bar{z})\partial\phi(w_1,\bar{w}_1): \\
+                       & +\expval{\partial\phi(z_1,\bar{z}_1)\partial\phi(w_1,\bar{w}_1)}:\partial\phi(z,\bar{z})\partial\phi(w,\bar{w}): \\
+                       & +\expval{\partial\phi(w,\bar{w})\partial\phi(w_1,\bar{w}_1)}:\partial\phi(z,\bar{z})\partial\phi(z_1,\bar{z}_1):
+                  \end{aligned}\right\rbrace\text{1 contraction}                  \\
+          & \left.\begin{aligned}
+                       & +\expval{\partial\phi(z,\bar{z})\partial\phi(z_1,\bar{z}_1)}\expval{\partial\phi(w,\bar{w})\partial\phi(w_1,\bar{w}_1)} \\
+                       & +\expval{\partial\phi(z,\bar{z})\partial\phi(w,\bar{w})}\expval{\partial\phi(z_1,\bar{z}_1)\partial\phi(w_1,\bar{w}_1)} \\
+                       & +\expval{\partial\phi(z,\bar{z})\partial\phi(w_1,\bar{w}_1)}\expval{\partial\phi(z_1,\bar{z}_1)\partial\phi(w,\bar{w})}
+                  \end{aligned}\right\rbrace\text{2 contractions}
     \end{aligned}
 \end{equation}
 and
 \begin{align}
     \partial\phi(z)\partial\phi(z_1)=:\partial\phi(z)\partial\phi(z_1):+\expval{\partial\phi(z)\partial\phi(z_1)}\label{eq:app:OPE:boson:TT:wick_2}
 \end{align}
-Using \cref{eq:app:OPE:boson:TT:wick_1,eq:app:OPE:boson:TT:wick_2} in \cref{eq:app:OPE:boson:TT:1} and taking the limits, we have 
+Using \cref{eq:app:OPE:boson:TT:wick_1,eq:app:OPE:boson:TT:wick_2} in \cref{eq:app:OPE:boson:TT:1} and taking the limits, we have
 \begin{align}
-    T(z,\bar{z})T(w,\bar{w})=&4\pi^2 g^2\left(4\expval{\partial\phi(z,\bar{z})\partial\phi(w,\bar{w})}:\partial(z,\bar{z})\partial(w,\bar{w}):+2\expval{\partial\phi(z,\bar{z})\partial\phi(w,\bar{w})}^2\right)\notag\\
-                            =&\frac{1/2}{(z-w)^4}-\frac{4\pi g:\partial\phi(z,\bar{z})\partial\phi(w,\bar{w}):}{(z-w)^2}\notag\\
-                            \sim&\frac{1/2}{(z-w)^4}-\frac{4\pi g:\partial\phi(w,\bar{w})\partial\phi(w,\bar{w}):}{(z-w)^2}-\frac{4\pi g:\partial^2\phi(w,\bar{w})\partial\phi(w,\bar{w}):}{(z-w)}\notag\\
-                            \sim&\frac{1/2}{(z-w)^4}-\frac{4\pi g:\partial\phi(w,\bar{w})\partial\phi(w,\bar{w}):}{(z-w)^2}-\frac{2\pi g\partial\left(:\partial\phi(w,\bar{w})\partial\phi(w,\bar{w}):\right)}{(z-w)}\notag\\
-                            \sim&\frac{1/2}{(z-w)^4}+\frac{2T(w)}{(z-w)^2}+\frac{\partial T(w)}{(z-w)}
+    T(z,\bar{z})T(w,\bar{w})= & 4\pi^2 g^2\left(4\expval{\partial\phi(z,\bar{z})\partial\phi(w,\bar{w})}:\partial\phi(z,\bar{z})\partial\phi(w,\bar{w}):+2\expval{\partial\phi(z,\bar{z})\partial\phi(w,\bar{w})}^2\right)\notag   \\
+    =                         & \frac{1/2}{(z-w)^4}-\frac{4\pi g:\partial\phi(z,\bar{z})\partial\phi(w,\bar{w}):}{(z-w)^2}\notag                                                                                           \\
+    \sim                      & \frac{1/2}{(z-w)^4}-\frac{4\pi g:\partial\phi(w,\bar{w})\partial\phi(w,\bar{w}):}{(z-w)^2}-\frac{4\pi g:\partial^2\phi(w,\bar{w})\partial\phi(w,\bar{w}):}{(z-w)}\notag                    \\
+    \sim                      & \frac{1/2}{(z-w)^4}-\frac{4\pi g:\partial\phi(w,\bar{w})\partial\phi(w,\bar{w}):}{(z-w)^2}-\frac{2\pi g\partial\left(:\partial\phi(w,\bar{w})\partial\phi(w,\bar{w}):\right)}{(z-w)}\notag \\
+    \sim                      & \frac{1/2}{(z-w)^4}+\frac{2T(w)}{(z-w)^2}+\frac{\partial T(w)}{(z-w)}
 \end{align}
 where we have used \cref{eq:2dcft:boson_OPE:partial_phi_partial_phi_final}.
-So we can write the OPE of $T$ with itself 
+So we can write the OPE of $T$ with itself
 \begin{align}
     T(z)T(w)\sim\frac{1/2}{(z-w)^4}+\frac{2T(w)}{(z-w)^2}+\frac{\partial T(w)}{(z-w)}.
 \end{align}
