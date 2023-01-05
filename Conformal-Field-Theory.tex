@@ -2153,8 +2153,18 @@ The normal ordering has the following meaning, in terms of the operators appeari
 \begin{proof}
     Firstly, the OPE of $\partial\phi$ with $\mathcal{V}_\alpha$ is
     \begin{align}
-        \partial\phi(z)\mathcal{V}_\alpha(w,\bar{w})=\sum_{n=0}^\infty\frac{(\ii\alpha)^n}{n!}\partial\phi(z):\phi(w,\bar{w})^n:
+        \partial\phi(z)\mathcal{V}_\alpha(w,\bar{w})&=\sum_{n=0}^\infty\frac{(\ii\alpha)^n}{n!}\partial\phi(z):\phi(w,\bar{w})^n:\notag\\
+                                                    &\sim-\frac{1}{4\pi g}\frac{1}{z-w}\sum_{n=1}^{\infty}\frac{(\ii\alpha)^n}{(n-1)!}:\phi(w,\bar{w})^{n-1}:\notag\\
+                                                    &\sim-\frac{\ii\alpha}{4\pi g}\frac{\mathcal{V}_\alpha(w,\bar{w})}{z-w}.
     \end{align}
+    Next, the OPE of energy-momentum tensor with $\mathcal{V}_\alpha$ is 
+    \begin{align}
+        T(z)\mathcal{V}_\alpha(w,\bar{w})=&-2\pi g\sum_{n=0}^{\infty}\frac{(\ii\alpha)^n}{n!}:\partial\phi(z)\partial\phi(z)::\phi(w,\bar{w})^n:\notag\\
+                                        \sim&-\frac{1}{8\pi g}\frac{1}{(z-w)^2}\sum_{n=2}^{\infty}\frac{(\ii\alpha)^n}{(n-2)!}:\phi(w,\bar{w})^{n-2}:\notag\\
+                                        &+\frac{1}{z-w}\sum_{n=1}^{\infty}\frac{(\ii\alpha)^n}{n!}n:\partial\phi(z)\phi(w,\bar{w})^{n-1}:\notag\\
+                                        \sim&\frac{\alpha^2}{8\pi g}\frac{\mathcal{V}_\alpha(w,\bar{w})}{(z-w)^2}+\frac{\partial_w\mathcal{V}_\alpha(w,\bar{w})}{z-w}.\label{eq:operator_formalism:boson:vertex_operator:OPE_V_T}
+    \end{align}
+    From the OPE in \cref{eq:operator_formalism:boson:vertex_operator:OPE_V_T}, it is straightforward to carry out the OPE of $\bar{T}$ with $\mathcal{V}_\alpha$ which is in the exactly same form, so we can clearly see that $\mathcal{V}_\alpha$ is indeed primary with holomorphic and antiholomorphic dimension $\frac{\alpha^2}{8\pi g}$. 
 \end{proof}
 \subsubsection{The Fock Space}
 \subsubsection{Twisted Boundary Conditions}
@@ -2226,7 +2236,8 @@ and
 \end{align}
 Using \cref{eq:app:OPE:boson:TT:wick_1,eq:app:OPE:boson:TT:wick_2} in \cref{eq:app:OPE:boson:TT:1} and taking the limits, we have
 \begin{align}
-    T(z,\bar{z})T(w,\bar{w})= & 4\pi^2 g^2\left(4\expval{\partial\phi(z,\bar{z})\partial\phi(w,\bar{w})}:\partial\phi(z,\bar{z})\partial\phi(w,\bar{w}):+2\expval{\partial\phi(z,\bar{z})\partial\phi(w,\bar{w})}^2\right)\notag   \\
+    T(z,\bar{z})T(w,\bar{w})= & 4\pi^2 g^2\notag\\
+                              &\left(4\expval{\partial\phi(z,\bar{z})\partial\phi(w,\bar{w})}:\partial\phi(z,\bar{z})\partial\phi(w,\bar{w}):+2\expval{\partial\phi(z,\bar{z})\partial\phi(w,\bar{w})}^2\right)\notag   \\
     =                         & \frac{1/2}{(z-w)^4}-\frac{4\pi g:\partial\phi(z,\bar{z})\partial\phi(w,\bar{w}):}{(z-w)^2}\notag                                                                                           \\
     \sim                      & \frac{1/2}{(z-w)^4}-\frac{4\pi g:\partial\phi(w,\bar{w})\partial\phi(w,\bar{w}):}{(z-w)^2}-\frac{4\pi g:\partial^2\phi(w,\bar{w})\partial\phi(w,\bar{w}):}{(z-w)}\notag                    \\
     \sim                      & \frac{1/2}{(z-w)^4}-\frac{4\pi g:\partial\phi(w,\bar{w})\partial\phi(w,\bar{w}):}{(z-w)^2}-\frac{2\pi g\partial\left(:\partial\phi(w,\bar{w})\partial\phi(w,\bar{w}):\right)}{(z-w)}\notag \\
@@ -2237,7 +2248,6 @@ So we can write the OPE of $T$ with itself
 \begin{align}
     T(z)T(w)\sim\frac{1/2}{(z-w)^4}+\frac{2T(w)}{(z-w)^2}+\frac{\partial T(w)}{(z-w)}.
 \end{align}
-
 
 \clearpage
 \bibliographystyle{jhep}
