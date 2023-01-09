@@ -2166,12 +2166,25 @@ The normal ordering has the following meaning, in terms of the operators appeari
     \end{align}
     From the OPE in \cref{eq:operator_formalism:boson:vertex_operator:OPE_V_T}, it is straightforward to carry out the OPE of $\bar{T}$ with $\mathcal{V}_\alpha$ which is in the exactly same form, so we can clearly see that $\mathcal{V}_\alpha$ is indeed primary with holomorphic and antiholomorphic dimension $\frac{\alpha^2}{8\pi g}$. 
 \end{proof}
+\paragraph{OPE between vertex operators}
+We may use the following relation 
+\begin{align}
+    :\me^{A_1}::\me^{A_2}:=:\me^{A_1+A_2}:\me^{\expval{A_1 A_2}}
+\end{align}
+where $A_i=\alpha_i a+\beta_i a^\dagger$.
+The same relation holds if $A_1$ and $A_2$ are linear functions of a free field:
+\begin{align}\label{eq:operator_formalism:boson:vertex_operator:linear_comb}
+    :\me^{a\phi_1}::\me^{b\phi_2}:=:\me^{a\phi_1+b\phi_2}:\me^{ab\expval{\phi_1 \phi_2}}.
+\end{align}
+Applied to vertex operators, \cref{eq:operator_formalism:boson:vertex_operator:linear_comb} yields
+\begin{align}
+    \mathcal{V}_\alpha(z,\bar{z})\mathcal{V}_\beta(w,\bar{w})\sim\abs{z-w}^{\frac{2\alpha\beta}{4\pi g}}\mathcal{V}_{\alpha+\beta}(w,\bar{w})+\dots
+\end{align}
+Note that 
 \subsubsection{The Fock Space}
 \subsubsection{Twisted Boundary Conditions}
 \subsubsection{Compactified Boson}
-\subsection{The Free Fermion}
-
-
+\subsection{The Free Fermion} 
 \subsection{Conformal Families and Operator Algebra}
 \subsubsection{Descendant Fields}
 \subsubsection{Conformal Families}
