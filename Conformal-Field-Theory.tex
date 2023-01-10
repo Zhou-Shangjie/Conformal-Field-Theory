@@ -2180,7 +2180,18 @@ Applied to vertex operators, \cref{eq:operator_formalism:boson:vertex_operator:l
 \begin{align}
     \mathcal{V}_\alpha(z,\bar{z})\mathcal{V}_\beta(w,\bar{w})\sim\abs{z-w}^{\frac{2\alpha\beta}{4\pi g}}\mathcal{V}_{\alpha+\beta}(w,\bar{w})+\dots
 \end{align}
-Note that 
+Note that there are some constraints on the correlator: 
+\begin{itemize}
+    \item Global conformal invariance: 
+    \item Decaying with distance:
+\end{itemize}
+So the only possibility is 
+\begin{align}
+    \mathcal{V}_\alpha(z,\bar{z})\mathcal{V}_{-\alpha}(w,\bar{w})\sim\abs{z-w}^{-2\alpha^2}+\dots.
+\end{align}
+\begin{remark}
+    In general, the correlator of a string of vertex operators $\mathcal{V}_{\alpha_i}$ vanishes unless sum of the charges vanishes: $\sum_i\alpha_i=0$.
+\end{remark}
 \subsubsection{The Fock Space}
 \subsubsection{Twisted Boundary Conditions}
 \subsubsection{Compactified Boson}
