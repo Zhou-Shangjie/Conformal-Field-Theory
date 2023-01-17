@@ -2035,7 +2035,7 @@ This field may be Fourier expanded as follows:
     \end{align}
 \end{subequations}
 The free field Lagrangian now can be written as
-\begin{align}
+\begin{align}\label{eq:operator:boson:Lagrangian}
     \frac{1}{2}g\int_0^L\dd{x}\left[\left(\partial_t\phi\right)^2-\left(\partial_x\phi\right)^2\right]=\frac{1}{2}gL\sum_n\left[\dot{\phi}_n(t)\dot{\phi}_{-n}(t)-\left(\frac{2\pi n}{L}\right)^2\phi_n(t)\phi_{-n}(t)\right].
 \end{align}
 The momentum conjugate to $\phi_n$ is
@@ -2082,7 +2082,7 @@ The associated commutation relations become
     \comm{a_n(t)}{a_m(t)}=n\delta_{n+m}\quad\comm{a_n(t)}{\bar{a}_m(t)}=0\quad\comm{\bar{a}_n(t)}{\bar{a}_m(t)}=n\delta_{n+m}
 \end{align}
 and the Hamiltonian becomes
-\begin{align}
+\begin{align}\label{eq:operator:boson:H_ladder}
     H=\frac{1}{2gL}\pi_0^2+\frac{2\pi}{L}\sum_{n\neq0}\left(a_{-n}a_n+\bar{a}_{-n}\bar{a}_n\right).
 \end{align}
 It can be easily checked that
@@ -2193,7 +2193,109 @@ So the only possibility is
     In general, the correlator of a string of vertex operators $\mathcal{V}_{\alpha_i}$ vanishes unless sum of the charges vanishes: $\sum_i\alpha_i=0$.
 \end{remark}
 \subsubsection{The Fock Space}
+From \cref{eq:operator:boson:H_ladder}, we see the Hamiltonian $H$ is independent of $\phi_0$, which means that the eigenvalue of $\pi_0$ is a good quantum number and can be used to label different sets of eigenstates of $H$.
+Notice that $\pi_0$ commutes with $a_n$ and $\bar{a}_n$, so these ladder operators cannot change the value of $\pi_0$.
+The Fock space is built upon a one-parameter family of vacua $\ket{\alpha}$, where $\alpha$ is the continuous eigenvalue of $a_0=\frac{\pi_0}{\sqrt{4\pi g}}$.
+Since $a_n$ and $\bar{a}_n$ are annihilation operators for $n>0$, the vacua is defined to satisfy
+\begin{align}
+    a_n\ket{\alpha}=\bar{a}_n\ket{\alpha}\equiv0\quad(n>0)\quad\text{with}\quad a_0\ket{\alpha}=\bar{a}_0\ket{\alpha}\equiv\alpha\ket{\alpha}.
+\end{align}
+
+The holographic energy-momentum tensor is given by 
+\begin{align}
+    T(z)=&-2\pi g:\partial\phi(z)\partial\phi(z):\notag\\
+        =&\frac{1}{2}\sum_{n,m\in\mathbb{Z}}z^{-n-m-2}:a_n a_m:,
+\end{align}
+so using \cref{eq:operator:conformal_generator:T_expand}, we have 
+\begin{subequations}
+    \begin{align}
+        L_n=&\frac{1}{2}\sum_{m\in\mathbb{Z}}a_{n-m}a_m\quad(n\neq0)\\
+        L_0=&\sum_{n>0}a_{-n}a_n+\frac{1}{2}a_0^2
+    \end{align}
+\end{subequations}
+and the same goes for antiholomorphic modes.
+The Hamiltonian now can be written as 
+\begin{align}
+    H=\frac{2\pi}{L}\left(L_0+\bar{L}_0\right).
+\end{align}
+
+The elements of the Fock space are obtained by applying creation operaotors $a_{-n}$ and $\bar{a}_{-n} (n>0)$ to $\ket{\alpha}$
+\begin{align}
+    a_{-1}^{n_1}a_{-2}^{n_2}\cdots\bar{a}_{-1}^{m_1}\bar{a}_{-2}^{m_2}\cdots\ket{\alpha}\quad(n_i,m_j\geq0).
+\end{align}
+These states are eigenstates of $L_0$ with conformal dimensions 
+\begin{align}
+    h=\frac{1}{2}\alpha^2+\sum_j j n_j\qand \bar{h}=\frac{1}{2}\alpha^2+\sum_j jm_j.
+\end{align}
+
+Each vacuum $\ket{\alpha}$ may be obtained from the "absolute" vacuum $\ket{0}$ by application of the vertex operator $\mathcal{V}_\alpha(z,\bar{z})\equiv\me^{\ii\alpha\phi(z,\bar{z})}$.
+\begin{claim}
+    Vacuum states $\ket{\alpha}$ can be obtained by:  
+    \begin{align}
+        \ket{\alpha}=\mathcal{V}_\alpha(0)\ket{0}.
+    \end{align}
+\end{claim}
+\begin{proof}
+    Using the \href{https://en.wikipedia.org/wiki/Baker-Campbell-Hausdorff_formula}{Hausdorff formula}, we have 
+    \begin{align}
+        \comm{B}{\me^{A}}=\comm{A}{B}\me^{A}\label{eq:operator_form:boson:fock_space:rela0}
+    \end{align}
+    where $\comm{B}{A}$ is assumed to be a constant.
+    If we set $B=\pi_0$ and $A=\ii\alpha\phi(z,\bar{z})$ in \cref{eq:operator_form:boson:fock_space:rela0}, we have 
+    \begin{align}
+        \comm{\pi}{\mathcal{V}_\alpha}=\alpha\mathcal{V}_\alpha.\label{eq:operator_form:boson:fock_space:rela1}
+    \end{align}
+    Apply \cref{eq:operator_form:boson:fock_space:rela1} to $\ket{0}$, we have 
+    \begin{align}
+        \pi_0\mathcal{V}_\alpha(0)\ket{0}=\alpha\mathcal{V}_\alpha(0)\ket{0}
+    \end{align}
+    which means that $\mathcal{V}_\alpha(0)\ket{0}$ is an eigenstate of $\pi_0$ with eigenvalue $\alpha$.
+
+    Set $B=a_n$ and $A=\ii\alpha\phi(z,\bar{z})$ in \cref{eq:operator_form:boson:fock_space:rela0}, we have 
+    \begin{align}
+        \comm{a_n}{\mathcal{V}_\alpha(z,\bar{z})}=-\alpha z^n \mathcal{V}_\alpha(z,\bar{z}).\label{eq:operator_form:boson:fock_space:rela2}
+    \end{align}
+    Apply \cref{eq:operator_form:boson:fock_space:rela2} to $\ket{0}$ and set $z=0$, we have $a_n\mathcal{V}_\alpha\ket{0}=0$.
+    The same goes for $\bar{a}_n$ when $n>0$ which shows that $\mathcal{V}_\alpha\ket{0}$ is indeed a vacuum.
+\end{proof}
 \subsubsection{Twisted Boundary Conditions}
+We can get a variant of free-boson theory by assuming 
+\begin{itemize}
+    \item antiperiodic boundary condition: $\phi(x+L,t)=-\phi(x,t)$,
+    \item identification condition: $\phi(x+2L,t)\sim\phi(x,t)$.
+\end{itemize}
+\begin{marginfigure}
+    \centering 
+    \includegraphics[width=0.8\linewidth]{fig/Operator Formalism/Möbius strip/fig.pdf}
+    \caption{M\"obius strip}
+    \label{fig:mobius_strip}
+\end{marginfigure}
+\begin{intu}
+    This theory can be thought to be defined on a M\"obius strip (see \cref{fig:mobius_strip}).
+    The M\"obius strip can be obtained by cutting through the cylinder, imposing a "twist" and then gluing the boundaries together.
+\end{intu}
+
+We can still expand the field as in the periodic case, but now the summation index $n$ must take half integral values except 0 and this modification will not affect the commutation relations $\comm{a_n}{a_m}=n\delta_{n+m}$.
+\paragraph{Two-point function}
+Using the expansion \cref{eq:operator:boson:phi_expan}, we have 
+\begin{align}
+    \expval{\phi(z)\partial\phi(w)}=\ev**{\phi(z)\partial\phi(w)}{0}=\sum_{m,n\neq0}\frac{1}{n}\expval{a_n a_m}z^{-n}w^{-m-1}\quad\text{for}\ z>w\label{eq:operator:boson:twisted:2pt:peri_1}
+\end{align}
+where $\expval{a_n a_m}\equiv\ev**{a_n a_m}{0}=n\delta_{n+m}$ if $n>0$\sidenote{Remember that $a_n$ and $\bar{a}_n$ are annihilation operators when $n>0$.}, and 0 otherwise, so \cref{eq:operator:boson:twisted:2pt:peri_1} becomes 
+\begin{align}
+    \expval{\phi(z)\partial\phi(w)}=\frac{1}{w}\sum_{n>0}\left(\frac{w}{z}\right)^n.
+\end{align}
+\begin{itemize}
+    \item In the periodic case, $n$ takes positive integral values, so $\expval{\phi(z)\partial\phi(w)}=\frac{1}{z-w}$ and thus $\expval{\partial\phi(z)\partial\phi(w)}=-\frac{1}{(z-w)^2}$.
+    \item In the antiperiodic case, $n$ start at $\frac{1}{2}$ and takes half-integer values thereafter, so $\expval{\phi(z)\partial\phi(w)}=\sqrt{\frac{z}{w}}\frac{1}{z-w}$ and thus $\expval{\partial\phi(z)\partial\phi(w)}=-\frac{1}{2}\frac{\sqrt{z/w}+\sqrt{w/z}}{(z-w)^2}$.
+\end{itemize}
+\begin{remark}
+    The two-point function in the antiperiodic case has branch cuts at $z=0,\infty$ and $w=0,\infty$ and the appearance of square roots is a result of the antiperiodic boundary condition.
+
+    The periodic and antiperiodic two-point functions coincide when $z\to w$, meaning that the short distance behavior of the theory is independent of the boundary conditions.
+\end{remark}
+\paragraph{Vacuum energy density}
+
 \subsubsection{Compactified Boson}
 \subsection{The Free Fermion} 
 \subsection{Conformal Families and Operator Algebra}
