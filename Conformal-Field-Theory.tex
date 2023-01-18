@@ -2296,9 +2296,19 @@ where $\expval{a_n a_m}\equiv\ev**{a_n a_m}{0}=n\delta_{n+m}$ if $n>0$\sidenote{
 \end{remark}
 \paragraph{Vacuum energy density}
 We can calculate the vacuum energy density using normal ordering introduced in \cref{subsec:operator:normal_ordering}:
-\begin{align}
-    \expval{T(z)}=\frac{1}{2}\lim_{\epsilon\to0}\left(-\expval{\partial\phi(z+\epsilon)\partial\phi(z)+\frac{1}{\epsilon}}\right)
+\begin{align}\label{eq:operator:boson:energy_density_1}
+    \expval{T(z)}=\frac{1}{2}\lim_{\epsilon\to0}\left(-\expval{\partial\phi(z+\epsilon)\partial\phi(z)}+\frac{1}{\epsilon^2}\right)
 \end{align} 
+The reason to write the vacuum energy density in the form of \cref{eq:operator:boson:energy_density_1} is that this procedure can remove the singular part in the OPE between $\partial\phi$ and $\partial\phi$.
+Using the two-point functions, we have 
+\begin{itemize}
+    \item In the periodic case $\expval{T(z)}=0$.
+    \item In the antiperiodic case $\expval{T(z)}=\frac{1}{16z^2}$.
+\end{itemize}
+\begin{remark}
+    Recall that $T(z)=\sum_{n\in\mathbb{Z}}z^{-n-2}L_n$ and $L_0$ is the coefficient of $\frac{1}{z^2}$, so the nonzero $\expval{T(z)}$ in the antiperiodic case implies a constant term in $L_0$ and indeed we can check that $L_0=\sum_{n>0}a_{-n}a_n+\frac{1}{16}$.
+\end{remark}
+
 \subsubsection{Compactified Boson}
 \subsection{The Free Fermion} 
 \subsection{Conformal Families and Operator Algebra}
