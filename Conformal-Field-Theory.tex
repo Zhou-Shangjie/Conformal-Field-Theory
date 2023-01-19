@@ -2083,7 +2083,7 @@ The associated commutation relations become
 \end{align}
 and the Hamiltonian becomes
 \begin{align}\label{eq:operator:boson:H_ladder}
-    H=\frac{1}{2gL}\pi_0^2+\frac{2\pi}{L}\sum_{n\neq0}\left(a_{-n}a_n+\bar{a}_{-n}\bar{a}_n\right).
+    H=\frac{1}{2gL}\pi_0^2+\frac{2\pi}{L}\sum_{n>0}\left(a_{-n}a_n+\bar{a}_{-n}\bar{a}_n\right).
 \end{align}
 It can be easily checked that
 \begin{align}
@@ -2114,7 +2114,7 @@ Now using \cref{eq:operator:boson:t0_mode,eq:operator:boson:heis} we have
 \end{align}
 Going over to Euclidean time (i.e., replace $t$ by $-\ii\tau$) and using the conformal coordinates
 \begin{align}
-    z=\me^{2\pi(\tau-\ii x)/L}\quad \bar{z}=\me^{2\pi(\tau+\ii x)/L}
+    z=\me^{2\pi(\tau-\ii x)/L}\quad \bar{z}=\me^{2\pi(\tau+\ii x)/L}\label{eq:operator:boson:quan:trans}
 \end{align}
 we finally have
 \begin{align}
@@ -2142,7 +2142,7 @@ which allow us to include the zero-mode term into the sum
 The normal ordering has the following meaning, in terms of the operators appearing in the mode expansion \cref{eq:operator:boson:phi_expan}
 \begin{align}
     \mathcal{V}_\alpha(z,\bar{z})= & \exp[\ii\alpha\phi_0+\frac{\alpha}{\sqrt{4\pi g}}\sum_{n>0}\frac{1}{n}\left(a_{-n}z^n+\bar{a}_{-n}\bar{z}^n\right)]\notag              \\
-                                   & \times\exp[\frac{\alpha}{4\pi g}\pi_0-\frac{\alpha}{\sqrt{4\pi g}}\sum_{n>0}\frac{1}{n}\left(a_n z^{-n}+\bar{a}_n \bar{z}^{-n}\right)]
+                                   & \times\exp[\frac{\alpha}{4\pi g}\pi_0 \ln(z\bar{z})-\frac{\alpha}{\sqrt{4\pi g}}\sum_{n>0}\frac{1}{n}\left(a_n z^{-n}+\bar{a}_n \bar{z}^{-n}\right)]
 \end{align}
 \begin{claim}
     The vertex operator fields are primary, with holomorphic and antiholomorphic dimensions
@@ -2253,7 +2253,7 @@ Each vacuum $\ket{\alpha}$ may be obtained from the "absolute" vacuum $\ket{0}$ 
 
     Set $B=a_n$ and $A=\ii\alpha\phi(z,\bar{z})$ in \cref{eq:operator_form:boson:fock_space:rela0}, we have 
     \begin{align}
-        \comm{a_n}{\mathcal{V}_\alpha(z,\bar{z})}=-\alpha z^n \mathcal{V}_\alpha(z,\bar{z}).\label{eq:operator_form:boson:fock_space:rela2}
+        \comm{a_n}{\mathcal{V}_\alpha(z,\bar{z})}=\alpha z^n \mathcal{V}_\alpha(z,\bar{z}).\label{eq:operator_form:boson:fock_space:rela2}
     \end{align}
     Apply \cref{eq:operator_form:boson:fock_space:rela2} to $\ket{0}$ and set $z=0$, we have $a_n\mathcal{V}_\alpha\ket{0}=0$.
     The same goes for $\bar{a}_n$ when $n>0$ which shows that $\mathcal{V}_\alpha\ket{0}$ is indeed a vacuum.
@@ -2297,7 +2297,7 @@ where $\expval{a_n a_m}\equiv\ev**{a_n a_m}{0}=n\delta_{n+m}$ if $n>0$\sidenote{
 \paragraph{Vacuum energy density}
 We can calculate the vacuum energy density using normal ordering introduced in \cref{subsec:operator:normal_ordering}:
 \begin{align}\label{eq:operator:boson:energy_density_1}
-    \expval{T(z)}=\frac{1}{2}\lim_{\epsilon\to0}\left(-\expval{\partial\phi(z+\epsilon)\partial\phi(z)}+\frac{1}{\epsilon^2}\right)
+    \expval{T(z)}=-\frac{1}{2}\lim_{\epsilon\to0}\left(\expval{\partial\phi(z+\epsilon)\partial\phi(z)}+\frac{1}{\epsilon^2}\right)
 \end{align} 
 The reason to write the vacuum energy density in the form of \cref{eq:operator:boson:energy_density_1} is that this procedure can remove the singular part in the OPE between $\partial\phi$ and $\partial\phi$.
 Using the two-point functions, we have 
@@ -2333,10 +2333,37 @@ This brings two modifications to previous analysis:
           \end{align}
           in which $m$ is called the \textit{winding number} of the field configuration.
 \end{itemize}
+These two considerations lead naturally to the modified mode expansion:
+\begin{align}
+    \phi(x,t)=\phi_0+\frac{n}{gRL}t+\frac{2\pi Rm}{L}x+\frac{\ii}{\sqrt{4\pi g}}\sum_{k\neq0}\frac{1}{k}\left(a_k\me^{2\pi\ii k(x-t)/L}-\bar{a}_{-k}\me^{2\pi\ii k(x+t)/L}\right),
+\end{align}
+where we have used the fact $\pi_0 R=n\in\mathbb{R}$.
+Express this expansion in terms of the complex coordinates $z$ and $\bar{z}$ using \cref{eq:operator:boson:quan:trans}, we have 
+\begin{align}
+    \phi(z,\bar{z})=\phi_0&-\ii\left(\frac{n}{4\pi gR}+\frac{1}{2}mR\right)\ln{z}+\frac{\ii}{\sqrt{4\pi g}}\sum_{k\neq0}\frac{1}{k}a_k z^{-k}\notag\\
+                          &-\ii\left(\frac{n}{4\pi gR}-\frac{1}{2}mR\right)\ln{\bar{z}}+\frac{\ii}{\sqrt{4\pi g}}\sum_{k\neq0}\frac{1}{k}\bar{a}_k\bar{z}^{-k}
+\end{align}
+and thus 
+\begin{align}
+    \ii\partial\phi(z)=\left(\frac{n}{4\pi gR}+\frac{1}{2}mR\right)\frac{1}{z}+\frac{1}{\sqrt{4\pi g}}\sum_{k\neq0}a_k z^{-k-1}.
+\end{align}
 
+The expressions for $L_0$ and $\bar{L}_0$ are given by the following without derivation:
+\begin{subequations}
+    \begin{align}
+        L_0=\sum_{n>0}a_{-n}a_{n}+2\pi g\left(\frac{n}{4\pi g R}+\frac{1}{2}mR\right)^2\\
+        \bar{L}_0=\sum_{n>0}\bar{a}_{-n}\bar{a}_{n}+2\pi g\left(\frac{n}{4\pi g R}-\frac{1}{2}mR\right)^2
+    \end{align}
+\end{subequations}
 \subsection{The Free Fermion} 
 \subsection{Conformal Families and Operator Algebra}
 \subsubsection{Descendant Fields}
+\begin{definition}[Descendant field]
+    The descendant field accociated with the state $L_{-n}\ket{h}$ is 
+    \begin{align}
+        \phi^{(-n)}(w)\equiv(L_{-n}\phi)(w)=\frac{1}{2\pi\ii}\oint_w\frac{1}{(z-w)^{n-1}}T(z)\phi(w).
+    \end{align}
+\end{definition}
 \subsubsection{Conformal Families}
 \subsubsection{The Operator Algebra}
 \subsubsection{Conformal Blocks}
