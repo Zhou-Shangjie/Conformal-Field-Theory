@@ -1634,7 +1634,7 @@ where we have introduced the \textit{Schwarzian derivative}
     \end{align}
     Using \cref{eq:2dcft:c:transformation_T}, we know the energy-momentum tensor $T_{\text{cyl.}}(w)$ is related to corresponding tensor $T_{\text{pl.}}(z)$ on the plane by
     \begin{align}
-        T_{\text{cyl.}}(w,\bar{w})=\left(\frac{2\pi}{L}\right)^2\left[T_{\text{pl.}}(z,\bar{z})z^2-\frac{c}{24}\right].
+        T_{\text{cyl.}}(w,\bar{w})=\left(\frac{2\pi}{L}\right)^2\left[T_{\text{pl.}}(z,\bar{z})z^2-\frac{c}{24}\right].\label{eq:2dcft:c:transformation_T_cylinder}
     \end{align}
     If $\expval{T_{\text{pl.}}}=0$ after quantization, then we have
     \begin{align}
@@ -2309,8 +2309,31 @@ Using the two-point functions, we have
     Recall that $T(z)=\sum_{n\in\mathbb{Z}}z^{-n-2}L_n$ and $L_0$ is the coefficient of $\frac{1}{z^2}$, so the nonzero $\expval{T(z)}$ in the antiperiodic case implies a constant term in $L_0$ and indeed we can check that $L_0=\sum_{n>0}a_{-n}a_n+\frac{1}{16}$.
 \end{remark}
 
-On the cylinder,
+We can use \cref{eq:2dcft:c:transformation_T_cylinder} to get the vacuum energy for the theory defined on the cylinder 
+\begin{align}
+    \expval{T_{\text{cyl.}}}=\begin{cases}
+        -\frac{1}{24}\left(\frac{2\pi}{L}\right)^2&\text{(periodic)}\\
+        \frac{1}{48}\left(\frac{2\pi}{L}\right)^2&\text{(antiperiodic)}
+    \end{cases}
+\end{align}
 \subsubsection{Compactified Boson}
+\begin{important}
+    This section is only a general introduction to compactified bosons so it will not cover much details.
+    This topic can be found in many textbooks about string theory like \cite{Polchinski:1998rq,Zwiebach:2004tj}(related to \textit{T-duality}).
+    A mathematical discussion can be found in \cite{Ribault:2014hia}. 
+\end{important}
+The compactified boson theory is obtained by imposing the identification condition: $\phi\sim\phi+2\pi R$.
+This brings two modifications to previous analysis:
+\begin{itemize}
+    \item The center-of-mass momentum $\pi_0$ can no longer take an arbitrary value: it must be an integer multiple of $1/R$,  otherwise the vertex operator $\mathcal{V}_\alpha$ is no longer well-defined. 
+          A na\"ive explanation\cite{Dixon:1989nr}: the translation operator $\exp(\ii \pi_0\cdot2\pi R)$ that translates states by $2\pi R$ must now be trivial, i.e., equal to $1$, thus if $k$ is an allowed eigenvalue of $\pi_0$, we have $\exp(\ii k\cdot2\pi R)=1$, which gives $k=m/R$ and $m\in\mathbb{Z}$.
+    \item Now we may adopt the more general boundary condition: 
+          \begin{align}
+            \phi(x+L,t)=\phi(x,t)+2\pi mR
+          \end{align}
+          in which $m$ is called the \textit{winding number} of the field configuration.
+\end{itemize}
+
 \subsection{The Free Fermion} 
 \subsection{Conformal Families and Operator Algebra}
 \subsubsection{Descendant Fields}
