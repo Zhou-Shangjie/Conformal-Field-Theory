@@ -1885,9 +1885,9 @@ of which a special case is
 \begin{align}
     \ev**{\comm{L_0}{\phi_m}}{0}=-m\ev**{\phi_m}{0}.
 \end{align}
-\begin{important}
+\begin{notice}
     From now on, we shall omit the $\bra{0}$ and some of the $\ket{0}$ in the relavant formulas to simplify the notation. They should recovered in the final results.
-\end{important}
+\end{notice}
 From \cref{eq:operator:virasoro_1}, we can see the generators $L_{-m}(m>0)$ increase the conformal dimension
 \begin{align}
     \comm{L_0}{L_{-m}}=mL_{-m}.
@@ -2342,11 +2342,11 @@ We can use \cref{eq:2dcft:c:transformation_T_cylinder} to get the vacuum energy 
     \end{cases}
 \end{align}
 \subsubsection{Compactified Boson}
-\begin{important}
+\begin{notice}
     This section is only a general introduction to compactified bosons so it will not cover much details.
     This topic can be found in many textbooks about string theory like \cite{Polchinski:1998rq,Zwiebach:2004tj}(related to \textit{T-duality}).
     A mathematical discussion can be found in \cite{Ribault:2014hia}. 
-\end{important}
+\end{notice}
 The compactified boson theory is obtained by imposing the identification condition: $\phi\sim\phi+2\pi R$.
 This brings two modifications to previous analysis:
 \begin{itemize}
@@ -2389,7 +2389,7 @@ The expressions for $L_0$ and $\bar{L}_0$ are given by the following without der
 \begin{example}
     Consider the descendant $L_{-n}\ket{h}$, we have 
     \begin{align}
-        L_{-n}\ket{h}=L_{-n}\phi(0)\ket{0}=\frac{1}{2\pi\ii}\oint\dd{z}z^{1-n}T(z)\phi(0)\ket{0}=(L_{-n}\phi)(0\ket{0})
+        L_{-n}\ket{h}=L_{-n}\phi(0)\ket{0}=\frac{1}{2\pi\ii}\oint\dd{z}z^{1-n}T(z)\phi(0)\ket{0}=(L_{-n}\phi)(0)\ket{0}
     \end{align}
     where we have used \cref{eq:operator:normal_o:T_A_L_A}.
 \end{example}
@@ -2399,6 +2399,18 @@ The expressions for $L_0$ and $\bar{L}_0$ are given by the following without der
         \phi^{(-n)}(w)\equiv(L_{-n}\phi)(w)=\frac{1}{2\pi\ii}\oint_w\frac{1}{(z-w)^{n-1}}T(z)\phi(w).
     \end{align}
 \end{definition}
+
+Consider the correlator $\expval{\phi^{(-n)}(w)X}$ where $X=\phi_1(w_1)\cdots\phi_N(w_N)$ is an assembly of primary fields with conformal dimensions $h_i$:
+\begin{align}
+    \expval{\phi^{(-n)}(w)X}&=\frac{1}{2\pi\ii}\oint_w\dd[]{z}(z-w)^{1-n}\expval{T(z)\phi(w)X}\notag\\
+                            &=-\frac{1}{2\pi\ii}\sum_i\oint_{w_i}\dd[]{z}(z-w)^{1-n}\left(\frac{1}{z-w_i}\partial_{w_i}\expval{\phi(w)X}\right.\notag\\
+                            &\quad\quad\quad\left.+\frac{h_i}{(z-w_i)^2}\expval{\phi(w)X}\right)\notag\\
+                            &\equiv\mathcal{L}_{-n}\expval{\phi(w)X}\quad(n\geq1)\label{eq:operator:coformal:descendant:1}
+\end{align}
+\begin{notice}
+    See a rigorous derivation of \cref{eq:operator:coformal:descendant:1} in \cite{Ribault:2014hia}.
+    The derivation presented here is not rigorous in the sense that the radius of the contour in the first line of \cref{eq:operator:coformal:descendant:1} is not specified, so it may contain singularities other than $w$.
+\end{notice}
 \subsubsection{Conformal Families}
 \subsubsection{The Operator Algebra}
 \subsubsection{Conformal Blocks}
