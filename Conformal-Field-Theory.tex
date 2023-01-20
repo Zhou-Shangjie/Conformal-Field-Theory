@@ -1937,8 +1937,12 @@ and
 \begin{align}
     \expval{A(z)B(w)}=\wick{\c A(z) \c B}(w)+\expval{\left(A(z)B(w)\right)}.
 \end{align}
+where $(A(z)B(w))$ can be extracted from the Taylor expansion of $A(z)$ around $w$:
+\begin{align}
+    (A(z)B(w))=\sum_{k\geq0}\frac{(z-w)^k}{k!}\left(\partial^k AB\right)(w).\label{eq:operator:normal_o:regular_A_B}
+\end{align}
 \begin{claim}
-    A use representation of the normal ordering is
+    A useful representation of the normal ordering is
     \begin{align}
         \expval{(AB)(w)}=\frac{1}{2\pi\ii}\oint_w\frac{\dd[]{z}}{z-w}\expval{A(z)B(w)},\label{eq:operator:normal_o:alternative_norm_O}
     \end{align}
@@ -1953,13 +1957,34 @@ We can expand an field operator around an arbitrary point $w$ as
 and energy-momentum tensor operator can be expanded as
 \begin{subequations}
     \begin{align}
-        T(z)=   & \sum_{n\in\mathbb{Z}}(z-w)^{-n-2}L_n(w)          \\
+        T(z)=   & \sum_{n\in\mathbb{Z}}(z-w)^{-n-2}L_n(w)  \label{eq:operator:normal_o:T_L_1}        \\
         L_n(w)= & \frac{1}{2\pi\ii}\oint_w\dd[]{z}(z-w)^{n+1}T(z).
     \end{align}
 \end{subequations}
 \begin{remark}
     Note that $\phi_n(w)$ and $L_n(w)$ here are not local operators, so correlation functions like $\expval{\phi_n(w)L_n(w)}$ do not diverge.
 \end{remark}
+
+
+Using \cref{eq:operator:normal_o:T_L_1}, we can write the OPE of $T(z)$ with an arbitrary field $A(w)$ as 
+\begin{align}
+    T(z)A(w)=\sum_{n\in\mathbb{Z}}(z-w)^{-n-2}L_n(w)A(w)=\sum_{n\in\mathbb{Z}}(z-w)^{-n-2}(L_n A)(w).\label{eq:operator:normal_o:T_A_L_A}
+\end{align}
+Note that we also have\sidenote{The singular part is from the definition and the regular part is from \cref{eq:operator:normal_o:regular_A_B}.} 
+\begin{align}
+    T(z)A(w)=\cdots+\frac{h_A A(w)}{(z-w)^2}+\frac{\partial A(w)}{(z-w)}+(TA)(w)+(z-w)(\partial TA)(w)+\cdots
+\end{align}
+therefore it is easy to write 
+\begin{subequations}
+    \begin{align}
+        (L_0 A)(w)&=h_A A(w)\\
+        (L_{-1}A)(w)&=\partial A(w).
+    \end{align}
+\end{subequations}
+and more generally, we have the relation 
+\begin{align}
+    (L_{-n-2}A)(w)=\frac{1}{n!}(\partial^n TA)(w).
+\end{align}
 
 \paragraph{Modes of normal-ordered operator}
 The mode expansion $(AB)_n(w)$ of the normal-ordered operator $(AB)(w)$ can be defined in the usual way
@@ -2358,6 +2383,16 @@ The expressions for $L_0$ and $\bar{L}_0$ are given by the following without der
 \subsection{The Free Fermion} 
 \subsection{Conformal Families and Operator Algebra}
 \subsubsection{Descendant Fields}
+\begin{intu}
+    Each descendant state can be viewed as the result of the application of a \textit{descendant field} on the vacuum.
+\end{intu}
+\begin{example}
+    Consider the descendant $L_{-n}\ket{h}$, we have 
+    \begin{align}
+        L_{-n}\ket{h}=L_{-n}\phi(0)\ket{0}=\frac{1}{2\pi\ii}\oint\dd{z}z^{1-n}T(z)\phi(0)\ket{0}=(L_{-n}\phi)(0\ket{0})
+    \end{align}
+    where we have used \cref{eq:operator:normal_o:T_A_L_A}.
+\end{example}
 \begin{definition}[Descendant field]
     The descendant field accociated with the state $L_{-n}\ket{h}$ is 
     \begin{align}
