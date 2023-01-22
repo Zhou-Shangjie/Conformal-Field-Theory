@@ -2439,7 +2439,11 @@ and so on.
 \begin{example}[OPE of $T(z)$ with $\phi^{(-n)}$]
     Using \cref{eq:operator:normal_o:T_A_L_A}, we have 
     \begin{align}
-        T(z)\phi^{(-n)}(w)=\sum_{k\geq0}(z-w)^{k-2}\left(L_{-k}\phi^{(-n)}\right)(w)+\sum_{k>0}\frac{1}{(z-w)^{k-2}}\left(L_{k}\phi^{(-n)}\right)(w)
+        T(z)\phi^{(-n)}(w)&=\sum_{k\geq0}(z-w)^{k-2}\left(L_{-k}\phi^{(-n)}\right)(w)+\sum_{k>0}\frac{1}{(z-w)^{k-2}}\left(L_{k}\phi^{(-n)}\right)(w)
+    \end{align}
+    \begin{align}
+        T(z)\phi^{(-n)}(w)&=\frac{1}{2\pi\ii}\oint_w\dd[]{x}\frac{1}{(x-w)^{n-1}}T(z)T(x)\phi(w)\notag\\
+                          &\sim\frac{1}{2\pi\ii}\oint_w\dd[]{x}\frac{1}{(x-w)^{n-1}}\left[\frac{c/2}{(z-x)^4}+\frac{2T(x)}{(z-x)^2}+\frac{\partial T(x)}{z-x}\right]\phi(w)
     \end{align}
 \end{example}
 \subsubsection{The Operator Algebra}
