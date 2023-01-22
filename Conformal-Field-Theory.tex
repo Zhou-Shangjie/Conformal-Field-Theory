@@ -2414,8 +2414,34 @@ where we have defined the differential operator
 \begin{notice}
     See a rigorous derivation of \cref{eq:operator:coformal:descendant:1} in \cite{Ribault:2014hia}.
     The derivation presented here is not rigorous in the sense that the radius of the contour in the first line of \cref{eq:operator:coformal:descendant:1} is not specified, so it may contain singularities other than $w$.
+    It may seems that in \cite{DiFrancesco:1997nk}, $\oint_w$ means that the contour only includes $w$.
 \end{notice}
+
+We can define more complecated descendant fields recursively corresponding to \cref{eq:operator:hilbert:excited_state}, for instance,
+\begin{align}
+    \phi^{(-k,-n)}(w)\equiv(L_{-k}L_{-n}\phi)(w)\equiv\frac{1}{2\pi\ii}\oint_w\dd[]{z}(z-w)^{1-k}T(z)(L_{-n}\phi)(w)
+\end{align}
+and so on.
+\begin{claim}
+    The correlation functions have the relation 
+    \begin{align}
+        \expval{\phi^{(-k_1,\dots,-k_n)}(w)X}=\mathcal{L}_{-k_1}\cdots\mathcal{L}_{-k_n}\expval{\phi(w)X},
+    \end{align}
+    which can be shown without difficulty.
+\end{claim}
+\begin{remark}
+    The idea is that correlation functions of descendant fields may be reduced to correlation functions of primary fields.
+\end{remark}
 \subsubsection{Conformal Families}
+\begin{definition}[Conformal family]
+    The set comprising a primary field $\phi$ and all of its descendants is called a \textit{conformal family}, and is sometimes denoted $[\phi]$.
+\end{definition}
+\begin{example}[OPE of $T(z)$ with $\phi^{(-n)}$]
+    Using \cref{eq:operator:normal_o:T_A_L_A}, we have 
+    \begin{align}
+        T(z)\phi^{(-n)}(w)=\sum_{k\geq0}(z-w)^{k-2}\left(L_{-k}\phi^{(-n)}\right)(w)+\sum_{k>0}\frac{1}{(z-w)^{k-2}}\left(L_{k}\phi^{(-n)}\right)(w)
+    \end{align}
+\end{example}
 \subsubsection{The Operator Algebra}
 \subsubsection{Conformal Blocks}
 \subsubsection{Crossing Symmetry and the Conformal Bootstrap}
