@@ -2393,7 +2393,7 @@ The expressions for $L_0$ and $\bar{L}_0$ are given by the following without der
     \end{align}
     where we have used \cref{eq:operator:normal_o:T_A_L_A}.
 \end{example}
-\begin{definition}[Descendant field]
+\begin{definition}[Descendant field]\label{def:descendant_field}
     The descendant field accociated with the state $L_{-n}\ket{h}$ is 
     \begin{align}
         \phi^{(-n)}(w)\equiv(L_{-n}\phi)(w)=\frac{1}{2\pi\ii}\oint_w\frac{1}{(z-w)^{n-1}}T(z)\phi(w).
@@ -2436,16 +2436,21 @@ and so on.
 \begin{definition}[Conformal family]
     The set comprising a primary field $\phi$ and all of its descendants is called a \textit{conformal family}, and is sometimes denoted $[\phi]$.
 \end{definition}
-\begin{example}[OPE of $T(z)$ with $\phi^{(-n)}$]
+\begin{example}[Correlation of $T(z)$ with $\phi^{(-n)}$]
     Using \cref{eq:operator:normal_o:T_A_L_A}, we have 
-    \begin{align}
+    \begin{align}\label{eq:operator:coformal:descendant:ex_1}
         T(z)\phi^{(-n)}(w)&=\sum_{k\geq0}(z-w)^{k-2}\left(L_{-k}\phi^{(-n)}\right)(w)+\sum_{k>0}\frac{1}{(z-w)^{k-2}}\left(L_{k}\phi^{(-n)}\right)(w)
     \end{align}
+    and note that, for the first term, $L_{-k}\phi^{(-n)}=\phi^{(-k,-n)}$ for $k\geq0$.
+    The second term in \cref{eq:operator:coformal:descendant:ex_1} is made of singular terms, so we just need to consider the OPE of $T(z)$ with $\phi^{(-n)}(w)$:
     \begin{align}
         T(z)\phi^{(-n)}(w)&=\frac{1}{2\pi\ii}\oint_w\dd[]{x}\frac{1}{(x-w)^{n-1}}T(z)T(x)\phi(w)\notag\\
                           &\sim\frac{1}{2\pi\ii}\oint_w\dd[]{x}\frac{1}{(x-w)^{n-1}}\left[\frac{c/2}{(z-x)^4}+\frac{2T(x)}{(z-x)^2}+\frac{\partial T(x)}{z-x}\right]\phi(w)\notag\\
-                          &\sim\frac{cn(n^2-1)/12}{(z-w)^{n+2}}\phi(w)
+                          &\sim\frac{cn(n^2-1)/12}{(z-w)^{n+2}}\phi(w)\notag\\
+                          &\quad+\oint_w\dd[]{x}\frac{1}{(x-w)^{n-1}}\sum_{l=0}^\infty\phi^{(-l)}(w)\left[\frac{2(x-w)^{l-2}}{(z-x)^2}+\frac{(l-2)(x-w)^{l-3}}{z-x}\right]\notag\\
+                          &\sim\frac{cn(n^2-1)/12}{(z-w)^{n+2}}\phi(w)+\sum_{l=0}^{n+1}\frac{2n-l}{(z-w)^{n+2-l}}\phi^{-l}(w)
     \end{align}
+    where we have used \cref{eq:operator:normal_o:T_A_L_A,def:descendant_field}.
 \end{example}
 \subsubsection{The Operator Algebra}
 \subsubsection{Conformal Blocks}
