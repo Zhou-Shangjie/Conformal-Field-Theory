@@ -1716,24 +1716,30 @@ From \cref{thm:Hermitian_conjugation_in_radial_quantization}, we can write
 \end{align}
 
 Note that on the real surface, using \cref{eq:operator:phi_expansion_a} we can also write
-\begin{align}
+\begin{equation}
     \phi(z,\bar{z})^\dagger=\sum_{m\in\mathbb{Z}}\sum_{n\in\mathbb{Z}}\bar{z}^{-m-h}z^{-n-\bar{h}}\phi^\dagger_{m,n}\label{eq:operator:conju_exp_alter}
-\end{align}
+\end{equation}
 and compare \cref{eq:operator:conju_exp_1,eq:operator:conju_exp_alter}, we have
-\begin{align}
+\begin{equation}
     \phi^\dagger_{m,n}=\phi_{-m,-n}.
-\end{align}
+\end{equation}
 \paragraph{Aspects of vacuum}
 Now for the state $\phi(0,0)$ to be well defined, there must be some constraints on the definition of vacuum $\ket{0}$.
 \begin{property}[Vacuum in radial quantization]
     The vacuum $\ket{0}$ in radial quantization is defined to satisfy
-    \begin{align}
+    \begin{equation}
         \phi_{m,n}\ket{0}=0\qfor m>-h,n>-\bar{h}.\label{eq:operator_formalism:partial_vacuum_def}
-    \end{align}
+    \end{equation}
 \end{property}
 \begin{remark}
     Note that \cref{eq:operator_formalism:partial_vacuum_def} is only part of the requirements that $\ket{0}$ must follow and in following sections there are more constraints.
 \end{remark}
+\begin{definition}[Asymptotic state]
+    Within radial quantization, the asymptotic state of field $\phi$ is defined to be 
+    \begin{equation}
+        \ket{\phi}\equiv\lim_{z,\bar{z}\to0}\phi(z,\bar{z})\ket{0}.
+    \end{equation} 
+\end{definition}
 In the following sections, we will use the simplified notation which drops the dependence of fields upon the antiholomorphic coordinate.
 Thus, the expansion \cref{eq:operator:phi_expansion} is now written in the simplified form\sidenote{It should be remembered that the antiholomorphic dependence is still here and can be easily restored due to the fact that the holomorphic and antiholomorphic degrees of freedom decouple.}
 \begin{subequations}
@@ -1746,12 +1752,12 @@ Thus, the expansion \cref{eq:operator:phi_expansion} is now written in the simpl
 \subsubsection{Radial Ordering and Operator Product Quantization}
 \begin{definition}[Radial ordering]
     The \textit{radial ordering} of two operators $\phi_1(z)$ and $\phi_2(w)$ is explicitly defined by\snm
-    \begin{align}
+    \begin{equation}
         \mathcal{R}\left(\phi_1(z)\phi_2(w)\right)\equiv\begin{cases}
                                                             \phi_1(z)\phi_2(w) & \qif\abs{z}>\abs{w}  \\
                                                             \phi_2(w)\phi_1(z) & \qif\abs{z}<\abs{w}.
                                                         \end{cases}
-    \end{align}
+    \end{equation}
     It is easy to generalize this to the case where more than 2 operators present.
     If the two fields are fermions, a minus sign is added in front of the second expression.
 \end{definition}
@@ -1765,16 +1771,16 @@ Now we introduce the computation of the correlation functions in radial quantiza
 In the following, we shall not write the radial ordering symbol $\mathcal{R}$ every time, but radial ordering is implicit.
 \paragraph{OPE and commutation relation}
 Let $a(z)$ and $b(z)$ be two fields and consider the integral
-\begin{align}
-    \oint_w\dd[]{z}\expval{a(z)b(w)}= & \oint_{C_1}\dd[]{z}\ev**{a(z)b(w)}{0}-\oint_{C_2}\dd[]{z}\ev**{b(w)a(z)}{0}\label{eq:operator:OPE_comm:A_bw}
+\begin{equation}
+    \oint_w\dd[]{z}\expval{a(z)b(w)}= \oint_{C_1}\dd[]{z}\ev**{a(z)b(w)}{0}-\oint_{C_2}\dd[]{z}\ev**{b(w)a(z)}{0}\label{eq:operator:OPE_comm:A_bw}
     %=&\ev**{\comm{A}{b(w)}}{0}
-\end{align}
+\end{equation}
 where the integral $\oint_w\dd[]{z}$ is evaluated along a circle at $z=w$.
 The radius of the circle $C_1$ and $C_2$ are $\abs{w}+\epsilon$ and $\abs{w}-\epsilon$ respectively.
 We see that the LHS of \cref{eq:operator:OPE_comm:A_bw} does not depend on the parameter $\epsilon$, so we can take the limit $\epsilon\to0$ in a well-defined way and thus \cref{eq:operator:OPE_comm:A_bw} becomes
-\begin{align}
-    \oint_w\dd[]{z}\expval{a(z)b(w)}= & \ev**{\comm{A}{b(w)}}{0}\label{eq:operator:OPE_comm:def}
-\end{align}
+\begin{equation}
+    \oint_w\dd[]{z}\expval{a(z)b(w)}=  \ev**{\comm{A}{b(w)}}{0}\label{eq:operator:OPE_comm:def}
+\end{equation}
 where $A\equiv\oint_C a(z)\dd[]{z}$ and radius of circle $C$ is $\abs{w}$.
 %\begin{align}
 %    \comm{A}{b(w)}\equiv\oint_{C_1}\dd[]{z}a(z)b(w)-\oint_{C_2}\dd[]{z}b(w)a(z).\label{eq:operator:def_comm}
@@ -1797,14 +1803,14 @@ The LHS of \cref{eq:operator:equal_time_comm} can be seen as an "equal-time" com
 \subsubsection{Conformal Generators}
 Let $\epsilon(z)$ be the holomorphic component of an infinitesimal conformal change of coordinates.
 We define the \textit{conformal charge}
-\begin{align}
+\begin{equation}
     Q_\epsilon\equiv\frac{1}{2\pi\ii}\oint_C\dd[]{z}\epsilon(z)T(z).\label{eq:operator:def:Q_epsilon}
-\end{align}
+\end{equation}
 where the integral contour circle $C$ is taken to be large enough to contain other operators we will see later.
 Using the conforamal Ward identity \cref{eq:2dcft:conformal_ward_final}, we have
-\begin{align}
+\begin{equation}
     \delta_\epsilon\expval{\phi(w)}=-\ev**{\comm{Q_\epsilon}{\phi(w)}}{0}
-\end{align}
+\end{equation}
 which means that the generator $Q_\epsilon$ is the generator of conformal transformations\sidenote{Usually in quantum mechanics, generators are defined to be operaotors. Here the definition of generators are understood within the correlation functions.}.
 
 Expand the energy-momentum tensor
@@ -2436,23 +2442,38 @@ and so on.
 \begin{definition}[Conformal family]
     The set comprising a primary field $\phi$ and all of its descendants is called a \textit{conformal family}, and is sometimes denoted $[\phi]$.
 \end{definition}
+As indicated earlier, the members of a family transform amongst themselves under a conformal transformation.
+Equivalently, we can say that the correlation function of $T(z)$ with any member of the family will be composed solely of other members of the same family.
 \begin{example}[Correlation of $T(z)$ with $\phi^{(-n)}$]
-    Using \cref{eq:operator:normal_o:T_A_L_A}, we have 
+    Using \cref{eq:operator:normal_o:T_A_L_A}, for $n>0$ we have 
     \begin{align}\label{eq:operator:coformal:descendant:ex_1}
         T(z)\phi^{(-n)}(w)&=\sum_{k\geq0}(z-w)^{k-2}\left(L_{-k}\phi^{(-n)}\right)(w)+\sum_{k>0}\frac{1}{(z-w)^{k-2}}\left(L_{k}\phi^{(-n)}\right)(w)
     \end{align}
     and note that, for the first term, $L_{-k}\phi^{(-n)}=\phi^{(-k,-n)}$ for $k\geq0$.
-    The second term in \cref{eq:operator:coformal:descendant:ex_1} is made of singular terms, so we just need to consider the OPE of $T(z)$ with $\phi^{(-n)}(w)$:
+    The second term in \cref{eq:operator:coformal:descendant:ex_1} is made of singular terms like $1/(z-w)^m$ for $m>2$, so we just need to consider the OPE of $T(z)$ with $\phi^{(-n)}(w)$ and extract corresponding terms from it:
     \begin{align}
         T(z)\phi^{(-n)}(w)&=\frac{1}{2\pi\ii}\oint_w\dd[]{x}\frac{1}{(x-w)^{n-1}}T(z)T(x)\phi(w)\notag\\
                           &\sim\frac{1}{2\pi\ii}\oint_w\dd[]{x}\frac{1}{(x-w)^{n-1}}\left[\frac{c/2}{(z-x)^4}+\frac{2T(x)}{(z-x)^2}+\frac{\partial T(x)}{z-x}\right]\phi(w)\notag\\
-                          &\sim\frac{cn(n^2-1)/12}{(z-w)^{n+2}}\phi(w)\notag\\
-                          &\quad+\oint_w\dd[]{x}\frac{1}{(x-w)^{n-1}}\sum_{l=0}^\infty\phi^{(-l)}(w)\left[\frac{2(x-w)^{l-2}}{(z-x)^2}+\frac{(l-2)(x-w)^{l-3}}{z-x}\right]\notag\\
+                          &\sim\frac{cn(n^2-1)/12}{(z-w)^{n+2}}\phi(w)+\frac{1}{2\pi\ii}\oint_w\dd[]{x}\frac{1}{(x-w)^{n-1}}\sum_{l=0}^\infty\phi^{(-l)}(w)\notag\\
+                          &\quad\quad\times\left[\frac{2(x-w)^{l-2}}{(z-x)^2}+\frac{(l-2)(x-w)^{l-3}}{z-x}\right]\notag\\
                           &\sim\frac{cn(n^2-1)/12}{(z-w)^{n+2}}\phi(w)+\sum_{l=0}^{n+1}\frac{2n-l}{(z-w)^{n+2-l}}\phi^{-l}(w)
     \end{align}
     where we have used \cref{eq:operator:normal_o:T_A_L_A,def:descendant_field}.
+    Therefore, \cref{eq:operator:coformal:descendant:ex_1} finally becomes 
+    \begin{align}
+        T(z)\phi^{(-n)}(w)=&\frac{cn(n^2-1)/12}{(z-w)^{n+2}}\phi(w)+\sum_{k=1}^{n}\frac{n+k}{(z-w)^{k+2}}\phi^{(k-n)}(w)\notag\\
+                            &+\sum_{k\geq0}(z-w)^{k-2}\phi^{(-k,-n)}(w).
+    \end{align}
 \end{example}
+The descendants of a primary are called \textit{secondary fields}.
+Under a conformal mapping $z\to f(z)$, a secondary field $A(z)$ of a primary field of dimension $h$ transforms like 
+\begin{align}
+    A(z)\to\left(\dv{f}{z}\right)^{h'}A(f(z))+\text{extra terms}
+\end{align}
+where $h=h+n$ where $n>0$. 
+The extra terms translate into pole singularities of degree higher than two in the OPE of $T(z)$ with $A(w)$.
 \subsubsection{The Operator Algebra}
+\paragraph{Normalization of fields}
 \subsubsection{Conformal Blocks}
 \subsubsection{Crossing Symmetry and the Conformal Bootstrap}
 
