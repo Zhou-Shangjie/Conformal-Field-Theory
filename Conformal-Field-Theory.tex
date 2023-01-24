@@ -1281,7 +1281,7 @@ Notice that $x_{ij}=\left(z_{ij}\bar{z}_{ij}\right)^{\frac{1}{2}}$ and \cref{eq:
 \Cref{eq:CIQFT:3_points_final} can be generalized to
 \begin{align}
     \expval{\phi_1(x_1)\phi_2(x_2)\phi_3(x_3)}= & C_{123}\frac{1}{z_{12}^{h_1+h_2-h_3}z_{23}^{h_2+h_3-h_1}z_{13}^{h_3+h_1-h_2}}\notag                                                                   \\
-                                                & \times\frac{1}{\bar{z}_{12}^{\bar{h}_1+\bar{h}_2-\bar{h}_3}\bar{z}_{23}^{\bar{h}_2+\bar{h}_3-\bar{h}_1}\bar{z}_{13}^{\bar{h}_3+\bar{h}_1-\bar{h}_2}}.
+                                                & \times\frac{1}{\bar{z}_{12}^{\bar{h}_1+\bar{h}_2-\bar{h}_3}\bar{z}_{23}^{\bar{h}_2+\bar{h}_3-\bar{h}_1}\bar{z}_{13}^{\bar{h}_3+\bar{h}_1-\bar{h}_2}}.\label{eq:2dcft:3_point}
 \end{align}
 \paragraph{Four-point function}
 As before, the four-point functions are still not fixed because of the anharmonic ratios.
@@ -2477,6 +2477,25 @@ The extra terms translate into pole singularities of degree higher than two in t
 If the conformal dimensions are the same for a finite set of primary fields $\phi_\alpha$, the correlators are 
 \begin{align}
     \expval{\phi_\alpha(w,\bar{w})\phi_{\beta}(z,\bar{z})}=\frac{C_{\alpha\beta}}{(w-z)^{2h}(\bar{w}-\bar{z})^{2\bar{h}}}.
+\end{align}
+where $K=\sum_i k_i$ and $\bar{K}=\sum_i \bar{k}_i$; the expression $\{k\}$ means a collection of indices $k_i$.
+
+We make the following ansatz\sidenote{The proof that the OPE of two primary fields involves indeed just other primary fields and their descendants is non-trivial and will not be presented.}
+\begin{align}\label{eq:operator_formalism:operator_algebra_ansatz}
+    \phi_q(z,\bar{z})\phi_w(0,0)=\sum_p \sum_{\{k,\bar{k}\}}C^{p\{k,\bar{k}\}}_{12}z^{h_p-h_1-h_2+K}\bar{z}^{\bar{h}_p-\bar{h}_1-\bar{h}_2+\bar{K}}\phi_p^{\{k,\bar{k}\}}(0,0)
+\end{align}
+where we have used the invariance under scaling transformations.
+We take the correlator of this relation with a third primary field $\phi_r(w,\bar{w})$ of dimensions $h_r$, $\bar{h}_r$.
+Sending $w\to\infty$ and we have:
+\begin{align}
+    \mel{\phi_r}{\phi_1(z,\bar{z})}{\phi_2}&=\lim_{w,\bar{w}\to\infty}w^{2h_r}\bar{w}^{2\bar{h}_r}\expval{\phi_r(w,\bar{w})\phi_1(z,\bar{z})\phi_2(0,0)}\notag\\
+                                           &=\frac{C_{r12}}{z^{h_1+h_2-h_r}\bar{z}^{\bar{h}_1+\bar{h}_2-\bar{h}_r}}
+\end{align}
+where we used the general form of three-point function \cref{eq:2dcft:3_point}.
+If we use \cref{eq:operator_formalism:operator_algebra_ansatz}, then the only term that contributes to the three-point function is $p\{k,\bar{k}\}=r\{0,0\}$, because of the orthogonality of the Verma modules.
+Therefore, we have 
+\begin{align}
+    C^{p\{0,0\}}_{12}\equiv C^{p}_{12}=C_{p12}.
 \end{align}
 \subsubsection{Conformal Blocks}
 \subsubsection{Crossing Symmetry and the Conformal Bootstrap}
