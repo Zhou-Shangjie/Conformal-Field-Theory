@@ -2482,7 +2482,7 @@ where $K=\sum_i k_i$ and $\bar{K}=\sum_i \bar{k}_i$; the expression $\{k\}$ mean
 
 We make the following ansatz\sidenote{The proof that the OPE of two primary fields involves indeed just other primary fields and their descendants is non-trivial and will not be presented.}
 \begin{align}\label{eq:operator_formalism:operator_algebra_ansatz}
-    \phi_q(z,\bar{z})\phi_w(0,0)=\sum_p \sum_{\{k,\bar{k}\}}C^{p\{k,\bar{k}\}}_{12}z^{h_p-h_1-h_2+K}\bar{z}^{\bar{h}_p-\bar{h}_1-\bar{h}_2+\bar{K}}\phi_p^{\{k,\bar{k}\}}(0,0)
+    \phi_1(z,\bar{z})\phi_2(0,0)=\sum_p \sum_{\{k,\bar{k}\}}C^{p\{k,\bar{k}\}}_{12}z^{h_p-h_1-h_2+K}\bar{z}^{\bar{h}_p-\bar{h}_1-\bar{h}_2+\bar{K}}\phi_p^{\{k,\bar{k}\}}(0,0)
 \end{align}
 where we have used the invariance under scaling transformations.
 We take the correlator of this relation with a third primary field $\phi_r(w,\bar{w})$ of dimensions $h_r$, $\bar{h}_r$.
@@ -2507,7 +2507,39 @@ By convention, we set $\beta^{p\{0\}}_{ij}=\bar{\beta}^{p\{0\}}_{ij}$ and other 
     We can use the requirement that behavior of both sides of \cref{eq:operator_formalism:operator_algebra_ansatz} should be identical to calculate these coefficients $\beta^{p\{0\}}_{ij}$ and $\bar{\beta}^{p\{0\}}_{ij}$.
 \end{intu}
 \begin{example}[Computation of $\beta^{p\{0\}}_{ij}$ and $\bar{\beta}^{p\{0\}}_{ij}$]
-    We will compute $\beta^{p\{0\}}_{ij}$ and $\bar{\beta}^{p\{0\}}_{ij}$ in the simple case $h_1=h_2=h$
+    We will compute $\beta^{p\{0\}}_{ij}$ and $\bar{\beta}^{p\{0\}}_{ij}$ in the simple case $h_1=h_2=h$.
+    When applying \cref{eq:operator_formalism:operator_algebra_ansatz} on vacuum, we have 
+    \begin{align}\label{eq:operator_formalism:operator_algebra:ex_1}
+        \phi_1(z,\bar{z})\ket{h,\bar{h}}=\sum_p C_{p12}z^{h_p-2h}\bar{z}^{\bar{h}_p-2\bar{h}}\varphi(z)\bar{\varphi}(\bar{z})\ket{h_p,\bar{h}_p}
+    \end{align}
+    where we have defined 
+    \begin{align}
+        \varphi(z)\equiv\sum_{\{k\}}z^K \beta_{12}^{p\{k\}}L_{-k_1}\cdots L_{-k_N}
+    \end{align}
+    and similarly for $\bar{\varphi}(\bar{z})$.
+    On the holomorphic sector we define the state 
+    \begin{align}
+        \ket{z,h_p}\equiv\varphi(z)\ket{h_p}
+    \end{align}
+    which obviously can be expressed as a power series 
+    \begin{align}
+        \ket{z,h_p}=\sum_{N=0}^\infty z^N\ket{N,h_p}.
+    \end{align} 
+    The state $\ket{N,h_p}$ is an unnormalized descendant state at level $N$ in the Verma module $V(h_p)$:
+    \begin{align}
+        L_0\ket{N,h_p}=(h_p+N)\ket{N,h_p}
+    \end{align}
+    and we use the notation $\ket{h_p}\equiv\ket{0,h_p}$.
+
+    We now apply $L_n (n>0)$ on both sides of \cref{eq:operator_formalism:operator_algebra:ex_1} and the LHS becomes 
+    \begin{align}
+        L_n\phi_1(z,\bar{z})\ket{h,\bar{h}}&=\comm{L_n}{\phi_1(z,\bar{z})}\ket{h,\bar{h}}\notag\\
+                                           &=\left(z^{n+1}\partial_z+(n+1)h\right)\phi_1(z,\bar{z})\ket{h,\bar{h}}
+    \end{align}
+    where we have used \cref{eq:operator_formalism:hilbert:holo_comm}, and the RHS becomes 
+    \begin{align}
+        \sum_p C_{p12}z^{h_p-2h}\bar{z}^{\bar{h}_p-2\bar{h}}L_n\ket{z,h_p}\ket{\bar{z},\bar{h}_p}
+    \end{align}
 \end{example}
 \subsubsection{Conformal Blocks}
 \subsubsection{Crossing Symmetry and the Conformal Bootstrap}
