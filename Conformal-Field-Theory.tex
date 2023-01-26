@@ -2506,7 +2506,7 @@ By convention, we set $\beta^{p\{0\}}_{ij}=\bar{\beta}^{p\{0\}}_{ij}=1$ and othe
 \begin{intu}
     We can use the requirement that behavior of both sides of \cref{eq:operator_formalism:operator_algebra_ansatz} should be identical to calculate these coefficients $\beta^{p\{0\}}_{ij}$ and $\bar{\beta}^{p\{0\}}_{ij}$.
 \end{intu}
-\begin{example}[Computation of $\beta^{p\{0\}}_{ij}$ and $\bar{\beta}^{p\{0\}}_{ij}$]
+\begin{example}[Computation of $\beta^{p\{0\}}_{ij}$ and $\bar{\beta}^{p\{0\}}_{ij}$\label{example:computation_beta}]
     We will compute $\beta^{p\{0\}}_{ij}$ and $\bar{\beta}^{p\{0\}}_{ij}$ in the simple case $h_1=h_2=h$.
     When applying \cref{eq:operator_formalism:operator_algebra_ansatz} on vacuum, we have 
     \begin{align}\label{eq:operator_formalism:operator_algebra:ex_1}
@@ -2544,21 +2544,34 @@ By convention, we set $\beta^{p\{0\}}_{ij}=\bar{\beta}^{p\{0\}}_{ij}=1$ and othe
     \end{align}
     Using \cref{eq:operator_formalism:operator_algebra:ex_3}, \cref{eq:operator_formalism:operator_algebra:ex_4} becomes 
     \begin{align}
-        L_n\ket{N+n,h_p}=\left(h_p+(n-1)h+N\right)\ket{N,h_p}
+        L_n\ket{N+n,h_p}=\left(h_p+(n-1)h+N\right)\ket{N,h_p}\label{eq:operator_formalism:operator_algebra:ex_relation}
     \end{align}
     and we can use this formula and Virasoro algebra to compute $\ket{N,h_p}$ and $\beta^{p\{k\}}_{12}$.
 
     For $N=1$, from \cref{eq:operator_formalism:operator_algebra:ex_5}, we can write 
     \begin{align}
-        \ket{1,h_p}=\beta^{p\{1\}}_{12}L_{-1}\ket{h_p}
+        \ket{1,h_p}=\beta^{p\{1\}}_{12}L_{-1}\ket{h_p}.
+    \end{align}
+    Applying $L_1$ on both sides and using the relation \cref{eq:operator_formalism:operator_algebra:ex_relation}, we have 
+    \begin{align}
+        L_1\ket{1,h_p}=h_p\ket{h_p}=\beta^{p\{1\}}_{12}L_1 L_{-1}\ket{h_p}=\beta^{p\{1\}}_{12}\comm{L_1}{L_{-1}}\ket{h_p}=2h_{p}\beta^{p\{1\}}_{12}\ket{h_p}.
+    \end{align}
+    Therefore we finally obtain 
+    \begin{align}
+        \beta^{p\{1\}}_{12}=\frac{1}{2}.
     \end{align}
 
     In the same way, for $N=2$, we have 
     \begin{align}
         \ket{2,h_p}=\beta^{p\{1,1\}}_{12} L^2_{-1}\ket{h_p}+\beta^{p\{2\}}_{12}L_{-2}\ket{h_p}.
     \end{align}
+    and we can act $L_1^2$ and $L_2$ on both sides which will give us two equations for $\beta^{p\{1,1\}}_{12}$ and $\beta^{p\{2\}}_{12}$. 
+    The details can be found in \cite{DiFrancesco:1997nk}.
 \end{example}
+From \cref{example:computation_beta}, it not hard to conclude that at a given level $N$ there are $p(N)$\sidenote{$p(N)$ is the \href{https://en.wikipedia.org/wiki/Partition_(number_theory)}{\textit{partition}} of a positive integer $N$.} coefficients to be found and accordingly we need $p(N)$ equations for these coefficients.
+These equations are obtained by considering the $p(N)$ ways to bring $\ket{N,h_p}$ to level 0 with help of the Virasoro operators $L_n (n>0)$. 
 \subsubsection{Conformal Blocks}
+
 \subsubsection{Crossing Symmetry and the Conformal Bootstrap}
 
 \clearpage
