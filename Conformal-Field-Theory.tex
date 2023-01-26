@@ -2539,7 +2539,7 @@ By convention, we set $\beta^{p\{0\}}_{ij}=\bar{\beta}^{p\{0\}}_{ij}=1$ and othe
     where we have used \cref{eq:operator_formalism:hilbert:holo_comm}. 
     Substitute \cref{eq:operator_formalism:operator_algebra:ex_1} into \cref{eq:operator_formalism:operator_algebra:ex_2} and we have 
     \begin{align}
-        \sum_p C_{p12}z^{h_p-2h} & \bar{z}^{\bar{h}_p-2\bar{h}}L_n\ket{z,h_p}\ket{\bar{z},\bar{h}_p}\notag                                                                \\
+        \sum_p C_{p12}z^{h_p-2h} & \bar{z}^{\bar{h}_p-2\bar{h}}L_n\ket{z,h_p}\ket{\bar{z},\bar{h}_p}\notag                                                                                                                   \\
                                  & =\sum_p C_{p12}z^{h_p-2h}\bar{z}^{\bar{h}_p-2\bar{h}}\left[(h_p+h(n-1))z^n+z^{n+1}\partial_z\right]\ket{z,h_p}\ket{\bar{z},\bar{h}_p}.\label{eq:operator_formalism:operator_algebra:ex_4}
     \end{align}
     Using \cref{eq:operator_formalism:operator_algebra:ex_3}, \cref{eq:operator_formalism:operator_algebra:ex_4} becomes 
@@ -2547,7 +2547,7 @@ By convention, we set $\beta^{p\{0\}}_{ij}=\bar{\beta}^{p\{0\}}_{ij}=1$ and othe
         L_n\ket{N+n,h_p}=\left(h_p+(n-1)h+N\right)\ket{N,h_p}\label{eq:operator_formalism:operator_algebra:ex_relation}
     \end{align}
     and we can use this formula and Virasoro algebra to compute $\ket{N,h_p}$ and $\beta^{p\{k\}}_{12}$.
-
+    
     For $N=1$, from \cref{eq:operator_formalism:operator_algebra:ex_5}, we can write 
     \begin{align}
         \ket{1,h_p}=\beta^{p\{1\}}_{12}L_{-1}\ket{h_p}.
@@ -2560,7 +2560,7 @@ By convention, we set $\beta^{p\{0\}}_{ij}=\bar{\beta}^{p\{0\}}_{ij}=1$ and othe
     \begin{align}
         \beta^{p\{1\}}_{12}=\frac{1}{2}.
     \end{align}
-
+    
     In the same way, for $N=2$, we have 
     \begin{align}
         \ket{2,h_p}=\beta^{p\{1,1\}}_{12} L^2_{-1}\ket{h_p}+\beta^{p\{2\}}_{12}L_{-2}\ket{h_p}.
@@ -2571,7 +2571,54 @@ By convention, we set $\beta^{p\{0\}}_{ij}=\bar{\beta}^{p\{0\}}_{ij}=1$ and othe
 From \cref{example:computation_beta}, it not hard to conclude that at a given level $N$ there are $p(N)$\sidenote{$p(N)$ is the \href{https://en.wikipedia.org/wiki/Partition_(number_theory)}{\textit{partition}} of a positive integer $N$.} coefficients to be found and accordingly we need $p(N)$ equations for these coefficients.
 These equations are obtained by considering the $p(N)$ ways to bring $\ket{N,h_p}$ to level 0 with help of the Virasoro operators $L_n (n>0)$. 
 \subsubsection{Conformal Blocks}
+A generic four-point function $\expval{\phi_1(z_1,\bar{z}_1)\phi_2(z_2,\bar{z}_2)\phi_3(z_3,\bar{z}_3)\phi_4(z_4,\bar{z}_4)}$ depends only on the anharmonic ratios 
+\begin{align}
+    x=\frac{(z_1-z_2)(z_3-z_4)}{(z_1-z_3)(z_2-z_4)}\quad\bar{x}=\frac{(\bar{z}-\bar{z})(\bar{z}-\bar{z})}{(\bar{z}-\bar{z})(\bar{z}-\bar{z})}
+\end{align}
+Since these ratios are invariant under global transformations, we shall perform such a transformation in order to set $z_4=0$, $z_1=\infty$, $z_2=1$ and $z_3=x$, thus the correlator can be related to a matrix element between two asymptotic states of a two-field product
+\begin{align}
+    G^{21}_{34}(x,\bar{x}) & \equiv\mel**{h_1,\bar{h}_1}{\phi_2(1,1)\phi_3(x,\bar{x})}{h_4,\bar{h}_4}\notag                                                       \\
+                           & =\lim_{z_1,\bar{z}_1\to\infty}z^{2h_1}_1 \bar{z}^{2\bar{h}_1}_1\expval{\phi_1(z_1,\bar{z}_1)\phi_2(1,1)\phi_3(x,\bar{x})\phi_4(0,0)}
+\end{align}
+\paragraph{Reduction of four-point function}
+We write the operator algebra as
+\begin{align}
+    \phi_3(x,\bar{x})\phi_4(0,0)=\sum_p C^{p}_{34}x^{h_p-h_3-h_4}\bar{x}^{\bar{h}_p-\bar{h}_3-\bar{h}_4}\Psi_p(x,\bar{x}|0,0)
+\end{align}
+wherein 
+\begin{align}
+    \Psi_p(x,\bar{x}|0,0)\equiv\sum_{\{k,\bar{k}\}}\beta^{p\{k\}}_{34}\bar{\beta}^{p\{\bar{k}\}}_{34}x^K \bar{x}^{\bar{K}}\phi_p^{\{k,\bar{k}\}}(0,0)\qq{where} K\equiv\sum k_i.
+\end{align}
+Therefore, $G^{21}_{34}$ may be written as 
+\begin{align}
+    G^{21}_{34}(x,\bar{x})=\sum_p C^p_{34} C^p_{12} A^{21}_{34}(p|x,\bar{x})
+\end{align}
+where 
+\begin{align}\label{eq:operator_formalism:conformal_block:def_A}
+    A^{21}_{34}(p|x,\bar{x})\equiv(C^p_{12})^{-1}x^{h_p-h_3-h_4}\bar{x}^{\bar{h}_p-\bar{h}_3-\bar{h}_4}\mel**{h_1,\bar{h}_1}{\phi_2(1,1)\Psi_p(x,\bar{x}|0,0)}{0}.
+\end{align}
 
+From the definition \cref{eq:operator_formalism:conformal_block:def_A}, it is clear $A^{21}_{34}$ factorizes into a holomorphic part and an antiholomorphic part:
+\begin{align}
+    A^{21}_{34}(p|x,\bar{x})=\mathscr{F}^{21}_{34}(p|x)\bar{\mathscr{F}}^{21}_{34}(p|\bar{x})
+\end{align}
+where we have the definition  
+\begin{definition}[Conformal block]
+    $\mathscr{F}^{21}_{34}(p|x)$ is called \textit{conformal block} and is defined by
+    \begin{align}
+        \mathscr{F}^{21}_{34}(p|x)\equiv x^{h_p-h_3-h_4}\sum_{\{k\}}\beta^{p\{k\}}_{34}x^K\frac{\mel**{h_1}{\phi_2(1)L_{-k_1}\cdots L_{-k_N}}{h_p}}{\mel**{h_1}{\phi_2(1)}{h_p}}
+    \end{align}
+    and its antiholomorphic counterpart $\bar{\mathscr{F}}^{21}_{34}(p|\bar{x})$ can be defined similarly.
+\end{definition}
+\begin{boxmath}{Four-point Function}
+    \begin{align}
+        G^{21}_{34}(x,\bar{x})=\sum_p C^p_{34} C^p_{12}\mathscr{F}^{21}_{34}(p|x)\bar{\mathscr{F}}^{21}_{34}(p|\bar{x})
+    \end{align}
+\end{boxmath}
+\begin{remark}
+    An explicit expression for the conformal blocks is not known in general and we can compute them using the definition through brutal force.
+    Some results of the conformal block is listed in \cite{DiFrancesco:1997nk}.
+\end{remark}
 \subsubsection{Crossing Symmetry and the Conformal Bootstrap}
 
 \clearpage
