@@ -1280,7 +1280,7 @@ Notice that $x_{ij}=\left(z_{ij}\bar{z}_{ij}\right)^{\frac{1}{2}}$ and \cref{eq:
 \paragraph{Three-point function}
 \Cref{eq:CIQFT:3_points_final} can be generalized to
 \begin{align}
-    \expval{\phi_1(x_1)\phi_2(x_2)\phi_3(x_3)}= & C_{123}\frac{1}{z_{12}^{h_1+h_2-h_3}z_{23}^{h_2+h_3-h_1}z_{13}^{h_3+h_1-h_2}}\notag                                                                   \\
+    \expval{\phi_1(x_1)\phi_2(x_2)\phi_3(x_3)}= & C_{123}\frac{1}{z_{12}^{h_1+h_2-h_3}z_{23}^{h_2+h_3-h_1}z_{13}^{h_3+h_1-h_2}}\notag                                                                                           \\
                                                 & \times\frac{1}{\bar{z}_{12}^{\bar{h}_1+\bar{h}_2-\bar{h}_3}\bar{z}_{23}^{\bar{h}_2+\bar{h}_3-\bar{h}_1}\bar{z}_{13}^{\bar{h}_3+\bar{h}_1-\bar{h}_2}}.\label{eq:2dcft:3_point}
 \end{align}
 \paragraph{Four-point function}
@@ -2488,8 +2488,8 @@ where we have used the invariance under scaling transformations.
 We take the correlator of this relation with a third primary field $\phi_r(w,\bar{w})$ of dimensions $h_r$, $\bar{h}_r$.
 Sending $w\to\infty$ and we have:
 \begin{align}
-    \mel{\phi_r}{\phi_1(z,\bar{z})}{\phi_2}&=\lim_{w,\bar{w}\to\infty}w^{2h_r}\bar{w}^{2\bar{h}_r}\expval{\phi_r(w,\bar{w})\phi_1(z,\bar{z})\phi_2(0,0)}\notag\\
-                                           &=\frac{C_{r12}}{z^{h_1+h_2-h_r}\bar{z}^{\bar{h}_1+\bar{h}_2-\bar{h}_r}}
+    \mel{\phi_r}{\phi_1(z,\bar{z})}{\phi_2} & =\lim_{w,\bar{w}\to\infty}w^{2h_r}\bar{w}^{2\bar{h}_r}\expval{\phi_r(w,\bar{w})\phi_1(z,\bar{z})\phi_2(0,0)}\notag \\
+                                            & =\frac{C_{r12}}{z^{h_1+h_2-h_r}\bar{z}^{\bar{h}_1+\bar{h}_2-\bar{h}_r}}
 \end{align}
 where we used the general form of three-point function \cref{eq:2dcft:3_point}.
 If we use \cref{eq:operator_formalism:operator_algebra_ansatz}, then the only term that contributes to the three-point function is $p\{k,\bar{k}\}=r\{0,0\}$, because of the orthogonality of the Verma modules.
@@ -2497,11 +2497,11 @@ Therefore, we have
 \begin{align}
     C^{p\{0,0\}}_{12}\equiv C^{p}_{12}=C_{p12}.
 \end{align}
-The coefficients $C^{p\{k,\bar{k}\}}_{12}$ can be shown to be have the following form\cite{Belavin:1984vu} 
+The coefficients $C^{p\{k,\bar{k}\}}_{12}$ can be shown to be have the following form\cite{Belavin:1984vu}
 \begin{align}
     C^{p\{k,\bar{k}\}}_{12}=C^p_{12}\beta^{p\{k\}}_{12}\bar{\beta}^{p\{\bar{k}\}}_{12}.
 \end{align}
-By convention, we set $\beta^{p\{0\}}_{ij}=\bar{\beta}^{p\{0\}}_{ij}$ and other coefficients $\beta^{p\{0\}}_{ij}$ and $\bar{\beta}^{p\{0\}}_{ij}$ can be expressed as functions of the central charge $c$ and of the conformal dimensions.
+By convention, we set $\beta^{p\{0\}}_{ij}=\bar{\beta}^{p\{0\}}_{ij}=1$ and other coefficients $\beta^{p\{0\}}_{ij}$ and $\bar{\beta}^{p\{0\}}_{ij}$ can be expressed as functions of the central charge $c$ and of the conformal dimensions.
 
 \begin{intu}
     We can use the requirement that behavior of both sides of \cref{eq:operator_formalism:operator_algebra_ansatz} should be identical to calculate these coefficients $\beta^{p\{0\}}_{ij}$ and $\bar{\beta}^{p\{0\}}_{ij}$.
@@ -2519,26 +2519,43 @@ By convention, we set $\beta^{p\{0\}}_{ij}=\bar{\beta}^{p\{0\}}_{ij}$ and other 
     and similarly for $\bar{\varphi}(\bar{z})$.
     On the holomorphic sector we define the state 
     \begin{align}
-        \ket{z,h_p}\equiv\varphi(z)\ket{h_p}
+        \ket{z,h_p}\equiv\varphi(z)\ket{h_p}\label{eq:operator_formalism:operator_algebra:ex_5}
     \end{align}
     which obviously can be expressed as a power series 
     \begin{align}
-        \ket{z,h_p}=\sum_{N=0}^\infty z^N\ket{N,h_p}.
-    \end{align} 
+        \ket{z,h_p}=\sum_{N=0}^\infty z^N\ket{N,h_p}.\label{eq:operator_formalism:operator_algebra:ex_3}
+    \end{align}
     The state $\ket{N,h_p}$ is an unnormalized descendant state at level $N$ in the Verma module $V(h_p)$:
     \begin{align}
         L_0\ket{N,h_p}=(h_p+N)\ket{N,h_p}
     \end{align}
     and we use the notation $\ket{h_p}\equiv\ket{0,h_p}$.
-
-    We now apply $L_n (n>0)$ on both sides of \cref{eq:operator_formalism:operator_algebra:ex_1} and the LHS becomes 
+    
+    We now apply $L_n (n>0)$ on LHS of \cref{eq:operator_formalism:operator_algebra:ex_1} and find 
     \begin{align}
-        L_n\phi_1(z,\bar{z})\ket{h,\bar{h}}&=\comm{L_n}{\phi_1(z,\bar{z})}\ket{h,\bar{h}}\notag\\
-                                           &=\left(z^{n+1}\partial_z+(n+1)h\right)\phi_1(z,\bar{z})\ket{h,\bar{h}}
+        L_n\phi_1(z,\bar{z})\ket{h,\bar{h}} & =\comm{L_n}{\phi_1(z,\bar{z})}\ket{h,\bar{h}}\notag                                                                       \\
+                                            & =\left(z^{n+1}\partial_z+(n+1)h\right)\phi_1(z,\bar{z})\ket{h,\bar{h}}\label{eq:operator_formalism:operator_algebra:ex_2}
     \end{align}
-    where we have used \cref{eq:operator_formalism:hilbert:holo_comm}, and the RHS becomes 
+    where we have used \cref{eq:operator_formalism:hilbert:holo_comm}. 
+    Substitute \cref{eq:operator_formalism:operator_algebra:ex_1} into \cref{eq:operator_formalism:operator_algebra:ex_2} and we have 
     \begin{align}
-        \sum_p C_{p12}z^{h_p-2h}\bar{z}^{\bar{h}_p-2\bar{h}}L_n\ket{z,h_p}\ket{\bar{z},\bar{h}_p}
+        \sum_p C_{p12}z^{h_p-2h} & \bar{z}^{\bar{h}_p-2\bar{h}}L_n\ket{z,h_p}\ket{\bar{z},\bar{h}_p}\notag                                                                \\
+                                 & =\sum_p C_{p12}z^{h_p-2h}\bar{z}^{\bar{h}_p-2\bar{h}}\left[(h_p+h(n-1))z^n+z^{n+1}\partial_z\right]\ket{z,h_p}\ket{\bar{z},\bar{h}_p}.\label{eq:operator_formalism:operator_algebra:ex_4}
+    \end{align}
+    Using \cref{eq:operator_formalism:operator_algebra:ex_3}, \cref{eq:operator_formalism:operator_algebra:ex_4} becomes 
+    \begin{align}
+        L_n\ket{N+n,h_p}=\left(h_p+(n-1)h+N\right)\ket{N,h_p}
+    \end{align}
+    and we can use this formula and Virasoro algebra to compute $\ket{N,h_p}$ and $\beta^{p\{k\}}_{12}$.
+
+    For $N=1$, from \cref{eq:operator_formalism:operator_algebra:ex_5}, we can write 
+    \begin{align}
+        \ket{1,h_p}=\beta^{p\{1\}}_{12}L_{-1}\ket{h_p}
+    \end{align}
+
+    In the same way, for $N=2$, we have 
+    \begin{align}
+        \ket{2,h_p}=\beta^{p\{1,1\}}_{12} L^2_{-1}\ket{h_p}+\beta^{p\{2\}}_{12}L_{-2}\ket{h_p}.
     \end{align}
 \end{example}
 \subsubsection{Conformal Blocks}
