@@ -1292,7 +1292,7 @@ Indeed, we have the relation
 \end{align}
 The four-point function may depend on $\eta$ and $\bar{\eta}$ in an arbitrary way provided the result is real.
 Ans now \cref{eq:CIQFT:4_points} is generalized to
-\begin{align}
+\begin{align}\label{eq:2dcft:4_point}
     \expval{\phi_1(z_1,\bar{z}_1)\dots\phi_4(z_4,\bar{z}_4)}=f(\eta,\bar{\eta})\prod_{i<j}^4 z_{ij}^{\frac{h}{3}-h_i-h_j}\bar{z}_{ij}^{\frac{\bar{h}}{3}-\bar{h}_i-\bar{h}_j}
 \end{align}
 where $h\equiv\sum_{i=1}^4 h_i$ and $\bar{h}\equiv\sum_{i=1}^4\bar{h}_i$.
@@ -2571,14 +2571,25 @@ By convention, we set $\beta^{p\{0\}}_{ij}=\bar{\beta}^{p\{0\}}_{ij}=1$ and othe
 From \cref{example:computation_beta}, it not hard to conclude that at a given level $N$ there are $p(N)$\sidenote{$p(N)$ is the \href{https://en.wikipedia.org/wiki/Partition_(number_theory)}{\textit{partition}} of a positive integer $N$.} coefficients to be found and accordingly we need $p(N)$ equations for these coefficients.
 These equations are obtained by considering the $p(N)$ ways to bring $\ket{N,h_p}$ to level 0 with help of the Virasoro operators $L_n (n>0)$. 
 \subsubsection{Conformal Blocks}
-A generic four-point function $\expval{\phi_1(z_1,\bar{z}_1)\phi_2(z_2,\bar{z}_2)\phi_3(z_3,\bar{z}_3)\phi_4(z_4,\bar{z}_4)}$ depends only on the anharmonic ratios 
+A generic four-point function $\expval{\phi_1(z_1,\bar{z}_1)\phi_2(z_2,\bar{z}_2)\phi_3(z_3,\bar{z}_3)\phi_4(z_4,\bar{z}_4)}$ is in the form of \cref{eq:2dcft:4_point}:
+\begin{align*}
+    \expval{\phi_1(z_1,\bar{z}_1)\dots\phi_4(z_4,\bar{z}_4)}=f(\eta,\bar{\eta})\prod_{i<j}^4 z_{ij}^{\frac{h}{3}-h_i-h_j}\bar{z}_{ij}^{\frac{\bar{h}}{3}-\bar{h}_i-\bar{h}_j}.
+\end{align*}
+\begin{intu}
+    In \cref{eq:2dcft:4_point}, there is a function $f(\eta,\bar{\eta})$ where $\eta$ and $\bar{\eta}$ are anharmonic ratios.
+    If $f(\eta,\bar{\eta})$ is determined, then the four-point function is determined.
+    Now we will try to evaluate $f(\eta,\bar{\eta})$ using the operator algebra. 
+\end{intu}
+If we set $z_4=0$, $z_1=\infty$, $z_2=1$ and $z_3=x$, then the correlator becomes 
 \begin{align}
-    x=\frac{(z_1-z_2)(z_3-z_4)}{(z_1-z_3)(z_2-z_4)}\quad\bar{x}=\frac{(\bar{z}-\bar{z})(\bar{z}-\bar{z})}{(\bar{z}-\bar{z})(\bar{z}-\bar{z})}
+     & \expval{\phi_1(z,\bar{z})\phi_2(1,1)\phi_3(x,\bar{x})\phi_4(0,0)}\notag                                                                                                                                                                                     \\
+     & =f\left(\frac{z-1}{z-x}x,\frac{\bar{z}-1}{\bar{z}-\bar{x}}\bar{x}\right)z^{-2h_1}\bar{z}^{-2\bar{h}_1}(1-x)^{\frac{h}{3}-h_2-h_3}x^{\frac{h}{3}-h_3-h_4}(1-\bar{x})^{\frac{\bar{h}}{3}-\bar{h}_2-\bar{h}_3}\bar{x}^{\frac{\bar{h}}{3}-\bar{h}_3-\bar{h}_4}.
 \end{align}
-Since these ratios are invariant under global transformations, we shall perform such a transformation in order to set $z_4=0$, $z_1=\infty$, $z_2=1$ and $z_3=x$, thus the correlator can be related to a matrix element between two asymptotic states of a two-field product
+We define a matrix element between two asymptotic states of a two-field product
 \begin{align}
-    G^{21}_{34}(x,\bar{x}) & \equiv\mel**{h_1,\bar{h}_1}{\phi_2(1,1)\phi_3(x,\bar{x})}{h_4,\bar{h}_4}\notag                                                       \\
-                           & =\lim_{z_1,\bar{z}_1\to\infty}z^{2h_1}_1 \bar{z}^{2\bar{h}_1}_1\expval{\phi_1(z_1,\bar{z}_1)\phi_2(1,1)\phi_3(x,\bar{x})\phi_4(0,0)}
+    G^{21}_{34}(x,\bar{x}) & \equiv\mel**{h_1,\bar{h}_1}{\phi_2(1,1)\phi_3(x,\bar{x})}{h_4,\bar{h}_4}\notag                                                 \\
+                           & =\lim_{z,\bar{z}\to\infty}z^{2h_1} \bar{z}^{2\bar{h}_1}\expval{\phi_1(z,\bar{z})\phi_2(1,1)\phi_3(x,\bar{x})\phi_4(0,0)}\notag \\
+                           & =f(x,\bar{x})(1-x)^{\frac{h}{3}-h_2-h_3}x^{\frac{h}{3}-h_3-h_4}(1-\bar{x})^{\frac{\bar{h}}{3}-\bar{h}_2-\bar{h}_3}\bar{x}^{\frac{\bar{h}}{3}-\bar{h}_3-\bar{h}_4}
 \end{align}
 \paragraph{Reduction of four-point function}
 We write the operator algebra as
