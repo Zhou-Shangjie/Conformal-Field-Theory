@@ -1,0 +1,9 @@
+\documentclass{standalone}
+\usepackage[compat=1.1.0]{tikz-feynman}
+\begin{document}
+\feynmandiagram[vertical=a to b]{
+i1[particle=$n$]--a--i2[particle=$l$],
+a--[edge label=$p$]b,
+f1[particle=$k$]--b--f2[particle=$m$],
+};
+\end{document}

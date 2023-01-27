@@ -28,3 +28,19 @@ fig/Operator Formalism/Möbius strip/fig.fls
 fig/Operator Formalism/Möbius strip/fig.fdb_latexmk
 fig/Operator Formalism/Möbius strip/fig.log
 fig/Operator Formalism/Möbius strip/fig.pdf
+fig/Operator Formalism/partial wave/fig1.aux
+fig/Operator Formalism/partial wave/fig1.fdb_latexmk
+fig/Operator Formalism/partial wave/fig1.fls
+fig/Operator Formalism/partial wave/fig1.log
+fig/Operator Formalism/partial wave/fig1.pdf
+fig/Operator Formalism/partial wave/fig3.aux
+.gitignore
+fig/Operator Formalism/partial wave/fig3.log
+fig/Operator Formalism/partial wave/fig3.fdb_latexmk
+fig/Operator Formalism/partial wave/fig3.fls
+fig/Operator Formalism/partial wave/fig2.aux
+fig/Operator Formalism/partial wave/fig2.fdb_latexmk
+fig/Operator Formalism/partial wave/fig2.pdf
+fig/Operator Formalism/partial wave/fig3.pdf
+fig/Operator Formalism/partial wave/fig2.log
+fig/Operator Formalism/partial wave/fig2.fls

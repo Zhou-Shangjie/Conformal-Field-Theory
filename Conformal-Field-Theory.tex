@@ -18,6 +18,7 @@
 \usepackage{annotate-equations}
 \usepackage{marginfix}
 \usepackage{simpler-wick}
+\usepackage[export]{adjustbox}
 
 \newenvironment{boxmath}[1]{\begin{tcolorbox}[enhanced,attach boxed title to top center={yshift=-\tcboxedtitleheight/2},boxrule=1pt,title={\centering #1},colframe=NavyBlue!70!black,colback=NavyBlue!10,colbacktitle=NavyBlue!10,fonttitle=\scshape,coltitle=Black]}{\end{tcolorbox}}
 \crefname{claim}{claim}{claims}
@@ -2608,7 +2609,9 @@ where
 \begin{align}\label{eq:operator_formalism:conformal_block:def_A}
     A^{21}_{34}(p|x,\bar{x})\equiv(C^p_{12})^{-1}x^{h_p-h_3-h_4}\bar{x}^{\bar{h}_p-\bar{h}_3-\bar{h}_4}\mel**{h_1,\bar{h}_1}{\phi_2(1,1)\Psi_p(x,\bar{x}|0,0)}{0}.
 \end{align}
-
+\begin{align}
+    A^{ji}_{kl}(p|x,\bar{x})=\includegraphics[width=0.3\linewidth,valign=c]{fig/Operator Formalism/partial wave/fig1.pdf}
+\end{align}
 From the definition \cref{eq:operator_formalism:conformal_block:def_A}, it is clear $A^{21}_{34}$ factorizes into a holomorphic part and an antiholomorphic part:
 \begin{align}
     A^{21}_{34}(p|x,\bar{x})=\mathscr{F}^{21}_{34}(p|x)\bar{\mathscr{F}}^{21}_{34}(p|\bar{x})
@@ -2631,7 +2634,18 @@ where we have the definition
     Some results of the conformal block is listed in \cite{DiFrancesco:1997nk}.
 \end{remark}
 \subsubsection{Crossing Symmetry and the Conformal Bootstrap}
-
+\begin{intu}
+    A CFT in operator formalism should have crossing symmetry to be consistent with the path integral formalism and this condition will give us some non-trivial consistency relation which can be used to fix the correlators.
+\end{intu}
+\begin{align}
+    G^{21}_{34}(x,\bar{x})=G^{41}_{32}(1-x,1-\bar{x})
+\end{align}
+\begin{align}
+    G^{21}_{34}(x,\bar{x})=\frac{1}{x^{2h_3}\bar{x}^{2\bar{h}_3}}G^{24}_{31}\left(\frac{1}{x},\frac{1}{\bar{x}}\right)
+\end{align}
+\begin{align}
+    \sum_p C^p_{nm}C^p_{lk}\includegraphics[width=0.25\linewidth,valign=c]{fig/Operator Formalism/partial wave/fig2.pdf}=\sum_q C^q_{nl}C^q_{mk}\includegraphics[width=0.2\linewidth,valign=c]{fig/Operator Formalism/partial wave/fig3.pdf}
+\end{align}
 \clearpage
 \phantomsection\addcontentsline{toc}{section}{\protect\numberline{}Outlook}
 \section*{Outlook}
