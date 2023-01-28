@@ -2588,8 +2588,7 @@ If we set $z_4=0$, $z_1=\infty$, $z_2=1$ and $z_3=x$, then the correlator become
 \end{align}
 We define a matrix element between two asymptotic states of a two-field product
 \begin{align}
-    G^{21}_{34}(x,\bar{x}) & \equiv\mel**{h_1,\bar{h}_1}{\phi_2(1,1)\phi_3(x,\bar{x})}{h_4,\bar{h}_4}\notag                                                 \\
-                           & =\lim_{z,\bar{z}\to\infty}z^{2h_1} \bar{z}^{2\bar{h}_1}\expval{\phi_1(z,\bar{z})\phi_2(1,1)\phi_3(x,\bar{x})\phi_4(0,0)}\notag \\
+    G^{21}_{34}(x,\bar{x}) & \equiv\lim_{z,\bar{z}\to\infty}z^{2h_1} \bar{z}^{2\bar{h}_1}\expval{\phi_1(z,\bar{z})\phi_2(1,1)\phi_3(x,\bar{x})\phi_4(0,0)} \\
                            & =f(x,\bar{x})(1-x)^{\frac{h}{3}-h_2-h_3}x^{\frac{h}{3}-h_3-h_4}(1-\bar{x})^{\frac{\bar{h}}{3}-\bar{h}_2-\bar{h}_3}\bar{x}^{\frac{\bar{h}}{3}-\bar{h}_3-\bar{h}_4}
 \end{align}
 \paragraph{Reduction of four-point function}
@@ -2634,15 +2633,19 @@ where we have the definition
     Some results of the conformal block is listed in \cite{DiFrancesco:1997nk}.
 \end{remark}
 \subsubsection{Crossing Symmetry and the Conformal Bootstrap}
+The crossing symmetry is a kind of symmetry that the order of operators in the correlator does not affect the value of the correlator\sidenote{We are considering the bosonic theories. In fermionic theories, signs of the correlator may change.}, for example 
+\begin{align}
+    \expval{\phi_1(x_1)\phi_2(x_2)\phi_3(x_3)\phi_4(x_4)}=\expval{\phi_2(x_2)\phi_1(x_1)\phi_1(x_3)\phi_4(x_4)}.
+\end{align}
 \begin{intu}
     A CFT in operator formalism should have crossing symmetry to be consistent with the path integral formalism and this condition will give us some non-trivial consistency relation which can be used to fix the correlators.
 \end{intu}
-\begin{align}
-    G^{21}_{34}(x,\bar{x})=G^{41}_{32}(1-x,1-\bar{x})
-\end{align}
-\begin{align}
-    G^{21}_{34}(x,\bar{x})=\frac{1}{x^{2h_3}\bar{x}^{2\bar{h}_3}}G^{24}_{31}\left(\frac{1}{x},\frac{1}{\bar{x}}\right)
-\end{align}
+\begin{subequations}
+    \begin{align}
+        G^{21}_{34}(x,\bar{x})&=G^{41}_{32}(1-x,1-\bar{x})\\
+        G^{21}_{34}(x,\bar{x})&=\frac{1}{x^{2h_3}\bar{x}^{2\bar{h}_3}}G^{24}_{31}\left(\frac{1}{x},\frac{1}{\bar{x}}\right)
+    \end{align}
+\end{subequations}
 \begin{align}
     \sum_p C^p_{nm}C^p_{lk}\includegraphics[width=0.25\linewidth,valign=c]{fig/Operator Formalism/partial wave/fig2.pdf}=\sum_q C^q_{nl}C^q_{mk}\includegraphics[width=0.2\linewidth,valign=c]{fig/Operator Formalism/partial wave/fig3.pdf}
 \end{align}
@@ -2654,7 +2657,7 @@ There are lots of interesting topics to be discovered and some of them with refe
 \begin{itemize}
     \item CFT in $d\geq3$: \cite{Rychkov:2016iqz}
     \item AdS/CFT: Orignial papers: \cite{Maldacena:1997re,Witten:1998qj}. Reviews, lectures and books:\cite{Ammon:2015wua,Aharony:1999ti,Erdmenger2012,Petersen:1999zh,Penedones:2016voo,Maldacena:2003nj,Nastase:2007kj,becker_becker_schwarz_2006,Kiritsis:2019npv,McMahon:2009zza,Natsuume:2014sfa,DeHaro:2015aht,Kraus2008}.
-    \item Conformal bootstrap: \cite{Simmons-Duffin:2016gjk}
+    \item Conformal bootstrap: \cite{Simmons-Duffin:2016gjk,Poland:2018epd}
     \item Entanglement entropy: \cite{Calabrese:2009qy,Calabrese:2004eu,Rangamani:2016dms}
     \item CFT in statistical physics:
     \item Vertex algebra:
