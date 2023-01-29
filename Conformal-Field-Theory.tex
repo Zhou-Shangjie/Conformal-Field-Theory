@@ -2624,7 +2624,8 @@ where we have the definition
     \end{align}
     and its antiholomorphic counterpart $\bar{\mathscr{F}}^{21}_{34}(p|\bar{x})$ can be defined similarly.
 \end{definition}
-\begin{boxmath}{Four-point Function}
+With the definition of conformal blocks, now we can write
+\begin{boxmath}{Conformal Block}
     \begin{align}
         G^{21}_{34}(x,\bar{x})=\sum_p C^p_{34} C^p_{12}\mathscr{F}^{21}_{34}(p|x)\bar{\mathscr{F}}^{21}_{34}(p|\bar{x})\label{eq:operator:formalism:conformal_block:G_block}
     \end{align}
@@ -2640,7 +2641,7 @@ where we have the definition
     We can also use the operator algebra between $\phi_3\phi_1$ or $\phi_3\phi_2$, and we require the four-point function evaluated using different operator algebras to be the same (this is called the \textit{crossing symmetry} or \textit{bootstrap hypothesis}).
     This requirement will provide us with some constraints which may help us solve the theory. 
 \end{intu}
-Using the definition in \cref{eq:operator:formalism:conformal_block:G_def}, we can directly check the following relations:
+Using the definition in \cref{eq:operator:formalism:conformal_block:G_def}, we can directly check the following relations\sidenote{We consider the bosonic theories here. In fermionic cases, there may be some subtleties on the sign.}:
 \begin{subequations}\label{eq:operator:formalism:conformal_bootstrap:relation}
     \begin{align}
         G^{21}_{34}(x,\bar{x})&=G^{41}_{32}(1-x,1-\bar{x})\label{eq:operator:formalism:conformal_bootstrap:relation_1}\\
@@ -2657,8 +2658,13 @@ Using \cref{eq:operator:formalism:conformal_block:G_block} to rewrite \cref{eq:o
 \end{align}
 \Cref{eq:operator:formalism:conformal_bootstrap:relation_1_a} can be represented by the following famous diagram, which is an icon of conformal bootstrap 
 \begin{align}
-    \sum_p C^p_{nm}C^p_{lk}\includegraphics[width=0.25\linewidth,valign=c]{fig/Operator Formalism/partial wave/fig2.pdf}=\sum_q C^q_{nl}C^q_{mk}\includegraphics[width=0.2\linewidth,valign=c]{fig/Operator Formalism/partial wave/fig3.pdf}
+    \sum_p C^p_{nm}C^p_{lk}\includegraphics[width=0.25\linewidth,valign=c]{fig/Operator Formalism/partial wave/fig2.pdf}=\sum_q C^q_{nl}C^q_{mk}\includegraphics[width=0.2\linewidth,valign=c]{fig/Operator Formalism/partial wave/fig3.pdf}.
 \end{align}
+Assuming that the conformal blocks are known for arbitrary values of the conformal dimensions, the above expresses a set of constraints that could determine the coefficients $C^p_{mn}$ and the conformal dimension $h_p$.
+This program of calculating the correlation functions simply by assuming crossing symmetry is known as the \textit{bootstrap approach}.
+\begin{remark}
+    In some special cases (e.g. the minimal models), the theory can be solved completely using the bootstrap approach.
+\end{remark}
 \clearpage
 \phantomsection\addcontentsline{toc}{section}{\protect\numberline{}Outlook}
 \section*{Outlook}
