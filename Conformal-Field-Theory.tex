@@ -1289,7 +1289,7 @@ As before, the four-point functions are still not fixed because of the anharmoni
 However, in 2-dimensional spacetime, the number of independent anharmonic ratios is reduced to 1.
 Indeed, we have the relation
 \begin{align}
-    \eta=\frac{z_{12}z_{34}}{z_{13}z_{24}}\quad\quad1-\eta=\frac{\eta_{14}\eta_{23}}{\eta_{13}\eta_{24}}\quad\quad\frac{\eta}{1-\eta}=\frac{z_{12}z_{34}}{z_{14}z_{23}}.
+    \eta=\frac{z_{12}z_{34}}{z_{13}z_{24}}\quad\quad1-\eta=\frac{z_{14}z_{23}}{z_{13}z_{24}}\quad\quad\frac{\eta}{1-\eta}=\frac{z_{12}z_{34}}{z_{14}z_{23}}.
 \end{align}
 The four-point function may depend on $\eta$ and $\bar{\eta}$ in an arbitrary way provided the result is real.
 Ans now \cref{eq:CIQFT:4_points} is generalized to
@@ -2571,7 +2571,7 @@ By convention, we set $\beta^{p\{0\}}_{ij}=\bar{\beta}^{p\{0\}}_{ij}=1$ and othe
 \end{example}
 From \cref{example:computation_beta}, it not hard to conclude that at a given level $N$ there are $p(N)$\sidenote{$p(N)$ is the \href{https://en.wikipedia.org/wiki/Partition_(number_theory)}{\textit{partition}} of a positive integer $N$.} coefficients to be found and accordingly we need $p(N)$ equations for these coefficients.
 These equations are obtained by considering the $p(N)$ ways to bring $\ket{N,h_p}$ to level 0 with help of the Virasoro operators $L_n (n>0)$. 
-\subsubsection{Conformal Blocks}
+\subsubsection{Conformal Blocks\label{sec:conformal_blocks}}
 A generic four-point function $\expval{\phi_1(z_1,\bar{z}_1)\phi_2(z_2,\bar{z}_2)\phi_3(z_3,\bar{z}_3)\phi_4(z_4,\bar{z}_4)}$ is in the form of \cref{eq:2dcft:4_point}:
 \begin{align*}
     \expval{\phi_1(z_1,\bar{z}_1)\dots\phi_4(z_4,\bar{z}_4)}=f(\eta,\bar{\eta})\prod_{i<j}^4 z_{ij}^{\frac{h}{3}-h_i-h_j}\bar{z}_{ij}^{\frac{\bar{h}}{3}-\bar{h}_i-\bar{h}_j}.
@@ -2588,7 +2588,7 @@ If we set $z_4=0$, $z_1=\infty$, $z_2=1$ and $z_3=x$, then the correlator become
 \end{align}
 We define a matrix element between two asymptotic states of a two-field product
 \begin{align}
-    G^{21}_{34}(x,\bar{x}) & \equiv\lim_{z,\bar{z}\to\infty}z^{2h_1} \bar{z}^{2\bar{h}_1}\expval{\phi_1(z,\bar{z})\phi_2(1,1)\phi_3(x,\bar{x})\phi_4(0,0)} \\
+    G^{21}_{34}(x,\bar{x}) & \equiv\lim_{z,\bar{z}\to\infty}z^{2h_1} \bar{z}^{2\bar{h}_1}\expval{\phi_1(z,\bar{z})\phi_2(1,1)\phi_3(x,\bar{x})\phi_4(0,0)} \label{eq:operator:formalism:conformal_block:G_def}\\
                            & =f(x,\bar{x})(1-x)^{\frac{h}{3}-h_2-h_3}x^{\frac{h}{3}-h_3-h_4}(1-\bar{x})^{\frac{\bar{h}}{3}-\bar{h}_2-\bar{h}_3}\bar{x}^{\frac{\bar{h}}{3}-\bar{h}_3-\bar{h}_4}
 \end{align}
 \paragraph{Reduction of four-point function}
@@ -2606,7 +2606,8 @@ Therefore, $G^{21}_{34}$ may be written as
 \end{align}
 where 
 \begin{align}\label{eq:operator_formalism:conformal_block:def_A}
-    A^{21}_{34}(p|x,\bar{x})\equiv(C^p_{12})^{-1}x^{h_p-h_3-h_4}\bar{x}^{\bar{h}_p-\bar{h}_3-\bar{h}_4}\mel**{h_1,\bar{h}_1}{\phi_2(1,1)\Psi_p(x,\bar{x}|0,0)}{0}.
+    A^{21}_{34}(p|x,\bar{x})\equiv(C^p_{12})^{-1}&x^{h_p-h_3-h_4}\bar{x}^{\bar{h}_p-\bar{h}_3-\bar{h}_4}\notag\\
+                                                 &\times\lim_{z,\bar{z}\to\infty}z^{2h_1}\bar{z}^{2\bar{h}_1}\expval{\phi_1(z,\bar{z})\phi_2(1,1)\Psi_p(x,\bar{x}|0,0)}.
 \end{align}
 \begin{align}
     A^{ji}_{kl}(p|x,\bar{x})=\includegraphics[width=0.3\linewidth,valign=c]{fig/Operator Formalism/partial wave/fig1.pdf}
@@ -2625,7 +2626,7 @@ where we have the definition
 \end{definition}
 \begin{boxmath}{Four-point Function}
     \begin{align}
-        G^{21}_{34}(x,\bar{x})=\sum_p C^p_{34} C^p_{12}\mathscr{F}^{21}_{34}(p|x)\bar{\mathscr{F}}^{21}_{34}(p|\bar{x})
+        G^{21}_{34}(x,\bar{x})=\sum_p C^p_{34} C^p_{12}\mathscr{F}^{21}_{34}(p|x)\bar{\mathscr{F}}^{21}_{34}(p|\bar{x})\label{eq:operator:formalism:conformal_block:G_block}
     \end{align}
 \end{boxmath}
 \begin{remark}
@@ -2633,19 +2634,28 @@ where we have the definition
     Some results of the conformal block is listed in \cite{DiFrancesco:1997nk}.
 \end{remark}
 \subsubsection{Crossing Symmetry and the Conformal Bootstrap}
-The crossing symmetry is a kind of symmetry that the order of operators in the correlator does not affect the value of the correlator\sidenote{We are considering the bosonic theories. In fermionic theories, signs of the correlator may change.}, for example 
-\begin{align}
-    \expval{\phi_1(x_1)\phi_2(x_2)\phi_3(x_3)\phi_4(x_4)}=\expval{\phi_2(x_2)\phi_1(x_1)\phi_1(x_3)\phi_4(x_4)}.
-\end{align}
 \begin{intu}
-    A CFT in operator formalism should have crossing symmetry to be consistent with the path integral formalism and this condition will give us some non-trivial consistency relation which can be used to fix the correlators.
+    In the four point function, there are more than one way to apply the operator algebra. 
+    For instance, in \cref{sec:conformal_blocks} we used the operator algebra between $\phi_3$ and $\phi_4$.
+    We can also use the operator algebra between $\phi_3\phi_1$ or $\phi_3\phi_2$, and we require the four-point function evaluated using different operator algebras to be the same (this is called the \textit{crossing symmetry} or \textit{bootstrap hypothesis}).
+    This requirement will provide us with some constraints which may help us solve the theory. 
 \end{intu}
-\begin{subequations}
+Using the definition in \cref{eq:operator:formalism:conformal_block:G_def}, we can directly check the following relations:
+\begin{subequations}\label{eq:operator:formalism:conformal_bootstrap:relation}
     \begin{align}
-        G^{21}_{34}(x,\bar{x})&=G^{41}_{32}(1-x,1-\bar{x})\\
+        G^{21}_{34}(x,\bar{x})&=G^{41}_{32}(1-x,1-\bar{x})\label{eq:operator:formalism:conformal_bootstrap:relation_1}\\
         G^{21}_{34}(x,\bar{x})&=\frac{1}{x^{2h_3}\bar{x}^{2\bar{h}_3}}G^{24}_{31}\left(\frac{1}{x},\frac{1}{\bar{x}}\right)
     \end{align}
 \end{subequations}
+\begin{remark}
+    We can see from \cref{eq:operator:formalism:conformal_block:G_block} in which $G^{21}_{34}$ is expressed using conformal blocks that the order of indices in $G^{21}_{34}$ implies the pair of operator algebras used. 
+    \Cref{eq:operator:formalism:conformal_bootstrap:relation} is equivalent to the requirement that different choices of operator algebra yield the same four-point function.
+\end{remark}
+Using \cref{eq:operator:formalism:conformal_block:G_block} to rewrite \cref{eq:operator:formalism:conformal_bootstrap:relation_1}, we have the constraint expressed in conformal blocks 
+\begin{align}
+    \sum_p C^{p}_{21}C^p_{34}\mathscr{F}^{21}_{34}(p|x)\bar{\mathcal{F}}^{21}_{34}(p|\bar{x})=\sum_p C^{q}_{41}C^p_{32}\mathscr{F}^{41}_{32}(q|1-x)\bar{\mathcal{F}}^{41}_{32}(q|1-\bar{x})\label{eq:operator:formalism:conformal_bootstrap:relation_1_a}
+\end{align}
+\Cref{eq:operator:formalism:conformal_bootstrap:relation_1_a} can be represented by the following famous diagram, which is an icon of conformal bootstrap 
 \begin{align}
     \sum_p C^p_{nm}C^p_{lk}\includegraphics[width=0.25\linewidth,valign=c]{fig/Operator Formalism/partial wave/fig2.pdf}=\sum_q C^q_{nl}C^q_{mk}\includegraphics[width=0.2\linewidth,valign=c]{fig/Operator Formalism/partial wave/fig3.pdf}
 \end{align}
