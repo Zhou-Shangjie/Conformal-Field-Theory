@@ -371,7 +371,7 @@
 
 \renewcommand*{\raggedleftmarginnote}{\noindent}
 \renewcommand*{\raggedrightmarginnote}{\noindent}
-\newcommand{\mn}[1]{\textsuperscript{\thesidenote}{}\marginnote{\textsuperscript{\thesidenote}{}\itshape\footnotesize #1}\refstepcounter{sidenote}}
+\newcommand{\mn}[2][0pt]{\textsuperscript{\thesidenote}{}\marginnote{\textsuperscript{\thesidenote}{} #2}[#1]\refstepcounter{sidenote}}
 \newcommand{\en}[1]{\marginnote{\footnotesize{#1}}}
 \newcommand{\lec}[2]{{\setlength{\marginparwidth}{.07\paperwidth}\reversemarginpar\marginnote{\centering\footnotesize{\textsf{\bfseries #1}}\\#2}}}
 \newcommand{\sn}[1]{\sidenote{\itshape\footnotesize #1}}
@@ -753,17 +753,3 @@
   \setcounter{sidenote}{1}%
   \oldsection
 }
-
-\newcounter{sidenotemarknum}
-\newcommand{\snm}{\sidenotemark\addtocounter{sidenote}{1}\addtocounter{sidenotemarknum}{1}}
-\newcommand{\snt}[1]{
-    \addtocounter{sidenote}{-\value{sidenotemarknum}}
-    \sidenotetext{#1}
-    \setcounter{sidenotemarknum}{0}
-    } 
-
-%\newcommand{\me}{\mathrm{e}}
-%\newcommand{\rr}{\mathbb{R}}
-%\newcommand{\ii}{\mathrm{i}}
-%\newcommand{\md}{\mathrm{d}}
-%\DeclareMathOperator{\im}{im}

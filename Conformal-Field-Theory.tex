@@ -49,13 +49,12 @@ This section only contains some topics of QFT and necessary notations we will us
 For a complete introduction to QFT, see \cite{Peskin:1995ev,srednicki_2007,weinberg_1995,schwartz_2013,Zee:2003mt,Coleman:2018mew}.
 \subsection{Path Integral Quantization}
 \begin{intu}
-    The way to quantize a \textit{classical} system\snm is not unique and different formulations of quantization may give different results.
+    The way to quantize a \textit{classical} system\mn{Geometric quantization is among them\cite{woodhouse1997geometric,carosso2018geometric}. See more about this topic in \cite{Ali:2004ft}.} is not unique and different formulations of quantization may give different results.
     For example, in canonical quantization, the ordering of operators may lead to different quantization \textit{schemes}.
     Different quantization formulations may have mathematical connections which may simplify problems.
     
     In each quantization formalism, the method to compute the correlation function of fields must be given and the results of correlation functions are used to judge if the formalisms are equivalent.
 \end{intu}
-\snt{Geometric quantization is among them\cite{woodhouse1997geometric,carosso2018geometric}. See more about this topic in \cite{Ali:2004ft}.}
 In the path integral formulation of QFT, we directly\sidenote{In canonical quantization, we do not directly compute the correlation function. Instead, we first construct Hilbert space and opertors in it.} focus on correlation functions of fields.
 \subsubsection{Lorentzian Formalism}
 In a Lorentzian spacetime, we define the Lorentzian quantization of field by requiring the correlation functions to satisfy the following relation:
@@ -158,9 +157,8 @@ The explicit expression of the generator is therefore
     \end{align}
 \end{example}
 \begin{theorem}[Noether's theorem]
-    Every continuous symmetry of the action is associated with a current that is \textit{classically}\snm conserved.
+    Every continuous symmetry of the action is associated with a current that is \textit{classically}\mn{Notice the \textit{classically}. In the quantum case, it may happen that the path integration measure does not possess the symmetry of the action, in which case that symmetry is said to be \textit{anomalous}.} conserved.
 \end{theorem}
-\snt{Notice the \textit{classically}. In the quantum case, it may happen that the path integration measure does not possess the symmetry of the action, in which case that symmetry is said to be \textit{anomalous}.}
 \begin{proof}
     Using \cref{eq:CST:x_prime,eq:CST:phi_prime} in \cref{eq:CST:new_action}, we have
     \begin{align}
@@ -184,7 +182,7 @@ The explicit expression of the generator is therefore
             & \times\mathcal{L}\left(\Phi+\omega_a\fdv{\mathcal{F}}{\omega_a},\left[\delta^\nu_\mu-\partial_\mu\left(\omega_a\fdv{x^\nu}{\omega_a}\right)\right]\left[\partial_\nu\Phi+\partial_\nu\left(\omega_a\fdv{\mathcal{F}}{\omega_a}\right)\right]\right).
     \end{align}
     From the definition of symmetry, when $\omega_a$ are constants the variation $\delta S$ vanishes.
-    So $\delta S$ can only contain first derivatives of $\omega_a$, obtained by expanding the Lagrangian\snm,
+    So $\delta S$ can only contain first derivatives of $\omega_a$, obtained by expanding the Lagrangian\mn{This is where the symmetry condition is used: when the transformation is not a symmetry transformation, if $\omega_a$ is constant then $\delta S$ may not vanish, and the expansion must involve terms without derivative; when the transformation is a symmetry transformation, if $\omega_a$ is constant then $\delta S=0$, so it is reasonable there are only terms with derivatives in $\delta S$ and all the terms without derivatives must sum up to $0$. After expanding $\delta S$, we find that that there is only term with first derivative.},
     \begin{align}
         \delta S\equiv S'-S=-\int\dd[d]{x}j^\mu_a\partial_\mu\omega_a\label{eq:nother:before_integration}
     \end{align}
@@ -214,7 +212,6 @@ The explicit expression of the generator is therefore
     \end{align}
     where we used Stokes' theorem in \cref{eq:nother:stocks_theorem} and $\dd{\sigma^i}$ is the turface element at spatial infinity.
 \end{proof}
-\snt{This is where the symmetry condition is used: when the transformation is not a symmetry transformation, if $\omega_a$ is constant then $\delta S$ may not vanish, and the expansion must involve terms without derivative; when the transformation is a symmetry transformation, if $\omega_a$ is constant then $\delta S=0$, so it is reasonable there are only terms with derivatives in $\delta S$ and all the terms without derivatives must sum up to $0$. After expanding $\delta S$, we find that that there is only term with first derivative.}
 \begin{remark}
     We can freely add $j^\mu_a$ the divergence of an antisymmetric tensor without affecting the conservation
     \begin{align}
@@ -350,21 +347,19 @@ and the associated conserved current is
         T^{\rho\nu}_c-T^{\nu\rho}_c=-\ii\partial_\mu\left[\pdv{\mathcal{L}}{(\partial_\mu\Phi)}S^{\nu\rho}\Phi\right]
     \end{align}
     where the conservation laws $\partial_\mu j^{\mu\nu\rho}=0$ and $\partial_\mu T^{\mu\nu}=0$ are used.
-    We see that the antisymmetric part of $T^{\rho\nu}_c+\partial_\mu B^{\mu\rho\nu}$ vanishes which means $T^{\mu\nu}_B$ is indeed symmetric \textit{in a classical configuration}\snm.
+    We see that the antisymmetric part of $T^{\rho\nu}_c+\partial_\mu B^{\mu\rho\nu}$ vanishes which means $T^{\mu\nu}_B$ is indeed symmetric \textit{in a classical configuration}\mn{The symmetry is not guaranteed in any configuration, namely not \textit{identically}.}.
 \end{proof}
-\snt{The symmetry is not guaranteed in any configuration, namely not \textit{identically}.}
 \begin{remark}
     The form of $B^{\mu\rho\nu}$ is not unique.
     We use \cref{eq:Belinfante:B} to define $T_B^{\mu\nu}$ in this note.
     
     Notice that the Belinfante tensor can only be defined in a theory with Lorentz invariance and is only symmetric classically.
     
-    And with $T^{\mu\nu}_B$ we can write the conserved current for Lorentz symmetry as\snm
+    And with $T^{\mu\nu}_B$ we can write the conserved current for Lorentz symmetry as\mn{Check it! It differs from the conserved current in \cref{eq:Belinfante:lorentz_current} by a divergenceless term which means they are equivalent.}
     \begin{align}
         j^{\mu\nu\rho}=T^{\mu\nu}_B x^\rho-T^{\mu\rho}_B x^\nu.\label{eq:Belinfante:after_stress_tensor}
     \end{align}
 \end{remark}
-\snt{Check it! It differs from the conserved current in \cref{eq:Belinfante:lorentz_current} by a divergenceless term which means they are equivalent.}
 \begin{example}[Massive vector field\label{ex:massive_vector_field}]
     Consider the following Lagrangian for a massive vector field $A_\mu$ (in Euclidean spacetime)
     \begin{align}
@@ -384,13 +379,11 @@ and the associated conserved current is
     and we know $T^{\mu\nu}_B$ is classically symmetric.
 \end{example}
 \begin{intu}
-    Although we can replace the canonical energy-momentum tensor $T^{\mu\nu}_c$ by Belinfante tensor $T^{\mu\nu}_B$ without breaking the Ward identity, the $T^{\mu\nu}_B$ in Ward identity is not symmetric\snm.
+    Although we can replace the canonical energy-momentum tensor $T^{\mu\nu}_c$ by Belinfante tensor $T^{\mu\nu}_B$ without breaking the Ward identity, the $T^{\mu\nu}_B$ in Ward identity is not symmetric\mn{$T^{\mu\nu}_B$ is symmetric classically and in Ward identity we consider all possible field configuration.}.
     
     In fact, it is possible to define a new energy-momentum tensor $\tilde{T}^{\mu\nu}_B$ which is a conserved current classically and symmetric in any field configuration, namely \textit{identically} symmetric.
-    And in general\snm we can directly substitute $\tilde{T}^{\mu\nu}_B$ into the Ward identity for $T^{\mu\nu}_c$ without breaking it.
+    And in general\mn[2em]{So not in every case.} we can directly substitute $\tilde{T}^{\mu\nu}_B$ into the Ward identity for $T^{\mu\nu}_c$ without breaking it.
 \end{intu}
-\snt{$T^{\mu\nu}_B$ is symmetric classically and in Ward identity we consider all possible field configuration.}
-\snt{So not in every case.}
 In \cref{ex:massive_vector_field}, we may define
 \begin{align}
     \tilde{T}^{\mu\nu}_B\equiv T^{\mu\nu}_B-\left(\partial_\alpha F^{\alpha\mu}-m^2 A^\mu\right)A^\nu.
@@ -434,9 +427,8 @@ We want to define a new energy momentum tensor $\Theta^{\mu\nu}$ which satisfies
         \Theta^{\mu\nu}\equiv-2\eval{\fdv{S}{g_{\mu\nu}}}_{g_{\mu\nu}=\eta_{\mu\nu}}\label{eq:alternate_tensor:equation}
     \end{align}
     where the field is fixed and the background geometry is varied.
-    We have coupled the original theory to gravity which means we have to do the \textit{minimal coupling}\snm.
+    We have coupled the original theory to gravity which means we have to do the \textit{minimal coupling}\mn{Replace the partial derivatives by covariant derivatives and flat metric by a general metric in $S$.}.
 \end{definition}
-\snt{Replace the partial derivatives by covariant derivatives and flat metric by a general metric in $S$.}
 \begin{claim}
     The new energy-momentum tensor $\Theta^{\mu\nu}$ in \cref{def:alternate_energy_momentum} satisfies \cref{eq:alternate_tensor:requirement}.
 \end{claim}
@@ -607,7 +599,7 @@ Other commutators vanish.
     \end{align}
     which is exactly the number of generators of the group $\mathrm{SO}(d+1,1)$.
     
-    In order to put the above commutation rules into a simpler form, we define the following generators\snm:
+    In order to put the above commutation rules into a simpler form, we define the following generators\mn{Notice that the $\mu$ and $\nu$ indices runs from 1 to $d$.}:
     \begin{align}
         J_{\mu,\nu} & \equiv L_{\mu\nu}               \\
         J_{-1,\mu}  & \equiv \frac{1}{2}(P_\mu-K_\mu) \\
@@ -625,7 +617,6 @@ Other commutators vanish.
     
     This shows the isomorphism between the $d$-dimensional conformal group and $\mathrm{SO}(d+1,1)$.
 \end{remark}
-\snt{Notice that the $\mu$ and $\nu$ indices runs from 1 to $d$.}
 
 \paragraph{Conformal invariants}
 Consider functions $\Gamma(x_i)$ of $n$ points $x_i$ that are left unchanged under all types of conformal transformations.
@@ -654,7 +645,7 @@ and such expressions are called \textit{anharmonic ratios} or \textit{cross-rati
     We denote $r_{ij}\equiv\abs{x_i-x_j}$ where $i<j$.
     Then the number of $r_{ij}$ is $\frac{N(N-1)}{2}$.
     A general monomial $\prod_{1\leq i\leq j\leq N}r^{\mu_{ij}}_{ij}$ is conformally invariant if and only if $d_i\equiv\sum^{i-1}_{j=1}\mu_{ji}+\sum^N_{j=i+1}\mu_{ij}=0$ for all $i=1,\dots,N$ which gives $N$ constraints that $\mu_{ij}$ must obey.
-    It is crucial to realize that the dimension of the solution space of $\mu_{ij}$ is the maximal number of the independent cross ratios\snm.
+    It is crucial to realize that the dimension of the solution space of $\mu_{ij}$ is the maximal number of the independent cross ratios\mn{Convince yourself it is true!}.
     So the number of the independent cross ratios cannot be larger than $\frac{N(N-1)}{2}-N=\frac{N(N-3)}{2}$.
     
     If the spacetime dimension is $D$ then the dimension of the conformal group is $\frac{(D+1)(D+2)}{2}$ and the number of coordinates is $ND$.
@@ -662,7 +653,6 @@ and such expressions are called \textit{anharmonic ratios} or \textit{cross-rati
     
     See \cite{Ginsparg:1988ui} and the Physics Stack Exchange post \url{https://physics.stackexchange.com/q/68046} (version: 2013-06-14) for more details.
 \end{proof}
-\snt{Convince yourself it is true!}
 
 \subsection{Conformal Invariance in Classical Field Theory}
 \subsubsection{Representations of the Conformal Group in \texorpdfstring{$d$}{d} Dimensions}
@@ -746,13 +736,12 @@ where $\abs{\pdv{x'}{x}}$ is the Jacobian of the conformal transformation which 
     \abs{\pdv{x'}{x}}=\Lambda(x)^{-\frac{d}{2}}.\label{eq:quasi_field_def}
 \end{align}
 \begin{definition}[Quasi-primary field]\label{def:quasi_primary_field}
-    In a $d$ dimensional spacetime, a \textit{spinless} field\snm transforming under conformal transformation like
+    In a $d$ dimensional spacetime, a \textit{spinless} field\mn{Note that this definition is limited to spinless field.} transforming under conformal transformation like
     \begin{align}
         \phi(x)\to\phi'(x')=\abs{\pdv{x'}{x}}^{-\frac{\Delta}{d}}\phi(x)
     \end{align}
     is called a \textit{quasi-primary field}, where $\Delta$ is the scaling dimension.
 \end{definition}
-\snt{Note that this definition is limited to spinless field.}
 
 \subsubsection{The Energy-Momentum Tensor\label{subsubsec:conformal_em_tensor}}
 %If the field is in classical configuration, under an arbitrary transformation of the coordinates $x^\mu\to x^\mu+\epsilon^\mu(x)$, from \cref{def:alternate_energy_momentum}, the action changes as follows
@@ -834,7 +823,7 @@ And we also define\sidenote{It seems there is a typo in \cite{DiFrancesco:1997nk
     \begin{align}
         \partial_\rho\tensor{B}{^\rho^\mu_\mu}=\frac{1}{2}\ii\partial_\rho\left(\fdv{\mathcal{L}}{(\partial^\mu\Phi)}S^{\mu\rho}\Phi\right)\label{eq:conformal_tensor:partial_B}
     \end{align}
-    and from \cref{eq:conformal_tensor:modified_tensor,eq:conformal_tensor:virial_def,eq:conformal_tensor:partial_B,eq:conformal_tensor:partial_X}, we have\snm
+    and from \cref{eq:conformal_tensor:modified_tensor,eq:conformal_tensor:virial_def,eq:conformal_tensor:partial_B,eq:conformal_tensor:partial_X}, we have\mn{Remember the relation $$S^{\mu\nu}+S^{\nu\mu}=0.$$}
     \begin{align}
         \tensor{T}{^\mu_\mu}= & T^{\mu}_{c\ \mu}+\partial_\rho\tensor{B}{^\rho^\mu_\mu}+\frac{1}{2}\partial_\lambda\partial_\rho\tensor{X}{^\lambda^\rho^\mu_\mu}\notag                                                         \\
         =                     & -\Delta\partial_\mu\left(\pdv{\mathcal{L}}{(\partial_\mu\Phi)}\Phi\right)+\frac{1}{2}\ii\partial_\rho\left(\fdv{\mathcal{L}}{(\partial^\mu\Phi)}S^{\mu\rho}\Phi\right)+\partial_\mu V^\mu\notag \\
@@ -842,7 +831,6 @@ And we also define\sidenote{It seems there is a typo in \cite{DiFrancesco:1997nk
     \end{align}
     which means that the modified energy-momentum tensor $T_{\mu\nu}$ is traceless classically.
 \end{proof}
-\snt{Remember the relation $$S^{\mu\nu}+S^{\nu\mu}=0.$$}
 $T^{\mu\nu}$ is equivalent\sidenote{conserved classically and can be used to replace $T^{\mu\nu}_c$ in the Ward identity.} to the canonical conserved current for translation $T^{\mu\nu}_c$ from the argument in \cpageref{eq:nother:equiv_current}, so we write the conserved current for translation as $T^{\mu\nu}$.
 We can also rewrite the dilation current in \cref{eq:conformal_tensor:dilation_current_1} as\sidenote{This is only valid in theories satisfy \cref{eq:conformal_tenensor:condition}. You can check this current only differ from \cref{eq:conformal_tensor:dilation_current_1} by a divergenceless and antisymmetric term just like the case in \cref{eq:nother:equiv_current}.}
 \begin{align}
@@ -1155,11 +1143,9 @@ This set is infinite-dimensional, since an infinite number of parameters (the co
 \subsubsection{Global Conformal Transformations}
 \begin{intu}
     The conformal transformation \cref{eq:2dcft:2d_conformal_transformation_arbitrary} is not all well-defined everywhere and invertible.
-    Strictly speaking, in order to form a group, the mappings must be invertible, and must map the whole plane into itself \snm.
-    The transformations that satisfy these conditions are \textit{global conformal transformations}, and the set of them form the \textit{special conformal group}\snm (or the \textit{global conformal group}).
+    Strictly speaking, in order to form a group, the mappings must be invertible, and must map the whole plane into itself \mn{More precisely the Riemann sphere, i.e., the complex plane plus the point at infinity}.
+    The transformations that satisfy these conditions are \textit{global conformal transformations}, and the set of them form the \textit{special conformal group}\mn[3em]{Notice: not the same with the special conformal transformation.} (or the \textit{global conformal group}).
 \end{intu}
-\snt{More precisely the Riemann sphere, i.e., the complex plane plus the point at infinity}
-\snt{Notice: not the same with the special conformal transformation.}
 It turns out that the complete set of the special conformal group is (see detailed explanation in \cite{DiFrancesco:1997nk,Qualls:2015qjb})
 \begin{align}
     f(z)=\frac{az+b}{cz+d}\qq{with}ad-bc=1
@@ -1333,12 +1319,11 @@ We perform the same complex change of coordinates, under which $T$ transforms as
 %\end{align}
 
 \begin{claim}
-    Dirac delta function $\delta(x)$ can be written as\snm
+    Dirac delta function $\delta(x)$ can be written as\mn{These two representations are valid for holomorphic functions and antiholomorphic functions respectively.}
     \begin{align}
         \delta(x)=\frac{1}{\pi}\partial_{\bar{z}}\frac{1}{z}=\frac{1}{\pi}\partial_{z}\frac{1}{\bar{z}}.\label{eq:2d_ward:dirac_another}
     \end{align}
 \end{claim}
-\snt{These two representations are valid for holomorphic functions and antiholomorphic functions respectively.}
 \begin{proof}
     Consider a vector $F^\mu$ whose divergence is integrated within a region $M$ of the complex plane bounded by the contour $\partial M$.
     From the Gauss's theorem, we have
@@ -1459,9 +1444,8 @@ The counterclockwise contour $C$ needs only to include all the coordinates $(w_i
 \begin{remark}
     Although in the derivation of the conformal Wald identity we used the assumption that the operators in $X$ are primary, the validaty of the formula can be extended to any local fields.
     
-    In fact, the conformal Wald identity \cref{eq:2dcft:conformal_ward_final} may be taken as a definition of the effect of conformal transformations on an arbitrary local field within a correlation function\snm.
+    In fact, the conformal Wald identity \cref{eq:2dcft:conformal_ward_final} may be taken as a definition of the effect of conformal transformations on an arbitrary local field within a correlation function\mn{This definition is made in the path integral formalism in order to make the result consistent with that in the operator formalism\cite{Blumenhagen:2009zz}.}.
 \end{remark}
-\snt{This definition is made in the path integral formalism in order to make the result consistent with that in the operator formalism\cite{Blumenhagen:2009zz}.}
 
 \subsection{Free Fields and the Operator Product Expansion}
 \subsubsection{The Free Boson\label{subsubsec:2dcft:FFOPE:boson}}
@@ -1522,10 +1506,9 @@ In the same way, we have
 %\end{definition}
 \begin{intu}
     In standard QFT books, we use normal ordered operators for "quantum version" of classical field quantities after quantization then simplify formulas using Wick's theorem.
-    Moreover, the normal ordered product and Wick's theorem has more general aspects in mathmatics and this is beyond the scope of this note\snm.
+    Moreover, the normal ordered product and Wick's theorem has more general aspects in mathmatics and this is beyond the scope of this note\mn{{Some related information can be found in \cite{kac1998vertex,Nozaradan:2008zq,Schottenloher:2008zz}.}}.
     Therefore, the following argument involving normal ordered product and Wick's theorem may not be rigorous on the mathematical side, but it works and the final result is correct compared to the "real" result.
 \end{intu}
-\snt{{Some related information can be found in \cite{kac1998vertex,Nozaradan:2008zq,Schottenloher:2008zz}.}}
 After quantization, we should use the normal ordered composite fields as the corresponding quantum operators.
 The normal ordered product of energy-momentum tensor is equivalent to\sidenote{Fow now, just believe this!}
 \begin{align}
@@ -1646,13 +1629,12 @@ where we have introduced the \textit{Schwarzian derivative}
 
 If the $d=2$ CFT is defined on a curved manifold, then curvature introduces a macroscopic scale in the system which will make the energy-momentum tensor not traceless anymore.
 \begin{claim}\label{claim:2dcft:c_R}
-    The expectation value of the trace of the energy-momentum tensor of a $d=2$ CFT is proportional to both the curvature $R$ and the central charge $c$:\snm
+    The expectation value of the trace of the energy-momentum tensor of a $d=2$ CFT is proportional to both the curvature $R$ and the central charge $c$:\mn{Note that we are using ordinary coordinates here, not complex coordonates.}
     \begin{align}
         \expval{\tensor{T}{^\mu_\mu}(x)}_g=\frac{c}{24\pi}R(x).
     \end{align}
 \end{claim}
-\snt{Note that we are using ordinary coordinates here, not complex coordonates.}
-A proof of \cref{claim:2dcft:c_R} for the free boson can be found in \cite[Appendix 5.A]{DiFrancesco:1997nk}.
+A proof of \cref{claim:2dcft:c_R} for the free boson can be found in \cite{DiFrancesco:1997nk}.
 \clearpage
 \section{The Operator Formalism}
 In this section, we develop a new quantization formalism of $d=2$ CFT which is based on a Hilbert space and operators in it.
@@ -1683,17 +1665,16 @@ Now, we introduce the new quantization formalism which is called the \textit{rad
 Usually, when we define a Hilbert space, we have to specify the inner products.
 If we first have the inner products defined, the Hermitian conjugation of operators can be naturally introduced.
 \begin{intu}
-    Now, we turn around: define the Hermitian conjugation of operators first then induce the definition of inner product\snm.
+    Now, we turn around: define the Hermitian conjugation of operators first then induce the definition of inner product.
+    Notice that for an operator $\mathcal{O}$, its Hermitian conjugation satisfies $$\bra{A}\mathcal{O}\ket{B}=\bra{B}\mathcal{O}^\dagger\ket{A}$$ for any states $\ket{A}$ and $\ket{B}$. You can think of the Hermitian conjugation of an operator as a map of the operator to another which is determined by the choice of inner product. So in the other direction, we can say the choice of Hermitian conjugation can determine the inner product.
 \end{intu}
-\snt{Notice that for an operator $\mathcal{O}$, its Hermitian conjugation satisfies $$\bra{A}\mathcal{O}\ket{B}=\bra{B}\mathcal{O}^\dagger\ket{A}$$ for any states $\ket{A}$ and $\ket{B}$. You can think of the Hermitian conjugation of an operator as a map of the operator to another which is determined by the choice of inner product. So in the other direction, we can say the choice of Hermitian conjugation can determine the inner product.}
 \begin{definition}[Hermitian conjugation in radial quantization\label{thm:Hermitian_conjugation_in_radial_quantization}]
-    In radial quantization, the Hermitian conjugation of a local operator\snm $\phi(z,\bar{z})$ is defined to be
+    In radial quantization, the Hermitian conjugation of a local operator\mn{Note that the energy-momentum tensor is also a local operator.} $\phi(z,\bar{z})$ is defined to be
     \begin{align}
         \left[\phi(z,\bar{z})\right]^\dagger\equiv\bar{z}^{-2h}z^{-2\bar{h}}\phi\left(\frac{1}{\bar{z}},\frac{1}{z}\right)
     \end{align}
     where by assumption $\phi$ is a field of dimensions $h$ and $\bar{h}$.
 \end{definition}
-\snt{Note that the energy-momentum tensor is also a local operator.}
 Now that we have the Hermitian conjugate of operators, we can partially "recover" inner product of two arbitrary state vectors $\phi_1(z_1,\bar{z}_1)\ket{0}$ and $\phi_2(z_2,\bar{z}_2)\ket{0}$ in Hilbert space\sidenote{We used the assumption that all states in this Hilbert state can be constructed from acting some operators on the vacuum $\ket{0}$ (see the property of radial quantization above.).}:
 \begin{align}
     (\phi_1(z_1,\bar{z}_1)\ket{0},\phi_2(z_2,\bar{z}_2)\ket{0}) & =\bra{0}\phi_1(z_1,\bar{z}_1)^\dagger\phi_2(z_2,\bar{z}_2)\ket{0}\notag                                             \\
@@ -1752,7 +1733,7 @@ Thus, the expansion \cref{eq:operator:phi_expansion} is now written in the simpl
 
 \subsubsection{Radial Ordering and Operator Product Quantization}
 \begin{definition}[Radial ordering]
-    The \textit{radial ordering} of two operators $\phi_1(z)$ and $\phi_2(w)$ is explicitly defined by\snm
+    The \textit{radial ordering} of two operators $\phi_1(z)$ and $\phi_2(w)$ is explicitly defined by\mn{The radial ordering is defined with respect to the holomorphic coordinate unless we point out.}
     \begin{equation}
         \mathcal{R}\left(\phi_1(z)\phi_2(w)\right)\equiv\begin{cases}
             \phi_1(z)\phi_2(w) & \qif\abs{z}>\abs{w}  \\
@@ -1762,7 +1743,6 @@ Thus, the expansion \cref{eq:operator:phi_expansion} is now written in the simpl
     It is easy to generalize this to the case where more than 2 operators present.
     If the two fields are fermions, a minus sign is added in front of the second expression.
 \end{definition}
-\snt{The radial ordering is defined with respect to the holomorphic coordinate unless we point out.}
 Now we introduce the computation of the correlation functions in radial quantization
 \begin{boxmath}{Radial Quantization}
     \begin{align}
@@ -2085,12 +2065,11 @@ We assume the Hamiltonian does not depend on time, so we may write
 where $\phi_n\equiv\phi_n(0)$ and $\pi_n\equiv\pi_n(0)$.
 We can simplify the notation by writing a time-dependent operator $A(t)$ at time $t=0$ as $A$.
 \begin{property}
-    In canonical quantization, the modes $\phi_n$ and their corresponding momentum conjugation $\pi_n$ are turned into operators and the equal-time canonical commutation relation\snm is imposed:
+    In canonical quantization, the modes $\phi_n$ and their corresponding momentum conjugation $\pi_n$ are turned into operators and the equal-time canonical commutation relation\mn{Of course, it can be shown$$\comm{\phi_m(t)}{\pi_n(t)}=i\delta_{nm}$$by using the time evolution operator.} is imposed:
     \begin{align}
         \comm{\phi_m}{\pi_n}=i\delta_{nm}.\label{eq:operator:boson:commutation}
     \end{align}
 \end{property}
-\snt{Of course, it can be shown$$\comm{\phi_m(t)}{\pi_n(t)}=i\delta_{nm}$$by using the time evolution operator.}
 We define the operators\sidenote{Similar to the usual creation and annihilation operators but the $n=0$ case is not well-defined.} $\tilde{a}_n(t)$
 \begin{align}
     \tilde{a}_n(t)\equiv\frac{1}{\sqrt{4\pi g\abs{n}}}\left(2\pi g\abs{n}\phi_n(t)+\ii\pi_{-n}(t)\right)\quad(n\neq0)\label{eq:operator:boson:origin_ladder}
@@ -2588,7 +2567,7 @@ If we set $z_4=0$, $z_1=\infty$, $z_2=1$ and $z_3=x$, then the correlator become
 \end{align}
 We define a matrix element between two asymptotic states of a two-field product
 \begin{align}
-    G^{21}_{34}(x,\bar{x}) & \equiv\lim_{z,\bar{z}\to\infty}z^{2h_1} \bar{z}^{2\bar{h}_1}\expval{\phi_1(z,\bar{z})\phi_2(1,1)\phi_3(x,\bar{x})\phi_4(0,0)} \label{eq:operator:formalism:conformal_block:G_def}\\
+    G^{21}_{34}(x,\bar{x}) & \equiv\lim_{z,\bar{z}\to\infty}z^{2h_1} \bar{z}^{2\bar{h}_1}\expval{\phi_1(z,\bar{z})\phi_2(1,1)\phi_3(x,\bar{x})\phi_4(0,0)} \label{eq:operator:formalism:conformal_block:G_def} \\
                            & =f(x,\bar{x})(1-x)^{\frac{h}{3}-h_2-h_3}x^{\frac{h}{3}-h_3-h_4}(1-\bar{x})^{\frac{\bar{h}}{3}-\bar{h}_2-\bar{h}_3}\bar{x}^{\frac{\bar{h}}{3}-\bar{h}_3-\bar{h}_4}
 \end{align}
 \paragraph{Reduction of four-point function}
@@ -2606,8 +2585,8 @@ Therefore, $G^{21}_{34}$ may be written as
 \end{align}
 where 
 \begin{align}\label{eq:operator_formalism:conformal_block:def_A}
-    A^{21}_{34}(p|x,\bar{x})\equiv(C^p_{12})^{-1}&x^{h_p-h_3-h_4}\bar{x}^{\bar{h}_p-\bar{h}_3-\bar{h}_4}\notag\\
-                                                 &\times\lim_{z,\bar{z}\to\infty}z^{2h_1}\bar{z}^{2\bar{h}_1}\expval{\phi_1(z,\bar{z})\phi_2(1,1)\Psi_p(x,\bar{x}|0,0)}.
+    A^{21}_{34}(p|x,\bar{x})\equiv(C^p_{12})^{-1} & x^{h_p-h_3-h_4}\bar{x}^{\bar{h}_p-\bar{h}_3-\bar{h}_4}\notag                                                           \\
+                                                  & \times\lim_{z,\bar{z}\to\infty}z^{2h_1}\bar{z}^{2\bar{h}_1}\expval{\phi_1(z,\bar{z})\phi_2(1,1)\Psi_p(x,\bar{x}|0,0)}.
 \end{align}
 \begin{align}
     A^{ji}_{kl}(p|x,\bar{x})=\includegraphics[width=0.3\linewidth,valign=c]{fig/Operator Formalism/partial wave/fig1.pdf}
@@ -2644,8 +2623,8 @@ With the definition of conformal blocks, now we can write
 Using the definition in \cref{eq:operator:formalism:conformal_block:G_def}, we can directly check the following relations\sidenote{We consider the bosonic theories here. In fermionic cases, there may be some subtleties on the sign.}:
 \begin{subequations}\label{eq:operator:formalism:conformal_bootstrap:relation}
     \begin{align}
-        G^{21}_{34}(x,\bar{x})&=G^{41}_{32}(1-x,1-\bar{x})\label{eq:operator:formalism:conformal_bootstrap:relation_1}\\
-        G^{21}_{34}(x,\bar{x})&=\frac{1}{x^{2h_3}\bar{x}^{2\bar{h}_3}}G^{24}_{31}\left(\frac{1}{x},\frac{1}{\bar{x}}\right)
+        G^{21}_{34}(x,\bar{x}) & =G^{41}_{32}(1-x,1-\bar{x})\label{eq:operator:formalism:conformal_bootstrap:relation_1}      \\
+        G^{21}_{34}(x,\bar{x}) & =\frac{1}{x^{2h_3}\bar{x}^{2\bar{h}_3}}G^{24}_{31}\left(\frac{1}{x},\frac{1}{\bar{x}}\right)
     \end{align}
 \end{subequations}
 \begin{remark}
